@@ -10,7 +10,8 @@
     "accent": "#d9a441",
     "thumb": "cities/caral/hero.jpg",
     "summary": "Hace 5000 años, en el valle de Supe, Caral organizó plazas circulares, pirámides y conjuntos residenciales sin cerámica, sin guerra y sin metales. Es el centro urbano más antiguo de América.",
-    "monogram": "C"
+    "monogram": "C",
+    "stage": "piloto"
   },
   {
     "id": "chavin",

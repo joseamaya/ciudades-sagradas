@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "skills": {
+    "blender-cameras": {
+      "source": "roble3/cc-blender-skill",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/blender-cameras/SKILL.md",
+      "computedHash": "77588f6ab83190e4194ba0d0edeec17f3126796b2c04284b8930c4b8d674c3b1"
+    },
+    "blender-export": {
+      "source": "roble3/cc-blender-skill",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/blender-export/SKILL.md",
+      "computedHash": "001aa705fbe642d53e7bb27332715b1ab4448f0ab6783e029123654009d91ebe"
+    },
+    "blender-lighting": {
+      "source": "roble3/cc-blender-skill",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/blender-lighting/SKILL.md",
+      "computedHash": "96a78dc02fe28689f402eea1f6dfa437e6cbe66d5af5cc5f87939b921154e8c9"
+    },
+    "blender-materials": {
+      "source": "roble3/cc-blender-skill",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/blender-materials/SKILL.md",
+      "computedHash": "3b49bf55ca93eeaee2d4bd4b2ad323961e52f10cdebe913be10b82e9ae8a4917"
+    },
+    "blender-modeling": {
+      "source": "roble3/cc-blender-skill",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/blender-modeling/SKILL.md",
+      "computedHash": "66d23a57c0e11cdc21d9d06494810534354ad063c425e5848894927453ddcbd2"
+    },
+    "blender-pro-workflow": {
+      "source": "roble3/cc-blender-skill",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/blender-pro-workflow/SKILL.md",
+      "computedHash": "58cce30305755cd0229996834fb9e7b7ee43f0565f7c05984cff335ec68bcd27"
+    },
+    "blender-rendering": {
+      "source": "roble3/cc-blender-skill",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/blender-rendering/SKILL.md",
+      "computedHash": "585319b5547e7b458747fa5a1044f96421bf944f853cf0674e453fe2c7f113e4"
+    },
+    "text-to-blender": {
+      "source": "roble3/cc-blender-skill",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/text-to-blender/SKILL.md",
+      "computedHash": "7f08f2bf36426091ccad980b11bd1aa6a733271ac729fcae618bf43e4816b5ee"
+    }
+  }
+}

@@ -2,7 +2,7 @@
 
 Atlas interactivo de los grandes centros ceremoniales y ciudades del Perú antiguo. Reconstrucciones 3D en tiempo real, fichas educativas y fuentes públicas.
 
-**Estado:** Caral disponible. Chavín de Huántar, Chan Chan y Wari en investigación.
+**Estado:** Caral es un piloto en remasterización. Chavín de Huántar, Chan Chan y Wari están en investigación.
 
 ## Qué es
 
@@ -24,6 +24,17 @@ npm run dev
 
 Abre `http://127.0.0.1:5173/`.
 
+## OpenCode + Blender
+
+El repo incluye `opencode.json`, `AGENTS.md` y `.agents/skills/`. Abre OpenCode desde la raíz del proyecto. Para usar el MCP de Blender:
+
+1. Abre Blender 5.2.2.
+2. Inicia **MCP for Blender** en el panel `N`, puerto `9876`.
+3. Abre una sesión de OpenCode en `ciudades-sagradas`.
+4. Verifica con `blender_get_addon_status`.
+
+Guía completa: [`docs/setup.md`](./docs/setup.md).
+
 ## Compilar
 
 ```bash
@@ -38,8 +49,8 @@ El build queda en `dist/`. Vite usa rutas relativas, así que funciona en GitHub
 
 ```bash
 npm run build
-npx serve dist
-# abrir: http://localhost:3000/?kiosk=1
+npm run serve
+# abrir: http://127.0.0.1:4173/?kiosk=1
 ```
 
 En el kiosco:
@@ -55,12 +66,12 @@ Más detalles en [`docs/kiosco.md`](./docs/kiosco.md).
 
 | Ciudad | Cultura | Período | Estado |
 |---|---|---|---|
-| Caral | Civilización Caral | 3000–1800 a. C. | Disponible |
+| Caral | Civilización Caral | 3000–1800 a. C. | Piloto |
 | Chavín de Huántar | Chavín | 1500–550 a. C. | En investigación |
 | Chan Chan | Chimú | Siglos IX–XV d. C. | En investigación |
 | Wari | Wari | 600–1100 d. C. | En investigación |
 
-Los dossieres de fuentes están en [`docs/fuentes/`](./docs/fuentes/). El estado del proyecto y el pipeline Blender están en [`docs/estado.md`](./docs/estado.md) y [`docs/pipeline-blender.md`](./docs/pipeline-blender.md).
+Los dossieres de fuentes están en [`docs/fuentes/`](./docs/fuentes/). El estado, el setup y el pipeline Blender están en [`docs/estado.md`](./docs/estado.md), [`docs/setup.md`](./docs/setup.md) y [`docs/pipeline-blender.md`](./docs/pipeline-blender.md).
 
 ## Estructura
 
@@ -98,7 +109,7 @@ El visor no usa fotografías históricas como textura. Las imágenes oficiales s
 - Avisos de dependencias: [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md).
 - Política de assets: [`docs/licencias.md`](./docs/licencias.md).
 
-> **Nota de publicación:** el modelo de Caral incluye texturas generadas para el proyecto Caral. Antes de publicar el repositorio, revisar la sección de licencias y confirmar los términos de las texturas de IA. Ver `CREDITS.md`.
+> **Nota de licencia:** el modelo de Caral incluye texturas generadas con IA para el proyecto Caral. El repositorio se publica como **piloto**; antes del lanzamiento oficial hay que confirmar los términos de esas texturas o sustituirlas por CC0/procedurales. Ver `CREDITS.md` y `docs/licencias.md`.
 
 ## Despliegue
 

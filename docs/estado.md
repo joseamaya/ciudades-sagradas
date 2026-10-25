@@ -3,8 +3,11 @@
 ## Hecho
 
 - Repositorio independiente con Vite + Three.js.
+- OpenCode configurado con MCP de Blender y skills MIT en `.agents/skills/`.
+- Escena editable `blender/caral/caral_art.blend` con texturas relativas en `blender/textures/`.
+- Script de exportación `blender/caral/export.py` y guía `docs/setup.md`.
 - Catálogo de cuatro ciudades: Caral, Chavín, Chan Chan y Wari.
-- Caral disponible en 3D con recorrido de cinco paradas.
+- Caral como piloto en 3D con recorrido de cinco paradas.
 - Capas de arquitectura, terreno, detalles y escala humana.
 - Luz de amanecer, mediodía, atardecer y noche.
 - Audio ambiental procedural; narración en español pendiente.
@@ -23,7 +26,7 @@
 4. **Narración en español**: guion y grabación para el kiosco.
 5. **Renders cinematográficos**: Cycles con los assets high-poly.
 6. **Pruebas en hardware de museo**: 1080p táctil, arranque automático, 8 horas de funcionamiento.
-7. **Publicación**: crear el repositorio público y desplegar en GitHub Pages o Cloudflare Pages.
+7. **Publicación**: mantener GitHub Pages actualizado y evaluar Cloudflare Pages para assets grandes.
 
 ## Limitaciones conocidas
 

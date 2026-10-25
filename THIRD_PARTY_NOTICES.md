@@ -35,3 +35,14 @@ Herramienta de build, no se distribuye en el bundle final.
 
 - Proyecto: <https://vite.dev/>
 - Licencia: MIT
+
+
+## cc-blender-skill
+
+Skills de Blender copiadas en `.agents/skills/`.
+
+- Proyecto: <https://github.com/RobLe3/cc-blender-skill>
+- Licencia: MIT
+- Copyright © 2026 RobLe3
+
+Se incluyen como instrucciones del agente, con las rutas y convenciones adaptadas a este proyecto.

@@ -160,5 +160,6 @@
     }
   ],
   "disclaimer": "Reconstrucción artística basada en evidencia arqueológica. Formas, colores y actividades son interpretaciones, no registros históricos.",
-  "credits": "Geometría y materiales: proyecto Ciudades Sagradas. Texturas del proyecto Caral; auditoría de licencias pendiente antes de publicación."
+  "credits": "Geometría y materiales: proyecto Ciudades Sagradas. Texturas del proyecto Caral; auditoría de licencias pendiente antes de un lanzamiento oficial.",
+  "stage": "piloto"
 }

@@ -398,6 +398,15 @@ dt {
   font-size: 0.95rem;
 }
 
+.city-heading .stage {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
 .city-tools {
   display: flex;
   gap: 8px;
@@ -1047,7 +1056,8 @@ body.kiosk .tour-copy p {
     font-size: 2rem;
   }
 
-  .city-heading p {
+  .city-heading p,
+  .city-heading .stage {
     display: none;
   }
 

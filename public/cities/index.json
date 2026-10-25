@@ -1,0 +1,54 @@
+[
+  {
+    "id": "caral",
+    "name": "Caral",
+    "subtitle": "La Ciudad Sagrada",
+    "culture": "Civilización Caral",
+    "period": "3000–1800 a. C.",
+    "region": "Valle de Supe, Lima",
+    "status": "available",
+    "accent": "#d9a441",
+    "thumb": "cities/caral/hero.jpg",
+    "summary": "Hace 5000 años, en el valle de Supe, Caral organizó plazas circulares, pirámides y conjuntos residenciales sin cerámica, sin guerra y sin metales. Es el centro urbano más antiguo de América.",
+    "monogram": "C"
+  },
+  {
+    "id": "chavin",
+    "name": "Chavín de Huántar",
+    "subtitle": "El oráculo de los Andes",
+    "culture": "Cultura Chavín",
+    "period": "1500–550 a. C.",
+    "region": "Valle del Mosna, Áncash",
+    "status": "research",
+    "accent": "#b8a98f",
+    "thumb": null,
+    "summary": "Centro ceremonial y oráculo en la confluencia de los ríos Mosna y Huachecsa, a 3180 m. Su templo de piedra, galerías y el Lanzón articularon el mundo Chavín.",
+    "monogram": "Ch"
+  },
+  {
+    "id": "chan-chan",
+    "name": "Chan Chan",
+    "subtitle": "La ciudad de barro",
+    "culture": "Reino Chimú",
+    "period": "Siglos IX–XV d. C.",
+    "region": "Valle de Moche, La Libertad",
+    "status": "research",
+    "accent": "#c47a4a",
+    "thumb": null,
+    "summary": "Capital del reino Chimú y ciudad de adobe más grande de América. Sus conjuntos amurallados, relieves y canales dominaron la costa norte.",
+    "monogram": "CC"
+  },
+  {
+    "id": "wari",
+    "name": "Wari",
+    "subtitle": "La capital del primer imperio andino",
+    "culture": "Cultura Wari",
+    "period": "600–1100 d. C.",
+    "region": "Ayacucho",
+    "status": "research",
+    "accent": "#8f9b8a",
+    "thumb": null,
+    "summary": "Capital del primer imperio andino, en la sierra de Ayacucho. Sus recintos de piedra, templos en D y barrios extensos redefinieron el urbanismo andino.",
+    "monogram": "W"
+  }
+]

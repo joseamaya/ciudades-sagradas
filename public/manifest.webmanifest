@@ -1,0 +1,20 @@
+{
+  "name": "Ciudades Sagradas",
+  "short_name": "Ciudades Sagradas",
+  "description": "Reconstrucciones 3D de los grandes centros ceremoniales del Perú antiguo.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#0b1517",
+  "theme_color": "#0b1517",
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

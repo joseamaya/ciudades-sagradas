@@ -1,0 +1,46 @@
+{
+  "id": "chan-chan",
+  "name": "Chan Chan",
+  "subtitle": "La ciudad de barro",
+  "culture": "Reino Chimú",
+  "period": "Siglos IX–XV d. C.",
+  "region": "Valle de Moche, Huanchaco, La Libertad",
+  "coordinates": { "lat": -8.105, "lon": -79.075 },
+  "elevation": "Costa desértica, 0–50 m s. n. m.",
+  "status": "research",
+  "summary": "Chan Chan fue la capital del reino Chimú y la ciudad de adobe más grande de América. Sus conjuntos amurallados —con plazas, audiencias, depósitos, talleres y relieves— organizaban el poder y la producción en la costa norte. El agua llegaba por un sistema de canales desde el valle de Moche.",
+  "model": null,
+  "scale": 1,
+  "camera": { "position": [20, 14, 22], "target": [0, 4, 0], "fov": 45 },
+  "tour": [],
+  "layers": [
+    { "id": "city", "label": "Arquitectura", "default": true },
+    { "id": "terrain", "label": "Costa y valle", "default": true },
+    { "id": "props", "label": "Relieves y detalles", "default": true },
+    { "id": "reference", "label": "Escala humana", "default": true }
+  ],
+  "sources": [
+    {
+      "label": "UNESCO — Chan Chan Archaeological Zone (n.º 366)",
+      "url": "https://whc.unesco.org/en/list/366/"
+    },
+    {
+      "label": "UNESCO — documentos, evaluación ICOMOS 1986 y misión 2007",
+      "url": "https://whc.unesco.org/en/list/366/documents/"
+    },
+    {
+      "label": "Proyecto Especial Complejo Arqueológico Chan Chan",
+      "url": "https://chanchan.gob.pe/"
+    },
+    {
+      "label": "Ministerio de Cultura — Museo de Sitio de Chan Chan",
+      "url": "https://museos.cultura.pe/museos/museo-de-sitio-de-chan-chan"
+    },
+    {
+      "label": "UNESCO — misión reactiva 2007 (documento)",
+      "url": "https://whc.unesco.org/document/8954"
+    }
+  ],
+  "disclaimer": "Reconstrucción en investigación. La ficha se publicará cuando el modelo 3D y la revisión de fuentes estén completos.",
+  "credits": "Ficha documental en preparación."
+}

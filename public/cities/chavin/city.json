@@ -1,0 +1,50 @@
+{
+  "id": "chavin",
+  "name": "Chavín de Huántar",
+  "subtitle": "El oráculo de los Andes",
+  "culture": "Cultura Chavín",
+  "period": "1500–550 a. C.",
+  "region": "Valle del Mosna, Huari, Áncash",
+  "coordinates": { "lat": -9.593, "lon": -77.178 },
+  "elevation": "3180 m s. n. m.",
+  "status": "research",
+  "summary": "Chavín de Huántar fue uno de los grandes centros ceremoniales y oraculares de los Andes. En la confluencia de los ríos Mosna y Huachecsa, sus templos de piedra, galerías internas, plazas y esculturas —como el Lanzón— articularon una ideología que se expandió por buena parte del territorio andino.",
+  "model": null,
+  "scale": 1,
+  "camera": { "position": [18, 12, 22], "target": [0, 4, 0], "fov": 45 },
+  "tour": [],
+  "layers": [
+    { "id": "city", "label": "Arquitectura", "default": true },
+    { "id": "terrain", "label": "Valle y quebradas", "default": true },
+    { "id": "props", "label": "Escultura y detalles", "default": true },
+    { "id": "reference", "label": "Escala humana", "default": true }
+  ],
+  "sources": [
+    {
+      "label": "UNESCO — Chavín (Archaeological Site) (n.º 330)",
+      "url": "https://whc.unesco.org/en/list/330/"
+    },
+    {
+      "label": "UNESCO — documentos, evaluación ICOMOS 1985 y misión 1999",
+      "url": "https://whc.unesco.org/en/list/330/documents"
+    },
+    {
+      "label": "Ministerio de Cultura — Patrimonio Mundial: Sitio Arqueológico Chavín",
+      "url": "https://patrimoniomundial.cultura.pe/sitiosdelpatrimoniomundial/sitio-arqueol%C3%B3gico-chav%C3%ADn"
+    },
+    {
+      "label": "Museo Nacional Chavín",
+      "url": "https://museos.cultura.pe/museos/museo-nacional-chav%C3%ADn"
+    },
+    {
+      "label": "MNAAHP — sala Chavín",
+      "url": "https://mnaahp.cultura.pe/exposiciones/salas-permanentes/chavin"
+    },
+    {
+      "label": "Stanford — Chavín de Huántar research",
+      "url": "https://news.stanford.edu/stories/2016/04/stanford-archaeologist-traces-origins-authority-andes-peru"
+    }
+  ],
+  "disclaimer": "Reconstrucción en investigación. La ficha se publicará cuando el modelo 3D y la revisión de fuentes estén completos.",
+  "credits": "Ficha documental en preparación."
+}

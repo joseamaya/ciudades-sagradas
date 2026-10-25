@@ -1,0 +1,164 @@
+{
+  "id": "caral",
+  "name": "Caral",
+  "subtitle": "La Ciudad Sagrada",
+  "culture": "Civilización Caral",
+  "period": "3000–1800 a. C.",
+  "region": "Valle de Supe, Barranca, Lima",
+  "coordinates": {
+    "lat": -10.8917,
+    "lon": -77.5214
+  },
+  "elevation": "350–400 m s. n. m.",
+  "status": "available",
+  "summary": "Caral es el centro urbano más antiguo de América. Durante el Arcaico Tardío, sus habitantes construyeron pirámides, plazas circulares hundidas y conjuntos residenciales con piedra, arcilla y shicras. La ciudad organizó el trabajo colectivo y el intercambio entre el valle y la costa sin cerámica, sin metales y sin evidencia de guerra.",
+  "model": "cities/caral/model.glb",
+  "scale": 0.08,
+  "verticalScale": 1.0,
+  "camera": {
+    "position": [
+      16,
+      11,
+      -20
+    ],
+    "target": [
+      0,
+      4,
+      -10
+    ],
+    "fov": 45
+  },
+  "tour": [
+    {
+      "title": "La Ciudad Sagrada",
+      "text": "Caral se levanta sobre una terraza desértica que domina el valle del Supe. La ciudad combina arquitectura monumental, plazas y barrios residenciales.",
+      "camera": {
+        "position": [
+          16,
+          11,
+          -20
+        ],
+        "target": [
+          0,
+          4,
+          -10
+        ],
+        "fov": 45
+      }
+    },
+    {
+      "title": "La Pirámide Mayor",
+      "text": "La Pirámide Mayor es el edificio más grande del conjunto. Sus plataformas escalonadas, escaleras y plazas interiores organizaban ceremonias y reuniones.",
+      "camera": {
+        "position": [
+          10,
+          12,
+          -26
+        ],
+        "target": [
+          0,
+          5,
+          -12.8
+        ],
+        "fov": 45
+      }
+    },
+    {
+      "title": "Plaza circular y fuego sagrado",
+      "text": "Las plazas circulares hundidas, asociadas a las pirámides, son uno de los rasgos más distintivos de Caral. En su centro se encendía el fuego ritual.",
+      "camera": {
+        "position": [
+          7,
+          7,
+          -9
+        ],
+        "target": [
+          0,
+          3,
+          -6
+        ],
+        "fov": 48
+      }
+    },
+    {
+      "title": "El valle del Supe",
+      "text": "El valle aportaba agua, algodón, alimentos y comunicación con la costa. Caral creció gracias a una red de intercambio que unía pesca, agricultura y trabajo colectivo.",
+      "camera": {
+        "position": [
+          36,
+          55,
+          -39
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "fov": 45
+      }
+    },
+    {
+      "title": "El conjunto del Anfiteatro",
+      "text": "El Anfiteatro y el Altar Circular forman uno de los sectores ceremoniales más conocidos. La arquitectura combina graderíos, muros enlucidos y espacios de culto.",
+      "camera": {
+        "position": [
+          14,
+          14,
+          19
+        ],
+        "target": [
+          0,
+          2,
+          26.4
+        ],
+        "fov": 45
+      }
+    }
+  ],
+  "layers": [
+    {
+      "id": "city",
+      "label": "Arquitectura",
+      "default": true
+    },
+    {
+      "id": "terrain",
+      "label": "Terreno y valle",
+      "default": true
+    },
+    {
+      "id": "props",
+      "label": "Detalles y ofrendas",
+      "default": true
+    },
+    {
+      "id": "reference",
+      "label": "Escala humana",
+      "default": true
+    }
+  ],
+  "sources": [
+    {
+      "label": "UNESCO — Ciudad Sagrada de Caral-Supe (n.º 1269)",
+      "url": "https://whc.unesco.org/en/list/1269/"
+    },
+    {
+      "label": "UNESCO — expediente de nominación y evaluación ICOMOS",
+      "url": "https://whc.unesco.org/en/list/1269/documents"
+    },
+    {
+      "label": "Ministerio de Cultura — Patrimonio Mundial: Caral-Supe",
+      "url": "https://patrimoniomundial.cultura.pe/sitiosdelpatrimoniomundial/ciudad-sagrada-de-caral-supe"
+    },
+    {
+      "label": "Zona Arqueológica Caral — Unidad Ejecutora 003",
+      "url": "https://www.zonacaral.gob.pe/"
+    },
+    {
+      "label": "Shady Solís et al., Dating Caral (Science, 2001)",
+      "url": "https://www.science.org/doi/10.1126/science.1059519"
+    }
+  ],
+  "disclaimer": "Reconstrucción artística basada en evidencia arqueológica. Formas, colores y actividades son interpretaciones, no registros históricos.",
+  "credits": "Geometría y materiales: proyecto Ciudades Sagradas. Texturas del proyecto Caral; auditoría de licencias pendiente antes de publicación."
+}

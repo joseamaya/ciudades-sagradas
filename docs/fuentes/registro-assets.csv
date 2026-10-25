@@ -1,0 +1,30 @@
+id,tipo,titulo,url,autor,licencia,uso,fecha_consulta,notas
+unesco_caral_1269,ficha,UNESCO Sacred City of Caral-Supe,https://whc.unesco.org/en/list/1269/,UNESCO,CC BY-SA IGO 3.0 (texto); imágenes con derechos,referencia,2026-10-24,No copiar fotografías sin permiso
+unesco_caral_nomination,expediente,UNESCO Nomination 1269,https://whc.unesco.org/uploads/nominations/1269.pdf,Estado Peruano / UNESCO,Documento público de referencia,referencia,2026-10-24,Planos y datos del sitio
+icomos_caral_2009,evaluacion,ICOMOS Advisory Body Evaluation 1269,https://whc.unesco.org/en/list/1269/documents,ICOMOS,Derechos de ICOMOS,referencia,2026-10-24,No reutilizar como asset
+mincul_caral,ficha,Patrimonio Mundial: Ciudad Sagrada de Caral-Supe,https://patrimoniomundial.cultura.pe/sitiosdelpatrimoniomundial/ciudad-sagrada-de-caral-supe,Ministerio de Cultura del Perú,Derechos reservados,referencia,2026-10-24,Datos oficiales
+zac_caral,publicaciones,Zona Arqueológica Caral,https://www.zonacaral.gob.pe/,Ministerio de Cultura del Perú,Derechos reservados,referencia,2026-10-24,Publicaciones y datos del sitio
+shady_2001,articulo,Dating Caral a Preceramic Site in the Supe Valley,https://www.science.org/doi/10.1126/science.1059519,Shady Solís et al.,Copyright Science / AAAS,referencia,2026-10-24,Citar; no copiar figuras
+unesco_chavin_330,ficha,UNESCO Chavin Archaeological Site,https://whc.unesco.org/en/list/330/,UNESCO,CC BY-SA IGO 3.0 (texto); imágenes con derechos,referencia,2026-10-24,No copiar fotografías sin permiso
+icomos_chavin_1985,evaluacion,ICOMOS Advisory Body Evaluation 330,https://whc.unesco.org/document/153206,ICOMOS,Derechos de ICOMOS,referencia,2026-10-24,No reutilizar como asset
+icomos_chavin_1999,mision,ICOMOS Chavin Monitoring Report 1999,https://whc.unesco.org/document/139527,ICOMOS,Derechos de ICOMOS,referencia,2026-10-24,Estado de conservación
+mincul_chavin,ficha,Patrimonio Mundial: Sitio Arqueológico Chavín,https://patrimoniomundial.cultura.pe/sitiosdelpatrimoniomundial/sitio-arqueol%C3%B3gico-chav%C3%ADn,Ministerio de Cultura del Perú,Derechos reservados,referencia,2026-10-24,Incluye plano del sitio
+museo_chavin,ficha,Museo Nacional Chavín,https://museos.cultura.pe/museos/museo-nacional-chav%C3%ADn,Ministerio de Cultura del Perú,Derechos reservados,referencia,2026-10-24,Colección y datos
+unesco_chanchan_366,ficha,UNESCO Chan Chan Archaeological Zone,https://whc.unesco.org/en/list/366/,UNESCO,CC BY-SA IGO 3.0 (texto); imágenes con derechos,referencia,2026-10-24,No copiar fotografías sin permiso
+icomos_chanchan_1986,evaluacion,ICOMOS Advisory Body Evaluation 366,https://whc.unesco.org/document/153276,ICOMOS,Derechos de ICOMOS,referencia,2026-10-24,No reutilizar como asset
+unesco_chanchan_2007,mision,UNESCO-ICOMOS-ICCROM Reactive Monitoring Mission 2007,https://whc.unesco.org/document/8954,UNESCO / ICOMOS / ICCROM,Derechos reservados,referencia,2026-10-24,Conservación y riesgos
+chanchan_gob,proyecto,Proyecto Especial Complejo Arqueológico Chan Chan,https://chanchan.gob.pe/,Ministerio de Cultura del Perú,Derechos reservados,referencia,2026-10-24,Datos del sitio y museo
+museo_chanchan,ficha,Museo de Sitio de Chan Chan,https://museos.cultura.pe/museos/museo-de-sitio-de-chan-chan,Ministerio de Cultura del Perú,Derechos reservados,referencia,2026-10-24,Colección y datos
+mincul_wari,ficha,Museo de Sitio Wari,https://museos.cultura.pe/museos/museo-de-sitio-wari,Ministerio de Cultura del Perú,Derechos reservados,referencia,2026-10-24,Datos del sitio
+mincul_wari_2025,noticia,Acciones de recuperación del Complejo Arqueológico Wari,https://www.gob.pe/institucion/cultura/noticias/1307463-ministerio-de-cultura-rinde-homenaje-a-luis-guillermo-lumbreras-y-anuncia-acciones-de-recuperacion-del-patrimonio-en-ayacucho,Ministerio de Cultura del Perú,Derechos reservados,referencia,2026-10-24,Contexto actual
+met_wari,ensayo,Wari Imperial Art,https://www.metmuseum.org/essays/wari-imperial-art,The Metropolitan Museum of Art,Derechos reservados,referencia,2026-10-24,Arquitectura y color
+ipgh_wari,articulo,Wari urbanization,https://www.revistasipgh.org/index.php/rearam/article/download/6051/6812,Revistas IPGH,Open access según revista,referencia,2026-10-24,Citar autores
+sigda,geoportal,SIGDA — Sistema de Información Geográfica de Arqueología,https://sigda.cultura.gob.pe/,Ministerio de Cultura del Perú,Derechos reservados,referencia,2026-10-24,Consulta de catastro arqueológico
+ign_idep,geoportal,IDEP — Infraestructura de Datos Geoespaciales del Perú,https://www.idep.gob.pe/,Instituto Geográfico Nacional del Perú,Derechos reservados,referencia,2026-10-24,"DEM, ortofotos y cartografía"
+polyhaven,texturas,Poly Haven,https://polyhaven.com/,Poly Haven,CC0,asset,2026-10-24,Texturas y HDRIs
+ambientcg,texturas,ambientCG,https://ambientcg.com/,ambientCG,CC0,asset,2026-10-24,Texturas PBR
+wikimedia_commons,imagenes,Wikimedia Commons,https://commons.wikimedia.org/,Varios,CC BY / CC BY-SA / dominio público según archivo,referencia,2026-10-24,Verificar licencia por archivo
+smithsonian_open,imagenes,Smithsonian Open Access,https://www.si.edu/openaccess,Varios,CC0 / dominio público según objeto,referencia,2026-10-24,Verificar por objeto
+met_open,imagenes,The Met Open Access,https://www.metmuseum.org/about-the-met/policies-and-documents/open-access,Varios,CC0 según objeto,referencia,2026-10-24,Verificar por objeto
+caral_model,modelo,Caral preview GLB,public/cities/caral/model.glb,José Amaya / proyecto Caral,Geometría CC BY 4.0; texturas AI pendientes de revisión,asset,2026-10-24,SHA256 b11ed3f52ecd78dbac5169c47a6c0522188d20d5abaabb6cbcc45140961ef6be; 20.779.860 bytes
+caral_hero,imagen,Render de portada de Caral,public/cities/caral/hero.jpg,José Amaya,CC BY 4.0,asset,2026-10-24,Render propio; no es fotografía histórica

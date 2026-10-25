@@ -1,0 +1,73 @@
+{
+  "id": "wari",
+  "name": "Wari",
+  "subtitle": "La capital del primer imperio andino",
+  "culture": "Cultura Wari",
+  "period": "600–1100 d. C.",
+  "region": "Pacaycasa, Huamanga, Ayacucho",
+  "coordinates": {
+    "lat": -13.063,
+    "lon": -74.205
+  },
+  "elevation": "2600–2900 m s. n. m.",
+  "status": "research",
+  "summary": "Wari fue la capital del primer imperio andino y uno de los mayores centros urbanos del Perú prehispánico. Sus barrios, recintos de piedra, templos en forma de D, galerías y plazas se extendieron por miles de hectáreas. La ciudad articuló redes de producción, almacenamiento y poder que transformaron los Andes entre los siglos VII y XI.",
+  "model": null,
+  "scale": 1,
+  "camera": {
+    "position": [
+      20,
+      14,
+      22
+    ],
+    "target": [
+      0,
+      4,
+      0
+    ],
+    "fov": 45
+  },
+  "tour": [],
+  "layers": [
+    {
+      "id": "city",
+      "label": "Arquitectura",
+      "default": true
+    },
+    {
+      "id": "terrain",
+      "label": "Sierra y quebradas",
+      "default": true
+    },
+    {
+      "id": "props",
+      "label": "Galerías y detalles",
+      "default": true
+    },
+    {
+      "id": "reference",
+      "label": "Escala humana",
+      "default": true
+    }
+  ],
+  "sources": [
+    {
+      "label": "Ministerio de Cultura — Museo de Sitio Wari",
+      "url": "https://museos.cultura.pe/museos/museo-de-sitio-wari"
+    },
+    {
+      "label": "Ministerio de Cultura — acciones en el Complejo Arqueológico Wari (2025)",
+      "url": "https://www.gob.pe/institucion/cultura/noticias/1307463-ministerio-de-cultura-rinde-homenaje-a-luis-guillermo-lumbreras-y-anuncia-acciones-de-recuperacion-del-patrimonio-en-ayacucho"
+    },
+    {
+      "label": "The Metropolitan Museum of Art — Wari Imperial Art",
+      "url": "https://www.metmuseum.org/essays/wari-imperial-art"
+    },
+    {
+      "label": "Revistas IPGH — Wari urbanization (open access)",
+      "url": "https://www.revistasipgh.org/index.php/rearam/article/download/6051/6812"
+    }
+  ],
+  "disclaimer": "Reconstrucción en investigación. Wari no figura en la Lista del Patrimonio Mundial; se documenta con fuentes del Ministerio de Cultura y academia. La ficha se publicará cuando el modelo 3D y la revisión de fuentes estén completos.",
+  "credits": "Ficha documental en preparación."
+}

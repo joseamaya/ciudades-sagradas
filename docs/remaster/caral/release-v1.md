@@ -38,11 +38,11 @@ Rama: `release/caral-remaster-final`. **Publicado**: PR #4 mergeado y v1 despleg
 - GitHub Pages verificado con el modelo v1 y caché `v3`.
 - Pendiente: prueba de kiosco offline y sesión larga en hardware de museo.
 
-## Pendiente para v2
+## Continuación en v2
 
-- Muros high-poly + bake de normales/AO.
-- LOD1 y reducción de draw calls.
-- Arte final del hero/atardecer.
+- Muros high-poly + bake de normales/AO: completado.
+- LOD0/LOD1 y reducción de draw calls: completado; ver `release-v2.md`.
+- Arte final del hero/atardecer: pendiente de una pasada posterior.
 
 ## Probar en local
 

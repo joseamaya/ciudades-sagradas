@@ -262,7 +262,7 @@ function setupKiosk() {
 async function warmOfflineCache() {
   if (!import.meta.env.PROD || !('caches' in window)) return;
   try {
-    const cache = await caches.open('ciudades-sagradas-v4');
+    const cache = await caches.open('ciudades-sagradas-v5');
     const resources = performance
       .getEntriesByType('resource')
       .map((entry) => entry.name)

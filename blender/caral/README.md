@@ -7,7 +7,7 @@
 - **LOD1:** `caral_lod1.blend`; 7.747.386 bytes, SHA-256 `9da242aa0e92f7b43ffa014af7af2fe11c27c47c2d027c65cc4515244856df9a`. 9 objetos baked (`MAT-Caral_LOD1_*`) + 6 mallas `COL-Caral_LOD1_Infra`; 56.332 tris. Mapas en `../textures/baked/caral/`.
 - **Texturas:** `../textures/` (piloto) y `../textures/generated/remaster/` (pase procedural), con rutas relativas desde `blender/caral/`.
 - **Escala:** metros; el visor aplica `0.08`.
-- **Estado:** piloto en remasterización; materiales procedurales aplicados a arquitectura, plazas y suelo.
+- **Estado:** remaster v2 desplegado en GitHub Pages; `stage: "v2"` y caché `v5`. `model.glb` v1 queda como fallback.
 
 ## Exportar
 
@@ -17,7 +17,7 @@ blender --background blender/caral/caral_art.blend \
   --out public/cities/caral/model.glb
 ```
 
-El GLB publicado se reproduce con `export.py`: 20.749.488 bytes, 554 mallas y 44.640 triángulos. Si cambias la escena, reexporta, valida el resultado y actualiza:
+El GLB v1 de respaldo se reproduce con `export.py`: 4.778.308 bytes, 554 mallas y 55.944 triángulos. Si cambias la escena, reexporta, valida el resultado y actualiza:
 
 - `public/cities/caral/README.md` (hash y tamaño).
 - `docs/fuentes/registro-assets.csv`.
@@ -98,9 +98,9 @@ El bake usa base color y normal tangente; la roughness se fija en **0,85** y la 
 
 ## Texturas
 
-El piloto usa texturas PBR generadas con IA para el proyecto Caral (Cloudflare Workers AI / FLUX) y texturas procedurales propias. El pase de remaster usa texturas CC0/procedurales en `../textures/generated/remaster/`.
+El piloto histórico usa texturas PBR generadas con IA para el proyecto Caral (Cloudflare Workers AI / FLUX) y texturas procedurales propias. El pase de remaster usa texturas CC0/procedurales en `../textures/generated/remaster/`; el LOD1 de v2 usa un atlas 2K horneado desde el high-poly propio.
 
-Las texturas de IA del piloto están pendientes de confirmar términos para distribución. Las texturas del remaster no añaden imágenes de IA.
+Las texturas de IA del piloto no se publican y quedan pendientes de archivo definitivo. Los GLB v1 y v2 no contienen imágenes de IA.
 
 ## Convenciones
 

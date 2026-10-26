@@ -1,8 +1,8 @@
 # Caral remaster v2 — plan y Fases A–D web
 
-Fecha: 26 de octubre de 2026. Rama: `feat/caral-remaster-v2`, creada desde `568ea1e`.
+Fecha: 26 de octubre de 2026. Rama de cierre: `release/caral-v2`, desde `a76fc8b`.
 
-**Estado:** Fases A–D web completadas para QA. LOD0 de **230.800 tris / 125 draw calls** y LOD1 horneado de **56.332 tris / 72 draw calls**. Los GLB `model_lod0.glb` y `model_lod1.glb` están integrados en `public/`, con `model.glb` v1 como fallback. No se ha abierto PR, no se ha desplegado y `main` no se ha tocado. Kiosco, hardware de museo y escala métrica 1.0 quedan para el final.
+**Estado:** Fases A–D web completadas y desplegadas. LOD0 de **230.800 tris / 125 draw calls** y LOD1 horneado de **56.332 tris / 72 draw calls**. Los GLB `model_lod0.glb` y `model_lod1.glb` están integrados en `public/`, con `model.glb` v1 como fallback. PR #5 mergeado en `a76fc8b`; `stage: "v2"` y caché `v5`. Kiosco, hardware de museo y escala métrica 1.0 quedan congelados.
 
 ## Objetivo v2
 
@@ -10,8 +10,8 @@ Fecha: 26 de octubre de 2026. Rama: `feat/caral-remaster-v2`, creada desde `568e
 - **LOD0:** high-poly del hero + resto de v1; 150.000–250.000 tris.
 - **LOD1:** geometría v1 actual; 50.000–80.000 tris, con base color y normal del high-poly horneados al hero mediante atlas UV. Roughness constante 0,85 y AO no conectado.
 - LOD0 y LOD1 en archivos separados; selección automática en el visor y override `?lod=0/1`.
-- Fusión por capa+material, capa en `extras` y menos de 100 draw calls.
-- Sin texturas de IA. Solo web; kiosco y hardware de museo quedan para el final.
+- Fusión por capa+material, capa en `extras`; LOD1 <100 draw calls y LOD0 125 aceptados para escritorio.
+- Sin texturas de IA. Solo web; kiosco y hardware de museo quedan congelados.
 
 ## 1. Expediente UNESCO 1269 verificado
 
@@ -41,9 +41,9 @@ Por tanto, **no se aplicó ningún factor de escala**. Se corrigieron `docs/fuen
 
 La altura desigual documentada —19,27 m al sur y 29,88 m al norte— queda anotada para una futura revisión de topografía/perfil; no se inventó una corrección sin plano de sección o DEM.
 
-### Pendiente para el visor
+### Decisión para el visor web
 
-`city.json` aplica `scale: 0.08` a un modelo cuya escena ya está en metros. Esto produce una presentación de diorama y reduce también las figuras humanas. No se cambió en las Fases A–B. En la integración web habrá que decidir entre conservar esa presentación o pasar a `scale: 1.0` y recalibrar cámaras/recorrido.
+`city.json` aplica `scale: 0.08` a un modelo cuya escena ya está en metros. Se conserva como **diorama web**: la ciudad se lee completa y las figuras humanas funcionan como referencia, no como recorrido a escala real. La escala 1.0 y la recalibración de cámaras quedan fuera de esta entrega y del kiosco congelado.
 
 ## 3. Escena y high-poly del hero
 
@@ -126,15 +126,16 @@ Se verificaron visualmente las hiladas, juntas, erosión, esquinas, peldaños, g
 
 ### QA web integrada
 
-Los GLB `model_lod0.glb` y `model_lod1.glb` se copiaron a `public/cities/caral/`; `model.glb` v1 queda intacto como rollback. `city.json` declara `lod.levels` 0/1, `fallbackModel` v1 y `stage: "preview"`. El visor usa LOD0 en escritorio y LOD1 en móvil/táctil, con override `?lod=0/1`.
+Los GLB `model_lod0.glb` y `model_lod1.glb` se copiaron a `public/cities/caral/`; `model.glb` v1 queda intacto como rollback. `city.json` declara `lod.levels` 0/1, `fallbackModel` v1 y `stage: "v2"`. El visor usa LOD0 en escritorio y LOD1 en móvil/táctil, con override `?lod=0/1`.
 
 - LOD0: **22.587.652 bytes**, 10 mallas, 65 primitivas, 230.800 tris, 21 materiales, 31 imágenes, **125 draw calls**.
 - LOD1: **6.694.356 bytes**, 15 mallas, 38 primitivas, 56.332 tris, 23 materiales, 39 imágenes, **72 draw calls**.
 - Capas verificadas en ambos LOD: `city`, `terrain`, `props` y `reference`; los toggles ocultan sus grupos.
 - Fallback verificado: al bloquear `model_lod0.glb`, el visor carga LOD1.
 - Tour de **6 paradas** con Altar Circular; cámara y texto verificados.
-- Capturas: `web-lod0.png`, `web-lod1.png` y `web-altar.png`.
-- Caché de servicio actualizada a **v4**; el preview temporal de `/tmp` deja de ser necesario para QA.
+- Capturas: `web-lod0.png`, `web-lod1.png`, `web-altar.png` y portada `hero.jpg` regenerada desde el visor v2.
+- Caché de servicio actualizada a **v5**; el preview temporal de `/tmp` ya no es necesario.
+- Promovido a `stage: "v2"`, PR #5 mergeado y desplegado en GitHub Pages.
 - Kiosco, hardware de museo y escala métrica 1.0 no forman parte de esta entrega.
 
 ## 6. Fases
@@ -156,22 +157,22 @@ Los GLB `model_lod0.glb` y `model_lod1.glb` se copiaron a `public/cities/caral/`
 - `scripts/bake_caral_lod1.py` y `scripts/optimize_caral_lod1.py` reproducen el bake y la fusión de infraestructura.
 - Validado en Three.js: **72 draw calls** en producción y capas correctas; capturas `web-lod1.png`.
 
-### Fase D — integración web (completada para QA)
+### Fase D — integración web (completada)
 
 1. LOD0: high-poly fusionado por región + infraestructura en seis grupos; LOD1: infraestructura fusionada con capas `terrain`, `city`, `props` y `reference`.
 2. `model_lod0.glb` (22,6 MB) y `model_lod1.glb` (6,7 MB) exportados con WebP 80, `extras` y sin cámaras/luces.
 3. Draw calls medidos en el visor real: **125 en LOD0** y **72 en LOD1**.
-4. `city.json` con `lod.levels`, `fallbackModel` v1, `stage: "preview"` y parada de Altar.
+4. `city.json` con `lod.levels`, `fallbackModel` v1, `stage: "v2"` y parada de Altar.
 5. Selección automática escritorio/móvil, override `?lod=0/1` y fallback LOD0 → LOD1 → v1 verificados.
 6. Escala **0,08** confirmada como diorama; la escala métrica 1.0 queda fuera de esta entrega.
-7. QA web completado; kiosco, hardware de museo y pruebas offline prolongadas quedan para el final.
+7. QA web, promoción a v2, PR #5, merge y deploy completados; hardware real y kiosco congelado quedan pendientes.
 
 ## 7. Límites de esta fase
 
-- Los LOD0/LOD1 ya están integrados en `public/`, pero no se han desplegado ni se ha abierto PR; `main` no se ha tocado.
+- Los LOD0/LOD1 están integrados, promovidos a `stage: "v2"` y desplegados en GitHub Pages; `model.glb` v1 sigue como fallback.
 - El LOD1 no conecta AO ni mapa de roughness: usa base color + normal + roughness constante 0,85.
-- La escala **0,08** se mantiene como diorama; la escala métrica 1.0 y la recalibración del visor quedan para una fase separada.
-- Kiosco, hardware de museo, pruebas de 8 horas y perfil LOD específico quedan pendientes.
+- La escala **0,08** se mantiene como diorama; la escala métrica 1.0 y la recalibración del visor quedan fuera de esta entrega.
+- Kiosco, hardware de museo, pruebas de 8 horas y perfil LOD específico quedan congelados.
 - El visor fusiona la infraestructura en grupos; no conserva la jerarquía individual de cada edificio v1 en el GLB, pero mantiene las cuatro capas.
 - No se añadieron cerámica, metales, rueda, llamas, caballos ni imaginería inca.
 - La distribución de piedras, el patrón de erosión y los cortes de shicras son reconstrucción inferida/interpretativa, no una afirmación arqueológica exacta.

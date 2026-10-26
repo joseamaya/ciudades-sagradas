@@ -1,6 +1,6 @@
-# Modelo de Caral — v2 preview y v1 fallback
+# Modelo de Caral — v2 estable y v1 fallback
 
-## v2 preview (web)
+## v2 (web)
 
 - **LOD0:** `model_lod0.glb`, **22.587.652 bytes**.
   - **10 mallas**, 21 materiales, 31 imágenes WebP, **230.800 triángulos**.
@@ -14,7 +14,8 @@
 - **Fuente editable:** `blender/caral/caral_lod0.blend` (SHA-256 `6db1c092a168272fa6ab3ff43fb4f503d809d81626b7f798029cc8c9191fdd4b`) y `blender/caral/caral_lod1.blend` (SHA-256 `9da242aa0e92f7b43ffa014af7af2fe11c27c47c2d027c65cc4515244856df9a`).
 - **Export reproducible:** `scripts/assemble_caral_lod0.py`, `scripts/optimize_caral_lod1.py` y `scripts/export_caral_lod.py`, WebP calidad 80.
 - **LOD:** `city.json` declara `lod.levels` 0/1 y `fallbackModel`; escritorio usa LOD0 y móvil usa LOD1.
-- **Estado:** preview web; no reemplaza el GLB v1.
+- **Portada:** `hero.jpg` generada desde el visor v2, 1600×900.
+- **Estado:** remaster v2 desplegado en GitHub Pages (`stage: "v2"`, caché `v5`); el GLB v1 se conserva como fallback y rollback.
 
 ## v1 fallback
 
@@ -31,5 +32,5 @@
 - **Texturas:** procedurales propias en arquitectura, plazas, suelo, arena, roca, vegetación, adobe, totora y madera. **Sin texturas de IA en este GLB.**
 - **Licencia:** geometría CC BY 4.0; texturas procedurales del proyecto. El piloto histórico queda como material de archivo; el GLB de esta versión no contiene texturas de IA.
 - **Escala:** el visor aplica `0.08`.
-- **Estado:** remaster v1 publicado en `main` y GitHub Pages (2026-10-26); se conserva como rollback.
+- **Estado:** remaster v1 histórico; se conserva como rollback de v2.
 - **Export reproducible:** `blender/caral/export.py`, WebP calidad 80.

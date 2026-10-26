@@ -22,6 +22,17 @@ No se copian imágenes oficiales al repositorio. Se usan como referencia y se ci
 
 El PDF no se guarda en el repositorio; se descarga desde el enlace de UNESCO y se usa como referencia.
 
+## Verificación v2 — 26 de octubre de 2026
+
+- Expediente consultado en línea: PDF de 429 páginas y 46.766.791 bytes.
+- **Página 349 (PDF):** Fig. 1, plano de la Ciudad Sagrada de Caral.
+- **Páginas 350–365 (PDF):** figuras 2–16, incluidas la Pirámide Mayor (p. 350), el Templo del Anfiteatro (p. 358) y el Edificio Piramidal del Altar Circular (p. 359).
+- **Página 351 (PDF):** Pirámide Mayor, 149,69 m N–S × 170,80 m E–O; altura 19,27 m al sur y 29,88 m al norte; siete plataformas. Plaza circular asociada: diámetros externo de 36,5 m e interno de 21,5 m, plataforma de 7 m de ancho, muros internos de 3 m y externos de 1–1,6 m.
+- **Página 358 (PDF):** Anfiteatro: plaza circular hundida más grande, dos escalinatas, dos plataformas concéntricas y 20 cubículos; no da una dimensión global métrica.
+- **Página 359 (PDF):** Altar Circular: diámetro medio de 2,7 m, paredes conservadas de 1,5 m y originales estimadas de 2 m.
+
+La cifra aproximada de 150 × 110 × 28 m usada antes en el plan procede de fuentes secundarias. Para v2 se usa la medida primaria del expediente: **170,80 × 149,69 m en planta y 29,88 m al norte**.
+
 ## Qué falta recopilar
 
 - [ ] Planta general del núcleo urbano en alta resolución.

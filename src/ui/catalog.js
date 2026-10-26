@@ -3,7 +3,7 @@ export function renderCatalog(root, cities) {
   const cards = cities
     .map((city) => {
       const available = city.status === 'available';
-      const stage = city.stage === 'piloto' ? 'Piloto' : city.stage === 'v1' ? 'Remaster v1' : available ? 'Disponible' : 'En investigación';
+      const stage = city.stage === 'piloto' ? 'Piloto' : city.stage === 'preview' ? 'Remaster preview' : city.stage === 'v1' ? 'Remaster v1' : available ? 'Disponible' : 'En investigación';
       const media = city.thumb
         ? `<div class="city-card__media" style="background-image:url('${city.thumb}')"></div>`
         : `<div class="city-card__media city-card__media--empty" style="--accent:${city.accent}">

@@ -113,7 +113,53 @@ function makeSandTexture() {
   return texture;
 }
 
+function isLowPowerDevice() {
+  const coarse = window.matchMedia?.('(pointer: coarse)').matches;
+  const mobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+  const memory = navigator.deviceMemory ?? 8;
+  const cores = navigator.hardwareConcurrency ?? 8;
+  const small = Math.min(window.screen.width, window.screen.height) <= 600;
+  return Boolean(coarse || mobile || memory <= 4 || cores <= 4 || small);
+}
+
+function selectLodLevel(city) {
+  const levels = city.lod?.levels ?? {};
+  const override = new URLSearchParams(window.location.search).get('lod');
+  if (override && levels[override]) return override;
+  if (levels['1'] && isLowPowerDevice()) return '1';
+  if (levels['0']) return '0';
+  return Object.keys(levels)[0] ?? null;
+}
+
+function buildModelCandidates(city) {
+  const levels = city.lod?.levels ?? {};
+  const selected = selectLodLevel(city);
+  const candidates = [];
+  const add = (level, url) => {
+    if (!url || candidates.some((candidate) => candidate.url === url)) return;
+    candidates.push({ level, url });
+  };
+  if (selected && levels[selected]) add(selected, levels[selected]);
+  for (const [level, url] of Object.entries(levels)) add(level, url);
+  add(null, city.model);
+  add('v1', city.fallbackModel);
+  return candidates;
+}
+
 function classify(name = '') {
+  if (name.includes('_Infra_Terrain')) return 'terrain';
+  if (name.includes('_Infra_Props')) return 'props';
+  if (name.includes('_Infra_Reference')) return 'reference';
+  if (
+    name.startsWith('GEO-Caral_HighPoly_') ||
+    name.startsWith('GEO-Caral_LOD0_') ||
+    name.startsWith('GEO-Caral_LOD1_') ||
+    name.startsWith('MESH-Caral_HighPoly_') ||
+    name.startsWith('MESH-Caral_LOD0_') ||
+    name.startsWith('MESH-Caral_LOD1_')
+  ) {
+    return 'city';
+  }
   if (
     name.startsWith('GEO-Caral_Terrain_') ||
     name.startsWith('GEO-Caral_Field_') ||
@@ -352,32 +398,54 @@ export class CityViewer {
     }
   }
 
-  async load(city) {
-    this.city = city;
-    if (!city.model) return;
-    const loader = new GLTFLoader();
-    const url = new URL(city.model, document.baseURI).href;
-    const gltf = await new Promise((resolve, reject) => {
+  _loadGltf(loader, url) {
+    return new Promise((resolve, reject) => {
       loader.load(
         url,
         resolve,
         (event) => {
           if (event.total && this.onProgress) this.onProgress(event.loaded / event.total);
         },
-        (error) => {
-          if (this.onError) this.onError(error);
-          reject(error);
-        },
+        reject,
       );
     });
+  }
 
+  async load(city) {
+    this.city = city;
+    const candidates = buildModelCandidates(city);
+    if (!candidates.length) return;
+
+    const loader = new GLTFLoader();
+    let gltf = null;
+    let loadedLevel = null;
+    let lastError = null;
+    for (const candidate of candidates) {
+      try {
+        gltf = await this._loadGltf(loader, new URL(candidate.url, document.baseURI).href);
+        loadedLevel = candidate.level;
+        this.modelUrl = candidate.url;
+        break;
+      } catch (error) {
+        lastError = error;
+        console.warn(`No se pudo cargar ${candidate.url}`, error);
+      }
+    }
+    if (!gltf) {
+      if (this.onError) this.onError(lastError);
+      throw lastError;
+    }
+
+    this.lodLevel = loadedLevel;
     const model = gltf.scene;
     model.scale.setScalar(city.scale ?? 1);
     model.traverse((object) => {
       if (!object.isMesh) return;
-      object.castShadow = true;
+      const parentLayer = typeof object.parent?.userData?.layer === 'string' ? object.parent.userData.layer : '';
+      const declaredLayer = typeof object.userData.layer === 'string' ? object.userData.layer : parentLayer;
+      object.userData.layer = declaredLayer || classify(object.name);
+      object.castShadow = !object.name.includes('_Infra_');
       object.receiveShadow = true;
-      object.userData.layer = classify(object.name);
       const materials = Array.isArray(object.material) ? object.material : [object.material];
       for (const material of materials) this._prepareMaterial(material, object);
       this.meshes.push(object);

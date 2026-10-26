@@ -27,7 +27,7 @@
 ## Arquitectura y urbanismo
 
 - 32 edificios públicos, entre ellos seis pirámides escalonadas.
-- Pirámide Mayor: aproximadamente 150 × 110 × 28 m.
+- Pirámide Mayor: 170,80 m E–O × 149,69 m N–S; altura 29,88 m al norte y 19,27 m al sur (UNESCO 1269, p. 351).
 - Plazas circulares hundidas frente a las pirámides, con altar central y fuego ritual.
 - Sectores residenciales diferenciados por rango social; talleres y conjuntos periféricos.
 - Arquitectura de piedra, mortero de arcilla y relleno de shicras (bolsas de fibra con piedras).

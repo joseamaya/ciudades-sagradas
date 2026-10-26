@@ -44,13 +44,14 @@ for (const entry of index) {
     check(Array.isArray(city.tour) && city.tour.length > 0, `${entry.id}: falta el recorrido`);
     check(Array.isArray(city.layers) && city.layers.length > 0, `${entry.id}: faltan capas`);
     check(Boolean(city.camera), `${entry.id}: falta la cámara inicial`);
-    if (city.model) {
-      const modelPath = path.join(root, 'public', city.model);
-      check(existsSync(modelPath), `${entry.id}: falta el modelo ${city.model}`);
+    const modelPaths = [city.model, ...Object.values(city.lod?.levels ?? {}), city.fallbackModel].filter(Boolean);
+    for (const model of new Set(modelPaths)) {
+      const modelPath = path.join(root, 'public', model);
+      check(existsSync(modelPath), `${entry.id}: falta el modelo ${model}`);
       if (existsSync(modelPath)) {
         const size = (await stat(modelPath)).size;
         const mb = size / (1024 * 1024);
-        if (mb > 25) warnings.push(`${entry.id}: modelo de ${mb.toFixed(1)} MB (objetivo < 25 MB)`);
+        if (mb > 25) warnings.push(`${entry.id}: modelo ${model} de ${mb.toFixed(1)} MB (objetivo < 25 MB)`);
       }
     }
   } else {

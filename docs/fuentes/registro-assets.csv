@@ -26,5 +26,5 @@ ambientcg,texturas,ambientCG,https://ambientcg.com/,ambientCG,CC0,asset,2026-10-
 wikimedia_commons,imagenes,Wikimedia Commons,https://commons.wikimedia.org/,Varios,CC BY / CC BY-SA / dominio público según archivo,referencia,2026-10-24,Verificar licencia por archivo
 smithsonian_open,imagenes,Smithsonian Open Access,https://www.si.edu/openaccess,Varios,CC0 / dominio público según objeto,referencia,2026-10-24,Verificar por objeto
 met_open,imagenes,The Met Open Access,https://www.metmuseum.org/about-the-met/policies-and-documents/open-access,Varios,CC0 según objeto,referencia,2026-10-24,Verificar por objeto
-caral_model,modelo,Caral preview GLB,public/cities/caral/model.glb,José Amaya / proyecto Caral,Geometría CC BY 4.0; texturas AI pendientes de revisión,asset,2026-10-24,SHA256 b11ed3f52ecd78dbac5169c47a6c0522188d20d5abaabb6cbcc45140961ef6be; 20.779.860 bytes
+caral_model,modelo,Caral preview GLB,public/cities/caral/model.glb,José Amaya / proyecto Caral,Geometría CC BY 4.0; texturas AI pendientes de revisión,asset,2026-10-25,SHA256 992ef9888308d59eedd877c97a2df9d2ffafe74a3db381934133b3d9a995df83; 20.749.488 bytes
 caral_hero,imagen,Render de portada de Caral,public/cities/caral/hero.jpg,José Amaya,CC BY 4.0,asset,2026-10-24,Render propio; no es fotografía histórica

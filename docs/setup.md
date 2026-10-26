@@ -70,7 +70,7 @@ npm run validate
 npm run build
 ```
 
-El GLB publicado está optimizado para el visor. Una exportación fresca desde el `.blend` puede incluir más mallas/materiales; valida el resultado antes de reemplazarlo. Si cambia el modelo, actualiza su hash/tamaño en `public/cities/caral/README.md`, `docs/fuentes/registro-assets.csv` y la versión de caché de `public/sw.js`.
+El GLB publicado se reproduce con `export.py` (excluye las colecciones de juego). Valida el resultado antes de reemplazarlo. Si cambia el modelo, actualiza su hash/tamaño en `public/cities/caral/README.md`, `docs/fuentes/registro-assets.csv` y la versión de caché de `public/sw.js`.
 
 ## Kiosco
 

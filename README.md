@@ -71,7 +71,7 @@ Más detalles en [`docs/kiosco.md`](./docs/kiosco.md).
 | Chan Chan | Chimú | Siglos IX–XV d. C. | En investigación |
 | Wari | Wari | 600–1100 d. C. | En investigación |
 
-Los dossieres de fuentes están en [`docs/fuentes/`](./docs/fuentes/). El estado, el setup y el pipeline Blender están en [`docs/estado.md`](./docs/estado.md), [`docs/setup.md`](./docs/setup.md) y [`docs/pipeline-blender.md`](./docs/pipeline-blender.md).
+Los dossieres de fuentes están en [`docs/fuentes/`](./docs/fuentes/). El estado, el setup, el pipeline Blender y el remaster de Caral están en [`docs/estado.md`](./docs/estado.md), [`docs/setup.md`](./docs/setup.md), [`docs/pipeline-blender.md`](./docs/pipeline-blender.md) y [`docs/remaster/caral/`](./docs/remaster/caral/).
 
 ## Estructura
 

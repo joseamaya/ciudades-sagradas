@@ -124,6 +124,13 @@ def main():
         f"{root}/ground_roughness.jpg",
         0.9,
     )
+    terrain = make_material(
+        "MAT-Caral_Remaster_Terrain",
+        f"{root}/terrain_sand_diffuse.jpg",
+        f"{root}/ground_normal.png",
+        f"{root}/ground_roughness.jpg",
+        0.9,
+    )
     mapping = {
         "MAT-Caral_Plaster_White": white,
         "MAT-Caral_Plaster_Yellow": yellow,
@@ -146,6 +153,29 @@ def main():
             if slot.material and slot.material.name in mapping:
                 slot.material = mapping[slot.material.name]
                 changed += 1
+
+    if args.scope == "all":
+        terrain_uv = {
+            "GEO-Caral_SiteApron": 0.05,
+            "GEO-Caral_Terrain_Base": 0.02,
+            "GEO-Caral_Terrain_Shore": 0.02,
+            "GEO-Caral_Terrain_DryRavine": 0.05,
+        }
+        for obj in bpy.data.objects:
+            if obj.type != "MESH":
+                continue
+            if obj.name in terrain_uv:
+                for slot in obj.material_slots:
+                    if slot.material and slot.material.name == "MAT-Caral_Remaster_Sand":
+                        slot.material = terrain
+                        changed += 1
+                if not obj.get("caral_terrain_uv_scaled"):
+                    uv = obj.data.uv_layers.active
+                    if uv:
+                        factor = terrain_uv[obj.name]
+                        for datum in uv.data:
+                            datum.uv *= factor
+                        obj["caral_terrain_uv_scaled"] = True
 
     bpy.context.preferences.filepaths.save_version = 0
     out = os.path.abspath(args.out)

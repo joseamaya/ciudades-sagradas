@@ -1,7 +1,7 @@
 # Caral — escena editable
 
 - **Archivo piloto:** `caral_art.blend`; 7.940.979 bytes, SHA-256 `5a7377f727a2e07931d90aabed7a83c9ef59705176e7f244ae6db4f4d93ab377`.
-- **Archivo de trabajo:** `caral_remaster.blend`; 1.133.592 bytes, SHA-256 `74de593fb4348225632e1d5d4bdcc1c5fe52f17162acca08da3e241d410f80f5`.
+- **Archivo de trabajo:** `caral_remaster.blend`; 1.135.906 bytes, SHA-256 `631af87f5f00630b3196092361c3d0f766404dcb805078ec2116f60987426863`.
 - **Texturas:** `../textures/` (piloto) y `../textures/generated/remaster/` (pase procedural), con rutas relativas desde `blender/caral/`.
 - **Escala:** metros; el visor aplica `0.08`.
 - **Estado:** piloto en remasterización; materiales procedurales aplicados a arquitectura, plazas y suelo.
@@ -39,7 +39,7 @@ blender --background blender/caral/caral_remaster.blend \
   --image-format WEBP --image-quality 80
 ```
 
-GLB de prueba del pase procedural: 8.915.420 bytes, 554 mallas, 55.944 tris, 21 materiales y 36 imágenes WebP.
+GLB de prueba del pase procedural: 8.928.092 bytes, 554 mallas, 55.944 tris, 22 materiales y 37 imágenes WebP.
 
 ## Texturas
 

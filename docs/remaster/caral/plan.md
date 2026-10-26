@@ -7,6 +7,7 @@
 - GLB de prueba: 8,5 MB, 55.944 tris, 21 materiales, 36 imágenes WebP.
 - El piloto sigue publicado; el remaster no se ha mergeado.
 - Visor: AgX, PMREM, cámara inicial equivalente al hero de Blender; stops 2–5 revisados; FOV móvil responsivo.
+- Terreno v1: arena macro 2K y UVs a gran escala; roca/vegetación pendientes.
 
 ## Fase 0 — Auditoría y referencia
 

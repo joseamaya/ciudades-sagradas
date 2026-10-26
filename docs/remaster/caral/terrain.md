@@ -46,3 +46,23 @@ Las colinas ganan silueta, pero el cambio es insuficiente para reemplazar el pil
 
 - `terrain-before.jpg`
 - `terrain-after.jpg`
+
+## Materiales de terreno v1
+
+- Nueva textura `terrain_sand_diffuse.jpg` 2K: variación macro de arena, sin patrón direccional.
+- Material `MAT-Caral_Remaster_Terrain` en `SiteApron`, `Terrain_Base`, `Terrain_Shore` y `Terrain_DryRavine`.
+- UVs reescaladas: `SiteApron` 0,05; `Terrain_Base`/`Terrain_Shore` 0,02; `Terrain_DryRavine` 0,05.
+- La textura cubre entre 80 y 200 m por tile; no aparece la retícula de 4 m.
+- Se probó una roca procedural para las colinas, pero producía manchas grandes; se descartó y las colinas conservan el material del piloto.
+- Los campos y la vegetación siguen con texturas del piloto.
+
+### Capturas
+
+- `terrain-sand-hero.jpg`: render de Blender.
+- `viewer-terrain.jpg`: visor web con el GLB de prueba.
+
+### Pendiente
+
+- Roca específica para colinas, con detalle de alta frecuencia y normales.
+- Vegetación y campos procedurales.
+- Geometría de colinas con erosión real.

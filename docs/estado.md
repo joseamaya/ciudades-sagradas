@@ -19,6 +19,7 @@
 - Fase 0 del remaster de Caral: auditoría de escena, export reproducible y dossier de remaster en `docs/remaster/caral/`.
 - Fase 1 iniciada: primer pase de colinas en `blender/caral/caral_remaster.blend`; base y apron se mantienen planos por artefactos en río/campos.
 - Fase 3 (materiales) iniciada: pase procedural en 134 slots de arquitectura, plazas y suelo; banding corregido; GLB de prueba de 8,5 MB y 55.944 tris.
+- Terreno v1: arena macro 2K con UVs a gran escala en site apron, base, orilla y rambla; sin retícula visible.
 - Visor alineado: AgX, PMREM, luz cálida y cámara inicial desde el sur; recorrido 2–5 revisado y FOV responsivo en móvil; capturas en `docs/remaster/caral/viewer-*.jpg`.
 - Capturas en `docs/capturas/` y `docs/remaster/caral/`.
 
@@ -35,12 +36,12 @@
 ## Limitaciones conocidas
 
 - El modelo de Caral es un piloto visual; la geometría es esquemática.
-- El pase procedural de materiales ya cubre arquitectura, plazas y suelo, pero el terreno y la vegetación siguen con materiales del piloto.
+- El pase procedural ya cubre arquitectura, plazas, suelo y arena de terreno; las colinas, los campos y la vegetación siguen con materiales del piloto.
 - El GLB del piloto pesa ~20,7 MB; el GLB de prueba del pase procedural pesa 8,5 MB y todavía no se publica.
-- La arena del visor se aplana para evitar patrones de repetición.
+- El visor añade un plano de arena plano bajo el modelo; el terreno del GLB ya tiene variación macro.
 - Wari no está en la Lista del Patrimonio Mundial; su ficha se basa en Ministerio de Cultura y academia.
 - La narración aún no existe; solo hay ambiente procedural.
 
 ## Próximo paso recomendado
 
-Revisar el pase de materiales en el visor con cámara y luz de atardecer, aplicar materiales procedurales al terreno y continuar con muros high-poly → bake → PBR.
+Diseñar roca y vegetación procedurales para colinas/campos, o preparar el reemplazo público con el pase actual.

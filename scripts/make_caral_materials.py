@@ -193,6 +193,22 @@ def ground(size, base, seed, grain_amount=0.06):
     roughness = 0.90 + 0.04 * (fine - 0.5)
     return color, height, roughness
 
+
+def terrain_sand(size, base, seed):
+    macro = isotropic(size, seed, size / 8)
+    mid = isotropic(size, seed + 1, size / 32)
+    fine = grain(size, seed + 2, 0.8)
+    color = np.zeros((size, size, 3), dtype=np.float32)
+    for i in range(3):
+        color[:, :, i] = np.clip(
+            base[i] * (0.92 + 0.10 * (macro - 0.5) + 0.05 * (mid - 0.5) + 0.03 * (fine - 0.5)),
+            0, 255,
+        )
+    height = 0.5 + 0.015 * (mid - 0.5) + 0.02 * (fine - 0.5)
+    roughness = 0.92 + 0.03 * (fine - 0.5)
+    return color, height, roughness
+
+
 def main():
     white_color, white_height, white_rough = plaster(SIZE, (216, 206, 186), 11, crack_strength=0.22, crack_count=18)
     save_rgb(white_color, "plaster_white_diffuse.jpg", SIZE)
@@ -227,6 +243,9 @@ def main():
             ground_height, ground_rough = height, rough
     save_gray(ground_rough, "ground_roughness.jpg", SMALL)
     Image.fromarray(normal_from_height(ground_height, 0.8)).save(OUT / "ground_normal.png")
+
+    sand_color, _, _ = terrain_sand(SIZE, (205, 184, 148), 71)
+    save_rgb(sand_color, "terrain_sand_diffuse.jpg", SIZE)
 
     print("DONE")
 

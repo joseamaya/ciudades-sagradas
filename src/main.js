@@ -262,12 +262,13 @@ function setupKiosk() {
 async function warmOfflineCache() {
   if (!import.meta.env.PROD || !('caches' in window)) return;
   try {
-    const cache = await caches.open('ciudades-sagradas-v3');
+    const cache = await caches.open('ciudades-sagradas-v4');
     const resources = performance
       .getEntriesByType('resource')
       .map((entry) => entry.name)
       .filter((url) => url.startsWith(window.location.origin));
     const urls = new Set([window.location.origin + window.location.pathname, ...resources]);
+    if (currentCity?.fallbackModel) urls.add(asset(currentCity.fallbackModel));
     await Promise.all([...urls].map((url) => cache.add(url).catch(() => {})));
   } catch (error) {
     console.warn('No se pudo preparar la caché offline', error);

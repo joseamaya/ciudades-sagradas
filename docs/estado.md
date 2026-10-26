@@ -23,10 +23,12 @@
 - Visor alineado: AgX, PMREM, luz cálida y cámara inicial desde el sur; recorrido 2–5 revisado y FOV responsivo en móvil; capturas en `docs/remaster/caral/viewer-*.jpg`.
 - Remaster v1 listo en `release/caral-remaster-final`: GLB de 4,8 MB, 20 materiales y 31 imágenes; sin texturas de IA; metadatos y caché `v3` preparados; PR #4 mergeado y v1 desplegado en GitHub Pages el 2026-10-26.
 - Capturas en `docs/capturas/` y `docs/remaster/caral/`.
+- Remaster v2 web: LOD0 high-poly de 230.800 tris (22,6 MB, 125 draw calls) y LOD1 horneado de 56.332 tris (6,7 MB, 72 draw calls), con capas y fallback v1.
+- `city.json` de Caral con `lod.levels` 0/1, `fallbackModel` v1 y seis paradas de tour; caché actualizada a `v4`.
 
 ## Pendiente
 
-1. **Remaster de Caral**: completar arquitectura high-poly, bake y QA visual; materiales y terreno del remaster v1 ya están listos.
+1. **Remaster de Caral**: QA visual final, kiosco y hardware de museo; high-poly, bake y web v2 ya integrados.
 2. **Auditoría de texturas de Caral**: confirmar términos de las texturas de IA del piloto o sustituirlas por CC0/procedurales.
 3. **Chavín, Chan Chan y Wari**: modelos 3D, recorridos y fichas visuales.
 4. **Narración en español**: guion y grabación para el kiosco.
@@ -45,4 +47,4 @@
 
 ## Próximo paso recomendado
 
-Completar high-poly/bake, LOD/draw calls y prueba en hardware de museo para v2.
+Probar v2 en kiosco/hardware de museo y decidir si se mantiene la escala 0,08 o se pasa a 1.0 métrico.

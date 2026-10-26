@@ -12,7 +12,15 @@
   "elevation": "350–400 m s. n. m.",
   "status": "available",
   "summary": "Caral es el centro urbano más antiguo de América. Durante el Arcaico Tardío, sus habitantes construyeron pirámides, plazas circulares hundidas y conjuntos residenciales con piedra, arcilla y shicras. La ciudad organizó el trabajo colectivo y el intercambio entre el valle y la costa sin cerámica, sin metales y sin evidencia de guerra.",
-  "model": "cities/caral/model.glb",
+  "model": "cities/caral/model_lod0.glb",
+  "lod": {
+    "default": "auto",
+    "levels": {
+      "0": "cities/caral/model_lod0.glb",
+      "1": "cities/caral/model_lod1.glb"
+    }
+  },
+  "fallbackModel": "cities/caral/model.glb",
   "scale": 0.08,
   "verticalScale": 1.0,
   "camera": {
@@ -113,6 +121,23 @@
         ],
         "fov": 38
       }
+    },
+    {
+      "title": "El Altar Circular",
+      "text": "El Altar Circular conserva un anillo de 2,7 m de diámetro y paredes de 1,5 m. El fogón central y el recinto de cima forman uno de los espacios rituales más íntimos del conjunto.",
+      "camera": {
+        "position": [
+          -12.4,
+          2.56,
+          27.6
+        ],
+        "target": [
+          -8.8,
+          0.264,
+          24
+        ],
+        "fov": 30
+      }
     }
   ],
   "layers": [
@@ -160,6 +185,6 @@
     }
   ],
   "disclaimer": "Reconstrucción artística basada en evidencia arqueológica. Formas, colores y actividades son interpretaciones, no registros históricos.",
-  "credits": "Remaster v1 con materiales procedurales en arquitectura, plazas, suelo, roca, vegetación, adobe, totora y madera. Este GLB no incluye texturas de IA.",
-  "stage": "v1"
+  "credits": "Remaster v2 con LOD0 high-poly y LOD1 horneado con atlas 2K. Materiales procedurales en arquitectura, plazas, suelo, roca, vegetación, adobe, totora y madera. Sin texturas de IA.",
+  "stage": "preview"
 }

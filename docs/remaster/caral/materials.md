@@ -6,7 +6,7 @@ Sustituir las texturas de IA del piloto por un set PBR procedural propio para to
 
 ## Alcance aplicado
 
-- Todos los materiales visibles del preview son procedurales.
+- Todos los materiales visibles del remaster v1 son procedurales.
 - La última pasada reasignó 220 slots de objetos `GEO-Caral_`.
 - 14 materiales procedurales:
   - `MAT-Caral_Remaster_Plaster_White`
@@ -24,7 +24,7 @@ Sustituir las texturas de IA del piloto por un set PBR procedural propio para to
   - `MAT-Caral_Remaster_Thatch`
   - `MAT-Caral_Remaster_Wood`
 - `MAT-Caral_Stone_Megalith` usa `Stone_Field`; `MAT-Caral_ResourceRock` usa `Rock`.
-- El GLB del preview no incluye texturas de IA.
+- El GLB v1 no incluye texturas de IA.
 
 ## Corrección del banding
 
@@ -89,7 +89,7 @@ blender --background blender/caral/caral_remaster.blend \
 ## Resultado
 
 - Escena de trabajo: `blender/caral/caral_remaster.blend`, 1.128.020 bytes, SHA-256 `52d79bb5db315fcc22f703665d6dc39f49d9bc9be7b729f93800face301d1f5f`.
-- GLB del preview: 4.778.308 bytes, 554 mallas, 55.944 tris, 20 materiales, 31 imágenes WebP, SHA-256 `c6bbe07b27640951373b96db4f6a610b7618224e37fc52eda8893ac79670bb34`.
+- GLB v1: 4.778.308 bytes, 554 mallas, 55.944 tris, 20 materiales, 31 imágenes WebP, SHA-256 `c6bbe07b27640951373b96db4f6a610b7618224e37fc52eda8893ac79670bb34`.
 - El piloto publicado sigue intacto: 20.749.488 bytes, 554 mallas, 44.640 tris.
 - Capturas: `materials-hero.jpg`, `materials-close.jpg`, `materials-detail.jpg`, `terrain-sand-hero.jpg`, `viewer-terrain.jpg`.
 
@@ -98,7 +98,7 @@ blender --background blender/caral/caral_remaster.blend \
 - No hay bake de AO ni normales desde high-poly; los normales son procedurales.
 - La geometría sigue siendo low-poly; falta la pasada high-poly.
 - El encuadre hero y la luz de atardecer definitivos aún requieren una pasada de arte.
-- El GLB del preview no se publica; `main` conserva el piloto con texturas de IA.
+- El GLB v1 se publica al mergear; el piloto histórico queda como archivo.
 - Falta validación en hardware de museo y sesión larga.
 
 ## Siguiente paso

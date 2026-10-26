@@ -1,8 +1,8 @@
-# Auditoría de assets del preview
+# Auditoría de assets del remaster v1
 
 ## Resultado
 
-El GLB del preview no contiene texturas de IA. Todas las imágenes provienen de `blender/textures/generated/remaster/` y fueron generadas por los scripts procedurales del proyecto.
+El GLB del remaster v1 no contiene texturas de IA. Todas las imágenes provienen de `blender/textures/generated/remaster/` y fueron generadas por los scripts procedurales del proyecto.
 
 ## Materiales con textura procedural
 
@@ -32,5 +32,5 @@ El GLB del preview no contiene texturas de IA. Todas las imágenes provienen de 
 
 ## Alcance
 
-- **Preview:** limpio, sin texturas de IA.
-- **Piloto de `main`:** todavía contiene texturas de IA; su auditoría es independiente y sigue pendiente.
+- **Remaster v1:** limpio, sin texturas de IA.
+- **Piloto histórico:** todavía contiene texturas de IA; no se publica.

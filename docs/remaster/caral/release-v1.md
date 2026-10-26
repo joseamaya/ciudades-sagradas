@@ -1,6 +1,6 @@
-# Release candidate local
+# Remaster v1
 
-Rama: `release/caral-remaster-final`. **No publicado**: `main` y GitHub Pages siguen con el piloto.
+Rama: `release/caral-remaster-final`. **Pendiente de PR y merge**: `main` y GitHub Pages siguen con el piloto.
 
 ## Modelo
 
@@ -15,29 +15,33 @@ Rama: `release/caral-remaster-final`. **No publicado**: `main` y GitHub Pages si
 
 ## Metadatos actualizados
 
-- `public/cities/caral/README.md` con hash, tamaño, tris, materiales, imágenes, licencias y estado preview.
+- `public/cities/caral/README.md` con hash, tamaño, tris, materiales, imágenes, licencias y estado v1.
 - `docs/fuentes/registro-assets.csv` con la fila del nuevo GLB.
-- `city.json`: `stage: "preview"` y créditos de preview.
-- Badge de la ficha: **Remaster · preview**.
+- `city.json`: `stage: "v1"` y créditos del remaster.
+- Badge de la ficha: **Remaster · v1**.
 - `public/sw.js` y `src/main.js`: caché `ciudades-sagradas-v3`.
-- `README.md`, `CREDITS.md`, `docs/estado.md` y dossier de remaster actualizados.
+- `README.md`, `CREDITS.md`, `docs/estado.md`, `hero.jpg` y dossier de remaster actualizados.
 
 ## QA local
 
 - `npm run validate`: OK.
 - `npm run build`: OK.
-- `npm run serve`: el visor carga el GLB del RC.
+- `npm run serve`: el visor carga el GLB v1.
 - Escritorio 1600×900: carga correcta.
 - Offline: primera carga online, luego recarga sin red; el modelo y las 5 paradas siguen disponibles desde la caché `v3`.
-- Badge **Remaster · preview** visible.
+- Badge **Remaster · v1** visible.
 - Modelo sin texturas de IA; auditoría en `licencias-assets.md`.
 
-## Pendiente antes de mergear
+## Pendiente para publicar v1
 
-- Prueba en hardware de museo y durante una sesión larga.
+- Abrir PR, pasar CI, mergear y verificar GitHub Pages.
+- Probar kiosco offline y sesión larga en hardware de museo.
+
+## Pendiente para v2
+
 - Muros high-poly + bake de normales/AO.
-- Aprobación visual del reemplazo.
-- Prueba de kiosco offline en el hardware final.
+- LOD1 y reducción de draw calls.
+- Arte final del hero/atardecer.
 
 ## Probar en local
 
@@ -58,4 +62,4 @@ Para volver al piloto, cambiar de rama o restaurar `public/cities/caral/model.gl
 
 ## Captura
 
-- `release-preview.jpg`
+- `release-v1.jpg`

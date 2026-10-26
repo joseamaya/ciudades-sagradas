@@ -39,8 +39,8 @@ blender --background blender/caral/caral_remaster.blend \
   --image-format WEBP --image-quality 80
 ```
 
-GLB del preview: 4.778.308 bytes, 554 mallas, 55.944 tris, 20 materiales y 31 imágenes WebP.
-- **RC local:** `release/caral-remaster-final`; GLB SHA-256 `c6bbe07b27640951373b96db4f6a610b7618224e37fc52eda8893ac79670bb34`.
+GLB v1: 4.778.308 bytes, 554 mallas, 55.944 tris, 20 materiales y 31 imágenes WebP.
+- **v1:** `release/caral-remaster-final`; GLB SHA-256 `c6bbe07b27640951373b96db4f6a610b7618224e37fc52eda8893ac79670bb34`.
 
 ## Texturas
 

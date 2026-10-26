@@ -53,13 +53,13 @@ Las colinas ganan silueta, pero el cambio es insuficiente para reemplazar el pil
 - Roca procedural de celdas y craquelado en las 6 colinas; UV 0,25 para que las celdas se lean a escala de montaña.
 - Campos con `dry_grass` procedural y UV 0,05; hojas con `foliage`.
 - Adobe, totora, madera, megalitos y rocas pequeñas también pasaron a materiales procedurales.
-- El GLB del preview no incluye texturas de IA.
+- El GLB v1 no incluye texturas de IA.
 
 ### Capturas
 
 - `terrain-sand-hero.jpg`: render de Blender.
 - `terrain-final-iso.jpg`: vista isométrica con roca, campos y cubiertas.
-- `viewer-terrain.jpg`: visor web con el GLB del preview.
+- `viewer-terrain.jpg`: visor web con el GLB v1.
 
 ### Pendiente
 

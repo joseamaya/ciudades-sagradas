@@ -30,7 +30,7 @@ Cada asset debe registrarse en `docs/fuentes/registro-assets.csv` con:
 
 ## Texturas de Caral
 
-El GLB de Caral del preview del remaster usa solo materiales procedurales propios y no incluye texturas de IA. El piloto de `main` todavía conserva texturas de IA. Antes de un lanzamiento oficial:
+El GLB de Caral del remaster v1 usa solo materiales procedurales propios y no incluye texturas de IA. El piloto histórico conserva texturas de IA y no se publica. Antes de un lanzamiento oficial:
 
 1. Confirmar los términos de Cloudflare Workers AI y del modelo generador.
 2. Documentar la licencia resultante.

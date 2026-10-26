@@ -1,4 +1,4 @@
-# Modelo de Caral — preview del remaster
+# Modelo de Caral — remaster v1
 
 - **Archivo:** `model.glb`
 - **Tamaño:** 4.778.308 bytes
@@ -11,7 +11,7 @@
 - **Fuente editable:** `blender/caral/caral_remaster.blend` (SHA-256 `52d79bb5db315fcc22f703665d6dc39f49d9bc9be7b729f93800face301d1f5f`).
 - **Geometría:** proyecto Ciudades Sagradas / José Amaya.
 - **Texturas:** procedurales propias en arquitectura, plazas, suelo, arena, roca, vegetación, adobe, totora y madera. **Sin texturas de IA en este GLB.**
-- **Licencia:** geometría CC BY 4.0; texturas procedurales del proyecto. El piloto de `main` todavía conserva texturas de IA y sigue pendiente de auditoría.
+- **Licencia:** geometría CC BY 4.0; texturas procedurales del proyecto. El piloto histórico queda como material de archivo; el GLB de esta versión no contiene texturas de IA.
 - **Escala:** el visor aplica `0.08` para pasar de unidades Blender a metros de escena.
-- **Estado:** preview local del remaster. No es el reemplazo final ni está publicado en `main`.
+- **Estado:** remaster v1. Listo para publicar en `main` tras el PR y la verificación de Pages.
 - **Export reproducible:** `blender/caral/export.py`, WebP calidad 80.

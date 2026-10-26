@@ -1,6 +1,6 @@
 # Remaster v1
 
-Rama: `release/caral-remaster-final`. **Pendiente de PR y merge**: `main` y GitHub Pages siguen con el piloto.
+Rama: `release/caral-remaster-final`. **Publicado**: PR #4 mergeado y v1 desplegado en GitHub Pages el 2026-10-26.
 
 ## Modelo
 
@@ -32,10 +32,11 @@ Rama: `release/caral-remaster-final`. **Pendiente de PR y merge**: `main` y GitH
 - Badge **Remaster · v1** visible.
 - Modelo sin texturas de IA; auditoría en `licencias-assets.md`.
 
-## Pendiente para publicar v1
+## Publicación
 
-- PR #4 abierto y CI verde; mergear y verificar GitHub Pages.
-- Probar kiosco offline y sesión larga en hardware de museo.
+- PR #4 mergeado.
+- GitHub Pages verificado con el modelo v1 y caché `v3`.
+- Pendiente: prueba de kiosco offline y sesión larga en hardware de museo.
 
 ## Pendiente para v2
 

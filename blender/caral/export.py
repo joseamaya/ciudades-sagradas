@@ -18,6 +18,8 @@ def parse_args():
     argv = argv[argv.index("--") + 1 :] if "--" in argv else []
     parser = argparse.ArgumentParser()
     parser.add_argument("--out", default="public/cities/caral/model.glb")
+    parser.add_argument("--image-format", default="AUTO")
+    parser.add_argument("--image-quality", type=int, default=80)
     return parser.parse_args(argv)
 
 
@@ -60,7 +62,8 @@ def main():
         export_lights=False,
         export_animations=False,
         export_materials="EXPORT",
-        export_image_format="AUTO",
+        export_image_format=args.image_format,
+        export_image_quality=args.image_quality,
         export_normals=True,
         export_texcoords=True,
     )

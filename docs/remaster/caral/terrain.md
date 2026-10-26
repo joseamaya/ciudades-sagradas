@@ -16,7 +16,7 @@ Empezar a romper la silueta de blockout sin tocar todavía la arquitectura ni la
 
 - **Base del terreno y site apron:** el desplazamiento producía artefactos en el río y los campos. Se mantuvieron planos.
 - **Arquitectura:** sin cambios.
-- **Materiales:** siguen siendo los del piloto.
+- **Materiales:** el terreno y las colinas siguen con los materiales del piloto; el pase procedural posterior cubrió arquitectura, plazas y suelo.
 - **Vegetación y rocas:** sin cambios.
 
 ## Resultado de prueba

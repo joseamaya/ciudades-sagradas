@@ -18,12 +18,13 @@
 - Validación automática y workflows de CI / GitHub Pages.
 - Fase 0 del remaster de Caral: auditoría de escena, export reproducible y dossier de remaster en `docs/remaster/caral/`.
 - Fase 1 iniciada: primer pase de colinas en `blender/caral/caral_remaster.blend`; base y apron se mantienen planos por artefactos en río/campos.
-- Capturas en `docs/capturas/`.
+- Fase 3 (materiales) iniciada: pase procedural en 134 slots de arquitectura, plazas y suelo; banding corregido; GLB de prueba de 8,5 MB y 55.944 tris.
+- Capturas en `docs/capturas/` y `docs/remaster/caral/`.
 
 ## Pendiente
 
-1. **Remaster de Caral**: reemplazar el modelo piloto low-poly por una versión de alta fidelidad.
-2. **Auditoría de texturas de Caral**: confirmar términos de las texturas de IA o sustituirlas por CC0/procedurales.
+1. **Remaster de Caral**: completar terreno, arquitectura high-poly, bake y QA visual; el pase de materiales ya está iniciado.
+2. **Auditoría de texturas de Caral**: confirmar términos de las texturas de IA del piloto o sustituirlas por CC0/procedurales.
 3. **Chavín, Chan Chan y Wari**: modelos 3D, recorridos y fichas visuales.
 4. **Narración en español**: guion y grabación para el kiosco.
 5. **Renders cinematográficos**: Cycles con los assets high-poly.
@@ -33,11 +34,12 @@
 ## Limitaciones conocidas
 
 - El modelo de Caral es un piloto visual; la geometría es esquemática.
+- El pase procedural de materiales ya cubre arquitectura, plazas y suelo, pero el terreno y la vegetación siguen con materiales del piloto.
+- El GLB del piloto pesa ~20,7 MB; el GLB de prueba del pase procedural pesa 8,5 MB y todavía no se publica.
 - La arena del visor se aplana para evitar patrones de repetición.
-- El GLB de Caral pesa ~20,7 MB y se reproduce con `export.py`; el objetivo es bajarlo con KTX2/meshopt tras el remaster.
 - Wari no está en la Lista del Patrimonio Mundial; su ficha se basa en Ministerio de Cultura y academia.
 - La narración aún no existe; solo hay ambiente procedural.
 
 ## Próximo paso recomendado
 
-Remasterizar Caral con el pipeline high-poly → bake → PBR, y en paralelo cerrar la auditoría de licencias del GLB actual.
+Revisar el pase de materiales en el visor con cámara y luz de atardecer, aplicar materiales procedurales al terreno y continuar con muros high-poly → bake → PBR.

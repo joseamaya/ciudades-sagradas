@@ -1,5 +1,12 @@
 # Plan de remaster de Caral
 
+## Estado 2026-10-26
+
+- Pase de materiales procedurales aplicado a 134 slots de arquitectura, plazas y suelo.
+- Banding de textura corregido; UV de la Mayor verificadas.
+- GLB de prueba: 8,5 MB, 55.944 tris, 21 materiales, 36 imágenes WebP.
+- El piloto sigue publicado; el remaster no se ha mergeado.
+
 ## Fase 0 — Auditoría y referencia
 
 - [x] Auditar la escena y generar `auditoria.json`.
@@ -30,9 +37,9 @@
 
 ## Fase 3 — Materiales
 
-- [ ] Biblioteca PBR CC0/procedural.
-- [ ] Piedra irregular, piedra cortada, revoque, arcilla, madera, totora, arena, suelo y vegetación.
-- [ ] Densidad de texel uniforme.
+- [x] Revoque blanco/amarillo/rojo, piedra cortada, piedra irregular, arena y suelo con texturas procedurales.
+- [x] Densidad de texel uniforme verificada en la Pirámide Mayor (1/16 UV por metro).
+- [ ] Biblioteca PBR CC0/procedural completa (madera, totora, vegetación).
 - [ ] UVs y atlas por región.
 - [ ] Normales y AO horneados.
 - [ ] Eliminar texturas de IA del preview final.

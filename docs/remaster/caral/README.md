@@ -1,6 +1,8 @@
 # Remaster de Caral
 
-Rama: `feat/caral-remaster`. El piloto actual sigue vivo en `main` hasta que el remaster pase QA.
+Rama: `feat/caral-remaster-phase-2`. El piloto actual sigue vivo en `main` hasta que el remaster pase QA.
+
+Estado: materiales procedurales aplicados a arquitectura, plazas y suelo; falta QA visual, terreno y bake.
 
 ## Decisiones fijadas
 
@@ -26,6 +28,7 @@ Rama: `feat/caral-remaster`. El piloto actual sigue vivo en `main` hasta que el 
 - `plan.md`: fases, tareas y criterios de aceptación.
 - `referencias.md`: fuentes y material de referencia pendiente.
 - `terrain.md`: primer pase de terreno y capturas antes/después.
+- `materials.md`: pase procedural, corrección del banding, mapeo y GLB de prueba.
 
 ## Criterios de aceptación
 

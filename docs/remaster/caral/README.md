@@ -2,7 +2,7 @@
 
 Rama: `feat/caral-remaster-phase-2`. El piloto actual sigue vivo en `main` hasta que el remaster pase QA.
 
-Estado: materiales procedurales aplicados a arquitectura, plazas y suelo; visor alineado con AgX/PMREM y cámara sur; falta QA visual, terreno y bake.
+Estado: materiales procedurales aplicados a arquitectura, plazas y suelo; visor alineado con AgX/PMREM, cámara sur, recorrido revisado y QA móvil/kiosco; falta hardware real, terreno y bake.
 
 ## Decisiones fijadas
 

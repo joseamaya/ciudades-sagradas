@@ -12,6 +12,8 @@ Acercar el aspecto del visor web al render de Blender del remaster y corregir la
 - **Sombras:** `PCFSoftShadowMap`.
 - **Cámara inicial:** equivalente a `CAM-Caral_RTS_Hero` de Blender, desde el sur, con `fov` vertical 25,4°.
 - **Encuadre:** objetivo desplazado para que la Pirámide Mayor quede a la izquierda del panel de ficha.
+- **Recorrido:** stops 2–5 recentrados desde el sur; Plaza Circular y Anfiteatro reencuadrados.
+- **Móvil:** FOV responsivo en vertical (hasta 60°) para que la ciudad no quede recortada.
 - **Suelo del visor:** color de arena ajustado al material del remaster.
 
 ## Capturas
@@ -19,17 +21,22 @@ Acercar el aspecto del visor web al render de Blender del remaster y corregir la
 - `viewer-before.jpg`: cámara antigua y ACES.
 - `viewer-after.jpg`: cámara sur, AgX y PMREM, luz de amanecer.
 - `viewer-dusk.jpg`: misma cámara, preset atardecer.
+- `viewer-tour-03.jpg`: Plaza Circular.
+- `viewer-tour-05.jpg`: conjunto del Anfiteatro.
+- `viewer-mobile.jpg` y `viewer-mobile-panel.jpg`: 390×844.
+- `viewer-kiosk.jpg`: 1920×1080 con `?kiosk=1`.
 
 ## Resultado
 
 - El GLB del remaster carga en el visor.
 - La Pirámide Mayor queda visible fuera del panel.
+- Los cinco stops del recorrido se probaron en escritorio; el móvil y el kiosco cargan sin errores.
 - El suelo ya no presenta la retícula del pase anterior.
 - La luz cálida y el ambiente del cielo se acercan más al render de Blender.
 
 ## Limitaciones
 
-- Los stops 2–4 del recorrido todavía usan cámaras del piloto; falta revisarlos.
+- Los stops están revisados, pero falta validación en hardware real y una pasada de arte final.
 - El panel de ficha sigue ocupando el lado derecho en escritorio.
 - El terreno, las colinas y la vegetación conservan materiales del piloto.
 - El encuadre hero y la luz de atardecer definitivos aún requieren una pasada de arte.

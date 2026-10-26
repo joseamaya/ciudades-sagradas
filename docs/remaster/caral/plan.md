@@ -6,7 +6,7 @@
 - Banding de textura corregido; UV de la Mayor verificadas.
 - GLB de prueba: 8,5 MB, 55.944 tris, 21 materiales, 36 imágenes WebP.
 - El piloto sigue publicado; el remaster no se ha mergeado.
-- Visor: AgX, PMREM y cámara inicial equivalente al hero de Blender; stops del recorrido pendientes.
+- Visor: AgX, PMREM, cámara inicial equivalente al hero de Blender; stops 2–5 revisados; FOV móvil responsivo.
 
 ## Fase 0 — Auditoría y referencia
 

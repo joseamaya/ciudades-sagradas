@@ -160,6 +160,7 @@ export class CityViewer {
     this.meshes = [];
     this.flight = null;
     this.timeOfDay = 'morning';
+    this.baseFov = 45;
     this.flatSand = null;
     this.stars = null;
     this.sandTexture = makeSandTexture();
@@ -308,8 +309,8 @@ export class CityViewer {
   setCamera(data, immediate = true) {
     if (!data) return;
     if (data.fov) {
-      this.camera.fov = data.fov;
-      this.camera.updateProjectionMatrix();
+      this.baseFov = data.fov;
+      this._applyFov();
     }
     const position = new THREE.Vector3(...data.position);
     const target = new THREE.Vector3(...data.target);
@@ -325,8 +326,8 @@ export class CityViewer {
   flyTo(data, duration = 1600) {
     if (!data) return;
     if (data.fov) {
-      this.camera.fov = data.fov;
-      this.camera.updateProjectionMatrix();
+      this.baseFov = data.fov;
+      this._applyFov();
     }
     this.flight = {
       start: performance.now(),
@@ -414,11 +415,21 @@ export class CityViewer {
     }
   }
 
+  _applyFov() {
+    const aspect = this.container.clientWidth / Math.max(1, this.container.clientHeight);
+    const fov = aspect < 0.8 ? Math.min(60, this.baseFov * 2.2) : this.baseFov;
+    if (this.camera.fov !== fov) {
+      this.camera.fov = fov;
+      this.camera.updateProjectionMatrix();
+    }
+  }
+
   resize() {
     const width = this.container.clientWidth;
     const height = this.container.clientHeight;
     if (!width || !height) return;
     this.camera.aspect = width / height;
+    this._applyFov();
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(width, height, false);
   }

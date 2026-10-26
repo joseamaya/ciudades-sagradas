@@ -51,16 +51,16 @@
       "text": "La Pirámide Mayor es el edificio más grande del conjunto. Sus plataformas escalonadas, escaleras y plazas interiores organizaban ceremonias y reuniones.",
       "camera": {
         "position": [
-          10,
-          12,
-          -26
+          8,
+          6,
+          4
         ],
         "target": [
           0,
-          5,
+          2,
           -12.8
         ],
-        "fov": 45
+        "fov": 32
       }
     },
     {
@@ -68,16 +68,16 @@
       "text": "Las plazas circulares hundidas, asociadas a las pirámides, son uno de los rasgos más distintivos de Caral. En su centro se encendía el fuego ritual.",
       "camera": {
         "position": [
-          7,
-          7,
-          -9
+          6,
+          5,
+          2
         ],
         "target": [
           0,
-          3,
-          -6
+          0.5,
+          -5
         ],
-        "fov": 48
+        "fov": 36
       }
     },
     {
@@ -85,9 +85,9 @@
       "text": "El valle aportaba agua, algodón, alimentos y comunicación con la costa. Caral creció gracias a una red de intercambio que unía pesca, agricultura y trabajo colectivo.",
       "camera": {
         "position": [
-          36,
-          55,
-          -39
+          30,
+          45,
+          35
         ],
         "target": [
           0,
@@ -102,16 +102,16 @@
       "text": "El Anfiteatro y el Altar Circular forman uno de los sectores ceremoniales más conocidos. La arquitectura combina graderíos, muros enlucidos y espacios de culto.",
       "camera": {
         "position": [
-          14,
-          14,
-          19
+          8,
+          7,
+          14
         ],
         "target": [
           0,
-          2,
+          1.5,
           26.4
         ],
-        "fov": 45
+        "fov": 38
       }
     }
   ],

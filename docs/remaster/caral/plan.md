@@ -14,6 +14,7 @@
 - [ ] Verificar escala, origen y unidades.
 - [ ] Separar terreno, arquitectura, props y referencia.
 - [ ] Modelar terraza, valle, río, campos y accesos.
+- [x] Primer pase de colinas con subdivisión y desplazamiento procedural (ver `terrain.md`).
 - [ ] Ajustar la Pirámide Mayor a ~150 × 110 × 28 m.
 - [ ] Definir el encuadre hero: Mayor + Plaza Circular al atardecer.
 

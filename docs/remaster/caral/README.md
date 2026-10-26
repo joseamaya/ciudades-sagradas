@@ -25,6 +25,7 @@ Rama: `feat/caral-remaster`. El piloto actual sigue vivo en `main` hasta que el 
 - `auditoria.md`: resumen legible.
 - `plan.md`: fases, tareas y criterios de aceptación.
 - `referencias.md`: fuentes y material de referencia pendiente.
+- `terrain.md`: primer pase de terreno y capturas antes/después.
 
 ## Criterios de aceptación
 

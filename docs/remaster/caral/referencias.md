@@ -13,6 +13,15 @@ No se copian imágenes oficiales al repositorio. Se usan como referencia y se ci
 - Shady Solís et al., *Dating Caral* (Science, 2001): <https://www.science.org/doi/10.1126/science.1059519>
 - Guía de viaje del Ministerio de Cultura: <https://cdn.www.gob.pe/uploads/document/file/7030391/79687-guia_caral(2).pdf>
 
+## Referencias localizadas
+
+- **Plano general del sitio:** expediente UNESCO 1269, página 349, Fig. 1. Incluye curvas de nivel y sectores.
+- **Fotografías del sitio:** páginas 350–370 del mismo expediente.
+- **Mapa de contexto:** páginas 372–374.
+- **Ficha y textos:** páginas 337–348.
+
+El PDF no se guarda en el repositorio; se descarga desde el enlace de UNESCO y se usa como referencia.
+
 ## Qué falta recopilar
 
 - [ ] Planta general del núcleo urbano en alta resolución.

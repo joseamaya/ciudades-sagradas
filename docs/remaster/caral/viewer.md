@@ -30,7 +30,7 @@ Acercar el aspecto del visor web al render de Blender del remaster y corregir la
 
 - El GLB del remaster carga en el visor.
 - La Pirámide Mayor queda visible fuera del panel.
-- Los cinco stops del recorrido se probaron en escritorio; el móvil y el kiosco cargan sin errores.
+- Los seis stops del recorrido se probaron en escritorio y móvil emulado; el kiosco queda congelado.
 - El suelo ya no presenta la retícula del pase anterior.
 - La luz cálida y el ambiente del cielo se acercan más al render de Blender.
 
@@ -40,18 +40,15 @@ Acercar el aspecto del visor web al render de Blender del remaster y corregir la
 - El panel de ficha sigue ocupando el lado derecho en escritorio.
 - El terreno, las colinas y la vegetación conservan materiales del piloto.
 - El encuadre hero y la luz de atardecer definitivos aún requieren una pasada de arte.
-- El modelo publicado sigue siendo el piloto; este cambio está solo en la rama.
+- Caral v2 está publicado con LOD0/LOD1; la escala 0,08 se mantiene como diorama y la 1.0 queda fuera.
 
 ## Probar
 
 ```bash
-# Sustituir temporalmente el modelo por el GLB del remaster
-cp public/cities/caral/model.glb /tmp/opencode/model_pilot_backup.glb
-cp /tmp/opencode/caral_final.glb public/cities/caral/model.glb
-
-npm run dev
-# http://127.0.0.1:5173/#/ciudad/caral
-
-# Restaurar el piloto
-cp /tmp/opencode/model_pilot_backup.glb public/cities/caral/model.glb
+npm run build
+npm run serve
+# http://127.0.0.1:4173/?lod=0#/ciudad/caral
+# http://127.0.0.1:4173/?lod=1#/ciudad/caral
 ```
+
+La caché de servicio actual es `ciudades-sagradas-v5`.

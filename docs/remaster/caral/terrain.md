@@ -64,5 +64,5 @@ Las colinas ganan silueta, pero el cambio es insuficiente para reemplazar el pil
 ### Pendiente
 
 - Geometría de colinas con erosión real.
-- Muros high-poly + bake de normales/AO.
 - Validación en hardware real.
+- Los muros high-poly y el bake de normales/AO se completaron en v2; ver `v2-plan.md`.

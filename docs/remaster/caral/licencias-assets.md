@@ -1,10 +1,12 @@
-# Auditoría de assets del remaster v1
+# Auditoría de assets de Caral
 
 ## Resultado
 
-El GLB del remaster v1 no contiene texturas de IA. Todas las imágenes provienen de `blender/textures/generated/remaster/` y fueron generadas por los scripts procedurales del proyecto.
+Los GLB publicados de Caral —v1 y v2— no contienen texturas de IA. Todas las imágenes provienen de los scripts procedurales del proyecto o del bake del high-poly propio.
 
-## Materiales con textura procedural
+## Remaster v1
+
+Materiales procedurales con textura:
 
 - `MAT-Caral_Remaster_Plaster_White`
 - `MAT-Caral_Remaster_Plaster_Yellow`
@@ -20,17 +22,21 @@ El GLB del remaster v1 no contiene texturas de IA. Todas las imágenes provienen
 - `MAT-Caral_Remaster_Adobe`
 - `MAT-Caral_Remaster_Thatch`
 
-## Materiales sin imagen
+Materiales sin imagen: `MAT-Caral_Remaster_Wood`, `MAT-Caral_Water`, `MAT-Caral_Fire`, `MAT-Caral_Cotton`, `MAT-Caral_Skin`, `MAT-Caral_Shicra` y `MAT-Caral_Stone_Dark`.
 
-`MAT-Caral_Remaster_Wood`, `MAT-Caral_Water`, `MAT-Caral_Fire`, `MAT-Caral_Cotton`, `MAT-Caral_Skin`, `MAT-Caral_Shicra` y `MAT-Caral_Stone_Dark` usan color, emisión o parámetros procedurales sin textura de imagen.
+Verificación: GLB de 20 materiales y 31 imágenes WebP; nombres `MAT-Caral_Remaster_*` o materiales sin imagen.
 
-## Verificación
+## Remaster v2
 
-- GLB: 20 materiales, 31 imágenes WebP.
-- Nombres de materiales del GLB: solo `MAT-Caral_Remaster_*` y materiales sin imagen.
-- El exportador no incluye las colecciones de juego ni materiales no usados.
+- LOD0 conserva los materiales procedurales del remaster, más `MAT-Caral_Remaster_Mortar` sin imagen.
+- LOD1 usa nueve materiales horneados `MAT-Caral_LOD1_*` y un atlas 2K por región con base color y normal.
+- El atlas se generó desde el high-poly propio con Cycles; no incorpora imágenes externas ni de IA.
+- No se añadieron fotografías de UNESCO, ICOMOS o Ministerio de Cultura.
 
 ## Alcance
 
 - **Remaster v1:** limpio, sin texturas de IA.
-- **Piloto histórico:** todavía contiene texturas de IA; no se publica.
+- **Remaster v2:** limpio; atlas propio horneado desde geometría del proyecto.
+- **Piloto histórico:** conserva texturas de IA; no se publica y queda pendiente de archivo definitivo.
+
+Ver también `docs/licencias.md`, `CREDITS.md` y `docs/remaster/caral/release-v2.md`.

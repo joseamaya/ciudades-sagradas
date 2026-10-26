@@ -30,13 +30,13 @@ Cada asset debe registrarse en `docs/fuentes/registro-assets.csv` con:
 
 ## Texturas de Caral
 
-El GLB de Caral del remaster v1 usa solo materiales procedurales propios y no incluye texturas de IA. El piloto histórico conserva texturas de IA y no se publica. Antes de un lanzamiento oficial:
+Los GLB de Caral v1 y v2 usan solo materiales procedurales propios o atlas horneado desde geometría propia, y no incluyen texturas de IA. El piloto histórico conserva texturas de IA y no se publica. Si se quisiera reutilizar o distribuir ese piloto:
 
 1. Confirmar los términos de Cloudflare Workers AI y del modelo generador.
 2. Documentar la licencia resultante.
-3. Si no permite la distribución, sustituir por texturas CC0 o procedurales y reexportar el GLB.
+3. Si no permite la distribución, sustituir por texturas CC0 o procedurales y reexportar.
 
-Hasta entonces, el modelo de Caral se considera material de trabajo. El código y los textos sí pueden publicarse.
+Mientras tanto, el piloto histórico se considera material de archivo. El código, los textos y los GLB v1/v2 sí pueden publicarse.
 
 ## Imágenes oficiales
 

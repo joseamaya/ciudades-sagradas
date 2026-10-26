@@ -6,6 +6,7 @@
 - Banding de textura corregido; UV de la Mayor verificadas.
 - GLB de prueba: 8,5 MB, 55.944 tris, 21 materiales, 36 imágenes WebP.
 - El piloto sigue publicado; el remaster no se ha mergeado.
+- Visor: AgX, PMREM y cámara inicial equivalente al hero de Blender; stops del recorrido pendientes.
 
 ## Fase 0 — Auditoría y referencia
 
@@ -65,7 +66,7 @@
 
 - [ ] Actualizar cámaras, recorrido y capas.
 - [ ] Añadir LOD si hace falta.
-- [ ] Ajustar iluminación y encuadre hero.
+- [~] Iluminación y cámara inicial alineadas; encuadre hero y stops pendientes.
 - [ ] Actualizar `city.json`, README, manifiesto y créditos.
 - [ ] Subir la versión de caché de `public/sw.js`.
 - [ ] Probar escritorio, móvil, kiosco y offline.

@@ -19,6 +19,7 @@
 - Fase 0 del remaster de Caral: auditoría de escena, export reproducible y dossier de remaster en `docs/remaster/caral/`.
 - Fase 1 iniciada: primer pase de colinas en `blender/caral/caral_remaster.blend`; base y apron se mantienen planos por artefactos en río/campos.
 - Fase 3 (materiales) iniciada: pase procedural en 134 slots de arquitectura, plazas y suelo; banding corregido; GLB de prueba de 8,5 MB y 55.944 tris.
+- Visor alineado: AgX, PMREM, luz cálida y cámara inicial desde el sur; capturas en `docs/remaster/caral/viewer-*.jpg`.
 - Capturas en `docs/capturas/` y `docs/remaster/caral/`.
 
 ## Pendiente

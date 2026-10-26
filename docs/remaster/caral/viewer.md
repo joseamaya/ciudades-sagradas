@@ -1,0 +1,50 @@
+# Visor — alineación con el render
+
+## Objetivo
+
+Acercar el aspecto del visor web al render de Blender del remaster y corregir la cámara inicial, que estaba en el lado opuesto de la Pirámide Mayor.
+
+## Cambios aplicados
+
+- **Color management:** ACES Filmic → **AgX**, con exposición ajustada.
+- **Ambiente:** mapa de entorno PMREM generado desde el cielo; `scene.environmentIntensity` por hora del día.
+- **Sol:** dirección invertida para coincidir con la luz clave de Blender; luz cálida más intensa y relleno neutro.
+- **Sombras:** `PCFSoftShadowMap`.
+- **Cámara inicial:** equivalente a `CAM-Caral_RTS_Hero` de Blender, desde el sur, con `fov` vertical 25,4°.
+- **Encuadre:** objetivo desplazado para que la Pirámide Mayor quede a la izquierda del panel de ficha.
+- **Suelo del visor:** color de arena ajustado al material del remaster.
+
+## Capturas
+
+- `viewer-before.jpg`: cámara antigua y ACES.
+- `viewer-after.jpg`: cámara sur, AgX y PMREM, luz de amanecer.
+- `viewer-dusk.jpg`: misma cámara, preset atardecer.
+
+## Resultado
+
+- El GLB del remaster carga en el visor.
+- La Pirámide Mayor queda visible fuera del panel.
+- El suelo ya no presenta la retícula del pase anterior.
+- La luz cálida y el ambiente del cielo se acercan más al render de Blender.
+
+## Limitaciones
+
+- Los stops 2–4 del recorrido todavía usan cámaras del piloto; falta revisarlos.
+- El panel de ficha sigue ocupando el lado derecho en escritorio.
+- El terreno, las colinas y la vegetación conservan materiales del piloto.
+- El encuadre hero y la luz de atardecer definitivos aún requieren una pasada de arte.
+- El modelo publicado sigue siendo el piloto; este cambio está solo en la rama.
+
+## Probar
+
+```bash
+# Sustituir temporalmente el modelo por el GLB del remaster
+cp public/cities/caral/model.glb /tmp/opencode/model_pilot_backup.glb
+cp /tmp/opencode/caral_final.glb public/cities/caral/model.glb
+
+npm run dev
+# http://127.0.0.1:5173/#/ciudad/caral
+
+# Restaurar el piloto
+cp /tmp/opencode/model_pilot_backup.glb public/cities/caral/model.glb
+```

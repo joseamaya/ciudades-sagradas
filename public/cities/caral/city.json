@@ -17,16 +17,16 @@
   "verticalScale": 1.0,
   "camera": {
     "position": [
-      16,
-      11,
-      -20
+      16.8,
+      11.6,
+      26.4
     ],
     "target": [
-      0,
       4,
-      -10
+      0,
+      -7.96
     ],
-    "fov": 45
+    "fov": 25.4
   },
   "tour": [
     {
@@ -34,16 +34,16 @@
       "text": "Caral se levanta sobre una terraza desértica que domina el valle del Supe. La ciudad combina arquitectura monumental, plazas y barrios residenciales.",
       "camera": {
         "position": [
-          16,
-          11,
-          -20
+          16.8,
+          11.6,
+          26.4
         ],
         "target": [
-          0,
           4,
-          -10
+          0,
+          -7.96
         ],
-        "fov": 45
+        "fov": 25.4
       }
     },
     {

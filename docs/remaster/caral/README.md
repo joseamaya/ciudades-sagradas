@@ -2,7 +2,7 @@
 
 Rama: `feat/caral-remaster-phase-2`. El piloto actual sigue vivo en `main` hasta que el remaster pase QA.
 
-Estado: materiales procedurales aplicados a arquitectura, plazas y suelo; falta QA visual, terreno y bake.
+Estado: materiales procedurales aplicados a arquitectura, plazas y suelo; visor alineado con AgX/PMREM y cámara sur; falta QA visual, terreno y bake.
 
 ## Decisiones fijadas
 
@@ -29,6 +29,7 @@ Estado: materiales procedurales aplicados a arquitectura, plazas y suelo; falta 
 - `referencias.md`: fuentes y material de referencia pendiente.
 - `terrain.md`: primer pase de terreno y capturas antes/después.
 - `materials.md`: pase procedural, corrección del banding, mapeo y GLB de prueba.
+- `viewer.md`: alineación de cámara, AgX, PMREM y capturas antes/después.
 
 ## Criterios de aceptación
 

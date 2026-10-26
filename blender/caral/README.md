@@ -1,6 +1,7 @@
 # Caral — escena editable
 
-- **Archivo:** `caral_art.blend`
+- **Archivo piloto:** `caral_art.blend`
+- **Archivo de trabajo:** `caral_remaster.blend` (primer pase de terreno; SHA-256 `e5f8d21e88dd6de2114b6019856a245a7dff83541f2cba28d1690aa2a659b23b`, 7.942.884 bytes)
 - **Texturas:** `../textures/` (rutas relativas desde `blender/caral/`).
 - **Escala:** metros; el visor aplica `0.08`.
 - **Estado:** piloto en remasterización.

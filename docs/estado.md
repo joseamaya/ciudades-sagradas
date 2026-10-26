@@ -17,6 +17,7 @@
 - Registro de assets y política de licencias.
 - Validación automática y workflows de CI / GitHub Pages.
 - Fase 0 del remaster de Caral: auditoría de escena, export reproducible y dossier de remaster en `docs/remaster/caral/`.
+- Fase 1 iniciada: primer pase de colinas en `blender/caral/caral_remaster.blend`; base y apron se mantienen planos por artefactos en río/campos.
 - Capturas en `docs/capturas/`.
 
 ## Pendiente

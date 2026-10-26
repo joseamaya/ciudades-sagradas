@@ -6,7 +6,7 @@
 - Banding de textura corregido; UV de la Mayor verificadas.
 - GLB de prueba: 8,5 MB, 55.944 tris, 21 materiales, 36 imágenes WebP.
 - El piloto sigue publicado; el remaster no se ha mergeado.
-- Remaster v1 listo en `release/caral-remaster-final`: GLB 4,8 MB, sin texturas de IA, metadatos y caché `v3`; PR #4 abierto y CI verde; pendiente merge/deploy. High-poly/bake queda para v2.
+- Remaster v1 listo en `release/caral-remaster-final`: GLB 4,8 MB, sin texturas de IA, metadatos y caché `v3`; PR #4 mergeado y v1 desplegado. High-poly/bake queda para v2.
 - Visor: AgX, PMREM, cámara inicial equivalente al hero de Blender; stops 2–5 revisados; FOV móvil responsivo.
 - Terreno v2: arena macro, roca, campos y vegetación procedurales; GLB sin texturas de IA.
 

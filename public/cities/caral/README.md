@@ -13,5 +13,5 @@
 - **Texturas:** procedurales propias en arquitectura, plazas, suelo, arena, roca, vegetación, adobe, totora y madera. **Sin texturas de IA en este GLB.**
 - **Licencia:** geometría CC BY 4.0; texturas procedurales del proyecto. El piloto histórico queda como material de archivo; el GLB de esta versión no contiene texturas de IA.
 - **Escala:** el visor aplica `0.08` para pasar de unidades Blender a metros de escena.
-- **Estado:** remaster v1. Listo para publicar en `main` tras el PR y la verificación de Pages.
+- **Estado:** remaster v1 publicado en `main` y GitHub Pages (2026-10-26).
 - **Export reproducible:** `blender/caral/export.py`, WebP calidad 80.

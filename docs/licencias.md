@@ -30,7 +30,7 @@ Cada asset debe registrarse en `docs/fuentes/registro-assets.csv` con:
 
 ## Texturas de Caral
 
-El GLB de Caral incluye texturas generadas con IA en el proyecto Caral (Cloudflare Workers AI / FLUX). Antes de un lanzamiento oficial:
+El GLB de Caral del preview del remaster usa materiales procedurales en arquitectura, plazas, suelo y arena, pero conserva texturas del piloto generadas con IA en roca, vegetación, totora, madera y props. Antes de un lanzamiento oficial:
 
 1. Confirmar los términos de Cloudflare Workers AI y del modelo generador.
 2. Documentar la licencia resultante.

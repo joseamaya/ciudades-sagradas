@@ -40,6 +40,7 @@ blender --background blender/caral/caral_remaster.blend \
 ```
 
 GLB de prueba del pase procedural: 8.928.092 bytes, 554 mallas, 55.944 tris, 22 materiales y 37 imágenes WebP.
+- **RC local:** `release/caral-remaster-preview`; GLB SHA-256 `7c5e2538a93448afa59fbb4a106f9f523fc18a578f243411d136f67e5042fcb6`.
 
 ## Texturas
 

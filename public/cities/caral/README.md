@@ -1,14 +1,17 @@
-# Modelo de Caral
+# Modelo de Caral — preview del remaster
 
 - **Archivo:** `model.glb`
-- **Tamaño:** 20.749.488 bytes
+- **Tamaño:** 8.928.092 bytes
 - **Mallas:** 554
-- **Triángulos:** 44.640
-- **SHA-256:** `992ef9888308d59eedd877c97a2df9d2ffafe74a3db381934133b3d9a995df83`
-- **Origen:** escena de arte del proyecto Caral, Blender 5.2.
-- **Fuente editable:** `blender/caral/caral_art.blend` (SHA-256 `5a7377f727a2e07931d90aabed7a83c9ef59705176e7f244ae6db4f4d93ab377`).
+- **Triángulos:** 55.944
+- **Materiales:** 22
+- **Imágenes:** 37, todas WebP
+- **SHA-256:** `7c5e2538a93448afa59fbb4a106f9f523fc18a578f243411d136f67e5042fcb6`
+- **Origen:** escena de trabajo del remaster, Blender 5.2.
+- **Fuente editable:** `blender/caral/caral_remaster.blend` (SHA-256 `631af87f5f00630b3196092361c3d0f766404dcb805078ec2116f60987426863`).
 - **Geometría:** proyecto Ciudades Sagradas / José Amaya.
-- **Texturas:** materiales PBR generados con IA para el proyecto Caral (Cloudflare Workers AI / FLUX) y texturas procedurales propias.
-- **Licencia:** geometría CC BY 4.0. Las texturas de IA requieren confirmar los términos de Cloudflare Workers AI y del modelo generador antes de un lanzamiento oficial. Hasta entonces, el modelo es material de trabajo.
+- **Texturas:** procedurales propias en arquitectura, plazas, suelo y arena; texturas del piloto en roca, vegetación, totora, madera, agua y props pequeños.
+- **Licencia:** geometría CC BY 4.0. Las texturas procedurales son del proyecto. Las texturas del piloto generadas con IA siguen pendientes de auditoría antes de un lanzamiento oficial.
 - **Escala:** el visor aplica `0.08` para pasar de unidades Blender a metros de escena.
-- **Estado:** piloto. El GLB se reproduce desde `blender/caral/export.py`.
+- **Estado:** preview local del remaster. No es el reemplazo final ni está publicado en `main`.
+- **Export reproducible:** `blender/caral/export.py`, WebP calidad 80.

@@ -1,8 +1,8 @@
 # Remaster de Caral
 
-Rama: `feat/caral-remaster-phase-2`. El piloto actual sigue vivo en `main` hasta que el remaster pase QA.
+Rama técnica: `feat/caral-remaster-phase-2`. RC local: `release/caral-remaster-preview`. El piloto actual sigue vivo en `main` hasta que el remaster pase QA.
 
-Estado: materiales procedurales aplicados a arquitectura, plazas y suelo; visor alineado con AgX/PMREM, cámara sur, recorrido revisado y QA móvil/kiosco; terreno v1 con arena macro; falta roca/vegetación, hardware real y bake.
+Estado: RC local con materiales procedurales, visor alineado, recorrido revisado, QA móvil/kiosco y terreno v1; falta roca/vegetación, hardware real, bake y aprobación de reemplazo.
 
 ## Decisiones fijadas
 
@@ -30,6 +30,7 @@ Estado: materiales procedurales aplicados a arquitectura, plazas y suelo; visor 
 - `terrain.md`: primer pase de terreno y capturas antes/después.
 - `materials.md`: pase procedural, corrección del banding, mapeo y GLB de prueba.
 - `viewer.md`: alineación de cámara, AgX, PMREM y capturas antes/después.
+- `release-preview.md`: RC local, metadatos, caché v3 y QA offline.
 
 ## Criterios de aceptación
 

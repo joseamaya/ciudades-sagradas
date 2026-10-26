@@ -2,7 +2,7 @@
 
 Atlas interactivo de los grandes centros ceremoniales y ciudades del Perú antiguo. Reconstrucciones 3D en tiempo real, fichas educativas y fuentes públicas.
 
-**Estado:** Caral es un piloto en remasterización. Chavín de Huántar, Chan Chan y Wari están en investigación.
+**Estado:** Caral tiene un preview local del remaster; el piloto sigue publicado en `main`. Chavín de Huántar, Chan Chan y Wari están en investigación.
 
 ## Qué es
 
@@ -66,7 +66,7 @@ Más detalles en [`docs/kiosco.md`](./docs/kiosco.md).
 
 | Ciudad | Cultura | Período | Estado |
 |---|---|---|---|
-| Caral | Civilización Caral | 3000–1800 a. C. | Piloto |
+| Caral | Civilización Caral | 3000–1800 a. C. | Preview remaster |
 | Chavín de Huántar | Chavín | 1500–550 a. C. | En investigación |
 | Chan Chan | Chimú | Siglos IX–XV d. C. | En investigación |
 | Wari | Wari | 600–1100 d. C. | En investigación |
@@ -109,7 +109,7 @@ El visor no usa fotografías históricas como textura. Las imágenes oficiales s
 - Avisos de dependencias: [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md).
 - Política de assets: [`docs/licencias.md`](./docs/licencias.md).
 
-> **Nota de licencia:** el modelo de Caral incluye texturas generadas con IA para el proyecto Caral. El repositorio se publica como **piloto**; antes del lanzamiento oficial hay que confirmar los términos de esas texturas o sustituirlas por CC0/procedurales. Ver `CREDITS.md` y `docs/licencias.md`.
+> **Nota de licencia:** el preview del remaster sustituye parte de las texturas de IA por materiales procedurales, pero conserva texturas del piloto en roca, vegetación y totora. Antes de un lanzamiento oficial hay que completar la auditoría o sustituirlas por CC0/procedurales. Ver `CREDITS.md` y `docs/licencias.md`.
 
 ## Despliegue
 

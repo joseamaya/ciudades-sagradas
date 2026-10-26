@@ -70,7 +70,7 @@ export function renderCity(root, city) {
           <span class="eyebrow">${city.culture}</span>
           <h1>${city.name}</h1>
           <p>${city.subtitle}</p>
-          ${city.stage === 'piloto' ? '<span class="stage">Piloto · en remasterización</span>' : ''}
+          ${city.stage === 'piloto' ? '<span class="stage">Piloto · en remasterización</span>' : city.stage === 'preview' ? '<span class="stage">Remaster · preview</span>' : ''}
         </div>
         <div class="city-tools">
           <button id="sound" class="tool" type="button" aria-pressed="false">Sonido <span class="tool__dot"></span></button>

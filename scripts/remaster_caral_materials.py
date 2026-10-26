@@ -39,6 +39,23 @@ def image_node(nodes, path, non_color=False):
     return node
 
 
+def make_flat_material(name, color, roughness=0.7):
+    material = bpy.data.materials.get(name) or bpy.data.materials.new(name)
+    material.use_nodes = True
+    material.metallic = 0.0
+    nodes = material.node_tree.nodes
+    links = material.node_tree.links
+    nodes.clear()
+    output = nodes.new("ShaderNodeOutputMaterial")
+    output.location = (320, 0)
+    principled = nodes.new("ShaderNodeBsdfPrincipled")
+    principled.location = (0, 0)
+    principled.inputs["Base Color"].default_value = color
+    principled.inputs["Roughness"].default_value = roughness
+    links.new(principled.outputs["BSDF"], output.inputs["Surface"])
+    return material
+
+
 def make_material(name, diffuse, normal, roughness, normal_strength=1.0):
     material = bpy.data.materials.get(name) or bpy.data.materials.new(name)
     material.use_nodes = True
@@ -131,6 +148,42 @@ def main():
         f"{root}/ground_roughness.jpg",
         0.9,
     )
+    rock = make_material(
+        "MAT-Caral_Remaster_Rock",
+        f"{root}/rock_face_diffuse.jpg",
+        f"{root}/rock_face_normal.png",
+        f"{root}/rock_face_roughness.jpg",
+        1.4,
+    )
+    grass = make_material(
+        "MAT-Caral_Remaster_Grass",
+        f"{root}/dry_grass_diffuse.jpg",
+        f"{root}/dry_grass_normal.png",
+        f"{root}/dry_grass_roughness.jpg",
+        1.2,
+    )
+    foliage = make_material(
+        "MAT-Caral_Remaster_Leaves",
+        f"{root}/foliage_diffuse.jpg",
+        f"{root}/foliage_normal.png",
+        f"{root}/foliage_roughness.jpg",
+        1.2,
+    )
+    adobe = make_material(
+        "MAT-Caral_Remaster_Adobe",
+        f"{root}/adobe_diffuse.jpg",
+        f"{root}/adobe_normal.png",
+        f"{root}/adobe_roughness.jpg",
+        1.2,
+    )
+    thatch = make_material(
+        "MAT-Caral_Remaster_Thatch",
+        f"{root}/thatch_diffuse.jpg",
+        f"{root}/thatch_normal.png",
+        f"{root}/thatch_roughness.jpg",
+        1.5,
+    )
+    wood = make_flat_material("MAT-Caral_Remaster_Wood", (0.18, 0.09, 0.04, 1.0), 0.7)
     mapping = {
         "MAT-Caral_Plaster_White": white,
         "MAT-Caral_Plaster_Yellow": yellow,
@@ -142,6 +195,14 @@ def main():
         "MAT-Caral_Dirt": earth,
         "MAT-Caral_Terrace": earth,
         "MAT-Caral_Path": sand,
+        "MAT-Caral_Rock": rock,
+        "MAT-Caral_Grass": grass,
+        "MAT-Caral_Leaves": foliage,
+        "MAT-Caral_Quincha": adobe,
+        "MAT-Caral_Thatch": thatch,
+        "MAT-Caral_Stone_Megalith": field,
+        "MAT-Caral_Wood": wood,
+        "MAT-Caral_ResourceRock": rock,
     }
 
     changed = 0
@@ -176,6 +237,20 @@ def main():
                         for datum in uv.data:
                             datum.uv *= factor
                         obj["caral_terrain_uv_scaled"] = True
+            if obj.name.startswith("GEO-Caral_Hill_"):
+                if not obj.get("caral_rock_uv_scaled"):
+                    uv = obj.data.uv_layers.active
+                    if uv:
+                        for datum in uv.data:
+                            datum.uv *= 0.25
+                        obj["caral_rock_uv_scaled"] = True
+            if obj.name.startswith("GEO-Caral_Field_"):
+                if not obj.get("caral_field_uv_scaled"):
+                    uv = obj.data.uv_layers.active
+                    if uv:
+                        for datum in uv.data:
+                            datum.uv *= 0.05
+                        obj["caral_field_uv_scaled"] = True
 
     bpy.context.preferences.filepaths.save_version = 0
     out = os.path.abspath(args.out)

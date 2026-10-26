@@ -1,21 +1,21 @@
 # Release candidate local
 
-Rama: `release/caral-remaster-preview`. **No publicado**: `main` y GitHub Pages siguen con el piloto.
+Rama: `release/caral-remaster-final`. **No publicado**: `main` y GitHub Pages siguen con el piloto.
 
 ## Modelo
 
 - Archivo: `public/cities/caral/model.glb`
-- Tamaño: 8.928.092 bytes
+- Tamaño: 4.778.308 bytes
 - Mallas: 554
 - Triángulos: 55.944
-- Materiales: 22
-- Imágenes: 37 WebP
-- SHA-256: `7c5e2538a93448afa59fbb4a106f9f523fc18a578f243411d136f67e5042fcb6`
-- Fuente: `blender/caral/caral_remaster.blend` (SHA-256 `631af87f5f00630b3196092361c3d0f766404dcb805078ec2116f60987426863`)
+- Materiales: 20
+- Imágenes: 31 WebP
+- SHA-256: `c6bbe07b27640951373b96db4f6a610b7618224e37fc52eda8893ac79670bb34`
+- Fuente: `blender/caral/caral_remaster.blend` (SHA-256 `52d79bb5db315fcc22f703665d6dc39f49d9bc9be7b729f93800face301d1f5f`)
 
 ## Metadatos actualizados
 
-- `public/cities/caral/README.md` con hash, tamaño, tris, materiales, imágenes y estado preview.
+- `public/cities/caral/README.md` con hash, tamaño, tris, materiales, imágenes, licencias y estado preview.
 - `docs/fuentes/registro-assets.csv` con la fila del nuevo GLB.
 - `city.json`: `stage: "preview"` y créditos de preview.
 - Badge de la ficha: **Remaster · preview**.
@@ -30,12 +30,11 @@ Rama: `release/caral-remaster-preview`. **No publicado**: `main` y GitHub Pages 
 - Escritorio 1600×900: carga correcta.
 - Offline: primera carga online, luego recarga sin red; el modelo y las 5 paradas siguen disponibles desde la caché `v3`.
 - Badge **Remaster · preview** visible.
+- Modelo sin texturas de IA; auditoría en `licencias-assets.md`.
 
 ## Pendiente antes de mergear
 
 - Prueba en hardware de museo y durante una sesión larga.
-- Roca/vegetación procedurales o aceptar las texturas del piloto.
-- Auditoría de licencias de las texturas restantes.
 - Muros high-poly + bake de normales/AO.
 - Aprobación visual del reemplazo.
 - Prueba de kiosco offline en el hardware final.

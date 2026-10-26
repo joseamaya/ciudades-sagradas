@@ -209,6 +209,116 @@ def terrain_sand(size, base, seed):
     return color, height, roughness
 
 
+
+def rock_face(size, base, seed):
+    rng = np.random.default_rng(seed)
+    small = 1024
+    count = 110
+    seeds = rng.uniform(0, small, (count, 2))
+    tree = cKDTree(np.vstack([
+        seeds,
+        seeds + [small, 0], seeds + [0, small], seeds + [small, small],
+        seeds - [small, 0], seeds - [0, small],
+    ]))
+    yy, xx = np.mgrid[0:small, 0:small]
+    points = np.column_stack([xx.ravel(), yy.ravel()])
+    distances, indices = tree.query(points, k=2, workers=-1)
+    d1 = distances[:, 0].reshape(small, small)
+    d2 = distances[:, 1].reshape(small, small)
+    cell = (indices[:, 0] % count).reshape(small, small)
+    edge = np.clip((d2 - d1) / 6.0, 0, 1)
+
+    tones = rng.integers(100, 146, (count, 1))
+    palette = np.column_stack([tones + 8, tones + 2, tones - 10]).clip(0, 255)
+    color = palette[cell].astype(np.float32)
+    color *= (0.9 + 0.2 * grain(small, seed + 3, 1.0))[:, :, None]
+    color *= (0.85 + 0.15 * edge)[:, :, None]
+    color *= np.array(base, dtype=np.float32) / np.array([120, 112, 102], dtype=np.float32)
+    color = np.clip(color, 0, 255)
+
+    height = 0.78 - 0.32 * (1 - edge) + 0.05 * (grain(small, seed + 5, 0.6) - 0.5)
+    roughness = 0.82 + 0.06 * (1 - edge) + 0.04 * (grain(small, seed + 6, 1.0) - 0.5)
+
+    height = np.asarray(Image.fromarray((height * 255).astype(np.uint8)).resize((size, size), Image.Resampling.BICUBIC), dtype=np.float32) / 255.0
+    color = np.asarray(Image.fromarray(color.astype(np.uint8)).resize((size, size), Image.Resampling.LANCZOS), dtype=np.float32)
+    roughness = np.asarray(Image.fromarray((roughness * 255).astype(np.uint8)).resize((size, size), Image.Resampling.BICUBIC), dtype=np.float32) / 255.0
+    return color, height, roughness
+
+
+def dry_grass(size, base, seed):
+    rng = np.random.default_rng(seed)
+    image = Image.new("RGB", (size, size), tuple(int(v) for v in base))
+    height = Image.new("L", (size, size), 128)
+    draw = ImageDraw.Draw(image)
+    draw_h = ImageDraw.Draw(height)
+    for _ in range(size * 2):
+        x = int(rng.integers(0, size)); y = int(rng.integers(0, size))
+        length = int(rng.integers(4, 22)); angle = rng.uniform(-0.5, 0.5)
+        x2 = int(x + math.cos(angle) * length); y2 = int(y + math.sin(angle) * length)
+        tone = tuple(int(np.clip(c + rng.normal(0, 20), 0, 255)) for c in base)
+        h = int(np.clip(128 + rng.normal(0, 28), 0, 255))
+        for ox, oy in ((-size, 0), (0, 0), (size, 0), (0, -size), (0, size)):
+            draw.line([(x + ox, y + oy), (x2 + ox, y2 + oy)], fill=tone, width=1)
+            draw_h.line([(x + ox, y + oy), (x2 + ox, y2 + oy)], fill=h, width=1)
+    image = image.filter(ImageFilter.GaussianBlur(0.35))
+    height = height.filter(ImageFilter.GaussianBlur(0.35))
+    color = np.asarray(image, dtype=np.float32)
+    low = isotropic(size, seed + 3, size / 16)
+    color *= (0.9 + 0.2 * (low - 0.5))[:, :, None]
+    color = np.clip(color, 0, 255)
+    h = np.asarray(height, dtype=np.float32) / 255.0
+    h = 0.5 + 0.12 * (h - 0.5) + 0.03 * (low - 0.5) + 0.02 * (grain(size, seed + 1, 0.7) - 0.5)
+    roughness = 0.90 + 0.04 * (grain(size, seed + 2, 1.0) - 0.5)
+    return color, h, roughness
+
+
+def foliage(size, base, seed):
+    low = isotropic(size, seed, size / 10)
+    mid = isotropic(size, seed + 1, size / 40)
+    fine = grain(size, seed + 2, 0.7)
+    color = np.zeros((size, size, 3), dtype=np.float32)
+    for i in range(3):
+        color[:, :, i] = np.clip(base[i] * (0.85 + 0.20 * (low - 0.5) + 0.10 * (mid - 0.5) + 0.05 * (fine - 0.5)), 0, 255)
+    height = 0.5 + 0.03 * (low - 0.5) + 0.02 * (fine - 0.5)
+    roughness = 0.85 + 0.04 * (fine - 0.5)
+    return color, height, roughness
+
+
+def adobe(size, base, seed):
+    low = isotropic(size, seed, size / 20)
+    mid = isotropic(size, seed + 1, size / 60)
+    fine = grain(size, seed + 2, 0.8)
+    color = np.zeros((size, size, 3), dtype=np.float32)
+    for i in range(3):
+        color[:, :, i] = np.clip(base[i] * (0.92 + 0.08 * (low - 0.5) + 0.05 * (mid - 0.5) + 0.04 * (fine - 0.5)), 0, 255)
+    height = 0.5 + 0.03 * (mid - 0.5) + 0.02 * (fine - 0.5)
+    roughness = 0.88 + 0.04 * (fine - 0.5)
+    return color, height, roughness
+
+
+def thatch(size, base, seed):
+    rng = np.random.default_rng(seed)
+    image = Image.new("RGB", (size, size), tuple(int(v) for v in base))
+    height = Image.new("L", (size, size), 128)
+    draw = ImageDraw.Draw(image)
+    draw_h = ImageDraw.Draw(height)
+    for _ in range(size):
+        x = int(rng.integers(0, size)); y = int(rng.integers(0, size))
+        length = int(rng.integers(12, 48)); angle = rng.uniform(-0.15, 0.15)
+        x2 = int(x + math.cos(angle) * length); y2 = int(y + math.sin(angle) * length)
+        tone = tuple(int(np.clip(c + rng.normal(0, 14), 0, 255)) for c in base)
+        h = int(np.clip(128 + rng.normal(0, 24), 0, 255))
+        for ox, oy in ((-size, 0), (0, 0), (size, 0), (0, -size), (0, size)):
+            draw.line([(x + ox, y + oy), (x2 + ox, y2 + oy)], fill=tone, width=2)
+            draw_h.line([(x + ox, y + oy), (x2 + ox, y2 + oy)], fill=h, width=2)
+    image = image.filter(ImageFilter.GaussianBlur(0.5))
+    height = height.filter(ImageFilter.GaussianBlur(0.5))
+    color = np.asarray(image, dtype=np.float32)
+    h = np.asarray(height, dtype=np.float32) / 255.0
+    h = 0.5 + 0.10 * (h - 0.5) + 0.02 * (grain(size, seed + 1, 0.8) - 0.5)
+    roughness = 0.90 + 0.03 * (grain(size, seed + 2, 1.0) - 0.5)
+    return color, h, roughness
+
 def main():
     white_color, white_height, white_rough = plaster(SIZE, (216, 206, 186), 11, crack_strength=0.22, crack_count=18)
     save_rgb(white_color, "plaster_white_diffuse.jpg", SIZE)
@@ -246,6 +356,31 @@ def main():
 
     sand_color, _, _ = terrain_sand(SIZE, (205, 184, 148), 71)
     save_rgb(sand_color, "terrain_sand_diffuse.jpg", SIZE)
+
+    rock_color, rock_height, rock_rough = rock_face(SIZE, (124, 114, 101), 81)
+    save_rgb(rock_color, "rock_face_diffuse.jpg", SIZE)
+    save_gray(rock_rough, "rock_face_roughness.jpg", SIZE)
+    Image.fromarray(normal_from_height(rock_height, 3.0)).save(OUT / "rock_face_normal.png")
+
+    grass_color, grass_height, grass_rough = dry_grass(SMALL, (168, 140, 86), 91)
+    save_rgb(grass_color, "dry_grass_diffuse.jpg", SMALL)
+    save_gray(grass_rough, "dry_grass_roughness.jpg", SMALL)
+    Image.fromarray(normal_from_height(grass_height, 1.5)).save(OUT / "dry_grass_normal.png")
+
+    leaf_color, leaf_height, leaf_rough = foliage(SMALL, (70, 95, 50), 101)
+    save_rgb(leaf_color, "foliage_diffuse.jpg", SMALL)
+    save_gray(leaf_rough, "foliage_roughness.jpg", SMALL)
+    Image.fromarray(normal_from_height(leaf_height, 1.2)).save(OUT / "foliage_normal.png")
+
+    adobe_color, adobe_height, adobe_rough = adobe(SMALL, (150, 125, 95), 111)
+    save_rgb(adobe_color, "adobe_diffuse.jpg", SMALL)
+    save_gray(adobe_rough, "adobe_roughness.jpg", SMALL)
+    Image.fromarray(normal_from_height(adobe_height, 1.2)).save(OUT / "adobe_normal.png")
+
+    thatch_color, thatch_height, thatch_rough = thatch(SMALL, (160, 130, 80), 121)
+    save_rgb(thatch_color, "thatch_diffuse.jpg", SMALL)
+    save_gray(thatch_rough, "thatch_roughness.jpg", SMALL)
+    Image.fromarray(normal_from_height(thatch_height, 1.5)).save(OUT / "thatch_normal.png")
 
     print("DONE")
 

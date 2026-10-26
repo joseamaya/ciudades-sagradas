@@ -109,7 +109,7 @@ El visor no usa fotografías históricas como textura. Las imágenes oficiales s
 - Avisos de dependencias: [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md).
 - Política de assets: [`docs/licencias.md`](./docs/licencias.md).
 
-> **Nota de licencia:** el preview del remaster sustituye parte de las texturas de IA por materiales procedurales, pero conserva texturas del piloto en roca, vegetación y totora. Antes de un lanzamiento oficial hay que completar la auditoría o sustituirlas por CC0/procedurales. Ver `CREDITS.md` y `docs/licencias.md`.
+> **Nota de licencia:** el preview del remaster usa materiales procedurales y su GLB no incluye texturas de IA. El piloto publicado en `main` todavía conserva texturas de IA y sigue pendiente de auditoría. Ver `CREDITS.md` y `docs/licencias.md`.
 
 ## Despliegue
 

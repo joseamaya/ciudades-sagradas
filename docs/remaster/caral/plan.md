@@ -6,9 +6,9 @@
 - Banding de textura corregido; UV de la Mayor verificadas.
 - GLB de prueba: 8,5 MB, 55.944 tris, 21 materiales, 36 imágenes WebP.
 - El piloto sigue publicado; el remaster no se ha mergeado.
-- RC local en `release/caral-remaster-preview`: GLB 8,9 MB, metadatos y caché `v3`; pendiente aprobación.
+- RC local en `release/caral-remaster-final`: GLB 4,8 MB, sin texturas de IA, metadatos y caché `v3`; pendiente high-poly/bake y aprobación.
 - Visor: AgX, PMREM, cámara inicial equivalente al hero de Blender; stops 2–5 revisados; FOV móvil responsivo.
-- Terreno v1: arena macro 2K y UVs a gran escala; roca/vegetación pendientes.
+- Terreno v2: arena macro, roca, campos y vegetación procedurales; GLB sin texturas de IA.
 
 ## Fase 0 — Auditoría y referencia
 
@@ -42,10 +42,10 @@
 
 - [x] Revoque blanco/amarillo/rojo, piedra cortada, piedra irregular, arena y suelo con texturas procedurales.
 - [x] Densidad de texel uniforme verificada en la Pirámide Mayor (1/16 UV por metro).
-- [ ] Biblioteca PBR CC0/procedural completa (madera, totora, vegetación).
+- [x] Biblioteca PBR procedural completa (madera, totora, vegetación).
 - [ ] UVs y atlas por región.
 - [ ] Normales y AO horneados.
-- [ ] Eliminar texturas de IA del preview final.
+- [x] Eliminar texturas de IA del preview final.
 
 ## Fase 4 — Ambiente
 

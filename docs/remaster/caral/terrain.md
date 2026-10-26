@@ -16,8 +16,8 @@ Empezar a romper la silueta de blockout sin tocar todavía la arquitectura ni la
 
 - **Base del terreno y site apron:** el desplazamiento producía artefactos en el río y los campos. Se mantuvieron planos.
 - **Arquitectura:** sin cambios.
-- **Materiales:** el terreno y las colinas siguen con los materiales del piloto; el pase procedural posterior cubrió arquitectura, plazas y suelo.
-- **Vegetación y rocas:** sin cambios.
+- **Materiales:** en la fase 1 seguían los materiales del piloto; la pasada v2 posterior cubrió arquitectura, plazas, suelo, roca y vegetación.
+- **Vegetación y rocas:** sin cambios en la fase 1; la pasada v2 las sustituyó por materiales procedurales.
 
 ## Resultado de prueba
 
@@ -47,22 +47,22 @@ Las colinas ganan silueta, pero el cambio es insuficiente para reemplazar el pil
 - `terrain-before.jpg`
 - `terrain-after.jpg`
 
-## Materiales de terreno v1
+## Materiales de terreno v2
 
-- Nueva textura `terrain_sand_diffuse.jpg` 2K: variación macro de arena, sin patrón direccional.
-- Material `MAT-Caral_Remaster_Terrain` en `SiteApron`, `Terrain_Base`, `Terrain_Shore` y `Terrain_DryRavine`.
-- UVs reescaladas: `SiteApron` 0,05; `Terrain_Base`/`Terrain_Shore` 0,02; `Terrain_DryRavine` 0,05.
-- La textura cubre entre 80 y 200 m por tile; no aparece la retícula de 4 m.
-- Se probó una roca procedural para las colinas, pero producía manchas grandes; se descartó y las colinas conservan el material del piloto.
-- Los campos y la vegetación siguen con texturas del piloto.
+- Arena macro 2K en `SiteApron`, `Terrain_Base`, `Terrain_Shore` y `Terrain_DryRavine`; UVs a gran escala (80–200 m por tile).
+- Roca procedural de celdas y craquelado en las 6 colinas; UV 0,25 para que las celdas se lean a escala de montaña.
+- Campos con `dry_grass` procedural y UV 0,05; hojas con `foliage`.
+- Adobe, totora, madera, megalitos y rocas pequeñas también pasaron a materiales procedurales.
+- El GLB del preview no incluye texturas de IA.
 
 ### Capturas
 
 - `terrain-sand-hero.jpg`: render de Blender.
-- `viewer-terrain.jpg`: visor web con el GLB de prueba.
+- `terrain-final-iso.jpg`: vista isométrica con roca, campos y cubiertas.
+- `viewer-terrain.jpg`: visor web con el GLB del preview.
 
 ### Pendiente
 
-- Roca específica para colinas, con detalle de alta frecuencia y normales.
-- Vegetación y campos procedurales.
 - Geometría de colinas con erosión real.
+- Muros high-poly + bake de normales/AO.
+- Validación en hardware real.

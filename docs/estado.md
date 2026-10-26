@@ -18,12 +18,16 @@
 - Validación automática y workflows de CI / GitHub Pages.
 - Fase 0 del remaster de Caral: auditoría de escena, export reproducible y dossier de remaster en `docs/remaster/caral/`.
 - Fase 1 iniciada: primer pase de colinas en `blender/caral/caral_remaster.blend`; base y apron se mantienen planos por artefactos en río/campos.
-- Capturas en `docs/capturas/`.
+- Fase 3 (materiales) iniciada: pase procedural en 134 slots de arquitectura, plazas y suelo; banding corregido; GLB de prueba de 8,5 MB y 55.944 tris.
+- Terreno v1: arena macro 2K con UVs a gran escala en site apron, base, orilla y rambla; sin retícula visible.
+- Visor alineado: AgX, PMREM, luz cálida y cámara inicial desde el sur; recorrido 2–5 revisado y FOV responsivo en móvil; capturas en `docs/remaster/caral/viewer-*.jpg`.
+- Remaster v1 listo en `release/caral-remaster-final`: GLB de 4,8 MB, 20 materiales y 31 imágenes; sin texturas de IA; metadatos y caché `v3` preparados; PR #4 abierto y CI verde; pendiente merge y deploy.
+- Capturas en `docs/capturas/` y `docs/remaster/caral/`.
 
 ## Pendiente
 
-1. **Remaster de Caral**: reemplazar el modelo piloto low-poly por una versión de alta fidelidad.
-2. **Auditoría de texturas de Caral**: confirmar términos de las texturas de IA o sustituirlas por CC0/procedurales.
+1. **Remaster de Caral**: completar arquitectura high-poly, bake y QA visual; materiales y terreno del remaster v1 ya están listos.
+2. **Auditoría de texturas de Caral**: confirmar términos de las texturas de IA del piloto o sustituirlas por CC0/procedurales.
 3. **Chavín, Chan Chan y Wari**: modelos 3D, recorridos y fichas visuales.
 4. **Narración en español**: guion y grabación para el kiosco.
 5. **Renders cinematográficos**: Cycles con los assets high-poly.
@@ -32,12 +36,13 @@
 
 ## Limitaciones conocidas
 
-- El modelo de Caral es un piloto visual; la geometría es esquemática.
-- La arena del visor se aplana para evitar patrones de repetición.
-- El GLB de Caral pesa ~20,7 MB y se reproduce con `export.py`; el objetivo es bajarlo con KTX2/meshopt tras el remaster.
+- El remaster v1 conserva geometría esquemática; el piloto sigue publicado en `main` hasta el merge.
+- El pase procedural ya cubre arquitectura, plazas, suelo, terreno, roca, vegetación, adobe, totora y madera; el GLB v1 no incluye texturas de IA.
+- El GLB del piloto pesa ~20,7 MB; el GLB v1 pesa 4,8 MB y está pendiente de PR/deploy.
+- El visor añade un plano de arena plano bajo el modelo; el terreno del GLB ya tiene variación macro.
 - Wari no está en la Lista del Patrimonio Mundial; su ficha se basa en Ministerio de Cultura y academia.
 - La narración aún no existe; solo hay ambiente procedural.
 
 ## Próximo paso recomendado
 
-Remasterizar Caral con el pipeline high-poly → bake → PBR, y en paralelo cerrar la auditoría de licencias del GLB actual.
+Abrir PR, mergear y verificar Pages. High-poly/bake y hardware real quedan como v2.

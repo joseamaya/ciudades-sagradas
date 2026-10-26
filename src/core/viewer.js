@@ -4,46 +4,50 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 const TIME_PRESETS = {
   morning: {
-    offset: [120, 70, -100],
-    sun: 0xfff0dc,
-    sunIntensity: 4.2,
-    hemiSky: 0xcfe4f2,
-    hemiGround: 0x8a7550,
-    hemiIntensity: 0.22,
-    fill: 0.12,
-    skyTop: 0x2f5a86,
-    skyHorizon: 0x6d90b0,
-    skyGround: 0xb08a58,
-    fog: 0xb9c5c9,
-    exposure: 0.78,
+    offset: [-120, 70, 100],
+    sun: 0xffd2a0,
+    sunIntensity: 5.0,
+    hemiSky: 0xd8d8d8,
+    hemiGround: 0x6a5a48,
+    hemiIntensity: 0.05,
+    fill: 0.08,
+    skyTop: 0x4a7fb5,
+    skyHorizon: 0x9fc2dc,
+    skyGround: 0xaec4d2,
+    fog: 0xc8d2d8,
+    exposure: 1.05,
+    envIntensity: 0.18,
+    backgroundIntensity: 1.0,
   },
   noon: {
     offset: [50, 125, 10],
-    sun: 0xfff4e0,
-    sunIntensity: 4.0,
+    sun: 0xfff2dc,
+    sunIntensity: 3.8,
     hemiSky: 0xdfeeff,
     hemiGround: 0x7a6748,
-    hemiIntensity: 0.2,
-    fill: 0.12,
+    hemiIntensity: 0.08,
+    fill: 0.25,
     skyTop: 0x2c6ba8,
     skyHorizon: 0x80a8c8,
     skyGround: 0xb89660,
     fog: 0xc4d2da,
-    exposure: 0.72,
+    exposure: 0.85,
+    envIntensity: 0.8,
   },
   dusk: {
     offset: [-110, 40, 20],
     sun: 0xff9a5a,
-    sunIntensity: 2.8,
+    sunIntensity: 2.4,
     hemiSky: 0xf0b48b,
     hemiGround: 0x4a3624,
-    hemiIntensity: 0.22,
-    fill: 0.1,
+    hemiIntensity: 0.12,
+    fill: 0.2,
     skyTop: 0x33365f,
     skyHorizon: 0xd98e66,
     skyGround: 0x6a4630,
     fog: 0xc98f6a,
-    exposure: 0.7,
+    exposure: 0.95,
+    envIntensity: 0.65,
   },
   night: {
     offset: [25, 90, -65],
@@ -51,13 +55,14 @@ const TIME_PRESETS = {
     sunIntensity: 0.45,
     hemiSky: 0x2a3a5a,
     hemiGround: 0x1a1410,
-    hemiIntensity: 0.14,
-    fill: 0.04,
+    hemiIntensity: 0.1,
+    fill: 0.05,
     skyTop: 0x080e1a,
     skyHorizon: 0x18243a,
     skyGround: 0x0d0c0a,
     fog: 0x101827,
-    exposure: 0.55,
+    exposure: 0.7,
+    envIntensity: 0.35,
   },
 };
 
@@ -155,6 +160,7 @@ export class CityViewer {
     this.meshes = [];
     this.flight = null;
     this.timeOfDay = 'morning';
+    this.baseFov = 45;
     this.flatSand = null;
     this.stars = null;
     this.sandTexture = makeSandTexture();
@@ -163,11 +169,15 @@ export class CityViewer {
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
     this.renderer.setSize(container.clientWidth, container.clientHeight, false);
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
-    this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    this.renderer.toneMappingExposure = 0.74;
+    this.renderer.toneMapping = THREE.AgXToneMapping;
+    this.renderer.toneMappingExposure = 0.9;
     this.renderer.shadowMap.enabled = true;
-    this.renderer.shadowMap.type = THREE.PCFShadowMap;
+    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     container.appendChild(this.renderer.domElement);
+
+    this.pmrem = new THREE.PMREMGenerator(this.renderer);
+    this.pmrem.compileEquirectangularShader();
+    this.envMap = null;
 
     this.scene = new THREE.Scene();
     this.scene.fog = new THREE.Fog(0xb9c5c9, 110, 260);
@@ -196,12 +206,12 @@ export class CityViewer {
   }
 
   _buildLights() {
-    this.scene.add(new THREE.AmbientLight(0xffffff, 0.08));
+    this.scene.add(new THREE.AmbientLight(0xffffff, 0.04));
 
-    this.hemi = new THREE.HemisphereLight(0xcfe4f2, 0x8a7550, 0.22);
+    this.hemi = new THREE.HemisphereLight(0xcfe4f2, 0x8a7550, 0.1);
     this.scene.add(this.hemi);
 
-    this.sun = new THREE.DirectionalLight(0xfff0dc, 4.2);
+    this.sun = new THREE.DirectionalLight(0xffdcb3, 3.6);
     this.sun.position.set(120, 70, -100);
     this.sun.castShadow = true;
     this.sun.shadow.mapSize.set(2048, 2048);
@@ -219,8 +229,8 @@ export class CityViewer {
     this.scene.add(this.sunTarget);
     this.sun.target = this.sunTarget;
 
-    this.fill = new THREE.DirectionalLight(0x9fc4ff, 0.12);
-    this.fill.position.set(-40, 45, -30);
+    this.fill = new THREE.DirectionalLight(0xd8d8d8, 0.08);
+    this.fill.position.set(35, 40, -25);
     this.scene.add(this.fill);
   }
 
@@ -229,7 +239,7 @@ export class CityViewer {
     groundSand.needsUpdate = true;
     groundSand.repeat.set(80, 80);
     const material = new THREE.MeshStandardMaterial({
-      color: 0xc7a877,
+      color: 0xd0b892,
       map: groundSand,
       roughness: 1,
       metalness: 0,
@@ -274,7 +284,13 @@ export class CityViewer {
     this.hemi.intensity = preset.hemiIntensity;
     this.fill.intensity = preset.fill;
     if (this.scene.background?.isTexture) this.scene.background.dispose();
-    this.scene.background = makeSkyTexture(preset.skyTop, preset.skyHorizon, preset.skyGround);
+    const sky = makeSkyTexture(preset.skyTop, preset.skyHorizon, preset.skyGround);
+    this.scene.background = sky;
+    if (this.envMap) this.envMap.dispose();
+    this.envMap = this.pmrem.fromEquirectangular(sky).texture;
+    this.scene.environment = this.envMap;
+    this.scene.environmentIntensity = preset.envIntensity ?? 0.8;
+    this.scene.backgroundIntensity = preset.backgroundIntensity ?? 1;
     if (this.scene.fog) this.scene.fog.color.setHex(preset.fog);
     this.renderer.toneMappingExposure = preset.exposure;
     this.stars.visible = name === 'night';
@@ -293,8 +309,8 @@ export class CityViewer {
   setCamera(data, immediate = true) {
     if (!data) return;
     if (data.fov) {
-      this.camera.fov = data.fov;
-      this.camera.updateProjectionMatrix();
+      this.baseFov = data.fov;
+      this._applyFov();
     }
     const position = new THREE.Vector3(...data.position);
     const target = new THREE.Vector3(...data.target);
@@ -310,8 +326,8 @@ export class CityViewer {
   flyTo(data, duration = 1600) {
     if (!data) return;
     if (data.fov) {
-      this.camera.fov = data.fov;
-      this.camera.updateProjectionMatrix();
+      this.baseFov = data.fov;
+      this._applyFov();
     }
     this.flight = {
       start: performance.now(),
@@ -399,11 +415,21 @@ export class CityViewer {
     }
   }
 
+  _applyFov() {
+    const aspect = this.container.clientWidth / Math.max(1, this.container.clientHeight);
+    const fov = aspect < 0.8 ? Math.min(60, this.baseFov * 2.2) : this.baseFov;
+    if (this.camera.fov !== fov) {
+      this.camera.fov = fov;
+      this.camera.updateProjectionMatrix();
+    }
+  }
+
   resize() {
     const width = this.container.clientWidth;
     const height = this.container.clientHeight;
     if (!width || !height) return;
     this.camera.aspect = width / height;
+    this._applyFov();
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(width, height, false);
   }
@@ -430,6 +456,8 @@ export class CityViewer {
         material.dispose();
       }
     });
+    if (this.envMap) this.envMap.dispose();
+    this.pmrem.dispose();
     this.renderer.dispose();
     this.renderer.domElement.remove();
     this.meshes = [];

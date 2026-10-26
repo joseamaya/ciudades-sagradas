@@ -1,5 +1,15 @@
 # Plan de remaster de Caral
 
+## Estado 2026-10-26
+
+- Pase de materiales procedurales aplicado a 134 slots de arquitectura, plazas y suelo.
+- Banding de textura corregido; UV de la Mayor verificadas.
+- GLB de prueba: 8,5 MB, 55.944 tris, 21 materiales, 36 imágenes WebP.
+- El piloto sigue publicado; el remaster no se ha mergeado.
+- Remaster v1 listo en `release/caral-remaster-final`: GLB 4,8 MB, sin texturas de IA, metadatos y caché `v3`; PR #4 abierto y CI verde; pendiente merge/deploy. High-poly/bake queda para v2.
+- Visor: AgX, PMREM, cámara inicial equivalente al hero de Blender; stops 2–5 revisados; FOV móvil responsivo.
+- Terreno v2: arena macro, roca, campos y vegetación procedurales; GLB sin texturas de IA.
+
 ## Fase 0 — Auditoría y referencia
 
 - [x] Auditar la escena y generar `auditoria.json`.
@@ -30,12 +40,12 @@
 
 ## Fase 3 — Materiales
 
-- [ ] Biblioteca PBR CC0/procedural.
-- [ ] Piedra irregular, piedra cortada, revoque, arcilla, madera, totora, arena, suelo y vegetación.
-- [ ] Densidad de texel uniforme.
+- [x] Revoque blanco/amarillo/rojo, piedra cortada, piedra irregular, arena y suelo con texturas procedurales.
+- [x] Densidad de texel uniforme verificada en la Pirámide Mayor (1/16 UV por metro).
+- [x] Biblioteca PBR procedural completa (madera, totora, vegetación).
 - [ ] UVs y atlas por región.
 - [ ] Normales y AO horneados.
-- [ ] Eliminar texturas de IA del preview final.
+- [x] Eliminar texturas de IA del remaster v1.
 
 ## Fase 4 — Ambiente
 
@@ -58,7 +68,7 @@
 
 - [ ] Actualizar cámaras, recorrido y capas.
 - [ ] Añadir LOD si hace falta.
-- [ ] Ajustar iluminación y encuadre hero.
+- [~] Iluminación y cámara inicial alineadas; encuadre hero y stops pendientes.
 - [ ] Actualizar `city.json`, README, manifiesto y créditos.
 - [ ] Subir la versión de caché de `public/sw.js`.
 - [ ] Probar escritorio, móvil, kiosco y offline.

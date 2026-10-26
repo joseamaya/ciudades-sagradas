@@ -9,9 +9,9 @@
 ## Caral
 
 - **Geometría:** escena de arte del proyecto Caral, modelada en Blender 5.2.
-- **Texturas:** materiales PBR generados con IA para el proyecto Caral (Cloudflare Workers AI / FLUX) y texturas procedurales propias.
+- **Texturas:** remaster v1 con materiales procedurales en arquitectura, plazas, suelo, arena, roca, vegetación, adobe, totora y madera. El GLB no incluye texturas de IA.
 - **Portada:** render de Blender `caral_art_hero_v2.png`, proyecto Ciudades Sagradas.
-- **Estado de licencia:** las texturas de IA requieren confirmar los términos de uso de Cloudflare Workers AI y del modelo generador antes de un lanzamiento oficial. Mientras tanto, el modelo se considera **material de trabajo** y no debe relicenciarse como CC BY 4.0 sin esa revisión.
+- **Estado de licencia:** el GLB del remaster v1 usa solo texturas procedurales propias y geometría CC BY 4.0. El piloto histórico conserva texturas de IA y no se publica.
 - **Fuentes históricas:** UNESCO, ICOMOS, Ministerio de Cultura del Perú, Zona Arqueológica Caral y publicación de Shady Solís et al. (2001). Ver `docs/fuentes/caral.md`.
 
 ## Chavín de Huántar

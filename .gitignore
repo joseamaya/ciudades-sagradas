@@ -9,3 +9,7 @@ __pycache__/
 *.pyc
 
 .idea/
+blender/caral/caral_remaster_v2.blend
+blender/caral/caral_lod0.blend
+blender/caral/caral_lod1.blend
+blender/textures/baked/

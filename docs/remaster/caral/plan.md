@@ -16,7 +16,7 @@
 - [x] Corregir rutas de texturas y excluir colecciones de juego del export.
 - [x] Confirmar que el GLB publicado se reproduce con `export.py`.
 - [ ] Descargar/recopilar planos y referencias públicas.
-- [ ] Fijar dimensiones y niveles de la Pirámide Mayor, Plaza Mayor y Plaza Circular.
+- [~] Fijar dimensiones y niveles de la Pirámide Mayor, Plaza Mayor y Plaza Circular (Mayor y Plaza Circular verificadas; Anfiteatro y Altar Circular pendientes).
 - [ ] Crear tablero de referencias con estado de evidencia.
 
 ## Fase 1 — Blockout y terreno
@@ -25,7 +25,7 @@
 - [ ] Separar terreno, arquitectura, props y referencia.
 - [ ] Modelar terraza, valle, río, campos y accesos.
 - [x] Primer pase de colinas con subdivisión y desplazamiento procedural (ver `terrain.md`).
-- [ ] Ajustar la Pirámide Mayor a ~150 × 110 × 28 m.
+- [x] Verificar la Pirámide Mayor contra UNESCO 1269: núcleo 170,80 × 149,69 m y 29,88 m al norte; no rescalado global en v2 (p. 351).
 - [ ] Definir el encuadre hero: Mayor + Plaza Circular al atardecer.
 
 ## Fase 2 — Arquitectura high-poly

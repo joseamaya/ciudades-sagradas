@@ -16,6 +16,7 @@
 - Dossieres de fuentes públicas para las cuatro ciudades.
 - Registro de assets y política de licencias.
 - Validación automática y workflows de CI / GitHub Pages.
+- Fase 0 del remaster de Caral: auditoría de escena, export reproducible y dossier de remaster en `docs/remaster/caral/`.
 - Capturas en `docs/capturas/`.
 
 ## Pendiente
@@ -32,7 +33,7 @@
 
 - El modelo de Caral es un piloto visual; la geometría es esquemática.
 - La arena del visor se aplana para evitar patrones de repetición.
-- El GLB de Caral pesa ~20 MB; el objetivo es bajarlo con KTX2/meshopt.
+- El GLB de Caral pesa ~20,7 MB y se reproduce con `export.py`; el objetivo es bajarlo con KTX2/meshopt tras el remaster.
 - Wari no está en la Lista del Patrimonio Mundial; su ficha se basa en Ministerio de Cultura y academia.
 - La narración aún no existe; solo hay ambiente procedural.
 

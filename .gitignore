@@ -5,3 +5,5 @@ dist/
 .env
 .env.*
 blender/**/*.blend1
+__pycache__/
+*.pyc

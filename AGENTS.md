@@ -64,6 +64,14 @@ scripts/validate.mjs      validación de datos y assets
 5. Ejecutar `npm run validate` y `npm run build`.
 6. Probar en navegador y kiosco.
 
+## Remaster de Caral
+
+- Rama de trabajo: `feat/caral-remaster`.
+- No reemplazar el GLB de `main` hasta que el remaster pase QA.
+- Alcance inicial: Pirámide Mayor, Plaza Mayor, Plaza Circular, Anfiteatro, terraza y valle.
+- Plan y auditoría: `docs/remaster/caral/`.
+- Texturas nuevas: CC0 o procedurales; no nuevas texturas de IA.
+
 ## Convenciones
 
 - Nombres: `GEO-` geometría, `MAT-` materiales, `LGT-` luces, `CAM-` cámaras, `COL-` colecciones.

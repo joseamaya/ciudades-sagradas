@@ -1,16 +1,16 @@
 # Remaster de Caral
 
-Rama técnica: `feat/caral-remaster-phase-2`. Remaster v1: `release/caral-remaster-final`. El piloto actual sigue vivo en `main` hasta el merge.
+Rama de cierre: `release/caral-v2`. Remaster v1: `release/caral-remaster-final`.
 
-Estado: remaster v1 desplegado en GitHub Pages; v2 Fases A–D web en `feat/caral-remaster-v2` con LOD0 de 230.800 tris y LOD1 horneado de 56.332 tris. Los GLB LOD0/LOD1 y `city.json` están integrados en `public/`, con v1 como fallback. Sin PR ni deploy; kiosco, hardware y escala métrica 1.0 quedan para el final.
+Estado: **remaster v2 desplegado** en GitHub Pages; LOD0 de 230.800 tris y LOD1 horneado de 56.332 tris. Los GLB LOD0/LOD1 y `city.json` están integrados en `public/`, con v1 como fallback. PR #5 mergeado en `a76fc8b`; `stage: "v2"` y caché `v5`. Kiosco, hardware y escala métrica 1.0 quedan congelados.
 
 ## Decisiones fijadas
 
 - **Alcance inicial:** vertical slice — Pirámide Mayor, Plaza Mayor, Plaza Circular, Anfiteatro, Altar Circular, terraza y valle.
 - **Texturas:** CC0 o procedurales; sin nuevas texturas de IA.
-- **Publicación:** mantener el piloto live; reemplazar el GLB solo al final.
+- **Publicación:** v2 reemplaza al piloto; `model.glb` v1 se conserva como fallback y rollback.
 - **Interiores:** solo lo visible desde plazas y altares; no galerías completas.
-- **Hero shot:** Pirámide Mayor + Plaza Circular al atardecer.
+- **Hero shot:** Pirámide Mayor + Plaza Circular; portada v2 capturada desde el visor.
 
 ## Estado de partida
 
@@ -18,7 +18,7 @@ Estado: remaster v1 desplegado en GitHub Pages; v2 Fases A–D web en `feat/cara
 - 247 modificadores Bevel.
 - GLB publicado: 554 mallas, 23 materiales, 44.640 tris, 20,7 MB.
 - Texturas de escena: 38 de 512 px y 23 de 1024 px.
-- 2 mallas sin UV: `GEO-Caral_ScenarioCity_LOD0/LOD1`, que no pertenecen al preview.
+- 2 mallas sin UV: `GEO-Caral_ScenarioCity_LOD0/LOD1`, que no pertenecen a la escena publicada.
 - El exportador ya excluye las colecciones de juego.
 
 ## Archivos
@@ -31,7 +31,8 @@ Estado: remaster v1 desplegado en GitHub Pages; v2 Fases A–D web en `feat/cara
 - `materials.md`: pase procedural, corrección del banding, mapeo y GLB de prueba.
 - `viewer.md`: alineación de cámara, AgX, PMREM y capturas antes/después.
 - `release-v1.md`: remaster v1, metadatos, caché v3 y QA offline.
-- `licencias-assets.md`: auditoría del GLB v1, sin texturas de IA.
+- `release-v2.md`: release web de Caral v2, métricas, QA, fallback y límites.
+- `licencias-assets.md`: auditoría de los GLB v1 y v2, sin texturas de IA.
 - `v2-plan.md`: evidencia UNESCO, decisión de escala, high-poly, LOD0/LOD1, métricas y fases v2.
 - `v2-before-*.jpg` / `v2-after-*.jpg`: comparativas del Mayor, Plaza Mayor, Anfiteatro y Altar Circular.
 - `lod1-general.png`, `lod1-plaza.png`, `lod1-anfiteatro.png`, `lod1-altar.png`: capturas históricas del preview LOD1.
@@ -49,7 +50,7 @@ Estado: remaster v1 desplegado en GitHub Pages; v2 Fases A–D web en `feat/cara
 - Piedra, revoque, terreno y vegetación se leen en primer plano.
 - No hay cerámica, metales, rueda, llamas ni imaginería inca.
 - Techos y elementos no documentados están marcados como inferidos.
-- GLB <25 MB, LOD0 150k–250k tris, LOD1 50k–80k. LOD1 medido en **72 draw calls**; LOD0 en **125** con sombras.
-- 60 fps a 1080p en GPU media; offline y kiosco quedan pendientes de hardware real.
+- GLB <25 MB, LOD0 150k–250k tris, LOD1 50k–80k. LOD1 medido en **72 draw calls**; LOD0 en **125** con sombras, aceptado como perfil de escritorio.
+- 60 fps a 1080p en GPU media: pendiente de hardware real. Offline web verificado; kiosco congelado.
 - Escala **0,08** confirmada como diorama; 1.0 métrico fuera de esta entrega.
-- Manifiesto, créditos, capturas y caché actualizados.
+- Manifiesto, créditos, capturas, portada y caché `v5` actualizados.

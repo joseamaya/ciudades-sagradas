@@ -2,7 +2,7 @@
 
 Atlas interactivo de los grandes centros ceremoniales y ciudades del Perú antiguo. Reconstrucciones 3D en tiempo real, fichas educativas y fuentes públicas.
 
-**Estado:** Caral remaster v1; el piloto histórico queda como archivo. Chavín de Huántar, Chan Chan y Wari están en investigación.
+**Estado:** Caral remaster v2 desplegado en GitHub Pages; el piloto histórico queda como archivo. Chavín de Huántar, Chan Chan y Wari están en investigación.
 
 ## Qué es
 
@@ -66,7 +66,7 @@ Más detalles en [`docs/kiosco.md`](./docs/kiosco.md).
 
 | Ciudad | Cultura | Período | Estado |
 |---|---|---|---|
-| Caral | Civilización Caral | 3000–1800 a. C. | Remaster v1 |
+| Caral | Civilización Caral | 3000–1800 a. C. | Remaster v2 |
 | Chavín de Huántar | Chavín | 1500–550 a. C. | En investigación |
 | Chan Chan | Chimú | Siglos IX–XV d. C. | En investigación |
 | Wari | Wari | 600–1100 d. C. | En investigación |
@@ -109,7 +109,7 @@ El visor no usa fotografías históricas como textura. Las imágenes oficiales s
 - Avisos de dependencias: [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md).
 - Política de assets: [`docs/licencias.md`](./docs/licencias.md).
 
-> **Nota de licencia:** el remaster v1 usa materiales procedurales y su GLB no incluye texturas de IA. El piloto histórico queda como archivo y no se publica. Ver `CREDITS.md` y `docs/licencias.md`.
+> **Nota de licencia:** los remasters v1 y v2 usan materiales procedurales y sus GLB no incluyen texturas de IA. El piloto histórico queda como archivo y no se publica. Ver `CREDITS.md` y `docs/licencias.md`.
 
 ## Despliegue
 
@@ -120,8 +120,10 @@ El repo incluye un workflow de GitHub Pages en `.github/workflows/pages.yml`. Pa
 
 ## Hoja de ruta
 
-1. Caral: remaster de alta fidelidad y recorrido completo.
+1. Caral: remaster v2 desplegado; quedan QA en hardware real y mejoras de contenido.
 2. Chavín de Huántar.
 3. Chan Chan.
 4. Wari.
 5. Renders cinematográficos con Cycles y modo foto.
+
+Release web de Caral: [`docs/remaster/caral/release-v2.md`](./docs/remaster/caral/release-v2.md).

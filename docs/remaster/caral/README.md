@@ -2,7 +2,7 @@
 
 Rama técnica: `feat/caral-remaster-phase-2`. Remaster v1: `release/caral-remaster-final`. El piloto actual sigue vivo en `main` hasta el merge.
 
-Estado: remaster v1 listo para PR, con materiales 100 % procedurales, GLB sin texturas de IA, visor alineado, recorrido revisado, QA móvil/kiosco/offline y terreno v2; high-poly/bake y hardware real quedan para v2.
+Estado: remaster v1 con PR #4 abierto, materiales 100 % procedurales, GLB sin texturas de IA, visor alineado, recorrido revisado, QA móvil/kiosco/offline y terreno v2; high-poly/bake y hardware real quedan para v2.
 
 ## Decisiones fijadas
 

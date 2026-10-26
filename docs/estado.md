@@ -21,7 +21,7 @@
 - Fase 3 (materiales) iniciada: pase procedural en 134 slots de arquitectura, plazas y suelo; banding corregido; GLB de prueba de 8,5 MB y 55.944 tris.
 - Terreno v1: arena macro 2K con UVs a gran escala en site apron, base, orilla y rambla; sin retícula visible.
 - Visor alineado: AgX, PMREM, luz cálida y cámara inicial desde el sur; recorrido 2–5 revisado y FOV responsivo en móvil; capturas en `docs/remaster/caral/viewer-*.jpg`.
-- Remaster v1 listo en `release/caral-remaster-final`: GLB de 4,8 MB, 20 materiales y 31 imágenes; sin texturas de IA; metadatos y caché `v3` preparados; pendiente PR y deploy.
+- Remaster v1 listo en `release/caral-remaster-final`: GLB de 4,8 MB, 20 materiales y 31 imágenes; sin texturas de IA; metadatos y caché `v3` preparados; PR #4 abierto y CI verde; pendiente merge y deploy.
 - Capturas en `docs/capturas/` y `docs/remaster/caral/`.
 
 ## Pendiente

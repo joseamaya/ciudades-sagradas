@@ -34,7 +34,7 @@ Rama: `release/caral-remaster-final`. **Pendiente de PR y merge**: `main` y GitH
 
 ## Pendiente para publicar v1
 
-- Abrir PR, pasar CI, mergear y verificar GitHub Pages.
+- PR #4 abierto y CI verde; mergear y verificar GitHub Pages.
 - Probar kiosco offline y sesión larga en hardware de museo.
 
 ## Pendiente para v2

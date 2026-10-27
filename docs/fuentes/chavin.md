@@ -2,7 +2,7 @@
 
 **Estado:** Fase 0 — fuentes, licencias y alcance; modelo 3D bloqueado hasta aprobar el gate.
 
-**Fecha de consulta:** 24 de octubre de 2026.
+**Fecha de consulta:** 27 de octubre de 2026.
 
 **Plan:** [`docs/remaster/chavin/plan.md`](../remaster/chavin/plan.md) · [`cobertura.md`](../remaster/chavin/cobertura.md) · [`referencias.md`](../remaster/chavin/referencias.md).
 
@@ -15,9 +15,18 @@
 | Período | 1500–550 a. C. (Ministerio de Cultura); UNESCO: 1500–300 a. C. |
 | Ubicación | Distrito de Chavín, provincia de Huari, Áncash |
 | Coordenadas | 9°35′34″ S, 77°10′42″ O |
-| Altitud | 3180 m s. n. m. |
+| Altitud | 3.177–3.180 m s. n. m. (según fuente) |
 | Propiedad UNESCO | 14,79 ha |
 | Inscripción | Lista del Patrimonio Mundial, 1985, criterio (iii) |
+
+## Verificación Fase 0 (27 de octubre de 2026)
+
+- **UNESCO 330:** propiedad de **14,79 ha**, inscrita en 1985 con criterio **(iii)**. Describe terrazas y plazas rodeadas de piedra labrada, un sistema interno de galerías con ventilación y drenaje, y la iconografía del Lanzón, Estela Raimondi, Obelisco Tello, Portada de las Falcónidas, Plaza Circular y cabezas clavas.
+- **UNESCO — integridad:** el conjunto conserva edificios, plataformas, plazas, galerías y espacios rituales; los principales riesgos son deslizamientos, inundaciones (1945) y terremotos (1970).
+- **Ministerio de Cultura:** sitúa el desarrollo entre **1500 y 550 a. C.**, describe edificaciones monumentales sobre terrazas alrededor de plazas cuadradas y circulares, y destaca las galerías superpuestas en varios niveles para rituales de iniciación y culto. Publica expediente, plano y Plan de Manejo 2020.
+- **Discrepancia cronológica:** UNESCO usa 1500–300 a. C. y el Ministerio 1500–550 a. C. Se mantiene el rango amplio **1500–550 a. C.** y se señala la diferencia.
+- **Altitud:** las fuentes consultadas oscilan entre 3.177 y 3.180 m s. n. m.; no se fija una cota única sin levantamiento topográfico.
+- **Pendiente:** el PDF de ICOMOS 1985 no se pudo descargar desde el entorno (403); se cita la ficha y se revisará manualmente si hace falta.
 
 ## Cronología
 

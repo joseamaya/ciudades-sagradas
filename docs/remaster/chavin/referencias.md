@@ -12,9 +12,17 @@ Estado: **Fase 0; tablero preliminar**.
 | [ICOMOS 1985](https://whc.unesco.org/document/153206) | Evaluación | Evidencia y estado del sitio | No copiar sin permiso | Consultada |
 | [ICOMOS — seguimiento 1999](https://whc.unesco.org/document/139527) | Informe | Conservación y riesgos | No copiar sin permiso | Consultada |
 | [Ministerio de Cultura — Chavín](https://patrimoniomundial.cultura.pe/sitiosdelpatrimoniomundial/sitio-arqueol%C3%B3gico-chav%C3%ADn) | Ficha oficial | Datos generales | No copiar sin permiso | Consultada |
+| [Expediente de Nominación (Mincul)](https://patrimoniomundial.cultura.pe/sites/default/files/pm/pdf/CHAVIN%20Sitio%20arqueologico.pdf) | PDF oficial | Ficha y metadatos | No copiar sin permiso | Consultada |
+| [Plano del Sitio (Mincul)](https://patrimoniomundial.cultura.pe/sites/default/files/pm/pdf/PE-330%20Chav%C3%ADn%20WGS84.pdf) | Plano PDF | Huella y ubicación | No copiar sin permiso | Pendiente de lectura |
+| [Plan de Manejo 2020](https://patrimoniomundial.cultura.pe/sites/default/files/pm/pdf/RM%20292-2020-DM-MC%20-%20ANEXO.pdf.pdf) | PDF oficial | Conservación y gestión | No copiar sin permiso | Consultada |
+| [Decisiones del Comité](https://patrimoniomundial.cultura.pe/sites/default/files/pm/pdf/Decisiones%20Chavin%207%20a%2044%20COM.pdf) | PDF oficial | Estado de conservación | No copiar sin permiso | Pendiente de lectura |
 | [Museo Nacional Chavín](https://museos.cultura.pe/museos/museo-nacional-chav%C3%ADn) | Museo | Piezas y contexto | Requiere permiso | Consultada |
 | [MNAAHP — sala Chavín](https://mnaahp.cultura.pe/exposiciones/salas-permanentes/chavin) | Museo | Estela, Obelisco, piezas | Requiere permiso | Consultada |
 | [Stanford — John Rick](https://news.stanford.edu/stories/2016/04/stanford-archaeologist-traces-origins-authority-andes-peru) | Divulgación académica | Galerías, ritual, investigación | Uso referencial | Consultada |
+
+- Los PDFs oficiales se consultaron para verificar datos; no se copian al repositorio.
+- El PDF de ICOMOS 1985 devolvió 403 en el entorno de trabajo; se revisará manualmente o con otra vía.
+- El plano y las decisiones del Comité quedan pendientes de lectura antes del gate.
 
 ## Material pendiente
 

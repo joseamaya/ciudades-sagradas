@@ -78,6 +78,20 @@ Los textos deben distinguir documentado, inferido e interpretativo; no afirmar f
 | Escala y pendientes | Errores de conjunto | DEM/planos y blockout antes de detalle |
 | Piezas emblemáticas (Lanzón, Estela, Obelisco) | Alta expectativa visual | Priorizar Lanzón; las demás como referencia si falta licencia |
 
+## Estado del gate (27 de octubre de 2026)
+
+| Ítem | Estado |
+|---|---|
+| Fuentes UNESCO/Mincul | Verificadas |
+| ICOMOS 1985 | Pendiente de acceso (403) |
+| Plano y decisiones del Comité | Pendiente de lectura |
+| Cobertura | Preliminar, sin aprobar |
+| Alcance hero/fondo | Propuesto, sin aprobar |
+| Presupuesto y escala | Propuestos, sin aprobar |
+| Recorrido, capas y luces | Propuestos, sin aprobar |
+| Licencias de imágenes/esculturas | Pendiente |
+| Imágenes oficiales copiadas | 0 |
+
 ## Gate de Fase 0
 
 No se abre Blender hasta completar:

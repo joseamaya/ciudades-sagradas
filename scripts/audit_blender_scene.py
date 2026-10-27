@@ -1,7 +1,7 @@
 """Audita una escena Blender sin modificarla.
 
 Uso:
-    blender --background blender/caral/caral_art.blend \
+    blender --background blender/caral/caral_remaster.blend \
       --python scripts/audit_blender_scene.py -- \
       --out docs/remaster/caral/auditoria.json
 """

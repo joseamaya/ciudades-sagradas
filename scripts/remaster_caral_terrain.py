@@ -1,12 +1,12 @@
 """Primer pase de terreno para el remaster de Caral.
 
 Uso:
-    blender --background blender/caral/caral_art.blend \
+    blender --background blender/caral/caral_remaster.blend \
       --python scripts/remaster_caral_terrain.py -- \
       --out blender/caral/caral_remaster.blend \
       --render /tmp/caral_terrain.png
 
-No modifica caral_art.blend: guarda una copia de trabajo.
+No modifica la fuente: guarda una copia de trabajo.
 """
 
 import argparse

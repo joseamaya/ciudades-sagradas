@@ -20,7 +20,7 @@ Una estación táctil de 1080p que funcione sin internet, con una experiencia de
   ```
 - Servidor local estático (`npx serve dist` o Caddy).
 - Sin barras del navegador, sin teclado visible.
-- El service worker cachea el atlas y los modelos tras la primera carga.
+- El service worker cachea el atlas y el LOD cargado tras la primera visita. No precarga el otro LOD ni el fallback v1.
 
 ## Comportamiento
 
@@ -33,7 +33,7 @@ Una estación táctil de 1080p que funcione sin internet, con una experiencia de
 ## Actualización
 
 1. Copiar el nuevo `dist/` al equipo.
-2. Si reemplazaste un modelo en la misma ruta, sube `CACHE` en `public/sw.js` para invalidar la copia offline.
+2. Si reemplazaste un modelo en la misma ruta, sube `CACHE` en `public/sw.js` y actualiza `docs/fuentes/registro-assets.csv` para invalidar la copia offline.
 3. Limpiar la caché del service worker si cambió la versión.
 4. Probar en el equipo antes de abrir al público.
 
@@ -47,7 +47,7 @@ Una estación táctil de 1080p que funcione sin internet, con una experiencia de
 
 ## Pruebas mínimas
 
-- Carga en frío con internet desactivado después de la primera visita.
+- Carga en frío con internet desactivado después de la primera visita (se cachea el LOD elegido, no el fallback).
 - 30 minutos de recorrido sin fugas de memoria evidentes.
 - Reinicio del equipo y arranque automático.
 - Audio y silencio.

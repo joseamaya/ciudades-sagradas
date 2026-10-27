@@ -1,6 +1,6 @@
 # Remaster v1
 
-Rama: `release/caral-remaster-final`. **Publicado**: PR #4 mergeado y v1 desplegado en GitHub Pages el 2026-10-26.
+Rama: `release/caral-remaster-final`. **Publicado**: PR #4 mergeado y v1 desplegado en GitHub Pages el 2026-10-26. Documento histórico; v1 hoy es fallback de v2 y la caché vigente es `v6`.
 
 ## Modelo
 
@@ -59,7 +59,7 @@ http://127.0.0.1:4173/#/ciudad/caral
 http://127.0.0.1:4173/?kiosk=1#/ciudad/caral
 ```
 
-Para volver al piloto, cambiar de rama o restaurar `public/cities/caral/model.glb` desde `main`.
+El piloto histórico fue retirado del repositorio. `model.glb` v1 se conserva como fallback de v2, no como versión publicada.
 
 ## Captura
 

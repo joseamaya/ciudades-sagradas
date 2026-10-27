@@ -1,7 +1,7 @@
 """Exporta la escena Caral a GLB para el visor web.
 
 Uso:
-    blender --background blender/caral/caral_art.blend \
+    blender --background blender/caral/caral_remaster.blend \
       --python blender/caral/export.py -- \
       --out public/cities/caral/model.glb
 """
@@ -18,7 +18,7 @@ def parse_args():
     argv = argv[argv.index("--") + 1 :] if "--" in argv else []
     parser = argparse.ArgumentParser()
     parser.add_argument("--out", default="public/cities/caral/model.glb")
-    parser.add_argument("--image-format", default="AUTO")
+    parser.add_argument("--image-format", default="WEBP")
     parser.add_argument("--image-quality", type=int, default=80)
     return parser.parse_args(argv)
 
@@ -70,10 +70,13 @@ def main():
 
     meshes = len(selected)
     triangles = 0
+    depsgraph = bpy.context.evaluated_depsgraph_get()
     for obj in selected:
-        mesh = obj.data
+        evaluated = obj.evaluated_get(depsgraph)
+        mesh = evaluated.to_mesh()
         mesh.calc_loop_triangles()
         triangles += len(mesh.loop_triangles)
+        evaluated.to_mesh_clear()
 
     size = os.path.getsize(out)
     print(f"EXPORT_OK {out}")

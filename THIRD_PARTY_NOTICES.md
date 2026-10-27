@@ -37,6 +37,14 @@ Herramienta de build, no se distribuye en el bundle final.
 - Licencia: MIT
 
 
+## Draco (Google)
+
+El visor carga los GLB LOD0/LOD1 con compresión Draco a través de `DRACOLoader` de Three.js. El decoder se sirve localmente desde `public/draco/`; no se descarga de terceros en tiempo de ejecución.
+
+- Proyecto: <https://github.com/google/draco>
+- Licencia: Apache License 2.0
+- Uso: descompresión de geometría en el navegador
+
 ## cc-blender-skill
 
 Skills de Blender copiadas en `.agents/skills/`.

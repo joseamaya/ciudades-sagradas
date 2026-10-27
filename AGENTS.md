@@ -7,9 +7,10 @@ Atlas interactivo de ciudades y centros ceremoniales del Perú antiguo. Proyecto
 ```bash
 npm install
 npm run dev          # desarrollo en 127.0.0.1:5173
-npm run validate     # valida cities/index.json, city.json y assets
+npm run validate     # valida cities/index.json, city.json, GLB, hashes y assets
 npm run build        # build en dist/
 npm run serve        # preview de producción en 127.0.0.1:4173
+npm run bench        # benchmark/QA con Chrome headless (SwiftShader)
 ```
 
 Kiosco: abrir `http://127.0.0.1:4173/?kiosk=1`.
@@ -52,25 +53,21 @@ scripts/validate.mjs      validación de datos y assets
 
 ## Pipeline Blender
 
-1. Abrir `blender/caral/caral_art.blend` (texturas relativas en `blender/textures/`).
+1. La fuente versionada es `blender/caral/caral_remaster.blend`; las escenas v2/LOD y atlas se regeneran con `scripts/` y no se versionan por tamaño.
 2. Modelar y guardar la escena.
-3. Exportar:
-   ```bash
-   blender --background blender/caral/caral_art.blend \
-     --python blender/caral/export.py -- \
-     --out public/cities/caral/model.glb
-   ```
+3. Exportar v1 con `blender/caral/export.py` (WebP 80). Exportar LOD0/LOD1 con `scripts/export_caral_lod.py` (WebP 80 + Draco).
 4. Actualizar `public/cities/caral/city.json` si cambian cámaras, escala o recorrido.
-5. Ejecutar `npm run validate` y `npm run build`.
-6. Probar en navegador y kiosco.
+5. Actualizar hashes/tamaños en `docs/fuentes/registro-assets.csv` y la caché de `public/sw.js` si cambian assets.
+6. Ejecutar `npm run validate`, `npm run build` y `npm run bench`.
+7. Probar en navegador y kiosco.
 
 ## Remaster de Caral
 
-- Rama de trabajo: `feat/caral-remaster`.
-- No reemplazar el GLB de `main` hasta que el remaster pase QA.
-- Alcance inicial: Pirámide Mayor, Plaza Mayor, Plaza Circular, Anfiteatro, terraza y valle.
-- Plan y auditoría: `docs/remaster/caral/`.
+- Caral Remaster v2 es el estado actual y la plantilla técnica; no presentarlo como reconstrucción final.
+- LOD0/LOD1 con Draco, fallback v1 y override `?lod=0/1`.
+- Plan, auditoría y release: `docs/remaster/caral/`.
 - Texturas nuevas: CC0 o procedurales; no nuevas texturas de IA.
+- Cambios en GLB: actualizar hashes, registro, caché y QA visual.
 
 ## Convenciones
 
@@ -83,9 +80,10 @@ scripts/validate.mjs      validación de datos y assets
 
 ## Reglas de contenido
 
-- Caral es un **piloto** y está en remasterización. No presentarlo como reconstrucción final.
+- Caral v2 está publicado; sigue siendo una reconstrucción artística, no un registro final.
 - No usar cerámica, metales, rueda, llamas, caballos ni imaginería inca en Caral.
 - Cada dato dudoso se marca como documentado, inferido o interpretativo.
 - No copiar imágenes de UNESCO/Mincul/ICOMOS sin permiso.
-- Las texturas de IA de Caral están documentadas y pendientes de auditoría; las próximas ciudades deben usar CC0/procedurales.
+- Los GLB publicados no contienen texturas de IA; el piloto histórico con IA fue retirado del repositorio. Las próximas ciudades deben usar CC0/procedurales.
+- No introducir KTX2/Draco adicional sin medir el beneficio y actualizar el decoder/licencias.
 - No añadir dependencias del juego `edades-del-peru`.

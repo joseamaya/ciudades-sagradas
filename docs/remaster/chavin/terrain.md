@@ -6,7 +6,7 @@ Escena base: `blender/chavin/chavin_blockout_v0.5.blend`; look-dev: `blender/cha
 
 ## Decisión
 
-Para el blockout, el look-dev v0.2 y el texturizado UV v0.1 se mantiene el terreno procedural de v0.2. No se incorpora un DEM todavía.
+Para el blockout, el look-dev v0.2 y el texturizado UV v0.2 se mantiene el terreno procedural de v0.2. No se incorpora un DEM todavía.
 
 Motivos:
 
@@ -56,4 +56,4 @@ Criterio para cambiar: que el valle procedural no sostenga el encuadre hero o qu
 
 - No hay curvas de nivel locales ni levantamiento propio.
 - El terreno no debe citarse como reconstrucción topográfica.
-- La decisión DEM queda abierta para la fase de detalle; no bloquea el texturizado UV v0.1. Si se incorpora, debe documentarse con fuente, licencia, resolución y transformación, y no reemplaza la huella PE-330 ni las plataformas.
+- La decisión DEM queda abierta para la fase de detalle; no bloquea el texturizado UV v0.2. Si se incorpora, debe documentarse con fuente, licencia, resolución y transformación, y no reemplaza la huella PE-330 ni las plataformas.

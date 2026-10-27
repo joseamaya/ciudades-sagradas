@@ -1,7 +1,7 @@
 # Chavín — texturizado UV v0.1
 
 Fecha: 27 de octubre de 2026.
-Estado: **pase técnico de texturizado; no es acabado final**.
+Estado: **pase técnico histórico; superado por `textured-v0.2.md`**.
 Fuente: `blender/chavin/chavin_textured_v0.1.blend` (3,3 MB).
 Base: `lookdev-v0.2.md`.
 Prueba descartada: atlas horneado 2K, guardado fuera del repositorio en `/tmp/chavin-bake-v0.1/`.

@@ -1,8 +1,8 @@
 # Chavín de Huántar — remaster
 
-Estado: **blockout v0.5 aceptado como escala; texturizado UV v0.1 de la mampostería ashlar en revisión**. Fuentes UNESCO/Mincul, Plan de Manejo 2020 e ICOMOS 1999 verificados; ICOMOS 1985 y las secciones finas quedan como pendientes no bloqueantes. No hay assets web publicados.
+Estado: **blockout v0.5 aceptado como escala; texturizado UV v0.2 de la mampostería ashlar en revisión**. Fuentes UNESCO/Mincul, Plan de Manejo 2020 e ICOMOS 1999 verificados; ICOMOS 1985 y las secciones finas quedan como pendientes no bloqueantes. No hay assets web publicados.
 
-Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 está aceptado como base de escala y `chavin_textured_v0.1.blend` añade UVs de proyección cúbica y texturas 2K repetidas. El bake 2K se probó y se descartó por pérdida de detalle. El modelado final sigue condicionado a los permisos de publicación; el terreno se queda procedural por ahora.
+Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 está aceptado como base de escala y `chavin_textured_v0.2.blend` añade UVs de proyección cúbica, texturas 2K repetidas, tinte cálido y una difusa oscura propia. El bake 2K se probó y se descartó por pérdida de detalle. El modelado final sigue condicionado a los permisos de publicación; el terreno se queda procedural por ahora.
 
 ## Documentos
 
@@ -17,7 +17,8 @@ Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 e
 - `blockout-v0.5.md`: revisión de Lanzón, portal y escala humana (aceptado).
 - `lookdev-v0.1.md`: base de materiales procedurales (histórico).
 - `lookdev-v0.2.md`: mampostería ashlar, texturas propias y límites de exportación (histórico).
-- `textured-v0.1.md`: UVs de proyección cúbica, texturas 2K y prueba de GLB; incluye el bake descartado.
+- `textured-v0.1.md`: UVs de proyección cúbica, texturas 2K y prueba de GLB; incluye el bake descartado (histórico).
+- `textured-v0.2.md`: ashlar con tinte cálido, difusa oscura, hiladas variables y normal más marcada; GLB de prueba de 5,5 MB.
 
 ## Reglas
 

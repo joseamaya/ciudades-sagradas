@@ -88,7 +88,7 @@ def apply_material_fallbacks():
 
 
 def apply_earth_texture():
-    root = "/home/jamaya/Projects/ciudades-sagradas/blender/textures/chavin/"
+    root = bpy.path.abspath("//../textures/chavin/")
     earth = bpy.data.materials.get("MAT-Chavin_Earth")
     if earth is None or not earth.use_nodes:
         return

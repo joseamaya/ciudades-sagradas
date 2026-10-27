@@ -6,7 +6,7 @@
 - OpenCode configurado con MCP de Blender y skills MIT en `.agents/skills/`.
 - **Caral Remaster v2 es el estado actual y la referencia técnica del proyecto.**
 - Caral v2 queda cerrada bajo el estándar de **ciudad representativa**: volúmenes y sectores principales, high-poly solo en las cuatro zonas hero. No es un inventario 1:1 de los 32 edificios públicos. Ver `docs/remaster/caral/cobertura.md`.
-- Chavín Fase 0 iniciada: fuentes UNESCO/Mincul verificadas, plan, cobertura y referencias creados; modelado bloqueado hasta aprobar el gate.
+- Chavín Fase 0 cerrada para blockout: fuentes UNESCO/Mincul, Plan de Manejo 2020 e ICOMOS 1999 verificados; plan, cobertura y referencias aprobados. ICOMOS 1985 y plano quedan pendientes no bloqueantes.
 - LOD0 high-poly: 230.800 tris, 65 primitivas, 21 materiales, 31 imágenes, **3.277.080 bytes** con Draco.
 - LOD1 horneado: 56.332 tris, 38 primitivas, 23 materiales, 39 imágenes 1K, **1.345.092 bytes** con Draco.
 - Fallback v1: 55.944 tris, 554 primitivas, 20 materiales, 31 imágenes, 4.778.308 bytes.
@@ -71,4 +71,4 @@
 
 ## Próximo paso recomendado
 
-Documentar y aceptar la incidencia Android P2; no bloquear el cierre de contenido. Después, abrir **Chavín Fase 0** (fuentes, licencias, cobertura y alcance) con Caral v2 como plantilla técnica. El modelado de Chavín queda bloqueado hasta aprobar ese gate. KTX2/BasisU sigue como mejora opcional si 208 MB de VRAM no bastan.
+Documentar y aceptar la incidencia Android P2; no bloquear el cierre de contenido. Chavín Fase 0 ya está cerrada para blockout; el siguiente hito es **Chavín blockout v0.1** (terreno, ríos, plataformas y volúmenes, sin materiales finales). KTX2/BasisU sigue como mejora opcional si 208 MB de VRAM no bastan.

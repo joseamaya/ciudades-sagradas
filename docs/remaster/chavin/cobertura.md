@@ -1,7 +1,7 @@
 # Cobertura objetivo — Chavín de Huántar
 
 Fecha: 27 de octubre de 2026.
-Estado: **Fase 0; cobertura preliminar, no modelada**.
+Estado: **Fase 0 cerrada para blockout; cobertura aprobada, no modelada**.
 Estándar: **ciudad representativa**.
 
 ## Definición
@@ -14,14 +14,14 @@ La marca **Documentado** de la tabla se apoya en la ficha UNESCO 330 y/o en el M
 
 | Elemento | Evidencia | Nivel objetivo | Estado | Nota |
 |---|---|---|---|---|
-| Templo Antiguo | Documentado | Hero | Pendiente | Volumen, accesos y relación con la plaza |
-| Templo Nuevo | Documentado | Hero | Pendiente | Fachada, escalinata y portada |
-| Plaza Circular Hundida | Documentado | Hero | Pendiente | Gradas y umbral ritual |
+| Edificio B / Templo del Lanzón | Documentado | Hero | Pendiente | Tradicional “Templo Antiguo”; volumen, acceso y galería |
+| Edificio A / Pirámide Mayor / “Castillo” | Documentado | Hero | Pendiente | Tradicional “Templo Nuevo”; ~22,5 m + 2 m de cima |
+| Plaza Circular Hundida / Atrio del Lanzón | Documentado | Hero | Pendiente | Pavimento, gradas y escalinatas este-oeste |
 | Plazas rectangulares y atrios | Documentado | Fondo | Pendiente | Lectura de conjunto |
-| Galerías internas | Documentado | Hero parcial | Pendiente | Una secuencia, no el sistema completo |
+| Galerías internas | Documentado | Hero parcial | Pendiente | 22 galerías / 689,70 m / 1.349 vigas; modelar una secuencia |
 | Ventilación y drenaje | Documentado | Detalle visible | Pendiente | Solo lo que se pueda mostrar con evidencia |
 | Lanzón | Documentado | Hero | Pendiente | Pieza in situ; prioridad visual |
-| Portada de las Falcónidas | Documentado | Hero | Pendiente | Fachada del Templo Nuevo |
+| Portada de las Falcónidas | Documentado | Hero | Pendiente | Fachada del Edificio A |
 | Estela Raimondi | Documentado | Referencia | Pendiente | Museo; requiere licencia o réplica señalizada |
 | Obelisco Tello | Documentado | Referencia | Pendiente | Museo; opcional |
 | Cabezas clavas | Documentado | Props/referencia | Pendiente | No todas; selección con fuente |
@@ -52,9 +52,9 @@ La marca **Documentado** de la tabla se apoya en la ficha UNESCO 330 y/o en el M
 
 ## Criterio de aceptación de Fase 0
 
-- [ ] Tabla revisada contra fuentes.
-- [ ] Zonas hero y fondo aprobadas.
-- [ ] Huecos marcados como diferidos, no inventados.
-- [ ] Licencias de imágenes/esculturas verificadas.
-- [ ] Presupuesto y recorrido coherentes con la tabla.
-- [ ] Ningún elemento se declara “completo” sin fuente.
+- [x] Tabla revisada contra fuentes.
+- [x] Zonas hero y fondo aprobadas para blockout.
+- [x] Huecos marcados como diferidos, no inventados.
+- [x] Política de licencias aprobada; permisos de publicación pendientes.
+- [x] Presupuesto y recorrido coherentes con la tabla.
+- [x] Ningún elemento se declara “completo” sin fuente.

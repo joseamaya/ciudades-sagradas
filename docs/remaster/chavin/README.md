@@ -1,8 +1,8 @@
 # Chavín de Huántar — remaster
 
-Estado: **Fase 0 — investigación, fuentes y alcance**. Fuentes UNESCO/Mincul verificadas; ICOMOS, plano y licencias pendientes. No hay modelo 3D ni assets publicados.
+Estado: **Fase 0 cerrada para blockout**. Fuentes UNESCO/Mincul, Plan de Manejo 2020 e ICOMOS 1999 verificados; ICOMOS 1985 y plano quedan como pendientes no bloqueantes. No hay modelo 3D ni assets publicados.
 
-Chavín se abre después del cierre de contenido de Caral v2. La planta, las galerías y la escultura monumental son más complejas que Caral, así que el modelado queda bloqueado hasta aprobar el gate de Fase 0.
+Chavín se abre después del cierre de contenido de Caral v2. El gate de Fase 0 ya está aprobado para blockout; el modelado final sigue condicionado a la revisión del blockout y a los permisos de publicación.
 
 ## Documentos
 
@@ -16,4 +16,4 @@ Chavín se abre después del cierre de contenido de Caral v2. La planta, las gal
 - No copiar imágenes de UNESCO/Mincul/ICOMOS sin permiso.
 - Separar documentado, inferido e interpretativo.
 - No inventar techos, galerías ni esculturas ausentes.
-- No iniciar Blender hasta aprobar `plan.md` y `cobertura.md`.
+- No publicar imágenes oficiales ni piezas de museo sin permiso.

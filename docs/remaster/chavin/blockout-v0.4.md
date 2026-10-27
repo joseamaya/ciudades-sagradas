@@ -1,9 +1,9 @@
 # Chavín — blockout v0.4 (cierre del núcleo B)
 
 Fecha: 27 de octubre de 2026.
-Estado: **núcleo B cerrado en blockout; revisión pendiente**.
+Estado: **histórico; sustituido por v0.5, que revisa Lanzón, portal y escala**.
 Fuente: `blender/chavin/chavin_blockout_v0.4.blend` (175 KB).
-Base: `blockout-v0.3.md`.
+Base: `blockout-v0.3.md`. Siguiente: `blockout-v0.5.md`.
 Decisión de terreno: `terrain.md`.
 
 ## Vistas

@@ -1,8 +1,8 @@
 # Chavín de Huántar — remaster
 
-Estado: **blockout v0.4 generado (núcleo B cerrado); revisión pendiente**. Fuentes UNESCO/Mincul, Plan de Manejo 2020 e ICOMOS 1999 verificados; ICOMOS 1985 y las secciones finas quedan como pendientes no bloqueantes. No hay assets web publicados.
+Estado: **blockout v0.5 generado (revisión de escala); pendiente de aceptación visual**. Fuentes UNESCO/Mincul, Plan de Manejo 2020 e ICOMOS 1999 verificados; ICOMOS 1985 y las secciones finas quedan como pendientes no bloqueantes. No hay assets web publicados.
 
-Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.4 ya existe en `blender/chavin/`; el modelado final sigue condicionado a la revisión del núcleo, la decisión de terreno y los permisos de publicación.
+Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 ya existe en `blender/chavin/`; el modelado final sigue condicionado a la aceptación de escala, la decisión de terreno y los permisos de publicación.
 
 ## Documentos
 
@@ -13,7 +13,8 @@ Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.4 y
 - `blockout-v0.1.md`: alcance, métricas, evidencia y límites del primer blockout.
 - `blockout-v0.2.md`: pase de terreno, talud, rampa, ríos y Cerro Cochas.
 - `blockout-v0.3.md`: galería acotada, Lanzón y sección de revisión (histórico).
-- `blockout-v0.4.md`: cierre del patio de B, portal y relleno del núcleo.
+- `blockout-v0.4.md`: cierre del patio de B, portal y relleno del núcleo (histórico).
+- `blockout-v0.5.md`: revisión de Lanzón, portal y escala humana.
 
 ## Reglas
 

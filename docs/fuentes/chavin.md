@@ -1,6 +1,6 @@
 # Chavín de Huántar — dossier de fuentes
 
-**Estado:** Fase 0 cerrada para blockout; permisos de publicación pendientes. Blockout v0.4 generado; sin assets web publicados.
+**Estado:** Fase 0 cerrada para blockout; permisos de publicación pendientes. Blockout v0.5 generado; sin assets web publicados.
 
 **Fecha de consulta:** 27 de octubre de 2026.
 

@@ -1,7 +1,7 @@
 # Plan de Chavín de Huántar — Fase 0
 
 Fecha: 27 de octubre de 2026.
-Estado: **Fase 0 en curso; modelado bloqueado**.
+Estado: **Fase 0 cerrada para blockout; blockout pendiente**.
 Estándar heredado de Caral: **ciudad representativa**, no inventario 1:1.
 
 ## Objetivo
@@ -12,10 +12,10 @@ Preparar una reconstrucción 3D navegable de Chavín de Huántar con evidencia, 
 
 ### Zonas hero
 
-1. **Templo Antiguo y Lanzón.** Volumen principal, acceso, relación con la plaza y el espacio del Lanzón.
-2. **Templo Nuevo y Portada de las Falcónidas.** Fachada, escalinata y lectura exterior.
-3. **Plaza Circular Hundida.** Gradas, accesos y relación con los templos.
-4. **Una secuencia de galería y ventilación.** Solo lo que la evidencia permita; no un laberinto completo inventado.
+1. **Edificio B / Templo del Lanzón** (tradicional “Templo Antiguo”). Volumen, acceso, Galería del Lanzón y relación con la plaza.
+2. **Edificio A / Pirámide Mayor / “Castillo”** (tradicional “Templo Nuevo”), con la **Portada de las Falcónidas**.
+3. **Plaza Circular Hundida y Atrio del Lanzón.** Pavimento, gradas, escalinatas y umbral ritual.
+4. **Una secuencia de galería y ventilación.** Solo lo que la evidencia permita; no las 22 galerías inventadas.
 
 ### Fondo y contexto
 
@@ -51,12 +51,12 @@ No se decide la escala final del visor hasta medir la huella del sitio y el encu
 
 ## Recorrido preliminar
 
-1. **Llegada al valle.** Río, quebradas y posición del centro ceremonial.
-2. **Plaza Circular Hundida.** Gradas y umbral ritual.
-3. **Templo Antiguo.** Acceso y Lanzón.
+1. **Llegada al valle.** Confluencia Mosna/Wacheqsa y posición del centro ceremonial.
+2. **Plaza Circular y Atrio del Lanzón.** Gradas, pavimento y umbral ritual.
+3. **Edificio B / Templo del Lanzón.** Acceso, galería y espacio del ídolo.
 4. **Galería y ventilación.** Oscuridad, aire y relación con el exterior.
-5. **Templo Nuevo.** Portada de las Falcónidas y fachada.
-6. **Mirador del conjunto.** Templos, plazas y paisaje.
+5. **Edificio A / Pirámide Mayor.** Portada de las Falcónidas y fachada.
+6. **Mirador del conjunto.** Templos, plazas, ríos y paisaje.
 
 Los textos deben distinguir documentado, inferido e interpretativo; no afirmar función ritual como certeza absoluta.
 
@@ -83,28 +83,38 @@ Los textos deben distinguir documentado, inferido e interpretativo; no afirmar f
 | Ítem | Estado |
 |---|---|
 | Fuentes UNESCO/Mincul | Verificadas |
-| ICOMOS 1985 | Pendiente de acceso (403) |
-| Plano y decisiones del Comité | Pendiente de lectura |
-| Cobertura | Preliminar, sin aprobar |
-| Alcance hero/fondo | Propuesto, sin aprobar |
-| Presupuesto y escala | Propuestos, sin aprobar |
-| Recorrido, capas y luces | Propuestos, sin aprobar |
-| Licencias de imágenes/esculturas | Pendiente |
+| ICOMOS 1985 | Pendiente de acceso (403); cubierto por ICOMOS 1999 |
+| Plano | Pendiente de lectura; no bloquea el blockout |
+| Cobertura | Aprobada para blockout |
+| Alcance hero/fondo | Aprobado para blockout |
+| Presupuesto y escala | Aprobados para blockout; escala final pendiente |
+| Recorrido, capas y luces | Aprobados para blockout |
+| Licencias de imágenes/esculturas | Política aprobada; permisos de publicación pendientes |
 | Imágenes oficiales copiadas | 0 |
+
+## Decisión de gate
+
+**27 de octubre de 2026 — se aprueba el paso a blockout v0.1 con estas condiciones:**
+
+- Base: Edificio A/B, Plaza Circular/Atrio del Lanzón y una secuencia de galería.
+- Evidencia: UNESCO 330, Ministerio de Cultura, Plan de Manejo 2020 e ICOMOS 1999; ICOMOS 1985 no bloquea.
+- Licencias: cero imágenes oficiales copiadas; el blockout usa geometría propia; publicar piezas de museo requiere permiso.
+- Sin texturas de IA.
+- El alcance se congela hasta revisar el blockout contra `cobertura.md`.
 
 ## Gate de Fase 0
 
 No se abre Blender hasta completar:
 
-- [ ] `docs/fuentes/chavin.md` ampliado con tablero de fuentes.
-- [ ] `referencias.md` con licencias y permisos.
-- [ ] `cobertura.md` aprobado.
-- [ ] Alcance hero/fondo y exclusiones aprobados.
-- [ ] Presupuesto técnico y escala preliminar aprobados.
-- [ ] Recorrido, capas y luces preliminares aprobados.
-- [ ] Riesgos y huecos de evidencia aceptados.
-- [ ] Cero imágenes oficiales copiadas sin permiso.
+- [x] `docs/fuentes/chavin.md` ampliado con tablero de fuentes.
+- [x] `referencias.md` con política de licencias y permisos de publicación identificados.
+- [x] `cobertura.md` aprobado para blockout.
+- [x] Alcance hero/fondo y exclusiones aprobados.
+- [x] Presupuesto técnico y escala preliminar aprobados.
+- [x] Recorrido, capas y luces preliminares aprobados.
+- [x] Riesgos y huecos de evidencia aceptados.
+- [x] Cero imágenes oficiales copiadas sin permiso.
 
 ## Siguiente hito
 
-**Chavín blockout v0.1:** terreno, ríos, plataformas y volúmenes de los templos, sin materiales finales ni esculturas detalladas. Se revisa contra `cobertura.md` antes de continuar.
+**Chavín blockout v0.1:** terreno, ríos, plataformas y volúmenes de Edificio A/B, Plaza Circular y una galería, sin materiales finales ni esculturas detalladas. El terreno se apoya en el plano y el Plan de Manejo; sin DEM fino, la topografía se marca como inferida. Se revisa contra `cobertura.md` antes de continuar.

@@ -1,6 +1,6 @@
 # Chavín de Huántar — dossier de fuentes
 
-**Estado:** Fase 0 — fuentes, licencias y alcance; modelo 3D bloqueado hasta aprobar el gate.
+**Estado:** Fase 0 cerrada para blockout; permisos de publicación pendientes. Modelo 3D no iniciado.
 
 **Fecha de consulta:** 27 de octubre de 2026.
 
@@ -26,7 +26,18 @@
 - **Ministerio de Cultura:** sitúa el desarrollo entre **1500 y 550 a. C.**, describe edificaciones monumentales sobre terrazas alrededor de plazas cuadradas y circulares, y destaca las galerías superpuestas en varios niveles para rituales de iniciación y culto. Publica expediente, plano y Plan de Manejo 2020.
 - **Discrepancia cronológica:** UNESCO usa 1500–300 a. C. y el Ministerio 1500–550 a. C. Se mantiene el rango amplio **1500–550 a. C.** y se señala la diferencia.
 - **Altitud:** las fuentes consultadas oscilan entre 3.177 y 3.180 m s. n. m.; no se fija una cota única sin levantamiento topográfico.
-- **Pendiente:** el PDF de ICOMOS 1985 no se pudo descargar desde el entorno (403); se cita la ficha y se revisará manualmente si hace falta.
+- **ICOMOS 1999:** el informe de seguimiento está disponible y describe un sitio muy frágil, con falta de recursos, turismo a ordenar y necesidad de un plan de manejo antes de nuevas excavaciones. Se usa como fuente de conservación; la evaluación ICOMOS de 1985 sigue con acceso 403 y no se copia.
+- **Periodic Reporting 2024:** confirma 14,79 ha y zona de amortiguamiento 0; el sitio mantiene personal permanente pero los recursos para conservación son insuficientes.
+
+## Datos verificados para modelado (Plan de Manejo 2020)
+
+- **Pirámide Mayor / Edificio A / “Castillo”:** el conjunto se organiza mirando al este, con el eje central hacia la plaza mayor. El Templo Mayor alcanza unos **22,5 m** de altura, más unos **2 m** de recintos en la cima; el río Mosna corre unos **30 m** por debajo.
+- **Edificio B / Templo del Lanzón:** la Galería del Lanzón y el atrio con la Plaza Circular son el núcleo del conjunto tradicionalmente llamado “Templo Antiguo”.
+- **Plaza Circular:** pavimento de piedras amarillas con calzada negra y dos escalinatas alineadas en el eje este-oeste; desde allí se sube a la terraza y a la nave central del templo.
+- **Galerías:** el estudio de 2006 registra **22 galerías** con **689,70 m** lineales y **1.349 vigas monolíticas** contabilizadas (más el tramo de la Plaza Cuadrada). Las galerías altas superan **1,9 m**; los ductos de ventilación/drenaje bajan a **0,5 m** o menos, con anchos cercanos a **1 m**.
+- **Pórtico de las Falcónidas:** fachada principal del Edificio A; fue liberada tras el aluvión y es una de las piezas clave para la lectura exterior.
+- **Terminología:** “Templo Antiguo” y “Templo Nuevo” son denominaciones tradicionales; el Plan de Manejo 2020 advierte que la secuencia cronológica sigue en revisión. El modelo debe usar **Edificio A/B** cuando la fuente lo permita y señalar la equivalencia.
+- **Riesgos documentados:** saturación de rellenos, debilidad de galerías, drenaje insuficiente, deslizamientos, inundaciones (1945) y terremotos (1970). ICOMOS 1999 calificó el sitio como muy frágil y pidió un plan de manejo antes de nuevas excavaciones.
 
 ## Cronología
 
@@ -38,7 +49,7 @@
 ## Arquitectura y urbanismo
 
 - Conjunto de terrazas, plazas y edificios de piedra labrada.
-- Templo Antiguo y Templo Nuevo, con ampliaciones y superposiciones.
+- Edificios A y B (tradicionalmente “Templo Nuevo” y “Templo Antiguo”), con ampliaciones y superposiciones.
 - Sistema interno de galerías, conductos de ventilación y drenaje.
 - Plaza Circular Hundida y plazas rectangulares.
 - Escultura monumental: Lanzón, Estela Raimondi, Obelisco Tello, Portada de las Falcónidas, cabezas clavas.
@@ -79,14 +90,16 @@
 - UNESCO, documentos y evaluación ICOMOS 1985: <https://whc.unesco.org/en/list/330/documents>
 - ICOMOS, evaluación 1985: <https://whc.unesco.org/document/153206>
 - ICOMOS, misión de seguimiento 1999: <https://whc.unesco.org/document/139527>
+- UNESCO, Periodic Reporting 2024: <https://whc.unesco.org/document/216550>
 - Ministerio de Cultura, Patrimonio Mundial: <https://patrimoniomundial.cultura.pe/sitiosdelpatrimoniomundial/sitio-arqueol%C3%B3gico-chav%C3%ADn>
+- Ministerio de Cultura, Plan de Manejo 2020: <https://patrimoniomundial.cultura.pe/sites/default/files/pm/pdf/RM%20292-2020-DM-MC%20-%20ANEXO.pdf.pdf>
 - Museo Nacional Chavín: <https://museos.cultura.pe/museos/museo-nacional-chav%C3%ADn>
 - MNAAHP, sala Chavín: <https://mnaahp.cultura.pe/exposiciones/salas-permanentes/chavin>
 - Stanford, investigación de John Rick: <https://news.stanford.edu/stories/2016/04/stanford-archaeologist-traces-origins-authority-andes-peru>
 
 ## Alcance de reconstrucción (Fase 0)
 
-- **Hero:** Templo Antiguo y Lanzón, Templo Nuevo y Portada de las Falcónidas, Plaza Circular Hundida y una secuencia de galería/ventilación.
+- **Hero:** Edificio B / Templo del Lanzón, Edificio A / Pirámide Mayor con la Portada de las Falcónidas, Plaza Circular/Atrio del Lanzón y una secuencia de galería/ventilación.
 - **Fondo:** terrazas, plazas, ríos, quebradas, vegetación y escala humana.
 - **Referencia:** Estela Raimondi, Obelisco Tello y cabezas clavas solo con fuente y licencia; pueden señalarse como réplica o pieza de museo.
 - **Fuera de alcance:** todas las galerías una por una, techos no conservados y el área UNESCO completa a alta fidelidad.
@@ -99,7 +112,7 @@
 - No se inventan techos, torres ni decoraciones ausentes.
 - Las esculturas se ubican según fuentes; las piezas trasladadas al museo se señalan.
 - La vegetación de altura y la humedad del valle condicionan la paleta.
-- Se distinguirá el Templo Antiguo del Nuevo cuando la evidencia lo permita.
+- Se usarán los nombres Edificio A/B y se señalarán las equivalencias con “Templo Antiguo/Nuevo”, cuya secuencia cronológica sigue en revisión.
 
 ## Imágenes y licencias
 

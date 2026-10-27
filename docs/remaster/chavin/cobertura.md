@@ -8,6 +8,8 @@ Estándar: **ciudad representativa**.
 
 Chavín se considerará completo cuando estén representados los volúmenes y sectores principales con respaldo documental, las zonas hero tengan detalle suficiente y los huecos de evidencia estén señalados. No se modelarán todas las galerías, piedras o piezas de museo una por una.
 
+La marca **Documentado** de la tabla se apoya en la ficha UNESCO 330 y/o en el Ministerio de Cultura. La planta detallada, las secciones y las alturas siguen sujetas a revisión antes del gate.
+
 ## Cobertura
 
 | Elemento | Evidencia | Nivel objetivo | Estado | Nota |

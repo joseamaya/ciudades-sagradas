@@ -9,7 +9,8 @@ Estado: **P2 abierta y aceptada para el cierre de contenido**.
 | Campo | Valor |
 |---|---|
 | Severidad | P2 — visual, no bloquea navegación |
-| Plataforma | Android, navegador móvil (modelo y versión pendientes) |
+| Plataforma | Android, navegador móvil |
+| Datos del dispositivo | No disponibles; se completarán más adelante |
 | Versión | v2.0.0 y v2.0.1 |
 | URL | <https://joseamaya.github.io/ciudades-sagradas/?debug=1#/ciudad/caral> |
 | Reproducción | Continua, sin mover la cámara |

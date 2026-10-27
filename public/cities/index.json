@@ -20,11 +20,12 @@
     "culture": "Cultura Chavín",
     "period": "1500–550 a. C.",
     "region": "Valle del Mosna, Áncash",
-    "status": "research",
+    "status": "available",
     "accent": "#b8a98f",
-    "thumb": null,
-    "summary": "Centro ceremonial y oráculo en la confluencia de los ríos Mosna y Huachecsa, a 3180 m. Su templo de piedra, galerías y el Lanzón articularon el mundo Chavín.",
-    "monogram": "Ch"
+    "thumb": "cities/chavin/hero.jpg",
+    "summary": "Centro ceremonial y oráculo en la confluencia de los ríos Mosna y Huachecsa, a 3180 m. Su templo de piedra, galerías y el Lanzón articularon el mundo Chavín. Preview en revisión.",
+    "monogram": "Ch",
+    "stage": "preview"
   },
   {
     "id": "chan-chan",

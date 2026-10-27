@@ -7,12 +7,83 @@
   "region": "Valle del Mosna, Huari, Áncash",
   "coordinates": { "lat": -9.593, "lon": -77.178 },
   "elevation": "3180 m s. n. m.",
-  "status": "research",
+  "status": "available",
+  "stage": "preview",
   "summary": "Chavín de Huántar fue uno de los grandes centros ceremoniales y oraculares de los Andes. En la confluencia de los ríos Mosna y Huachecsa, sus templos de piedra, galerías internas, plazas y esculturas —como el Lanzón— articularon una ideología que se expandió por buena parte del territorio andino.",
-  "model": null,
-  "scale": 1,
-  "camera": { "position": [18, 12, 22], "target": [0, 4, 0], "fov": 45 },
-  "tour": [],
+  "model": "cities/chavin/model_lod0.glb",
+  "lod": {
+    "default": "auto",
+    "levels": {
+      "0": "cities/chavin/model_lod0.glb",
+      "1": "cities/chavin/model_lod1.glb"
+    }
+  },
+  "fallbackModel": "cities/chavin/model_lod1.glb",
+  "scale": 0.08,
+  "verticalScale": 1,
+  "minDistance": 0.25,
+  "maxDistance": 180,
+  "camera": {
+    "position": [16.8, 10.4, 18.8],
+    "target": [2.4, 0.72, -2.4],
+    "fov": 35
+  },
+  "tour": [
+    {
+      "title": "El valle del Mosna",
+      "text": "Chavín se levanta a unos 3.180 m, en la confluencia de los ríos Mosna y Huachecsa. El valle y las quebradas enmarcan un centro ceremonial que articuló peregrinación, intercambio y poder ritual.",
+      "camera": {
+        "position": [16.8, 10.4, 18.8],
+        "target": [2.4, 0.72, -2.4],
+        "fov": 35
+      }
+    },
+    {
+      "title": "Plaza Circular y atrio",
+      "text": "La Plaza Circular Hundida y el atrio del Lanzón forman el núcleo del conjunto tradicionalmente llamado Templo Antiguo. El pavimento, las gradas y las escalinatas organizan un acceso ritual en torno al Edificio B.",
+      "camera": {
+        "position": [7.6, 4.4, 0.8],
+        "target": [0, 0.56, -4.4],
+        "fov": 43.6
+      }
+    },
+    {
+      "title": "Edificio B y el Lanzón",
+      "text": "El Edificio B alberga la Galería del Lanzón. La pieza es un monolito ahusado de unos 4,5 m; en esta vista se presenta como volumen de estudio, sin talla ni acabado final.",
+      "camera": {
+        "position": [1.12, 0.52, -4.96],
+        "target": [0, 0.416, -4.96],
+        "fov": 54.4
+      }
+    },
+    {
+      "title": "Galería y ventilación",
+      "text": "Una secuencia de la red interna: corredor, cámara, dinteles, portal, ducto y hornacina. El modelo no reconstruye las 22 galerías completas ni inventa techos no conservados.",
+      "camera": {
+        "position": [10, 1.92, -1.6],
+        "target": [0, 0.48, -4.96],
+        "fov": 39.6
+      }
+    },
+    {
+      "title": "Portada de las Falcónidas",
+      "text": "La portada se abre en el frontis este del Edificio A. Dos columnas circulares de 2,30 m, jambas trilíticas y un friso partido en dos enmarcan el acceso; las tallas de esta versión son una lectura geométrica, no una reproducción iconográfica.",
+      "camera": {
+        "position": [3.376, 0.528, -0.664],
+        "target": [2.84, 0.4, 0],
+        "fov": 38.2
+      }
+    },
+    {
+      "title": "Mirador del conjunto",
+      "text": "Desde el mirador se leen las terrazas del Edificio A, la Plaza Circular, la Plaza Cuadrada y el valle. El terreno es procedural y la planta general sigue siendo una base de revisión.",
+      "camera": {
+        "position": [20, 13.6, 20.8],
+        "target": [1.6, 0.8, -2.4],
+        "fov": 35
+      }
+    }
+  ],
   "layers": [
     { "id": "city", "label": "Arquitectura", "default": true },
     { "id": "terrain", "label": "Valle y quebradas", "default": true },
@@ -45,6 +116,6 @@
       "url": "https://news.stanford.edu/stories/2016/04/stanford-archaeologist-traces-origins-authority-andes-peru"
     }
   ],
-  "disclaimer": "Reconstrucción en investigación. La ficha se publicará cuando el modelo 3D y la revisión de fuentes estén completos.",
-  "credits": "Ficha documental en preparación."
+  "disclaimer": "Preview de revisión. Reconstrucción artística en investigación; no es una reconstrucción histórica final. El terreno es procedural y la Portada conserva relieves interpretativos.",
+  "credits": "Geometría y texturas propias del proyecto; sin imágenes oficiales ni texturas de IA."
 }

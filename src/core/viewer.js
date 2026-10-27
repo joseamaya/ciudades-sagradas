@@ -512,6 +512,8 @@ export class CityViewer {
 
   async load(city) {
     this.city = city;
+    if (Number.isFinite(city.minDistance)) this.controls.minDistance = city.minDistance;
+    if (Number.isFinite(city.maxDistance)) this.controls.maxDistance = city.maxDistance;
     this.loadStartedAt = performance.now();
     const candidates = buildModelCandidates(city, this.lowPower);
     if (!candidates.length) return;

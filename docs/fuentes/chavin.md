@@ -1,6 +1,6 @@
 # Chavín de Huántar — dossier de fuentes
 
-**Estado:** Fase 0 cerrada para blockout; permisos de publicación pendientes. Modelo 3D no iniciado.
+**Estado:** Fase 0 cerrada para blockout; preview web v0.1 con LOD0/LOD1, seis paradas y capas. Blockout v0.5, texturizado UV v0.2 y Portada v0.1 aceptados como base. Bake 2K descartado por pérdida de detalle; permisos de piezas de museo y fotografías siguen pendientes.
 
 **Fecha de consulta:** 27 de octubre de 2026.
 
@@ -36,6 +36,8 @@
 - **Plaza Circular:** pavimento de piedras amarillas con calzada negra y dos escalinatas alineadas en el eje este-oeste; desde allí se sube a la terraza y a la nave central del templo.
 - **Galerías:** el estudio de 2006 registra **22 galerías** con **689,70 m** lineales y **1.349 vigas monolíticas** contabilizadas (más el tramo de la Plaza Cuadrada). Las galerías altas superan **1,9 m**; los ductos de ventilación/drenaje bajan a **0,5 m** o menos, con anchos cercanos a **1 m**.
 - **Pórtico de las Falcónidas:** fachada principal del Edificio A; fue liberada tras el aluvión y es una de las piezas clave para la lectura exterior.
+- **Portada de las Falcónidas — medidas:** dos columnas circulares de **2,30 m** de alto, **61 cm** de diámetro y **1,91 m** de circunferencia; dos jambas de tres piezas; friso voladizo con **ocho** falcónidas, partido en dos; dintel de tres piezas no incluido en la reconstrucción actual. Una fuente secundaria reporta **6,48 m** de friso y otra cita **14 aves**; se adopta 8 y se marca el ancho como pendiente de cotejo.
+- **Portada — dualidad:** el sector sur se asocia a granito blanco y el norte a caliza negra; las columnas representan seres antropomorfos masculino y femenino. La asignación de materiales en el modelo v0.1 es interpretativa.
 - **Terminología:** “Templo Antiguo” y “Templo Nuevo” son denominaciones tradicionales; el Plan de Manejo 2020 advierte que la secuencia cronológica sigue en revisión. El modelo debe usar **Edificio A/B** cuando la fuente lo permita y señalar la equivalencia.
 - **Riesgos documentados:** saturación de rellenos, debilidad de galerías, drenaje insuficiente, deslizamientos, inundaciones (1945) y terremotos (1970). ICOMOS 1999 calificó el sitio como muy frágil y pidió un plan de manejo antes de nuevas excavaciones.
 
@@ -58,7 +60,7 @@
 
 ## Materiales y técnicas
 
-- Piedra labrada y mampostería.
+- Piedra labrada y mampostería. La textura ashlar del texturizado UV v0.2 es una base interpretativa, no un levantamiento de bloques.
 - Revoques y pintura; superficies pulidas.
 - Galerías con dinteles y bloques de gran tamaño.
 - Sistemas de ventilación, desagüe y control del agua.
@@ -96,6 +98,8 @@
 - Museo Nacional Chavín: <https://museos.cultura.pe/museos/museo-nacional-chav%C3%ADn>
 - MNAAHP, sala Chavín: <https://mnaahp.cultura.pe/exposiciones/salas-permanentes/chavin>
 - Stanford, investigación de John Rick: <https://news.stanford.edu/stories/2016/04/stanford-archaeologist-traces-origins-authority-andes-peru>
+- Wikipedia, *Portada de las Falcónidas* (medidas secundarias; texto CC BY-SA 4.0): <https://es.wikipedia.org/wiki/Portada_de_las_Falc%C3%B3nidas>
+- Wikimedia Commons, *Portada de las Falcónidas* (licencia por archivo; solo referencia): <https://commons.wikimedia.org/wiki/Category:Portada_de_las_Falc%C3%B3nidas>
 
 ## Alcance de reconstrucción (Fase 0)
 

@@ -2,9 +2,9 @@
 
 ## Estado 2026-10-26
 
-- **v2 completado y desplegado** en GitHub Pages; `stage: "v2"` y caché `v6`.
+- **v2 completado y desplegado** en GitHub Pages; `stage: "v2"` y caché `v7`.
 - LOD0: 230.800 tris / 3,28 MB con Draco / 44 draw calls en régimen estable.
-- LOD1: 56.332 tris / 3,21 MB con Draco / 31 draw calls; atlas 2K, roughness 0,85 y normal 0,35.
+- LOD1: 56.332 tris / 1,35 MB con Draco / 31 draw calls; atlas exportado a 1K, roughness 0,85 y normal 0,35.
 - Fallback v1 (`model.glb`) intacto; seis paradas; portada v2.
 - PR #5 mergeado (`a76fc8b`); release web en `release-v2.md`.
 - Escala 0,08 validada como diorama web.
@@ -44,7 +44,7 @@
 - [x] Revoque blanco/amarillo/rojo, piedra cortada, piedra irregular, arena y suelo con texturas procedurales.
 - [x] Densidad de texel uniforme verificada en la Pirámide Mayor (1/16 UV por metro).
 - [x] Biblioteca PBR procedural completa (madera, totora, vegetación).
-- [x] UVs y atlas 2K por región.
+- [x] UVs y atlas horneado por región; exportado a 1K.
 - [x] Normales horneadas; AO no incluido en LOD1.
 - [x] Eliminar texturas de IA del remaster v1 y v2.
 
@@ -62,7 +62,7 @@
 - [x] LOD0 150k–250k tris; 230.800.
 - [x] LOD1 50k–80k tris; 56.332.
 - [x] Fusionar por capa/material; LOD0/LOD1 con sombras estáticas y sin transmisión.
-- [x] WebP 80 + Draco; LOD0 3,28 MB y LOD1 3,21 MB.
+- [x] WebP 80 + Draco; LOD0 3,28 MB y LOD1 1,35 MB.
 - [x] Validar UVs, normales, materiales y escala.
 
 ## Fase 6 — Visor
@@ -71,7 +71,7 @@
 - [x] Añadir LOD y selección automática.
 - [x] Iluminación y cámara inicial alineadas; encuadre hero y stops revisados.
 - [x] Actualizar `city.json`, README, manifiesto y créditos.
-- [x] Subir la versión de caché de `public/sw.js` a `v6`.
+- [x] Subir la versión de caché de `public/sw.js` a `v7`.
 - [x] Probar escritorio, móvil emulado y offline; kiosco congelado.
 
 ## Fase 7 — QA y publicación

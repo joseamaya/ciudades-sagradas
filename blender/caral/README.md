@@ -7,11 +7,11 @@
   - `caral_remaster_v2.blend`: high-poly de Mayor, Plaza Mayor, Anfiteatro y Altar Circular; v1 en `COL-Caral_LowPoly`.
   - `caral_lod0.blend`: high-poly fusionado por región + 6 mallas de infraestructura; 230.800 tris.
   - `caral_lod1.blend`: 9 objetos horneados + 6 mallas de infraestructura; 56.332 tris.
-  - `blender/textures/baked/caral/`: atlas 2K de LOD1.
+  - `blender/textures/baked/caral/`: atlas 2K de bake; el GLB LOD1 se exporta a 1K.
   - Se excluyen del repo por tamaño; se regeneran con los scripts de `scripts/`.
 - **Texturas:** `../textures/generated/remaster/` (procedurales, versionadas); los atlas de LOD1 se generan en `../textures/baked/caral/`.
 - **Escala:** metros; el visor aplica `0.08`.
-- **Estado:** remaster v2 desplegado en GitHub Pages; `stage: "v2"` y caché `v6`. `model.glb` v1 queda como fallback.
+- **Estado:** remaster v2 desplegado en GitHub Pages; `stage: "v2"` y caché `v7`. `model.glb` v1 queda como fallback.
 - **Piloto histórico:** el antiguo `caral_art.blend` y sus texturas de IA fueron retirados del repositorio por licencia pendiente. No se usan en v1 ni v2.
 
 ## Regenerar v2 desde la fuente versionada
@@ -71,7 +71,8 @@ blender --background blender/caral/caral_lod1.blend \
 
 blender --background blender/caral/caral_lod1.blend \
   --python scripts/export_caral_lod.py -- --lod 1 \
-  --out public/cities/caral/model_lod1.glb
+  --out public/cities/caral/model_lod1.glb \
+  --max-texture-size 1024
 ```
 
 El bake usa base color y normal tangente; la roughness se fija en **0,85** y la normal en **0,35**. El AO no se conecta ni se incluye en el GLB. La optimización fusiona `Terrain`, `LowerHalf`, `UpperHalf`, `Residential`, `Props` y `Reference` en seis mallas y asigna capas.

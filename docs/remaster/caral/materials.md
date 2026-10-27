@@ -97,7 +97,7 @@ blender --background blender/caral/caral_remaster.blend \
 
 ## Limitaciones
 
-- El bake de normales se completó en v2; el AO no se incluyó. LOD1 usa atlas 2K, normal 0,35 y roughness constante 0,85.
+- El bake de normales se completó en v2; el AO no se incluyó. LOD1 usa atlas exportado a 1K, normal 0,35 y roughness constante 0,85.
 - La geometría high-poly se completó en v2 para el hero; el resto conserva la base v1.
 - El encuadre hero y la luz de atardecer definitivos aún requieren una pasada de arte.
 - Caral v2 está desplegado; `model.glb` v1 queda como fallback. El piloto histórico fue retirado.

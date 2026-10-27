@@ -2,7 +2,7 @@
 
 Atlas interactivo de los grandes centros ceremoniales y ciudades del Perú antiguo. Reconstrucciones 3D en tiempo real, fichas educativas y fuentes públicas.
 
-**Estado:** Caral remaster v2 es el estado actual y su contenido queda cerrado bajo el estándar de **ciudad representativa**: seis pirámides y sectores principales, con high-poly en Pirámide Mayor, Plaza Mayor, Anfiteatro y Altar Circular. LOD0 de 230.800 tris y LOD1 de 56.332 tris, ambos con Draco; el piloto histórico con texturas de IA fue retirado del repositorio. Queda una incidencia Android P2 de parpadeo de suelo, documentada. Chavín de Huántar tiene la Fase 0 cerrada, blockout v0.5 aceptado, texturizado UV v0.2 sobre la mampostería ashlar y Portada de las Falcónidas v0.1 en revisión; el bake 2K se descartó por pérdida de detalle. Chan Chan y Wari siguen en investigación.
+**Estado:** Caral remaster v2 es el estado actual y su contenido queda cerrado bajo el estándar de **ciudad representativa**: seis pirámides y sectores principales, con high-poly en Pirámide Mayor, Plaza Mayor, Anfiteatro y Altar Circular. LOD0 de 230.800 tris y LOD1 de 56.332 tris, ambos con Draco; el piloto histórico con texturas de IA fue retirado del repositorio. Queda una incidencia Android P2 de parpadeo de suelo, documentada. Chavín de Huántar tiene la Fase 0 cerrada, blockout v0.5 aceptado, texturizado UV v0.2 sobre la mampostería ashlar y Portada de las Falcónidas v0.1 aceptada como base; el bake 2K se descartó por pérdida de detalle. Chan Chan y Wari siguen en investigación.
 
 ## Qué es
 
@@ -74,7 +74,7 @@ Más detalles en [`docs/kiosco.md`](./docs/kiosco.md).
 | Ciudad | Cultura | Período | Estado |
 |---|---|---|---|
 | Caral | Civilización Caral | 3000–1800 a. C. | Remaster v2 · LOD0/LOD1 |
-| Chavín de Huántar | Chavín | 1500–550 a. C. | Portada v0.1 · mampostería ashlar |
+| Chavín de Huántar | Chavín | 1500–550 a. C. | Base Portada v0.1 · mampostería ashlar |
 | Chan Chan | Chimú | Siglos IX–XV d. C. | En investigación |
 | Wari | Wari | 600–1100 d. C. | En investigación |
 

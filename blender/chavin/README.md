@@ -8,7 +8,7 @@
 - **Look-dev anterior:** `chavin_lookdev_v0.2.blend`, 585 KB (histórico).
 - **Base de escala:** `chavin_blockout_v0.5.blend`, 176 KB.
 - **Versiones anteriores:** `chavin_blockout_v0.4.blend` (patio B), `chavin_blockout_v0.3.blend` (galería), `chavin_blockout_v0.2.blend` (terreno), `chavin_blockout_v0.1.blend` (masas).
-- **Estado:** blockout v0.5 aceptado; texturizado UV v0.2 de mampostería ashlar; Portada de las Falcónidas v0.1 en revisión.
+- **Estado:** blockout v0.5 aceptado; texturizado UV v0.2 de mampostería ashlar; Portada de las Falcónidas v0.1 aceptada como base.
 - **Escala:** metros; el visor aplicará su escala cuando exista `city.json`.
 - **Contenido:** 132 mallas, 7.381 vértices, 14.146 tris y 9 colecciones.
 - **Portada:** 47 mallas, 5.292 vértices y 10.364 tris; columnas de 2,30 m, jambas trilíticas, friso de 6,48 m, ocho falcónidas y un escalón de acceso inferido.
@@ -39,4 +39,4 @@
 
 ## Siguiente
 
-Revisar `portada-v0.1.md` y aceptar o corregir su escala. Después: dintel, desarrollo de la escalera, cabezas clavas y LOD. El terreno se queda procedural por ahora.
+Preparar QA visual de la transición Portada/fachada y LOD/GLB. Dintel omitido, escalera de una grada y relieves abstractos quedan como decisiones documentadas. El terreno se queda procedural por ahora.

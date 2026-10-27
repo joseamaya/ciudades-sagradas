@@ -1,7 +1,7 @@
 # Plan de Chavín de Huántar — Fase 0
 
 Fecha: 27 de octubre de 2026.
-Estado: **Fase 0 cerrada; blockout v0.5 aceptado; texturizado UV v0.2 de mampostería en revisión**.
+Estado: **Fase 0 cerrada; blockout v0.5 aceptado; texturizado UV v0.2 de mampostería; Portada v0.1 aceptada como base**.
 Estándar heredado de Caral: **ciudad representativa**, no inventario 1:1.
 
 ## Objetivo
@@ -100,6 +100,7 @@ Los textos deben distinguir documentado, inferido e interpretativo; no afirmar f
 | Look-dev v0.2 | Mampostería ashlar procedural en `blender/chavin/chavin_lookdev_v0.2.blend`; histórico |
 | Texturizado UV v0.1 | UVs de cubo y texturas 2K en `blender/chavin/chavin_textured_v0.1.blend`; histórico |
 | Texturizado UV v0.2 | Ashlar cálido, difusa oscura, hiladas variables y normal marcada; en revisión |
+| Portada v0.1 | Escala corregida, relieves abstractos, dintel omitido y escalón inferido; aceptada como base de trabajo |
 
 ## Decisión de gate
 
@@ -126,4 +127,4 @@ No se abre Blender hasta completar:
 
 ## Siguiente hito
 
-**Acabado y contenido:** revisar `portada-v0.1.md` y aceptar o corregir la escala de la Portada (columnas de 2,30 m, friso de 6,48 m). Decidir dintel, escalera y nivel de relieve antes de LOD/GLB. El terreno se queda procedural por ahora. Ver `portada-v0.1.md` y `terrain.md`.
+**LOD y QA:** la Portada v0.1 queda aceptada como base: dintel omitido, un escalón inferido y relieves abstractos. El siguiente paso es QA visual de la transición con la fachada y preparar LOD/GLB; el terreno se queda procedural. Ver `portada-v0.1.md` y `terrain.md`.

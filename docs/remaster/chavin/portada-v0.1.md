@@ -1,7 +1,7 @@
 # Chavín — Portada de las Falcónidas v0.1
 
 Fecha: 27 de octubre de 2026.
-Estado: **detalle arquitectónico en revisión; relieves interpretativos**.
+Estado: **detalle arquitectónico aceptado como base de trabajo; relieves interpretativos**.
 Fuente: `blender/chavin/chavin_portada_v0.1.blend` (7,7 MB).
 Base: `chavin_textured_v0.2.blend`.
 
@@ -98,12 +98,20 @@ No se modeló el **dintel de tres piezas** porque la fuente indica que no forma 
 - No se ha publicado `city.json`, GLB de producción ni assets web.
 - No se usaron imágenes oficiales ni texturas de IA.
 
+## Decisiones de revisión
+
+- **Escala:** se aceptan 2,30 m de columna y 6,48 m de friso como base de trabajo; la medida del friso sigue siendo secundaria.
+- **Dintel:** no se modela. La fuente indica que sus tres piezas no forman parte de la reconstrucción actual; añadirlo sería una invención.
+- **Escalera:** se mantiene un solo escalón de 0,15 m, marcado como inferido; no hay cota para el desarrollo completo.
+- **Friso:** se mantienen ocho falcónidas según la ficha de Wikipedia; la variante de 14 aves queda registrada, no modelada.
+- **Relieves:** se mantienen abstractos. Un pase iconográfico requiere una referencia con licencia y una comparación formal.
+- **Estado:** base aceptada para QA visual y LOD; no es una reconstrucción final.
+
 ## Siguiente
 
-1. Revisar la escala contra una figura de 1,7 m y decidir si se corrige el ancho del friso.
-2. Resolver dintel y escalera con una fuente mejor; si no, dejarlos explícitamente fuera.
-3. Decidir si los relieves se mantienen abstractos o se abre un pase iconográfico con licencia.
-4. Solo después: LOD, GLB de producción y visor.
+1. QA visual de la Portada en el conjunto y revisión de la transición con la fachada.
+2. Abrir un pase iconográfico solo si aparece una referencia licenciada.
+3. Pasar a LOD/GLB cuando el terreno y la escala de la fachada estén cerrados.
 
 ## Fuentes
 

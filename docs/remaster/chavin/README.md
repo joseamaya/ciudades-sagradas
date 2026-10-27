@@ -1,8 +1,8 @@
 # Chavín de Huántar — remaster
 
-Estado: **blockout v0.5 aceptado como escala; texturizado UV v0.2 de la mampostería ashlar; Portada de las Falcónidas v0.1 en revisión**. Fuentes UNESCO/Mincul, Plan de Manejo 2020 e ICOMOS 1999 verificados; ICOMOS 1985 y las secciones finas quedan como pendientes no bloqueantes. No hay assets web publicados.
+Estado: **blockout v0.5 aceptado como escala; texturizado UV v0.2 de la mampostería ashlar; Portada de las Falcónidas v0.1 aceptada como base**. Fuentes UNESCO/Mincul, Plan de Manejo 2020 e ICOMOS 1999 verificados; ICOMOS 1985 y las secciones finas quedan como pendientes no bloqueantes. No hay assets web publicados.
 
-Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 está aceptado como base de escala y `chavin_textured_v0.2.blend` añade UVs de proyección cúbica, texturas 2K repetidas, tinte cálido y una difusa oscura propia. El bake 2K se probó y se descartó por pérdida de detalle. La Portada v0.1 corrige el placeholder a escala documentada y añade relieves interpretativos. El modelado final sigue condicionado a los permisos de publicación; el terreno se queda procedural por ahora.
+Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 está aceptado como base de escala y `chavin_textured_v0.2.blend` añade UVs de proyección cúbica, texturas 2K repetidas, tinte cálido y una difusa oscura propia. El bake 2K se probó y se descartó por pérdida de detalle. La Portada v0.1 corrige el placeholder a escala documentada, añade relieves interpretativos y queda aceptada como base; el dintel se omite por evidencia y la escalera se reduce a un escalón inferido. El modelado final sigue condicionado a los permisos de publicación; el terreno se queda procedural por ahora.
 
 ## Documentos
 

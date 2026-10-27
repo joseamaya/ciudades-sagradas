@@ -2,19 +2,19 @@
 
 ## Archivo
 
-- **Fuente:** `chavin_blockout_v0.1.blend`, 162 KB.
+- **Fuente:** `chavin_blockout_v0.1.blend`, 168 KB.
 - **Estado:** blockout v0.1, revisión pendiente.
 - **Escala:** metros; el visor aplicará su escala cuando exista `city.json`.
-- **Contenido:** 71 mallas, 1.758 vértices, 3.198 tris y 8 colecciones.
+- **Contenido:** 76 mallas, 1.798 vértices, 3.258 tris y 8 colecciones.
 - **Texturas:** ninguna. Materiales planos de blockout.
-- **Cámaras:** `CAM-Chavin_Hero`, `CAM-Chavin_Plan`, `CAM-Chavin_Core`.
-- **Luces:** `LGT-Chavin_Sun`, `LGT-Chavin_Fill`.
+- **Cámaras:** `CAM-Chavin_Hero`, `CAM-Chavin_Plan`, `CAM-Chavin_Core`, `CAM-Chavin_Gallery`, `CAM-Chavin_Lanzon`.
+- **Luces:** `LGT-Chavin_Sun`, `LGT-Chavin_Fill`, `LGT-Chavin_GalleryFill`.
 
 ## Alcance
 
 - Explanada del sitio derivada de los cuatro puntos del plano PE-330.
 - Terrazas, Edificio A, Edificio B, Plaza Circular/Atrio del Lanzón, Plataforma Norte, Plaza Cuadrada, accesos y contexto de río/valle.
-- Sin galerías interiores detalladas, sin Lanzón, sin relieves y sin materiales finales.
+- Galería del Lanzón como nicho/portal, Lanzón como volumen ahusado y sin relieves ni materiales finales.
 
 ## Convenciones
 

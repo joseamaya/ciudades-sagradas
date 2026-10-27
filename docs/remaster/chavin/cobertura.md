@@ -14,14 +14,14 @@ La marca **Documentado** de la tabla se apoya en la ficha UNESCO 330 y/o en el M
 
 | Elemento | Evidencia | Nivel objetivo | Estado | Nota |
 |---|---|---|---|---|
-| Edificio B / Templo del Lanzón | Documentado | Hero | Pendiente | Tradicional “Templo Antiguo”; volumen, acceso y galería |
-| Edificio A / Pirámide Mayor / “Castillo” | Documentado | Hero | Pendiente | Tradicional “Templo Nuevo”; ~22,5 m + 2 m de cima |
-| Plaza Circular Hundida / Atrio del Lanzón | Documentado | Hero | Pendiente | Pavimento, gradas y escalinatas este-oeste |
+| Edificio B / Templo del Lanzón | Documentado | Hero | Blockout | Tradicional “Templo Antiguo”; volumen, acceso y galería |
+| Edificio A / Pirámide Mayor / “Castillo” | Documentado | Hero | Blockout | Tradicional “Templo Nuevo”; ~22,5 m + 2 m de cima |
+| Plaza Circular Hundida / Atrio del Lanzón | Documentado | Hero | Blockout | Pavimento, gradas y escalinatas este-oeste |
 | Plazas rectangulares y atrios | Documentado | Fondo | Pendiente | Lectura de conjunto |
-| Galerías internas | Documentado | Hero parcial | Pendiente | 22 galerías / 689,70 m / 1.349 vigas; modelar una secuencia |
+| Galerías internas | Documentado | Hero parcial | Blockout parcial | 22 galerías / 689,70 m / 1.349 vigas; modelar una secuencia |
 | Ventilación y drenaje | Documentado | Detalle visible | Pendiente | Solo lo que se pueda mostrar con evidencia |
-| Lanzón | Documentado | Hero | Pendiente | Pieza in situ; prioridad visual |
-| Portada de las Falcónidas | Documentado | Hero | Pendiente | Fachada del Edificio A |
+| Lanzón | Documentado | Hero | Blockout | Pieza in situ; prioridad visual |
+| Portada de las Falcónidas | Documentado | Hero | Blockout | Fachada del Edificio A |
 | Estela Raimondi | Documentado | Referencia | Pendiente | Museo; requiere licencia o réplica señalizada |
 | Obelisco Tello | Documentado | Referencia | Pendiente | Museo; opcional |
 | Cabezas clavas | Documentado | Props/referencia | Pendiente | No todas; selección con fuente |

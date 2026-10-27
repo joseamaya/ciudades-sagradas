@@ -255,6 +255,11 @@ export class CityViewer {
     this.sandTexture = makeSandTexture();
     this.profile = deviceProfile();
     this.lowPower = this.profile.lowPower;
+    const params = new URLSearchParams(window.location.search);
+    this.flags = {
+      noGround: params.has('noground'),
+      noShadows: params.has('noshadows'),
+    };
     this.lodLevel = null;
     this.modelUrl = null;
     this.modelTriangles = 0;
@@ -275,7 +280,7 @@ export class CityViewer {
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMapping = THREE.AgXToneMapping;
     this.renderer.toneMappingExposure = 0.9;
-    this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.enabled = !this.flags.noShadows;
     this.renderer.shadowMap.type = THREE.PCFShadowMap;
     this.renderer.shadowMap.autoUpdate = false;
     this.renderer.shadowMap.needsUpdate = true;
@@ -295,7 +300,7 @@ export class CityViewer {
     this.scene = new THREE.Scene();
     this.scene.fog = new THREE.Fog(0xb9c5c9, 110, 260);
 
-    this.camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 500);
+    this.camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.5, 500);
     this.camera.position.set(24, 17, -26);
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
@@ -326,7 +331,7 @@ export class CityViewer {
 
     this.sun = new THREE.DirectionalLight(0xffdcb3, 3.6);
     this.sun.position.set(120, 70, -100);
-    this.sun.castShadow = true;
+    this.sun.castShadow = !this.flags.noShadows;
     const shadowSize = this.lowPower ? SHADOW_MAP_SIZE.mobile : SHADOW_MAP_SIZE.desktop;
     this.sun.shadow.mapSize.set(shadowSize, shadowSize);
     this.sun.shadow.camera.near = 1;
@@ -357,11 +362,17 @@ export class CityViewer {
       map: groundSand,
       roughness: 1,
       metalness: 0,
+      polygonOffset: true,
+      polygonOffsetFactor: 1,
+      polygonOffsetUnits: 1,
     });
     this.ground = new THREE.Mesh(new THREE.PlaneGeometry(400, 400), material);
     this.ground.rotation.x = -Math.PI / 2;
-    this.ground.position.y = -0.3;
+    // El terreno del GLB llega a ~-0.32 tras la escala 0.08. El plano queda
+    // debajo y con polygonOffset para evitar z-fighting con las capas de suelo.
+    this.ground.position.y = -0.36;
     this.ground.receiveShadow = true;
+    this.ground.visible = !this.flags.noGround;
     this.scene.add(this.ground);
   }
 
@@ -697,6 +708,7 @@ export class CityViewer {
       pixelRatio: this.renderer.getPixelRatio(),
       shadowMapSize: [this.sun?.shadow?.mapSize?.x ?? null, this.sun?.shadow?.mapSize?.y ?? null],
       shadowAutoUpdate: this.renderer.shadowMap.autoUpdate,
+      flags: this.flags,
       meshes: this.meshCount ?? this.meshes.length,
       materials: this.materialCount ?? null,
       textures: this.textureCount ?? null,

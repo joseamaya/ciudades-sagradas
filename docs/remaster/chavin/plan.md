@@ -1,7 +1,7 @@
 # Plan de Chavín de Huántar — Fase 0
 
 Fecha: 27 de octubre de 2026.
-Estado: **Fase 0 cerrada; blockout v0.5 generado; aceptación visual pendiente**.
+Estado: **Fase 0 cerrada; blockout v0.5 aceptado; look-dev v0.1 iniciado**.
 Estándar heredado de Caral: **ciudad representativa**, no inventario 1:1.
 
 ## Objetivo
@@ -95,7 +95,8 @@ Los textos deben distinguir documentado, inferido e interpretativo; no afirmar f
 | Blockout v0.2 | Pase de terreno en `blender/chavin/chavin_blockout_v0.2.blend`; aceptado para blockout |
 | Blockout v0.3 | Galería/Lanzón en `blender/chavin/chavin_blockout_v0.3.blend`; histórico |
 | Blockout v0.4 | Cierre del patio B en `blender/chavin/chavin_blockout_v0.4.blend`; histórico |
-| Blockout v0.5 | Revisión de Lanzón, portal y escala en `blender/chavin/chavin_blockout_v0.5.blend`; pendiente |
+| Blockout v0.5 | Revisión de Lanzón, portal y escala en `blender/chavin/chavin_blockout_v0.5.blend`; aceptado |
+| Look-dev v0.1 | Materiales procedurales en `blender/chavin/chavin_lookdev_v0.1.blend`; base |
 
 ## Decisión de gate
 
@@ -122,4 +123,4 @@ No se abre Blender hasta completar:
 
 ## Siguiente hito
 
-**Revisión del blockout v0.5:** aceptar el ancho del Lanzón y la escala del atrio/portal; después decidir DEM vs. procedural antes de look-dev y avanzar a materiales/LOD. Ver `blockout-v0.5.md` y `terrain.md`.
+**Look-dev v0.1:** revisar la piedra procedural, decidir DEM vs. procedural, añadir juntas de mampostería o textura CC0 y hornear para el GLB. Ver `lookdev-v0.1.md` y `terrain.md`.

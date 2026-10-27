@@ -2,7 +2,7 @@
 
 Fecha: 27 de octubre de 2026.
 Estado: **terreno procedural aceptado para blockout; DEM diferido a look-dev**.
-Escena: `blender/chavin/chavin_blockout_v0.5.blend`.
+Escena base: `blender/chavin/chavin_blockout_v0.5.blend`; look-dev: `blender/chavin/chavin_lookdev_v0.1.blend`.
 
 ## Decisión
 

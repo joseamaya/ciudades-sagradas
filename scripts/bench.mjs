@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 /**
- * Benchmark reproducible de Caral v2 con Chrome DevTools Protocol.
+ * Benchmark reproducible de una ciudad con Chrome DevTools Protocol.
  *
  * Uso:
  *   npm run build
  *   npm run bench -- --out /tmp/caral-bench
+ *   npm run bench -- --city chavin --out /tmp/chavin-bench --qa
  *
  * El script levanta `npm run serve`, abre Chrome headless con SwiftShader y
  * mide LOD0, LOD1, móvil, fallback y offline. No requiere dependencias nuevas.
@@ -30,6 +31,8 @@ const arg = (name, fallback) => {
 const BASE = arg('base', 'http://127.0.0.1:4173/');
 const OUT_DIR = path.resolve(arg('out', '/tmp/ciudades-sagradas-bench'));
 const ONLY = arg('only', '');
+const CITY = arg('city', 'caral');
+const CITY_ROUTE = `#/ciudad/${CITY}`;
 const NO_SERVER = args.includes('--no-server');
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -144,6 +147,12 @@ const METRICS_EXPRESSION = `(() => {
     .sort((a, b) => b.responseEnd - a.responseEnd)[0];
   return {
     ...metrics,
+    camera: {
+      position: viewer.camera.position.toArray().map((value) => +value.toFixed(3)),
+      target: viewer.controls.target.toArray().map((value) => +value.toFixed(3)),
+      fov: viewer.camera.fov,
+      modelScale: viewer.model?.scale?.toArray?.().map((value) => +value.toFixed(4)),
+    },
     modelResponseEnd: modelEntry ? Math.round(modelEntry.responseEnd) : null,
     transferBytes: modelEntry ? modelEntry.transferSize : null,
     encodedBytes: modelEntry ? modelEntry.encodedBodySize : null,
@@ -323,15 +332,15 @@ async function main() {
         'Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
     };
 
-    await run('desktop-lod0', `${BASE}?lod=0#/ciudad/caral`, desktop);
-    await run('desktop-lod1', `${BASE}?lod=1#/ciudad/caral`, desktop);
-    await run('desktop-debug', `${BASE}?debug=1#/ciudad/caral`, desktop);
-    await run('desktop-noground', `${BASE}?lod=0&noground=1#/ciudad/caral`, desktop);
-    await run('mobile-auto', `${BASE}#/ciudad/caral`, mobile);
+    await run('desktop-lod0', `${BASE}?lod=0${CITY_ROUTE}`, desktop);
+    await run('desktop-lod1', `${BASE}?lod=1${CITY_ROUTE}`, desktop);
+    await run('desktop-debug', `${BASE}?debug=1${CITY_ROUTE}`, desktop);
+    await run('desktop-noground', `${BASE}?lod=0&noground=1${CITY_ROUTE}`, desktop);
+    await run('mobile-auto', `${BASE}${CITY_ROUTE}`, mobile);
 
     if (!ONLY || ONLY === 'fallback') {
       await resetDevice(cdp);
-      await navigate(cdp, `${BASE}?nosw=1#/ciudad/caral`);
+      await navigate(cdp, `${BASE}?nosw=1${CITY_ROUTE}`);
       const clearCaches = async () => {
         await cdp.send('Storage.clearDataForOrigin', {
           origin: BASE.replace(/\/$/, ''),
@@ -351,43 +360,47 @@ async function main() {
       await cdp.send('Network.setCacheDisabled', { cacheDisabled: true });
       await cdp.send('Network.setBlockedURLs', { urls: ['*model_lod0.glb*'] });
       consoleMessages.length = 0;
-      await navigate(cdp, `${BASE}?nosw=1&lod=0&_=${Date.now()}#/ciudad/caral`);
+      await navigate(cdp, `${BASE}?nosw=1&lod=0&_=${Date.now()}${CITY_ROUTE}`);
       results['fallback-without-lod0'] = {
         ...(await measure(cdp)),
         console: [...consoleMessages],
       };
       console.log(`fallback-without-lod0: ${results['fallback-without-lod0'].lod}`);
 
-      await clearCaches();
-      await cdp.send('Network.setBlockedURLs', { urls: ['*model_lod*.glb*'] });
-      consoleMessages.length = 0;
-      await navigate(cdp, `${BASE}?nosw=1&lod=0&_=${Date.now()}#/ciudad/caral`);
-      results['fallback-v1'] = { ...(await measure(cdp)), console: [...consoleMessages] };
-      console.log(`fallback-v1: ${results['fallback-v1'].lod}`);
+      if (CITY === 'caral') {
+        await clearCaches();
+        await cdp.send('Network.setBlockedURLs', { urls: ['*model_lod*.glb*'] });
+        consoleMessages.length = 0;
+        await navigate(cdp, `${BASE}?nosw=1&lod=0&_=${Date.now()}${CITY_ROUTE}`);
+        results['fallback-v1'] = { ...(await measure(cdp)), console: [...consoleMessages] };
+        console.log(`fallback-v1: ${results['fallback-v1'].lod}`);
 
-      await cdp.send('Network.setBlockedURLs', { urls: [] });
-      await resetDevice(cdp);
-      await cdp.send('Emulation.setDeviceMetricsOverride', {
-        width: mobile.width,
-        height: mobile.height,
-        deviceScaleFactor: mobile.scale,
-        mobile: true,
-      });
-      await cdp.send('Emulation.setTouchEmulationEnabled', { enabled: true, maxTouchPoints: 5 });
-      await cdp.send('Emulation.setUserAgentOverride', { userAgent: mobile.userAgent });
-      await clearCaches();
-      await cdp.send('Network.setBlockedURLs', { urls: ['*model_lod1.glb*'] });
-      consoleMessages.length = 0;
-      await navigate(cdp, `${BASE}?nosw=1&_=${Date.now()}#/ciudad/caral`);
-      results['fallback-mobile-v1'] = { ...(await measure(cdp)), console: [...consoleMessages] };
-      console.log(`fallback-mobile-v1: ${results['fallback-mobile-v1'].lod}`);
+        await cdp.send('Network.setBlockedURLs', { urls: [] });
+        await resetDevice(cdp);
+        await cdp.send('Emulation.setDeviceMetricsOverride', {
+          width: mobile.width,
+          height: mobile.height,
+          deviceScaleFactor: mobile.scale,
+          mobile: true,
+        });
+        await cdp.send('Emulation.setTouchEmulationEnabled', { enabled: true, maxTouchPoints: 5 });
+        await cdp.send('Emulation.setUserAgentOverride', { userAgent: mobile.userAgent });
+        await clearCaches();
+        await cdp.send('Network.setBlockedURLs', { urls: ['*model_lod1.glb*'] });
+        consoleMessages.length = 0;
+        await navigate(cdp, `${BASE}?nosw=1&_=${Date.now()}${CITY_ROUTE}`);
+        results['fallback-mobile-v1'] = { ...(await measure(cdp)), console: [...consoleMessages] };
+        console.log(`fallback-mobile-v1: ${results['fallback-mobile-v1'].lod}`);
+      } else {
+        console.log(`fallback-v1/mobile-v1: omitido para ${CITY} (sin fallback v1)`);
+      }
       await cdp.send('Network.setBlockedURLs', { urls: [] });
       await cdp.send('Network.setCacheDisabled', { cacheDisabled: false });
     }
 
     if (!ONLY || ONLY === 'offline') {
       await resetDevice(cdp);
-      await navigate(cdp, `${BASE}#/ciudad/caral`);
+      await navigate(cdp, `${BASE}${CITY_ROUTE}`);
       await evaluate(
         cdp,
         `navigator.serviceWorker.ready.then(() => new Promise((resolve) => {
@@ -433,11 +446,20 @@ async function main() {
         deviceScaleFactor: 1,
         mobile: false,
       });
-      await navigate(cdp, `${BASE}?lod=0&_=${Date.now()}#/ciudad/caral`);
+      await navigate(cdp, `${BASE}?lod=0&_=${Date.now()}${CITY_ROUTE}`);
       const tourCount = await evaluate(cdp, 'window.__ciudadesSagradas.city.tour.length');
       for (let index = 0; index < tourCount; index += 1) {
         await evaluate(cdp, `document.querySelector('[data-tour="${index}"]')?.click()`);
-        await sleep(2200);
+        await sleep(3500);
+        const tourCamera = await evaluate(cdp, `(() => {
+          const viewer = window.__ciudadesSagradas.viewer;
+          return {
+            position: viewer.camera.position.toArray().map((value) => +value.toFixed(3)),
+            target: viewer.controls.target.toArray().map((value) => +value.toFixed(3)),
+            flight: Boolean(viewer.flight),
+          };
+        })()`);
+        console.log(`qa-tour-${index + 1}: ${JSON.stringify(tourCamera)}`);
         await capture(cdp, path.join(OUT_DIR, `qa-lod0-tour-${index + 1}.png`));
       }
       await evaluate(cdp, `document.querySelector('[data-tour="0"]')?.click()`);
@@ -453,7 +475,7 @@ async function main() {
       await capture(cdp, path.join(OUT_DIR, 'qa-lod0-clean.png'));
       await evaluate(cdp, `document.body.classList.remove('ui-hidden')`);
 
-      await navigate(cdp, `${BASE}?lod=1&_=${Date.now()}#/ciudad/caral`);
+      await navigate(cdp, `${BASE}?lod=1&_=${Date.now()}${CITY_ROUTE}`);
       await evaluate(cdp, `document.querySelector('[data-tour="5"]')?.click()`);
       await sleep(2200);
       await capture(cdp, path.join(OUT_DIR, 'qa-lod1-altar.png'));
@@ -467,7 +489,7 @@ async function main() {
       });
       await cdp.send('Emulation.setTouchEmulationEnabled', { enabled: true, maxTouchPoints: 5 });
       await cdp.send('Emulation.setUserAgentOverride', { userAgent: mobile.userAgent });
-      await navigate(cdp, `${BASE}?_=${Date.now()}#/ciudad/caral`);
+      await navigate(cdp, `${BASE}?_=${Date.now()}${CITY_ROUTE}`);
       await evaluate(cdp, `document.querySelector('#info-toggle')?.click()`);
       await sleep(700);
       await capture(cdp, path.join(OUT_DIR, 'qa-mobile-panel.png'));
@@ -495,7 +517,7 @@ async function main() {
         deviceScaleFactor: 1,
         mobile: false,
       });
-      await navigate(cdp, `${BASE}?kiosk=1&_=${Date.now()}#/ciudad/caral`);
+      await navigate(cdp, `${BASE}?kiosk=1&_=${Date.now()}${CITY_ROUTE}`);
       await capture(cdp, path.join(OUT_DIR, 'qa-kiosk.png'));
       await resetDevice(cdp);
 
@@ -508,9 +530,9 @@ async function main() {
       await cdp.send('Page.navigate', { url: `${BASE}?_=${Date.now()}` });
       await sleep(1200);
       await capture(cdp, path.join(OUT_DIR, 'qa-atlas.png'));
-      await cdp.send('Page.navigate', { url: `${BASE}?_=${Date.now()}#/ciudad/chavin` });
+      await cdp.send('Page.navigate', { url: `${BASE}?_=${Date.now()}${CITY_ROUTE}` });
       await sleep(800);
-      await capture(cdp, path.join(OUT_DIR, 'qa-chavin.png'));
+      await capture(cdp, path.join(OUT_DIR, `qa-${CITY}.png`));
 
       await resetDevice(cdp);
       await cdp.send('Emulation.setDeviceMetricsOverride', {

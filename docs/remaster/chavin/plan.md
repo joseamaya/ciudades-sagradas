@@ -1,7 +1,7 @@
 # Plan de Chavín de Huántar — Fase 0
 
 Fecha: 27 de octubre de 2026.
-Estado: **Fase 0 cerrada para blockout; blockout pendiente**.
+Estado: **Fase 0 cerrada; preview web v0.1 con LOD0/LOD1; blockout y Portada aceptados como base**.
 Estándar heredado de Caral: **ciudad representativa**, no inventario 1:1.
 
 ## Objetivo
@@ -84,13 +84,24 @@ Los textos deben distinguir documentado, inferido e interpretativo; no afirmar f
 |---|---|
 | Fuentes UNESCO/Mincul | Verificadas |
 | ICOMOS 1985 | Pendiente de acceso (403); cubierto por ICOMOS 1999 |
-| Plano | Pendiente de lectura; no bloquea el blockout |
+| Plano | Consultado; puntos usados en blockout; faltan secciones finas |
 | Cobertura | Aprobada para blockout |
 | Alcance hero/fondo | Aprobado para blockout |
 | Presupuesto y escala | Aprobados para blockout; escala final pendiente |
 | Recorrido, capas y luces | Aprobados para blockout |
 | Licencias de imágenes/esculturas | Política aprobada; permisos de publicación pendientes |
 | Imágenes oficiales copiadas | 0 |
+| Blockout v0.1 | Generado y revisado; base de masas |
+| Blockout v0.2 | Pase de terreno en `blender/chavin/chavin_blockout_v0.2.blend`; aceptado para blockout |
+| Blockout v0.3 | Galería/Lanzón en `blender/chavin/chavin_blockout_v0.3.blend`; histórico |
+| Blockout v0.4 | Cierre del patio B en `blender/chavin/chavin_blockout_v0.4.blend`; histórico |
+| Blockout v0.5 | Revisión de Lanzón, portal y escala en `blender/chavin/chavin_blockout_v0.5.blend`; aceptado |
+| Look-dev v0.1 | Materiales procedurales en `blender/chavin/chavin_lookdev_v0.1.blend`; histórico |
+| Look-dev v0.2 | Mampostería ashlar procedural en `blender/chavin/chavin_lookdev_v0.2.blend`; histórico |
+| Texturizado UV v0.1 | UVs de cubo y texturas 2K en `blender/chavin/chavin_textured_v0.1.blend`; histórico |
+| Texturizado UV v0.2 | Ashlar cálido, difusa oscura, hiladas variables y normal marcada; base aceptada |
+| Portada v0.1 | Escala corregida, relieves abstractos, dintel omitido y escalón inferido; aceptada como base de trabajo |
+| Preview web v0.1 | LOD0 14.158 tris / LOD1 9.422 tris, 15 draw calls, seis paradas, capas y fallback LOD1 |
 
 ## Decisión de gate
 
@@ -117,4 +128,4 @@ No se abre Blender hasta completar:
 
 ## Siguiente hito
 
-**Chavín blockout v0.1:** terreno, ríos, plataformas y volúmenes de Edificio A/B, Plaza Circular y una galería, sin materiales finales ni esculturas detalladas. El terreno se apoya en el plano y el Plan de Manejo; sin DEM fino, la topografía se marca como inferida. Se revisa contra `cobertura.md` antes de continuar.
+**High-poly y QA:** el preview web v0.1 ya valida LOD, capas, cámaras y caché. El siguiente paso es un pase high-poly para acercar el LOD0 al presupuesto de 150k–250k tris, QA en hardware real y decidir dintel/escalera. El terreno se queda procedural por ahora. Ver `web-preview.md`, `portada-v0.1.md` y `terrain.md`.

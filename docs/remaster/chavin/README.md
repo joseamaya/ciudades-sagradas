@@ -1,8 +1,8 @@
 # Chavín de Huántar — remaster
 
-Estado: **blockout v0.5 aceptado como escala; texturizado UV v0.2 de la mampostería ashlar; Portada de las Falcónidas v0.1 aceptada como base**. Fuentes UNESCO/Mincul, Plan de Manejo 2020 e ICOMOS 1999 verificados; ICOMOS 1985 y las secciones finas quedan como pendientes no bloqueantes. No hay assets web publicados.
+Estado: **preview web v0.1 publicado en la rama; blockout v0.5, texturizado UV v0.2 y Portada v0.1 aceptados como base**. LOD0 de 14.158 tris y LOD1 de 9.422 tris, con 15 draw calls y fallback LOD1. No es un remaster final. Fuentes UNESCO/Mincul, Plan de Manejo 2020 e ICOMOS 1999 verificados; ICOMOS 1985 y las secciones finas quedan como pendientes no bloqueantes.
 
-Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 está aceptado como base de escala y `chavin_textured_v0.2.blend` añade UVs de proyección cúbica, texturas 2K repetidas, tinte cálido y una difusa oscura propia. El bake 2K se probó y se descartó por pérdida de detalle. La Portada v0.1 corrige el placeholder a escala documentada, añade relieves interpretativos y queda aceptada como base; el dintel se omite por evidencia y la escalera se reduce a un escalón inferido. El modelado final sigue condicionado a los permisos de publicación; el terreno se queda procedural por ahora.
+Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 está aceptado como base de escala y `chavin_textured_v0.2.blend` añade UVs de proyección cúbica, texturas 2K repetidas, tinte cálido y una difusa oscura propia. El bake 2K se probó y se descartó por pérdida de detalle. La Portada v0.1 corrige el placeholder a escala documentada, añade relieves interpretativos y queda aceptada como base; el dintel se omite por evidencia y la escalera se reduce a un escalón inferido. El preview web usa la geometría actual como LOD0/LOD1 y sirve para validar cámaras, capas, fallback y caché; el terreno se queda procedural y el high-poly sigue pendiente.
 
 ## Documentos
 
@@ -19,7 +19,8 @@ Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 e
 - `lookdev-v0.2.md`: mampostería ashlar, texturas propias y límites de exportación (histórico).
 - `textured-v0.1.md`: UVs de proyección cúbica, texturas 2K y prueba de GLB; incluye el bake descartado (histórico).
 - `textured-v0.2.md`: ashlar con tinte cálido, difusa oscura, hiladas variables y normal más marcada; GLB de prueba de 5,5 MB.
-- `portada-v0.1.md`: escala corregida, columnas, jambas, friso, vano, relieves interpretativos y GLB de prueba.
+- `portada-v0.1.md`: escala corregida, columnas, jambas, friso, vano y relieves interpretativos.
+- `web-preview.md`: assets, métricas, QA, límites y limitación de LOD0/LOD1.
 
 ## Reglas
 

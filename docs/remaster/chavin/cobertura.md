@@ -1,7 +1,7 @@
 # Cobertura objetivo — Chavín de Huántar
 
 Fecha: 27 de octubre de 2026.
-Estado: **blockout v0.5 aceptado; texturizado UV v0.2 de mampostería; Portada de las Falcónidas v0.1 aceptada como base de trabajo**.
+Estado: **preview web v0.1 publicado en la rama; LOD0/LOD1 con 15 draw calls; blockout y Portada aceptados como base**.
 Estándar: **ciudad representativa**.
 
 ## Definición
@@ -22,7 +22,7 @@ La marca **Documentado** de la tabla se apoya en la ficha UNESCO 330 y/o en el M
 | Ventilación y drenaje | Documentado | Detalle visible | Blockout parcial | Un ducto esquemático de 0,5 m; sin red completa |
 | Lanzón | Documentado | Hero | Blockout | Volumen ahusado de ~4,5 m; sin talla ni textura |
 | Mampostería y juntas | Inferido | Base visual | UV tiling | Ashlar v2 2K propio con tinte cálido, difusa oscura y UVs de cubo; atlas 2K descartado; no es levantamiento de bloques |
-| Portada de las Falcónidas | Documentado | Hero | Base v0.1 | Columnas de 2,30 m, jambas trilíticas, friso de 6,48 m partido en dos, relieves interpretativos y un escalón inferido; dintel omitido por evidencia |
+| Portada de las Falcónidas | Documentado | Hero | Base v0.1 + preview | Columnas de 2,30 m, jambas trilíticas, friso de 6,48 m partido en dos, relieves interpretativos y un escalón inferido; dintel omitido por evidencia |
 | Estela Raimondi | Documentado | Referencia | Pendiente | Museo; requiere licencia o réplica señalizada |
 | Obelisco Tello | Documentado | Referencia | Pendiente | Museo; opcional |
 | Cabezas clavas | Documentado | Props/referencia | Pendiente | No todas; selección con fuente |

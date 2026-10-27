@@ -1,6 +1,6 @@
 # Chavín de Huántar — dossier de fuentes
 
-**Estado:** Fase 0 cerrada para blockout; permisos de publicación pendientes. Blockout v0.5 aceptado, texturizado UV v0.2 de mampostería ashlar y Portada de las Falcónidas v0.1 en revisión. Bake 2K descartado por pérdida de detalle; sin assets web publicados.
+**Estado:** Fase 0 cerrada para blockout; preview web v0.1 con LOD0/LOD1, seis paradas y capas. Blockout v0.5, texturizado UV v0.2 y Portada v0.1 aceptados como base. Bake 2K descartado por pérdida de detalle; permisos de piezas de museo y fotografías siguen pendientes.
 
 **Fecha de consulta:** 27 de octubre de 2026.
 

@@ -1,7 +1,7 @@
 # Plan de Chavín de Huántar — Fase 0
 
 Fecha: 27 de octubre de 2026.
-Estado: **Fase 0 cerrada para blockout; blockout pendiente**.
+Estado: **Fase 0 cerrada; blockout v0.1 generado; revisión pendiente**.
 Estándar heredado de Caral: **ciudad representativa**, no inventario 1:1.
 
 ## Objetivo
@@ -84,13 +84,14 @@ Los textos deben distinguir documentado, inferido e interpretativo; no afirmar f
 |---|---|
 | Fuentes UNESCO/Mincul | Verificadas |
 | ICOMOS 1985 | Pendiente de acceso (403); cubierto por ICOMOS 1999 |
-| Plano | Pendiente de lectura; no bloquea el blockout |
+| Plano | Consultado; puntos usados en blockout; faltan secciones finas |
 | Cobertura | Aprobada para blockout |
 | Alcance hero/fondo | Aprobado para blockout |
 | Presupuesto y escala | Aprobados para blockout; escala final pendiente |
 | Recorrido, capas y luces | Aprobados para blockout |
 | Licencias de imágenes/esculturas | Política aprobada; permisos de publicación pendientes |
 | Imágenes oficiales copiadas | 0 |
+| Blockout v0.1 | Generado en `blender/chavin/chavin_blockout_v0.1.blend`; revisión pendiente |
 
 ## Decisión de gate
 
@@ -117,4 +118,4 @@ No se abre Blender hasta completar:
 
 ## Siguiente hito
 
-**Chavín blockout v0.1:** terreno, ríos, plataformas y volúmenes de Edificio A/B, Plaza Circular y una galería, sin materiales finales ni esculturas detalladas. El terreno se apoya en el plano y el Plan de Manejo; sin DEM fino, la topografía se marca como inferida. Se revisa contra `cobertura.md` antes de continuar.
+**Revisión del blockout v0.1:** comparar la planta con PE-330, corregir huellas/ejes y decidir el tratamiento del terreno. Después: secuencia de galería y volumen del Lanzón. Ver `blockout-v0.1.md`.

@@ -1,14 +1,15 @@
 # Chavín de Huántar — remaster
 
-Estado: **Fase 0 cerrada para blockout**. Fuentes UNESCO/Mincul, Plan de Manejo 2020 e ICOMOS 1999 verificados; ICOMOS 1985 y plano quedan como pendientes no bloqueantes. No hay modelo 3D ni assets publicados.
+Estado: **blockout v0.1 generado; revisión pendiente**. Fuentes UNESCO/Mincul, Plan de Manejo 2020 e ICOMOS 1999 verificados; ICOMOS 1985 y las secciones finas quedan como pendientes no bloqueantes. No hay assets web publicados.
 
-Chavín se abre después del cierre de contenido de Caral v2. El gate de Fase 0 ya está aprobado para blockout; el modelado final sigue condicionado a la revisión del blockout y a los permisos de publicación.
+Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.1 ya existe en `blender/chavin/`; el modelado final sigue condicionado a la revisión del blockout y a los permisos de publicación.
 
 ## Documentos
 
 - `plan.md`: alcance, presupuesto técnico, paradas, capas, luces, riesgos y gate.
 - `cobertura.md`: elementos documentados, nivel de detalle objetivo y huecos.
 - `referencias.md`: fuentes públicas, licencias y material pendiente.
+- `blockout-v0.1.md`: alcance, métricas, evidencia y límites del primer blockout.
 
 ## Reglas
 

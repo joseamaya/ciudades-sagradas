@@ -10,7 +10,7 @@ Estado: **protocolo listo; mediciones en dispositivos físicos pendientes.**
 - Forzar LOD1: `?lod=1&debug=1#/ciudad/caral`
 - Kiosco: `?kiosk=1#/ciudad/caral`
 
-El overlay `?debug=1` muestra LOD, draw calls, triángulos, FPS, frame time, sombras, texturas y carga. El botón **Copiar métricas** copia el JSON completo de `window.__ciudadesSagradas.metrics()`.
+El overlay `?debug=1` muestra LOD, draw calls, triángulos, FPS, frame time, sombras, texturas y carga. El botón **Copiar métricas** copia el JSON completo de `window.__ciudadesSagradas.metrics()`. Para aislar render: `?noground=1` y `?noshadows=1`.
 
 ## Matriz mínima
 
@@ -44,6 +44,11 @@ window.__ciudadesSagradas.metrics()
 ## iOS
 
 Safari no expone FPS al usuario. Usar el overlay, **Copiar métricas** y una captura de pantalla. Web Inspector remoto solo si hay un Mac disponible.
+
+## Verificación del panel móvil
+
+- Scroll del panel comprobado en emulación 390×844: `scrollHeight=1378`, `clientHeight=488`, `scrollTop=890`.
+- Capas y Luz son accesibles deslizando dentro de la ficha.
 
 ## Resultados de emulación (referencia, no sustituyen hardware)
 

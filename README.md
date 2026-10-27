@@ -27,6 +27,7 @@ Abre `http://127.0.0.1:5173/`.
 Para ver métricas del visor: `http://127.0.0.1:5173/?debug=1#/ciudad/caral`.
 Para forzar un LOD: `?lod=0` o `?lod=1`.
 Para desactivar el service worker en pruebas: `?nosw=1`.
+Para QA de render: `?noground=1` oculta el plano de arena y `?noshadows=1` desactiva sombras.
 
 ## OpenCode + Blender
 

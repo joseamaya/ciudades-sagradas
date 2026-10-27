@@ -326,6 +326,7 @@ async function main() {
     await run('desktop-lod0', `${BASE}?lod=0#/ciudad/caral`, desktop);
     await run('desktop-lod1', `${BASE}?lod=1#/ciudad/caral`, desktop);
     await run('desktop-debug', `${BASE}?debug=1#/ciudad/caral`, desktop);
+    await run('desktop-noground', `${BASE}?lod=0&noground=1#/ciudad/caral`, desktop);
     await run('mobile-auto', `${BASE}#/ciudad/caral`, mobile);
 
     if (!ONLY || ONLY === 'fallback') {
@@ -470,6 +471,18 @@ async function main() {
       await evaluate(cdp, `document.querySelector('#info-toggle')?.click()`);
       await sleep(700);
       await capture(cdp, path.join(OUT_DIR, 'qa-mobile-panel.png'));
+      const scrollInfo = await evaluate(
+        cdp,
+        `(() => {
+          const el = document.querySelector('.panel-scroll');
+          if (!el) return null;
+          el.scrollTop = el.scrollHeight;
+          return { scrollHeight: el.scrollHeight, clientHeight: el.clientHeight, scrollTop: el.scrollTop };
+        })()`,
+      );
+      console.log('mobile panel scroll', JSON.stringify(scrollInfo));
+      await sleep(600);
+      await capture(cdp, path.join(OUT_DIR, 'qa-mobile-panel-scrolled.png'));
       await evaluate(cdp, `document.body.classList.add('ui-hidden')`);
       await sleep(500);
       await capture(cdp, path.join(OUT_DIR, 'qa-mobile-clean.png'));

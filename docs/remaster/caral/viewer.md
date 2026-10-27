@@ -16,7 +16,7 @@ Acercar el aspecto del visor web al render de Blender del remaster y corregir la
 - **Móvil:** FOV responsivo en vertical (hasta 60°) y pixel ratio 1,25 para que la ciudad no quede recortada sin castigar de más la GPU.
 - **Materiales:** culling en sólidos; doble cara solo en vegetación/totora/algodón/agua/fuego. Agua sin transmisión para evitar la pasada extra de Three.js.
 - **Entorno:** cielos y PMREM cacheados por hora; cambiar de luz no regenera todo cada vez.
-- **Diagnóstico:** `?debug=1` muestra LOD, draw calls, triángulos, texturas, FPS y carga.
+- **Diagnóstico:** `?debug=1` muestra LOD, draw calls, triángulos, texturas, FPS y carga; `?noground=1` y `?noshadows=1` permiten aislar suelo/sombras.
 - **Suelo del visor:** color de arena ajustado al material del remaster.
 
 ## Capturas

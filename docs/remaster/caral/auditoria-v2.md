@@ -92,6 +92,13 @@ Ninguno.
 
 La comparación visual en Altar, Anfiteatro y vista general no muestra pérdida significativa para LOD móvil. Se mantienen geometría, materiales, 38 primitivas y 31 draw calls. KTX2 queda como mejora futura si la QA real muestra que 208 MB siguen siendo un problema.
 
+## Parche v2.0.1 — móvil y suelo (27 de octubre de 2026)
+
+- **Scroll del panel móvil:** `.city-panel` pasa a flex column y `.panel-scroll` a `flex:1; min-height:0; overflow-y:auto; touch-action:pan-y`. Verificado en emulación: `scrollHeight=1378`, `clientHeight=488`, acceso a Capas y Luz.
+- **Z-fighting del suelo:** plano de arena movido a `y=-0.36`, con `polygonOffset` y `near=0.5`. Evita la lucha de profundidad contra el terreno base del GLB (`~-0.32`).
+- **Diagnóstico:** `?noground=1` y `?noshadows=1`.
+- **Pendiente:** confirmación del parpadeo en Android físico; el usuario reportó que ocurría también con LOD0, por lo que no era específico de 1K/Draco.
+
 ## Cambios realizados
 
 - `src/core/viewer.js`: sombras estáticas y ajustadas, LOD/fallback, detección de dispositivo, culling, agua sin transmisión, PMREM cacheado, `verticalScale`, capas por defecto, métricas y render inicial antes de `onReady`.

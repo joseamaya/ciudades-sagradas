@@ -1,7 +1,7 @@
 # Release web — Caral remaster v2
 
 - Fecha: 26 de octubre de 2026.
-- Estado: **desplegado en producción** con Draco, LOD1 a 1K y caché `v7`. Tag de cierre: `caral-v2.0.0`.
+- Estado: **desplegado en producción** con Draco, LOD1 a 1K y caché `v7`. Tags: `caral-v2.0.0` (cierre) y `caral-v2.0.1` (scroll móvil + z-fighting del suelo).
 - URL: <https://joseamaya.github.io/ciudades-sagradas/>
 - PR base: [#5](https://github.com/joseamaya/ciudades-sagradas/pull/5)
 - Merge base: `a76fc8b` (`feat(caral): LOD0/LOD1 web v2`)

@@ -21,6 +21,7 @@
 - Dossieres de fuentes, registro de assets y política de licencias.
 - Piloto histórico con texturas de IA **retirado del repositorio**; los GLB publicados no contienen texturas de IA.
 - CI y GitHub Pages en verde; auditoría y fase VRAM LOD1 desplegadas.
+- Parche v2.0.1: scroll del panel móvil corregido y z-fighting del plano de arena mitigado (polygonOffset, `near=0.5`, plano en `-0.36`).
 
 ## Métricas medidas
 

@@ -1,9 +1,9 @@
 # Chavín — blockout v0.2 (pase de terreno)
 
 Fecha: 27 de octubre de 2026.
-Estado: **pase de terreno generado; revisión pendiente**.
+Estado: **histórico; sustituido por v0.3 para el núcleo hero, pero el terreno sigue siendo la base aceptada**.
 Fuente: `blender/chavin/chavin_blockout_v0.2.blend` (170 KB).
-Base anterior: `blockout-v0.1.md`.
+Base anterior: `blockout-v0.1.md`. Siguiente: `blockout-v0.3.md`.
 
 ## Vistas
 

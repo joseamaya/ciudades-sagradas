@@ -6,7 +6,7 @@
 - OpenCode configurado con MCP de Blender y skills MIT en `.agents/skills/`.
 - **Caral Remaster v2 es el estado actual y la referencia técnica del proyecto.**
 - Caral v2 queda cerrada bajo el estándar de **ciudad representativa**: volúmenes y sectores principales, high-poly solo en las cuatro zonas hero. No es un inventario 1:1 de los 32 edificios públicos. Ver `docs/remaster/caral/cobertura.md`.
-- Chavín Fase 0 cerrada y **blockout v0.2 generado**: 3.352 tris, 79 mallas, Edificio A/B, Plaza Circular, galería/Lanzón y pase de terreno (talud, rampa, ríos). Revisión pendiente; sin assets web publicados.
+- Chavín Fase 0 cerrada y **blockout v0.3 generado**: 3.472 tris, 89 mallas, Edificio A/B, Plaza Circular, secuencia de galería, Lanzón y terreno procedural (talud, rampa, ríos). Revisión pendiente; sin assets web publicados.
 - LOD0 high-poly: 230.800 tris, 65 primitivas, 21 materiales, 31 imágenes, **3.277.080 bytes** con Draco.
 - LOD1 horneado: 56.332 tris, 38 primitivas, 23 materiales, 39 imágenes 1K, **1.345.092 bytes** con Draco.
 - Fallback v1: 55.944 tris, 554 primitivas, 20 materiales, 31 imágenes, 4.778.308 bytes.
@@ -71,4 +71,4 @@
 
 ## Próximo paso recomendado
 
-Documentar y aceptar la incidencia Android P2; no bloquear el cierre de contenido. Chavín blockout v0.2 ya está generado; el siguiente hito es revisar el terreno y decidir DEM vs. procedural antes de detallar galería/Lanzón y materiales. KTX2/BasisU sigue como mejora opcional si 208 MB de VRAM no bastan.
+Documentar y aceptar la incidencia Android P2; no bloquear el cierre de contenido. Chavín blockout v0.3 ya está generado; el siguiente hito es revisar la escala de galería/Lanzón, ajustar huellas A/B y decidir DEM vs. procedural antes de materiales/LOD. KTX2/BasisU sigue como mejora opcional si 208 MB de VRAM no bastan.

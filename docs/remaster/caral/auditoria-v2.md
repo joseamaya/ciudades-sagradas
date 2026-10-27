@@ -3,11 +3,11 @@
 - Fecha: 26 de octubre de 2026.
 - Alcance: estado actual del repositorio `ciudades-sagradas`, sin Chavín, Chan Chan ni Wari.
 - Método: lectura de código, parseo de GLB, `npm run validate`, `npm run build` y benchmark reproducible con Chrome headless/SwiftShader.
-- Estado de publicación: cambios de la fase VRAM incluidos en el cierre de Caral v2; tag `caral-v2.0.0`.
+- Estado de publicación: cambios de la fase VRAM incluidos en el cierre de Caral v2; tags `caral-v2.0.0` y `caral-v2.0.1`.
 
 ## Estado general
 
-🟡 **Estable y utilizable como plantilla técnica**, pendiente de QA en hardware real. La VRAM de LOD1 se redujo de ~544 MB a ~208 MB con texturas 1K. No se encontró ningún P0 funcional.
+🟡 **Estable y utilizable como plantilla técnica**, con una incidencia Android P2 abierta y QA de hardware parcial. La VRAM de LOD1 se redujo de ~544 MB a ~208 MB con texturas 1K. No se encontró ningún P0 funcional. Cierre de contenido bajo estándar de ciudad representativa (`cobertura.md`).
 
 ## Performance
 
@@ -78,7 +78,8 @@ Ninguno.
 - La reexportación de v1 con WebP conserva tamaño/estructura pero no el hash byte a byte.
 - `verticalScale` ya se aplica, pero Caral usa 1.0.
 - El LOD sigue siendo por dispositivo, no por distancia.
-- Faltan los 20 cubículos del Anfiteatro y la corrección norte/sur del Mayor por fuentes.
+- Faltan los 20 cubículos del Anfiteatro y la corrección norte/sur del Mayor por fuentes; quedan diferidos.
+- No hay 32/32 edificios individuales: el estándar acordado es ciudad representativa, no inventario exhaustivo.
 - El chunk JS de Three.js supera 500 kB (aviso de Vite); no afecta al runtime de forma medible con la caché actual.
 
 ## Experimento VRAM LOD1 (27 de octubre de 2026)
@@ -97,7 +98,8 @@ La comparación visual en Altar, Anfiteatro y vista general no muestra pérdida 
 - **Scroll del panel móvil:** `.city-panel` pasa a flex column y `.panel-scroll` a `flex:1; min-height:0; overflow-y:auto; touch-action:pan-y`. Verificado en emulación: `scrollHeight=1378`, `clientHeight=488`, acceso a Capas y Luz.
 - **Z-fighting del suelo:** plano de arena movido a `y=-0.36`, con `polygonOffset` y `near=0.5`. Evita la lucha de profundidad contra el terreno base del GLB (`~-0.32`).
 - **Diagnóstico:** `?noground=1` y `?noshadows=1`.
-- **Pendiente:** confirmación del parpadeo en Android físico; el usuario reportó que ocurría también con LOD0, por lo que no era específico de 1K/Draco.
+- **Confirmado:** el parpadeo persiste en Android tras v2.0.1 y también con LOD0; no era específico de 1K/Draco. Queda como **P2 abierta** en `incidencias.md`; no se declara resuelto.
+- **Cobertura:** el cierre se hace bajo el estándar de ciudad representativa; no hay 32/32 edificios individuales. Ver `cobertura.md`.
 
 ## Cambios realizados
 
@@ -119,7 +121,7 @@ La comparación visual en Altar, Anfiteatro y vista general no muestra pérdida 
 - No implementar LOD por distancia ni streaming: el LOD por dispositivo es suficiente para Caral.
 - No añadir KTX2 hasta medir VRAM/calidad con gltfpack y comparar atlas 1K.
 - No rehacer el visor ni cambiar Three.js/Vite.
-- No abrir Chavín, Chan Chan ni Wari hasta cerrar hardware real de Caral.
+- No modelar Chavín hasta aprobar su gate de Fase 0; no abrir Chan Chan ni Wari hasta cerrar ese gate.
 - No eliminar sombras globalmente ni cambiar la escala 0,08 sin una decisión de producto.
 
 ## Recomendaciones siguientes (máximo 5)
@@ -134,4 +136,4 @@ La comparación visual en Altar, Anfiteatro y vista general no muestra pérdida 
 
 **¿Caral Remaster v2 está suficientemente estable para utilizarse como plantilla de las siguientes ciudades?**
 
-**Sí, como plantilla técnica y de pipeline**, con una condición: validar hardware real. La VRAM de LOD1 quedó mitigada con texturas 1K (~208 MB); KTX2 sigue como mejora opcional. La experiencia web está estable, el fallback y el offline funcionan, la licencia publicada es coherente y el rendimiento en régimen estable está por debajo de 100 draw calls. No debe presentarse todavía como certificación de 60 fps en hardware real ni como reconstrucción histórica final.
+**Sí, como plantilla técnica y de pipeline**, con dos condiciones: aceptar la incidencia Android P2 como deuda visual documentada y no presentar la cobertura como inventario 32/32. La VRAM de LOD1 quedó mitigada con texturas 1K (~208 MB); KTX2 sigue como mejora opcional. La experiencia web está estable, el fallback y el offline funcionan, la licencia publicada es coherente y el rendimiento en régimen estable está por debajo de 100 draw calls. No debe presentarse todavía como certificación de 60 fps en hardware real ni como reconstrucción histórica final.

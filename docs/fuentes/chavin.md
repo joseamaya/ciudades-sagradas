@@ -1,7 +1,10 @@
 # Chavín de Huántar — dossier de fuentes
 
-**Estado:** en investigación; modelo 3D pendiente.  
+**Estado:** Fase 0 — fuentes, licencias y alcance; modelo 3D bloqueado hasta aprobar el gate.
+
 **Fecha de consulta:** 24 de octubre de 2026.
+
+**Plan:** [`docs/remaster/chavin/plan.md`](../remaster/chavin/plan.md) · [`cobertura.md`](../remaster/chavin/cobertura.md) · [`referencias.md`](../remaster/chavin/referencias.md).
 
 ## Ficha
 
@@ -72,6 +75,14 @@
 - MNAAHP, sala Chavín: <https://mnaahp.cultura.pe/exposiciones/salas-permanentes/chavin>
 - Stanford, investigación de John Rick: <https://news.stanford.edu/stories/2016/04/stanford-archaeologist-traces-origins-authority-andes-peru>
 
+## Alcance de reconstrucción (Fase 0)
+
+- **Hero:** Templo Antiguo y Lanzón, Templo Nuevo y Portada de las Falcónidas, Plaza Circular Hundida y una secuencia de galería/ventilación.
+- **Fondo:** terrazas, plazas, ríos, quebradas, vegetación y escala humana.
+- **Referencia:** Estela Raimondi, Obelisco Tello y cabezas clavas solo con fuente y licencia; pueden señalarse como réplica o pieza de museo.
+- **Fuera de alcance:** todas las galerías una por una, techos no conservados y el área UNESCO completa a alta fidelidad.
+- El estándar es **ciudad representativa**, no inventario 1:1. La cobertura y los huecos se controlan en `cobertura.md`.
+
 ## Notas de reconstrucción
 
 - Prioridad: volumen de los templos, plazas, galerías y relación con el valle.
@@ -85,3 +96,4 @@
 
 - No se incluyen fotografías oficiales de UNESCO/Mincul en el repositorio.
 - Las imágenes de referencia se consultan en línea y se citan; para publicar se requiere permiso o una alternativa CC0/CC BY.
+- El tablero de fuentes, licencias y material pendiente está en [`docs/remaster/chavin/referencias.md`](../remaster/chavin/referencias.md).

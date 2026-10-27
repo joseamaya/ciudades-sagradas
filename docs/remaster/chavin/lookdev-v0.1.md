@@ -1,7 +1,9 @@
 # Chavín — look-dev v0.1 (base de materiales)
 
+> **Histórico:** superado por `lookdev-v0.2.md` (mampostería ashlar). Se conserva para trazabilidad del pase base.
+
 Fecha: 27 de octubre de 2026.
-Estado: **base material aprobada para revisión; no es acabado final**.
+Estado: **base material histórica; no es acabado final**.
 Fuente: `blender/chavin/chavin_lookdev_v0.1.blend` (191 KB).
 Base de escala: `blockout-v0.5.md` (aceptada).
 Decisión de terreno: `terrain.md`.

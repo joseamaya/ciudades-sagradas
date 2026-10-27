@@ -1,7 +1,7 @@
 # Chavín — blockout v0.5 (revisión de escala)
 
 Fecha: 27 de octubre de 2026.
-Estado: **aceptada como base de escala; ver `lookdev-v0.1.md`**.
+Estado: **aceptada como base de escala; ver `lookdev-v0.2.md`**.
 Fuente: `blender/chavin/chavin_blockout_v0.5.blend` (176 KB).
 Base: `blockout-v0.4.md`.
 Decisión de terreno: `terrain.md`.
@@ -93,6 +93,6 @@ Decisión de terreno: `terrain.md`.
 ## Siguiente
 
 1. Ancho del Lanzón y escala del patio: **aceptados como base**.
-2. Look-dev v0.1: materiales procedurales iniciados; ver `lookdev-v0.1.md`.
+2. Look-dev v0.2: mampostería ashlar y texturas propias; ver `lookdev-v0.2.md`.
 3. Decidir DEM vs. procedural antes de cerrar el terreno.
 4. Portada de las Falcónidas, LOD y, solo después, visor web.

@@ -1,6 +1,6 @@
 # Chavín de Huántar — dossier de fuentes
 
-**Estado:** Fase 0 cerrada para blockout; permisos de publicación pendientes. Blockout v0.5 aceptado y look-dev v0.1 con materiales procedurales; sin assets web publicados.
+**Estado:** Fase 0 cerrada para blockout; permisos de publicación pendientes. Blockout v0.5 aceptado y look-dev v0.2 con mampostería ashlar procedural; sin assets web publicados.
 
 **Fecha de consulta:** 27 de octubre de 2026.
 
@@ -58,7 +58,7 @@
 
 ## Materiales y técnicas
 
-- Piedra labrada y mampostería.
+- Piedra labrada y mampostería. La textura ashlar del look-dev v0.2 es una base interpretativa, no un levantamiento de bloques.
 - Revoques y pintura; superficies pulidas.
 - Galerías con dinteles y bloques de gran tamaño.
 - Sistemas de ventilación, desagüe y control del agua.

@@ -1,7 +1,7 @@
 # Plan de Chavín de Huántar — Fase 0
 
 Fecha: 27 de octubre de 2026.
-Estado: **Fase 0 cerrada; blockout v0.5 aceptado; look-dev v0.1 iniciado**.
+Estado: **Fase 0 cerrada; blockout v0.5 aceptado; look-dev v0.2 de mampostería en revisión**.
 Estándar heredado de Caral: **ciudad representativa**, no inventario 1:1.
 
 ## Objetivo
@@ -96,7 +96,8 @@ Los textos deben distinguir documentado, inferido e interpretativo; no afirmar f
 | Blockout v0.3 | Galería/Lanzón en `blender/chavin/chavin_blockout_v0.3.blend`; histórico |
 | Blockout v0.4 | Cierre del patio B en `blender/chavin/chavin_blockout_v0.4.blend`; histórico |
 | Blockout v0.5 | Revisión de Lanzón, portal y escala en `blender/chavin/chavin_blockout_v0.5.blend`; aceptado |
-| Look-dev v0.1 | Materiales procedurales en `blender/chavin/chavin_lookdev_v0.1.blend`; base |
+| Look-dev v0.1 | Materiales procedurales en `blender/chavin/chavin_lookdev_v0.1.blend`; histórico |
+| Look-dev v0.2 | Mampostería ashlar procedural en `blender/chavin/chavin_lookdev_v0.2.blend`; base en revisión |
 
 ## Decisión de gate
 
@@ -123,4 +124,4 @@ No se abre Blender hasta completar:
 
 ## Siguiente hito
 
-**Look-dev v0.1:** revisar la piedra procedural, decidir DEM vs. procedural, añadir juntas de mampostería o textura CC0 y hornear para el GLB. Ver `lookdev-v0.1.md` y `terrain.md`.
+**Acabado y GLB:** crear UVs y hornear color, rugosidad y normal; decidir el terreno definitivo (por ahora procedural, sin DEM); después Portada de las Falcónidas, relieves y LOD. Ver `lookdev-v0.2.md` y `terrain.md`.

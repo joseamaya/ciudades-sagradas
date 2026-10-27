@@ -1,12 +1,12 @@
 # Chavín — decisión de terreno
 
 Fecha: 27 de octubre de 2026.
-Estado: **terreno procedural aceptado para blockout; DEM diferido a look-dev**.
-Escena base: `blender/chavin/chavin_blockout_v0.5.blend`; look-dev: `blender/chavin/chavin_lookdev_v0.1.blend`.
+Estado: **terreno procedural aceptado para blockout y look-dev; DEM diferido a la fase de detalle**.
+Escena base: `blender/chavin/chavin_blockout_v0.5.blend`; look-dev: `blender/chavin/chavin_lookdev_v0.2.blend`.
 
 ## Decisión
 
-Para el blockout se mantiene el terreno procedural de v0.2. No se incorpora un DEM todavía.
+Para el blockout y el look-dev v0.2 se mantiene el terreno procedural de v0.2. No se incorpora un DEM todavía.
 
 Motivos:
 
@@ -50,10 +50,10 @@ La opción preferida sería **híbrida**:
 4. Documentar fuente, licencia, resolución, fecha de descarga y transformación.
 5. Evaluar el resultado antes de materiales finales.
 
-Criterio para cambiar: que el valle procedural no sostenga el encuadre hero o que el cliente pida contexto topográfico verificable. No se cambia por defecto.
+Criterio para cambiar: que el valle procedural no sostenga el encuadre hero o que el cliente pida contexto topográfico verificable. No se cambia por defecto en el look-dev.
 
 ## Límites
 
 - No hay curvas de nivel locales ni levantamiento propio.
 - El terreno no debe citarse como reconstrucción topográfica.
-- La decisión DEM queda abierta para look-dev, no para este blockout.
+- La decisión DEM queda abierta para la fase de detalle; no bloquea el look-dev v0.2. Si se incorpora, debe documentarse con fuente, licencia, resolución y transformación, y no reemplaza la huella PE-330 ni las plataformas.

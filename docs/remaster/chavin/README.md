@@ -1,8 +1,8 @@
 # Chavín de Huántar — remaster
 
-Estado: **blockout v0.5 aceptado como escala; look-dev v0.1 de materiales en curso**. Fuentes UNESCO/Mincul, Plan de Manejo 2020 e ICOMOS 1999 verificados; ICOMOS 1985 y las secciones finas quedan como pendientes no bloqueantes. No hay assets web publicados.
+Estado: **blockout v0.5 aceptado como escala; look-dev v0.2 de mampostería en revisión**. Fuentes UNESCO/Mincul, Plan de Manejo 2020 e ICOMOS 1999 verificados; ICOMOS 1985 y las secciones finas quedan como pendientes no bloqueantes. No hay assets web publicados.
 
-Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 ya está aceptado como base de escala y `chavin_lookdev_v0.1.blend` inicia los materiales procedurales. El modelado final sigue condicionado a la decisión de terreno y los permisos de publicación.
+Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 está aceptado como base de escala y `chavin_lookdev_v0.2.blend` añade mampostería ashlar procedural. El modelado final sigue condicionado a los permisos de publicación; el terreno se queda procedural por ahora.
 
 ## Documentos
 
@@ -15,7 +15,8 @@ Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 y
 - `blockout-v0.3.md`: galería acotada, Lanzón y sección de revisión (histórico).
 - `blockout-v0.4.md`: cierre del patio de B, portal y relleno del núcleo (histórico).
 - `blockout-v0.5.md`: revisión de Lanzón, portal y escala humana (aceptado).
-- `lookdev-v0.1.md`: base de materiales procedurales.
+- `lookdev-v0.1.md`: base de materiales procedurales (histórico).
+- `lookdev-v0.2.md`: mampostería ashlar, texturas propias y límites de exportación.
 
 ## Reglas
 

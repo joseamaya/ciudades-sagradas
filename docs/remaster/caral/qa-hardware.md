@@ -1,7 +1,7 @@
 # QA en hardware real — Caral v2
 
 Fecha de preparación: 27 de octubre de 2026.
-Estado: **protocolo listo; mediciones en dispositivos físicos pendientes.**
+Estado: **QA Android con incidencia P2 abierta; resto de dispositivos pendiente.**
 
 ## URLs
 
@@ -17,7 +17,7 @@ El overlay `?debug=1` muestra LOD, draw calls, triángulos, FPS, frame time, som
 | Dispositivo | Navegador | LOD esperado | Carga fría | 6 paradas | 4 luces | Offline | 10 min | Consola | Resultado |
 |---|---|---|---|---|---|---|---:|---|
 | iPhone (Safari) | Safari | LOD1 |  |  |  |  |  |  | Pendiente |
-| Android medio (Chrome) | Chrome | LOD1 |  |  |  |  |  |  | Pendiente |
+| Android medio (Chrome) | Chrome | LOD1 |  |  |  |  |  |  | **Fallido parcial: parpadeo de suelo P2** |
 | Desktop GPU integrada | Chrome/Edge | LOD0 |  |  |  |  |  |  | Pendiente |
 | Desktop GPU dedicada | Chrome/Edge | LOD0 |  |  |  |  |  |  | Pendiente |
 | Kiosco 1920×1080 | Chromium | LOD0 |  |  |  |  |  |  | Congelado |
@@ -40,6 +40,12 @@ El overlay `?debug=1` muestra LOD, draw calls, triángulos, FPS, frame time, som
 chrome://inspect  →  dispositivo por USB  →  Inspect
 window.__ciudadesSagradas.metrics()
 ```
+
+## Incidencia Android abierta
+
+- **CARAL-ANDROID-GROUND-001:** parpadeo continuo del suelo en Android; se mantiene en v2.0.1 y también con `?lod=0`. Ver `incidencias.md` e issue [#10](https://github.com/joseamaya/ciudades-sagradas/issues/10).
+- No está aislado: falta confirmar `?noground=1`, `?noshadows=1` y la combinación, además de modelo/versión/GPU y vídeo.
+- No registrar esta fila como aprobada ni declarar el z-fighting resuelto.
 
 ## iOS
 

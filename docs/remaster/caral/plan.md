@@ -9,7 +9,9 @@
 - PR #5 mergeado (`a76fc8b`); release web en `release-v2.md`.
 - Escala 0,08 validada como diorama web.
 - Kiosco, hardware de museo y escala 1.0: congelados.
-- Pendiente de contenido: 20 cubículos del Anfiteatro y perfil norte/sur del Mayor, ambos limitados por fuentes.
+- Pendiente de contenido: 20 cubículos del Anfiteatro y perfil norte/sur del Mayor, ambos limitados por fuentes y diferidos.
+- Cierre de contenido bajo el estándar de **ciudad representativa**; cobertura en `cobertura.md`.
+- Incidencia Android P2 de parpadeo de suelo documentada en `incidencias.md`; no bloquea el cierre.
 
 ## Fase 0 — Auditoría y referencia
 
@@ -77,10 +79,18 @@
 ## Fase 7 — QA y publicación
 
 - [x] Comparar contra referencias y contra el piloto (retirado).
-- [ ] Revisar rendimiento en GPU real y dispositivos físicos.
+- [ ] Revisar rendimiento en GPU real y dispositivos físicos (parcial: Android con incidencia P2).
 - [x] Capturas nuevas y portada v2.
 - [x] Commit, PR #5, merge y deploy.
 - [x] Retirar la etiqueta “piloto”; Caral queda como “Remaster v2”.
+
+## Cierre de contenido
+
+- [x] Definir el estándar de ciudad representativa.
+- [x] Documentar cobertura por elemento y nivel de detalle.
+- [x] Aceptar la incidencia Android P2 y enlazarla al release.
+- [x] Diferir 20 cubículos, perfil N/S, high-poly de pirámides secundarias y 32/32 individual.
+- [x] No planificar v3 sin una decisión de producto y fuentes nuevas.
 
 ## Presupuesto
 

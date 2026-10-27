@@ -244,6 +244,7 @@ def create_bake_material(region, resolution, texture_dir):
     os.makedirs(texture_dir, exist_ok=True)
     material = bpy.data.materials.new("MAT-Caral_LOD1_" + region)
     material.use_nodes = True
+    material.use_backface_culling = True
     nodes = material.node_tree.nodes
     links = material.node_tree.links
     for node in list(nodes):

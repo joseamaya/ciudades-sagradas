@@ -30,13 +30,15 @@ Cada asset debe registrarse en `docs/fuentes/registro-assets.csv` con:
 
 ## Texturas de Caral
 
-Los GLB de Caral v1 y v2 usan solo materiales procedurales propios o atlas horneado desde geometría propia, y no incluyen texturas de IA. El piloto histórico conserva texturas de IA y no se publica. Si se quisiera reutilizar o distribuir ese piloto:
+Los GLB publicados de Caral (v1, LOD0 y LOD1) usan solo materiales procedurales propios o atlas horneados desde geometría propia, y no incluyen texturas de IA. Usan WebP y Draco; el decoder Draco es Apache 2.0.
+
+El piloto histórico con texturas de IA fue **retirado del repositorio** por licencia pendiente. No forma parte de los assets publicados ni del build. Si en el futuro se quisiera recuperar:
 
 1. Confirmar los términos de Cloudflare Workers AI y del modelo generador.
 2. Documentar la licencia resultante.
-3. Si no permite la distribución, sustituir por texturas CC0 o procedurales y reexportar.
+3. Si no permite la distribución, mantenerlo fuera del repo o sustituir por texturas CC0/procedurales y reexportar.
 
-Mientras tanto, el piloto histórico se considera material de archivo. El código, los textos y los GLB v1/v2 sí pueden publicarse.
+El código, los textos y los GLB v1/v2 sí pueden publicarse.
 
 ## Imágenes oficiales
 

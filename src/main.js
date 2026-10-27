@@ -9,6 +9,9 @@ const loadingBar = document.getElementById('loading-bar');
 const loadingText = document.getElementById('loading-text');
 const toastEl = document.getElementById('toast');
 
+const PARAMS = new URLSearchParams(window.location.search);
+const DEBUG = PARAMS.has('debug');
+const NO_SW = PARAMS.has('nosw');
 const audio = new AmbientAudio();
 let cities = [];
 let viewer = null;
@@ -16,8 +19,37 @@ let currentCity = null;
 let routeToken = 0;
 let tourIndex = 0;
 let toastTimer = null;
+let debugEl = null;
+let debugTimer = null;
 
 const asset = (path) => new URL(path, document.baseURI).href;
+
+function setupDebug() {
+  if (!DEBUG) return;
+  debugEl = document.createElement('div');
+  debugEl.className = 'debug-panel';
+  debugEl.setAttribute('aria-live', 'polite');
+  document.body.appendChild(debugEl);
+
+  const render = () => {
+    const metrics = viewer?.getMetrics?.();
+    if (!metrics) {
+      debugEl.textContent = 'debug · esperando visor 3D';
+      return;
+    }
+    const mb = metrics.modelBytes ? `${(metrics.modelBytes / 1024 / 1024).toFixed(1)} MB` : '—';
+    debugEl.textContent = [
+      `LOD ${metrics.lod ?? '—'} · ${metrics.lowPower ? 'móvil' : 'escritorio'} · ${metrics.timeOfDay}`,
+      `${metrics.modelTriangles.toLocaleString('es')} tris · ${metrics.calls} calls · ${metrics.fps || 0} fps · ${metrics.frameMs || 0} ms`,
+      `${metrics.viewport.width}×${metrics.viewport.height} @${metrics.pixelRatio} · sombras ${metrics.shadowMapSize[0]} · texturas ${metrics.textures} (${metrics.textureMB} MB)`,
+      `carga ${metrics.loadMs ?? '—'} ms · ${mb} · ${metrics.modelUrl ?? ''}`,
+    ].join('\n');
+  };
+
+  render();
+  debugTimer = setInterval(render, 500);
+  window.addEventListener('beforeunload', () => clearInterval(debugTimer), { once: true });
+}
 
 function setLoading(progress, message) {
   if (loadingBar) loadingBar.style.width = `${Math.max(0, Math.min(100, progress))}%`;
@@ -111,9 +143,14 @@ function bindCity(refs, city) {
   });
 
   refs.sound?.addEventListener('click', async () => {
-    const enabled = await audio.toggle();
-    refs.sound.setAttribute('aria-pressed', String(enabled));
-    toast(enabled ? 'Audio ambiental activado' : 'Audio ambiental desactivado');
+    try {
+      const enabled = await audio.toggle();
+      refs.sound.setAttribute('aria-pressed', String(enabled));
+      toast(enabled ? 'Audio ambiental activado' : 'Audio ambiental desactivado');
+    } catch (error) {
+      console.warn('Audio no disponible', error);
+      toast('El audio no está disponible en este navegador');
+    }
   });
 
   refs.timeButtons?.forEach((button) => {
@@ -194,16 +231,23 @@ async function openCity(id) {
     return;
   }
 
+  let instance = null;
   try {
-    const instance = new CityViewer(refs.canvas, {
-      onProgress: (progress) => setLoading(8 + progress * 90, `Cargando ${city.name}…`),
+    instance = new CityViewer(refs.canvas, {
+      onProgress: (progress) => {
+        if (token !== routeToken) return;
+        setLoading(8 + progress * 90, `Cargando ${city.name}…`);
+      },
       onReady: () => {
         if (token !== routeToken) return;
         setLoading(100, 'Listo');
-        setTimeout(hideLoading, 260);
+        setTimeout(() => {
+          if (token === routeToken) hideLoading();
+        }, 260);
         warmOfflineCache();
       },
       onError: (error) => {
+        if (token !== routeToken) return;
         console.error(error);
         hideLoading();
         toast('No se pudo cargar el modelo 3D.');
@@ -220,6 +264,10 @@ async function openCity(id) {
     console.error(error);
     hideLoading();
     toast('No se pudo iniciar el visor 3D.');
+    if (instance) {
+      instance.dispose();
+      if (viewer === instance) viewer = null;
+    }
   }
 }
 
@@ -260,23 +308,34 @@ function setupKiosk() {
 }
 
 async function warmOfflineCache() {
-  if (!import.meta.env.PROD || !('caches' in window)) return;
+  if (NO_SW || !import.meta.env.PROD || !('caches' in window) || !('serviceWorker' in navigator)) return;
   try {
-    const cache = await caches.open('ciudades-sagradas-v5');
+    const ready = await Promise.race([
+      navigator.serviceWorker.ready,
+      new Promise((resolve) => setTimeout(() => resolve(null), 5000)),
+    ]);
+    if (!ready) return;
+    const cacheName = (await caches.keys()).find((key) => key.startsWith('ciudades-sagradas-'));
+    if (!cacheName) return;
+    const cache = await caches.open(cacheName);
     const resources = performance
       .getEntriesByType('resource')
       .map((entry) => entry.name)
       .filter((url) => url.startsWith(window.location.origin));
     const urls = new Set([window.location.origin + window.location.pathname, ...resources]);
-    if (currentCity?.fallbackModel) urls.add(asset(currentCity.fallbackModel));
-    await Promise.all([...urls].map((url) => cache.add(url).catch(() => {})));
+    await Promise.all(
+      [...urls].map(async (url) => {
+        if (await cache.match(url)) return;
+        await cache.add(url).catch(() => {});
+      }),
+    );
   } catch (error) {
     console.warn('No se pudo preparar la caché offline', error);
   }
 }
 
 function registerServiceWorker() {
-  if (!import.meta.env.PROD || !('serviceWorker' in navigator)) return;
+  if (NO_SW || !import.meta.env.PROD || !('serviceWorker' in navigator)) return;
   window.addEventListener('load', () => {
     navigator.serviceWorker
       .register(asset('sw.js'))
@@ -288,6 +347,7 @@ function registerServiceWorker() {
 }
 
 async function boot() {
+  setupDebug();
   registerServiceWorker();
   setupKiosk();
   try {
@@ -310,6 +370,8 @@ async function boot() {
     get city() {
       return currentCity;
     },
+    metrics: () => viewer?.getMetrics?.() ?? null,
+    debug: DEBUG,
     openCity,
     goCatalog,
   };

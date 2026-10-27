@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
@@ -66,8 +67,28 @@ const TIME_PRESETS = {
   },
 };
 
+const DOUBLE_SIDED_MATERIALS = new Set([
+  'MAT-Caral_Fire',
+  'MAT-Caral_Cotton',
+  'MAT-Caral_Remaster_Thatch',
+  'MAT-Caral_Remaster_Leaves',
+  'MAT-Caral_Remaster_Grass',
+]);
+
+const SHADOW_MAP_SIZE = {
+  desktop: 2048,
+  mobile: 1024,
+};
+
 function materialKey(material) {
   return (material?.name || '').split('.')[0];
+}
+
+function isDoubleSided(material) {
+  const key = materialKey(material);
+  if (key === 'MAT-Caral_Water') return false;
+  if (key.startsWith('MAT-Caral_LOD1_')) return false;
+  return DOUBLE_SIDED_MATERIALS.has(key);
 }
 
 function makeSkyTexture(topHex, horizonHex, groundHex) {
@@ -113,33 +134,55 @@ function makeSandTexture() {
   return texture;
 }
 
-function isLowPowerDevice() {
-  const coarse = window.matchMedia?.('(pointer: coarse)').matches;
-  const mobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+function deviceProfile() {
+  const userAgent = navigator.userAgent || '';
+  const uaMobile = navigator.userAgentData?.mobile === true;
+  const mobileUA = /Android|iPhone|iPad|iPod|Mobile|Tablet/i.test(userAgent);
+  const iPadDesktop = /Macintosh/i.test(userAgent) && (navigator.maxTouchPoints ?? 0) > 1;
   const memory = navigator.deviceMemory ?? 8;
   const cores = navigator.hardwareConcurrency ?? 8;
   const small = Math.min(window.screen.width, window.screen.height) <= 600;
-  return Boolean(coarse || mobile || memory <= 4 || cores <= 4 || small);
+  const coarse = window.matchMedia?.('(pointer: coarse)').matches === true;
+  const lowPower = Boolean(
+    uaMobile ||
+    mobileUA ||
+    iPadDesktop ||
+    memory <= 4 ||
+    cores <= 4 ||
+    (small && coarse),
+  );
+  return { lowPower, uaMobile, mobileUA, iPadDesktop, memory, cores, small, coarse };
 }
 
-function selectLodLevel(city) {
+function selectLodLevel(city, lowPower) {
   const levels = city.lod?.levels ?? {};
   const override = new URLSearchParams(window.location.search).get('lod');
   if (override && levels[override]) return override;
-  if (levels['1'] && isLowPowerDevice()) return '1';
+  const preferred = city.lod?.default;
+  if (preferred && preferred !== 'auto' && levels[preferred]) return preferred;
+  if (lowPower && levels['1']) return '1';
   if (levels['0']) return '0';
   return Object.keys(levels)[0] ?? null;
 }
 
-function buildModelCandidates(city) {
+function buildModelCandidates(city, lowPower) {
   const levels = city.lod?.levels ?? {};
-  const selected = selectLodLevel(city);
+  const selected = selectLodLevel(city, lowPower);
   const candidates = [];
   const add = (level, url) => {
     if (!url || candidates.some((candidate) => candidate.url === url)) return;
     candidates.push({ level, url });
   };
   if (selected && levels[selected]) add(selected, levels[selected]);
+
+  if (lowPower && selected === '1') {
+    // En un dispositivo modesto, el fallback v1 pesa menos que LOD0.
+    add('v1', city.fallbackModel);
+    for (const [level, url] of Object.entries(levels)) add(level, url);
+    add(null, city.model);
+    return candidates;
+  }
+
   for (const [level, url] of Object.entries(levels)) add(level, url);
   add(null, city.model);
   add('v1', city.fallbackModel);
@@ -210,20 +253,44 @@ export class CityViewer {
     this.flatSand = null;
     this.stars = null;
     this.sandTexture = makeSandTexture();
+    this.profile = deviceProfile();
+    this.lowPower = this.profile.lowPower;
+    this.lodLevel = null;
+    this.modelUrl = null;
+    this.modelTriangles = 0;
+    this.modelBytes = null;
+    this.loadStartedAt = performance.now();
+    this.loadMs = null;
+    this.stats = { fps: 0, frameMs: 0, calls: 0, trianglesDrawn: 0 };
+    this._frameCount = 0;
+    this._frameAccum = 0;
+    this._lastFrame = 0;
+    this.skyCache = new Map();
+    this.envCache = new Map();
+    this._destroyed = false;
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, this.lowPower ? 1.25 : 1.5));
     this.renderer.setSize(container.clientWidth, container.clientHeight, false);
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMapping = THREE.AgXToneMapping;
     this.renderer.toneMappingExposure = 0.9;
     this.renderer.shadowMap.enabled = true;
-    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    this.renderer.shadowMap.type = THREE.PCFShadowMap;
+    this.renderer.shadowMap.autoUpdate = false;
+    this.renderer.shadowMap.needsUpdate = true;
     container.appendChild(this.renderer.domElement);
+
+    this._onContextRestored = () => {
+      this.renderer.shadowMap.needsUpdate = true;
+    };
+    this.renderer.domElement.addEventListener('webglcontextrestored', this._onContextRestored);
 
     this.pmrem = new THREE.PMREMGenerator(this.renderer);
     this.pmrem.compileEquirectangularShader();
-    this.envMap = null;
+
+    this.dracoLoader = new DRACOLoader();
+    this.dracoLoader.setDecoderPath(new URL('draco/', document.baseURI).href);
 
     this.scene = new THREE.Scene();
     this.scene.fog = new THREE.Fog(0xb9c5c9, 110, 260);
@@ -260,9 +327,10 @@ export class CityViewer {
     this.sun = new THREE.DirectionalLight(0xffdcb3, 3.6);
     this.sun.position.set(120, 70, -100);
     this.sun.castShadow = true;
-    this.sun.shadow.mapSize.set(2048, 2048);
+    const shadowSize = this.lowPower ? SHADOW_MAP_SIZE.mobile : SHADOW_MAP_SIZE.desktop;
+    this.sun.shadow.mapSize.set(shadowSize, shadowSize);
     this.sun.shadow.camera.near = 1;
-    this.sun.shadow.camera.far = 260;
+    this.sun.shadow.camera.far = 400;
     this.sun.shadow.camera.left = -50;
     this.sun.shadow.camera.right = 50;
     this.sun.shadow.camera.top = 50;
@@ -313,33 +381,52 @@ export class CityViewer {
     geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
     this.stars = new THREE.Points(
       geometry,
-      new THREE.PointsMaterial({ color: 0xffffff, size: 0.55, transparent: true, opacity: 0.8, depthWrite: false }),
+      new THREE.PointsMaterial({ color: 0xffffff, size: 0.55, transparent: true, opacity: 0.8, depthWrite: false, fog: false }),
     );
     this.stars.visible = false;
     this.scene.add(this.stars);
   }
 
+  _skyFor(name) {
+    if (!this.skyCache.has(name)) {
+      const preset = TIME_PRESETS[name];
+      const sky = makeSkyTexture(preset.skyTop, preset.skyHorizon, preset.skyGround);
+      const envTarget = this.pmrem.fromEquirectangular(sky);
+      this.skyCache.set(name, sky);
+      this.envCache.set(name, envTarget);
+    }
+    return { sky: this.skyCache.get(name), envTarget: this.envCache.get(name) };
+  }
+
+  _positionSun() {
+    const preset = TIME_PRESETS[this.timeOfDay] || TIME_PRESETS.morning;
+    this.sun.position.set(
+      this.sunTarget.position.x + preset.offset[0],
+      this.sunTarget.position.y + preset.offset[1],
+      this.sunTarget.position.z + preset.offset[2],
+    );
+  }
+
   _applyTime(name) {
-    const preset = TIME_PRESETS[name] || TIME_PRESETS.morning;
-    this.timeOfDay = name;
-    this.sun.position.set(...preset.offset);
+    const key = TIME_PRESETS[name] ? name : 'morning';
+    const preset = TIME_PRESETS[key];
+    this.timeOfDay = key;
+    this._positionSun();
     this.sun.color.setHex(preset.sun);
     this.sun.intensity = preset.sunIntensity;
     this.hemi.color.setHex(preset.hemiSky);
     this.hemi.groundColor.setHex(preset.hemiGround);
     this.hemi.intensity = preset.hemiIntensity;
     this.fill.intensity = preset.fill;
-    if (this.scene.background?.isTexture) this.scene.background.dispose();
-    const sky = makeSkyTexture(preset.skyTop, preset.skyHorizon, preset.skyGround);
+    const { sky, envTarget } = this._skyFor(key);
     this.scene.background = sky;
-    if (this.envMap) this.envMap.dispose();
-    this.envMap = this.pmrem.fromEquirectangular(sky).texture;
-    this.scene.environment = this.envMap;
+    this.scene.environment = envTarget.texture;
     this.scene.environmentIntensity = preset.envIntensity ?? 0.8;
     this.scene.backgroundIntensity = preset.backgroundIntensity ?? 1;
     if (this.scene.fog) this.scene.fog.color.setHex(preset.fog);
     this.renderer.toneMappingExposure = preset.exposure;
-    this.stars.visible = name === 'night';
+    this.renderer.shadowMap.needsUpdate = true;
+    this.stars.visible = key === 'night';
   }
 
   setTimeOfDay(name) {
@@ -350,6 +437,7 @@ export class CityViewer {
     for (const mesh of this.meshes) {
       if (mesh.userData.layer === id) mesh.visible = visible;
     }
+    this.renderer.shadowMap.needsUpdate = true;
   }
 
   setCamera(data, immediate = true) {
@@ -413,10 +501,12 @@ export class CityViewer {
 
   async load(city) {
     this.city = city;
-    const candidates = buildModelCandidates(city);
+    this.loadStartedAt = performance.now();
+    const candidates = buildModelCandidates(city, this.lowPower);
     if (!candidates.length) return;
 
     const loader = new GLTFLoader();
+    loader.setDRACOLoader(this.dracoLoader);
     let gltf = null;
     let loadedLevel = null;
     let lastError = null;
@@ -438,13 +528,15 @@ export class CityViewer {
 
     this.lodLevel = loadedLevel;
     const model = gltf.scene;
-    model.scale.setScalar(city.scale ?? 1);
+    const scale = city.scale ?? 1;
+    const verticalScale = city.verticalScale ?? 1;
+    model.scale.set(scale, scale * verticalScale, scale);
     model.traverse((object) => {
       if (!object.isMesh) return;
       const parentLayer = typeof object.parent?.userData?.layer === 'string' ? object.parent.userData.layer : '';
       const declaredLayer = typeof object.userData.layer === 'string' ? object.userData.layer : parentLayer;
       object.userData.layer = declaredLayer || classify(object.name);
-      object.castShadow = !object.name.includes('_Infra_');
+      object.castShadow = object.userData.layer !== 'terrain';
       object.receiveShadow = true;
       const materials = Array.isArray(object.material) ? object.material : [object.material];
       for (const material of materials) this._prepareMaterial(material, object);
@@ -452,7 +544,16 @@ export class CityViewer {
     });
     this.model = model;
     this.scene.add(model);
+    this._collectModelStats();
+    for (const layer of city.layers || []) {
+      if (layer.default === false) this.setLayer(layer.id, false);
+    }
     this.setCamera(city.camera || { position: [24, 17, -26], target: [2, 4, -5], fov: 45 });
+    this._fitShadowsToModel();
+    this.renderer.shadowMap.needsUpdate = true;
+    this.renderer.render(this.scene, this.camera);
+    this.loadMs = performance.now() - this.loadStartedAt;
+    this.modelBytes = this._resourceBytes(this.modelUrl);
     if (this.onReady) this.onReady();
   }
 
@@ -461,26 +562,159 @@ export class CityViewer {
     const key = materialKey(material);
 
     if (key === 'MAT-Caral_Sand') {
-      this.flatSand ??= new THREE.MeshStandardMaterial({ color: 0xd4b184, map: this.sandTexture, roughness: 1, metalness: 0 });
+      this.flatSand ??= new THREE.MeshStandardMaterial({
+        color: 0xd4b184,
+        map: this.sandTexture,
+        roughness: 1,
+        metalness: 0,
+        side: THREE.FrontSide,
+      });
       mesh.material = this.flatSand;
       return;
     }
+
+    if (material.userData.__caralPrepared) return;
+    material.userData.__caralPrepared = true;
 
     if (key === 'MAT-Caral_Fire' && material.emissive) {
       material.emissive.setHex(0xff5a10);
       material.emissiveIntensity = 1.3;
       material.color.setHex(0x2a0a02);
       material.roughness = 0.6;
-      material.needsUpdate = true;
     }
 
     if (key === 'MAT-Caral_Water') {
+      // La transmisión fuerza una pasada extra de toda la escena en Three.js.
+      material.transmission = 0;
       material.transparent = true;
       material.opacity = 0.84;
       material.roughness = 0.1;
       material.metalness = 0.08;
-      material.needsUpdate = true;
+      material.side = THREE.FrontSide;
+      material.forceSinglePass = true;
+      material.depthWrite = false;
+    } else {
+      material.side = isDoubleSided(material) ? THREE.DoubleSide : THREE.FrontSide;
     }
+
+    material.needsUpdate = true;
+  }
+
+  _collectModelStats() {
+    if (!this.model) return;
+    const materials = new Set();
+    const textures = new Set();
+    const images = new Set();
+    let meshes = 0;
+    let triangles = 0;
+    let textureBytes = 0;
+    this.model.traverse((object) => {
+      if (!object.isMesh) return;
+      meshes += 1;
+      const geometry = object.geometry;
+      if (geometry?.index) triangles += geometry.index.count / 3;
+      else if (geometry?.attributes?.position) triangles += geometry.attributes.position.count / 3;
+      const objectMaterials = Array.isArray(object.material) ? object.material : [object.material];
+      for (const material of objectMaterials) {
+        if (!material) continue;
+        materials.add(material.uuid);
+        for (const value of Object.values(material)) {
+          if (!value?.isTexture || textures.has(value.uuid)) continue;
+          textures.add(value.uuid);
+          const image = value.image;
+          if (image?.width && image?.height && !images.has(image)) {
+            images.add(image);
+            textureBytes += image.width * image.height * 4;
+          }
+        }
+      }
+    });
+    this.meshCount = meshes;
+    this.materialCount = materials.size;
+    this.textureCount = textures.size;
+    this.textureMB = +(textureBytes * 4 / 3 / 1024 / 1024).toFixed(1);
+    this.modelTriangles = Math.round(triangles);
+  }
+
+  _fitShadowsToModel() {
+    if (!this.model) return;
+    this.model.updateMatrixWorld(true);
+    const box = new THREE.Box3();
+    const temp = new THREE.Box3();
+    for (const mesh of this.meshes) {
+      if (!mesh.castShadow) continue;
+      temp.setFromObject(mesh);
+      box.union(temp);
+    }
+    if (box.isEmpty()) box.setFromObject(this.model);
+    const center = box.getCenter(new THREE.Vector3());
+    const size = box.getSize(new THREE.Vector3());
+    const maxShadow = Math.max(
+      ...Object.values(TIME_PRESETS).map((preset) => {
+        const horizontal = Math.hypot(preset.offset[0], preset.offset[2]);
+        return (size.y * horizontal) / Math.max(10, preset.offset[1]);
+      }),
+    );
+    const radius = Math.max(20, Math.max(size.x, size.z) / 2 + maxShadow + 4);
+    this.sunTarget.position.set(center.x, 0, center.z);
+    this.sun.shadow.camera.left = -radius;
+    this.sun.shadow.camera.right = radius;
+    this.sun.shadow.camera.top = radius;
+    this.sun.shadow.camera.bottom = -radius;
+    this.sun.shadow.camera.near = 1;
+    this.sun.shadow.camera.far = 400;
+    this.sun.shadow.camera.updateProjectionMatrix();
+    this._positionSun();
+    this.renderer.shadowMap.needsUpdate = true;
+  }
+
+  _resourceBytes(url) {
+    if (!url) return null;
+    const absolute = new URL(url, document.baseURI).href;
+    const entry = performance
+      .getEntriesByType('resource')
+      .filter((item) => item.name === absolute)
+      .at(-1);
+    if (!entry) return null;
+    return entry.encodedBodySize || entry.transferSize || null;
+  }
+
+  getMetrics() {
+    return {
+      ready: Boolean(this.model),
+      lod: this.lodLevel,
+      modelUrl: this.modelUrl,
+      lowPower: this.lowPower,
+      profile: this.profile,
+      viewport: {
+        width: this.renderer.domElement.width,
+        height: this.renderer.domElement.height,
+      },
+      cssViewport: {
+        width: this.container.clientWidth,
+        height: this.container.clientHeight,
+      },
+      pixelRatio: this.renderer.getPixelRatio(),
+      shadowMapSize: [this.sun?.shadow?.mapSize?.x ?? null, this.sun?.shadow?.mapSize?.y ?? null],
+      shadowAutoUpdate: this.renderer.shadowMap.autoUpdate,
+      meshes: this.meshCount ?? this.meshes.length,
+      materials: this.materialCount ?? null,
+      textures: this.textureCount ?? null,
+      textureMB: this.textureMB ?? null,
+      modelTriangles: this.modelTriangles,
+      calls: this.stats.calls,
+      trianglesDrawn: this.stats.trianglesDrawn,
+      fps: this.stats.fps,
+      frameMs: this.stats.frameMs,
+      loadMs: this.loadMs == null ? null : Math.round(this.loadMs),
+      modelBytes: this.modelBytes,
+      timeOfDay: this.timeOfDay,
+      layers: Object.fromEntries(
+        [...new Set(this.meshes.map((mesh) => mesh.userData.layer))]
+          .filter(Boolean)
+          .map((layer) => [layer, this.meshes.some((mesh) => mesh.userData.layer === layer && mesh.visible)]),
+      ),
+    };
   }
 
   _applyFov() {
@@ -506,13 +740,34 @@ export class CityViewer {
     this._updateFlight(now);
     this.controls.update();
     this.renderer.render(this.scene, this.camera);
+
+    const render = this.renderer.info.render;
+    this.stats.calls = render.calls;
+    this.stats.trianglesDrawn = render.triangles;
+
+    if (this._lastFrame) {
+      const delta = now - this._lastFrame;
+      if (delta > 0 && delta < 1000) {
+        this._frameAccum += delta;
+        this._frameCount += 1;
+        if (this._frameAccum >= 500) {
+          this.stats.fps = +((this._frameCount * 1000) / this._frameAccum).toFixed(1);
+          this.stats.frameMs = +(this._frameAccum / this._frameCount).toFixed(2);
+          this._frameAccum = 0;
+          this._frameCount = 0;
+        }
+      }
+    }
+    this._lastFrame = now;
   }
 
   dispose() {
+    if (this._destroyed) return;
+    this._destroyed = true;
     this.renderer.setAnimationLoop(null);
     window.removeEventListener('resize', this._onResize);
+    this.renderer.domElement.removeEventListener('webglcontextrestored', this._onContextRestored);
     this.controls.dispose();
-    if (this.scene.background?.isTexture) this.scene.background.dispose();
     this.scene.traverse((object) => {
       if (object.geometry) object.geometry.dispose();
       const materials = Array.isArray(object.material) ? object.material : [object.material];
@@ -524,7 +779,11 @@ export class CityViewer {
         material.dispose();
       }
     });
-    if (this.envMap) this.envMap.dispose();
+    for (const target of this.envCache.values()) target.dispose();
+    for (const sky of this.skyCache.values()) sky.dispose();
+    this.envCache.clear();
+    this.skyCache.clear();
+    this.dracoLoader.dispose();
     this.pmrem.dispose();
     this.renderer.dispose();
     this.renderer.domElement.remove();

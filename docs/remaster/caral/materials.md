@@ -1,3 +1,5 @@
+> **Nota histórica (2026-10-26):** este documento describe el pase de materiales v1. El piloto con texturas de IA fue retirado del repositorio; Caral v2 es el estado actual. Ver `auditoria-v2.md`.
+
 # Materiales — pase procedural
 
 ## Objetivo
@@ -90,15 +92,15 @@ blender --background blender/caral/caral_remaster.blend \
 
 - Escena de trabajo: `blender/caral/caral_remaster.blend`, 1.128.020 bytes, SHA-256 `52d79bb5db315fcc22f703665d6dc39f49d9bc9be7b729f93800face301d1f5f`.
 - GLB v1: 4.778.308 bytes, 554 mallas, 55.944 tris, 20 materiales, 31 imágenes WebP, SHA-256 `c6bbe07b27640951373b96db4f6a610b7618224e37fc52eda8893ac79670bb34`.
-- El piloto histórico sigue intacto como archivo: 20.749.488 bytes, 554 mallas, 44.640 tris.
+- El piloto histórico (20.749.488 bytes, 554 mallas, 44.640 tris) fue retirado del repositorio por licencia pendiente.
 - Capturas: `materials-hero.jpg`, `materials-close.jpg`, `materials-detail.jpg`, `terrain-sand-hero.jpg`, `viewer-terrain.jpg`.
 
 ## Limitaciones
 
-- El bake de AO/normales se completó en v2; LOD1 usa atlas 2K, normal 0,35 y roughness constante 0,85.
+- El bake de normales se completó en v2; el AO no se incluyó. LOD1 usa atlas 2K, normal 0,35 y roughness constante 0,85.
 - La geometría high-poly se completó en v2 para el hero; el resto conserva la base v1.
 - El encuadre hero y la luz de atardecer definitivos aún requieren una pasada de arte.
-- Caral v2 está desplegado; `model.glb` v1 queda como fallback y el piloto histórico como archivo.
+- Caral v2 está desplegado; `model.glb` v1 queda como fallback. El piloto histórico fue retirado.
 - Falta validación en hardware real; el kiosco está congelado.
 
 ## Siguiente paso

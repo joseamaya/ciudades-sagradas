@@ -1,3 +1,5 @@
+> **Nota histórica (2026-10-26):** este documento describe el primer pase de terreno. El piloto fue retirado del repositorio; Caral v2 es el estado actual. Ver `auditoria-v2.md`.
+
 # Terreno — primer pase
 
 ## Objetivo
@@ -10,7 +12,7 @@ Empezar a romper la silueta de blockout sin tocar todavía la arquitectura ni la
 - Textura `CLOUDS`, escala 38, fuerza 7 m.
 - Script reproducible: `scripts/remaster_caral_terrain.py`.
 - Escena de trabajo: `blender/caral/caral_remaster.blend`.
-- El piloto `caral_art.blend` no se modifica.
+- El piloto `caral_art.blend` fue retirado del repositorio; no se modifica.
 
 ## Qué se dejó fuera
 

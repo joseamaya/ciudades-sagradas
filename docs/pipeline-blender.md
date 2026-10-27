@@ -36,29 +36,35 @@ bpy.ops.export_scene.gltf(
     export_cameras=False,
     export_lights=False,
     export_animations=False,
+    export_image_format="WEBP",
+    export_image_quality=80,
+    export_extras=True,
+    export_draco_mesh_compression_enable=True,
 )
 ```
 
 - Aplicar modificadores antes de exportar.
 - Incluir UVs en todas las mallas.
-- Empaquetar imágenes en el GLB.
+- Empaquetar imágenes en el GLB, preferentemente WebP 80.
+- Usar Draco para geometría (nivel 6; posición 14, normal 10, UV 12).
+- Activar `use_backface_culling` en superficies sólidas; dejar doble cara solo en vegetación, totora, algodón, agua y fuego.
 - Revisar que el material no dependa de nodos procedurales no exportables.
 
 ## Integración en el atlas
 
-1. Copiar el GLB a `public/cities/<slug>/model.glb`.
-2. Ajustar `scale` en `public/cities/<slug>/city.json`.
-3. Ajustar cámaras y recorrido.
+1. Copiar los GLB a `public/cities/<slug>/` (`model_lod0.glb`, `model_lod1.glb`, `model.glb` de fallback).
+2. Declarar `lod.levels`, `fallbackModel`, `scale` y `verticalScale` en `public/cities/<slug>/city.json`.
+3. Ajustar cámaras y recorrido; validar las capas.
 4. Añadir la portada `public/cities/<slug>/hero.jpg`.
-5. Ejecutar `npm run validate` y `npm run build`.
-6. Probar en navegador y en modo kiosco.
+5. Registrar hashes/tamaños en `docs/fuentes/registro-assets.csv`.
+6. Ejecutar `npm run validate`, `npm run build`, `npm run bench` y probar en navegador/kiosco.
 
 ## Presupuesto
 
-- Objetivo: <25 MB por ciudad.
-- Preferir KTX2/Draco o meshopt para la versión publicada.
-- LOD0 para la vista cercana; LOD1 para el atlas.
-- 60 fps en GPU media a 1080p; 30 fps mínimo en kiosco 4K.
+- Objetivo: <25 MB por ciudad; Caral v2 está en 3,28 MB (LOD0) y 3,21 MB (LOD1) con Draco.
+- Draco está implementado; KTX2/BasisU queda pendiente por VRAM de texturas y requiere gltfpack/BasisU.
+- LOD0 para la vista cercana; LOD1 para móvil y atlas.
+- 60 fps en GPU media a 1080p; 30 fps mínimo en kiosco 4K. La medición real sigue pendiente.
 
 ## Calidad
 
@@ -70,10 +76,11 @@ bpy.ops.export_scene.gltf(
 
 ## Fuentes actuales
 
-El `.blend` de Caral vive en el proyecto Blender de trabajo. Para publicar el repositorio, copiar la escena editable a `blender/caral/` o usar Git LFS, y documentar su hash en `CREDITS.md`.
+La fuente v1 versionada es `blender/caral/caral_remaster.blend`. Las escenas v2 y LOD se regeneran con los scripts y se mantienen como artefactos locales por tamaño; no se versionan. Documentar sus hashes en `blender/caral/README.md` y `docs/remaster/caral/`.
 
 ## Texturas
 
 - Preferir CC0 (Poly Haven, ambientCG) o texturas propias.
-- Las texturas generadas con IA requieren revisar los términos del proveedor y del modelo.
+- No se añaden texturas de IA. El piloto histórico fue retirado del repositorio por licencia pendiente.
 - Si no se puede publicar una textura, sustituirla por una procedural o por un color PBR.
+- WebP es el formato publicado; evaluar KTX2 solo si se reduce la VRAM de forma medible.

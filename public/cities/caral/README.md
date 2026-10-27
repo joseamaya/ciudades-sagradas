@@ -2,20 +2,22 @@
 
 ## v2 (web)
 
-- **LOD0:** `model_lod0.glb`, **22.587.652 bytes**.
-  - **10 mallas**, 21 materiales, 31 imágenes WebP, **230.800 triángulos**.
-  - Prueba de escritorio: **125 draw calls** con sombras del hero y la infraestructura fusionada como receptora.
-  - SHA-256: `7757b125006a7704f32a739a9db87ca799e9f5aec918df1030eeaca734ca6d7d`.
-- **LOD1:** `model_lod1.glb`, **6.694.356 bytes**.
-  - **15 mallas**, 23 materiales, 39 imágenes WebP, **56.332 triángulos**.
-  - Prueba de escritorio: **72 draw calls**.
-  - SHA-256: `60990a98f893bd148ca937deb341808a415cad3e99b261438320372c39a23fbb`.
+- **LOD0:** `model_lod0.glb`, **3.277.080 bytes** (Draco + WebP).
+  - **10 mallas**, 65 primitivas, 21 materiales, 31 imágenes WebP, **230.800 triángulos**.
+  - **44 draw calls** en régimen estable con la cámara inicial (sombras cacheadas; al refrescar sombras se suman los casters).
+  - SHA-256: `d11247a3bf17807abe3667b01e75439be0071a70f01f8a34b6196bd1a7e4ded7`.
+- **LOD1:** `model_lod1.glb`, **3.206.848 bytes** (Draco + WebP).
+  - **15 mallas**, 38 primitivas, 23 materiales, 39 imágenes WebP, **56.332 triángulos**.
+  - **31 draw calls** en régimen estable.
+  - SHA-256: `c394e1ab6f3e232f93a7a05f941523559f63519ea47a872df4e46096f31b8dab`.
 - **Escala:** el visor aplica `0.08`; es una presentación de diorama, no una escala métrica de recorrido.
-- **Fuente editable:** `blender/caral/caral_lod0.blend` (SHA-256 `6db1c092a168272fa6ab3ff43fb4f503d809d81626b7f798029cc8c9191fdd4b`) y `blender/caral/caral_lod1.blend` (SHA-256 `9da242aa0e92f7b43ffa014af7af2fe11c27c47c2d027c65cc4515244856df9a`).
-- **Export reproducible:** `scripts/assemble_caral_lod0.py`, `scripts/optimize_caral_lod1.py` y `scripts/export_caral_lod.py`, WebP calidad 80.
-- **LOD:** `city.json` declara `lod.levels` 0/1 y `fallbackModel`; escritorio usa LOD0 y móvil usa LOD1.
-- **Portada:** `hero.jpg` generada desde el visor v2, 1600×900.
-- **Estado:** remaster v2 desplegado en GitHub Pages (`stage: "v2"`, caché `v5`); el GLB v1 se conserva como fallback y rollback.
+- **Fuente editable:** `blender/caral/caral_remaster.blend` (v1) y las escenas locales `caral_remaster_v2.blend`, `caral_lod0.blend` y `caral_lod1.blend`, que no se versionan por tamaño. Se regeneran con los scripts de `scripts/`.
+- **Export reproducible:** `scripts/assemble_caral_lod0.py`, `scripts/optimize_caral_lod1.py` y `scripts/export_caral_lod.py`, WebP 80 + Draco.
+- **LOD:** `city.json` declara `lod.levels` 0/1 y `fallbackModel`; escritorio usa LOD0 y móvil usa LOD1, con override `?lod=0/1`.
+- **Fallback:** LOD0 → LOD1 → v1 en escritorio; LOD1 → v1 → LOD0 en móvil.
+- **Portada:** `hero.jpg` generada desde el visor v2.
+- **Estado:** remaster v2 desplegado en GitHub Pages (`stage: "v2"`, caché `v6`); el GLB v1 se conserva como fallback y rollback.
+- **Texturas:** los atlas LOD1 son 2K; el AO no se incluye y la roughness es constante.
 
 ## v1 fallback
 
@@ -26,11 +28,9 @@
 - **Materiales:** 20
 - **Imágenes:** 31, todas WebP
 - **SHA-256:** `c6bbe07b27640951373b96db4f6a610b7618224e37fc52eda8893ac79670bb34`
-- **Origen:** escena de trabajo del remaster, Blender 5.2.
-- **Fuente editable:** `blender/caral/caral_remaster.blend` (SHA-256 `52d79bb5db315fcc22f703665d6dc39f49d9bc9be7b729f93800face301d1f5f`).
+- **Origen:** `blender/caral/caral_remaster.blend` (Blender 5.2). Reexportar produce el mismo tamaño y estructura, aunque el hash puede variar por la codificación WebP.
 - **Geometría:** proyecto Ciudades Sagradas / José Amaya.
 - **Texturas:** procedurales propias en arquitectura, plazas, suelo, arena, roca, vegetación, adobe, totora y madera. **Sin texturas de IA en este GLB.**
-- **Licencia:** geometría CC BY 4.0; texturas procedurales del proyecto. El piloto histórico queda como material de archivo; el GLB de esta versión no contiene texturas de IA.
+- **Licencia:** geometría CC BY 4.0; texturas procedurales del proyecto. El piloto histórico con texturas de IA fue retirado del repositorio.
 - **Escala:** el visor aplica `0.08`.
-- **Estado:** remaster v1 histórico; se conserva como rollback de v2.
-- **Export reproducible:** `blender/caral/export.py`, WebP calidad 80.
+- **Estado:** fallback y rollback de v2.

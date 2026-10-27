@@ -1,6 +1,6 @@
 # Caral — dossier de fuentes
 
-**Estado:** ficha publicada, modelo 3D en remasterización.  
+**Estado:** ficha publicada, modelo 3D remaster v2 con LOD0/LOD1 y fallback v1.
 **Fecha de consulta:** 24 de octubre de 2026.
 
 ## Ficha
@@ -88,4 +88,5 @@
 
 - No se incluyen fotografías oficiales de UNESCO/Mincul en el repositorio.
 - Las imágenes de referencia se consultan en línea y se citan; para publicar se requiere permiso o una alternativa CC0/CC BY.
-- La portada actual es un render propio del proyecto.
+- La portada actual es una captura propia del visor v2.
+- Los GLB publicados (v1, LOD0, LOD1) no incluyen texturas de IA; el piloto histórico con IA fue retirado del repositorio.

@@ -4,49 +4,65 @@
 
 - Repositorio independiente con Vite + Three.js.
 - OpenCode configurado con MCP de Blender y skills MIT en `.agents/skills/`.
-- Escena editable `blender/caral/caral_art.blend` con texturas relativas en `blender/textures/`.
-- Script de exportación `blender/caral/export.py` y guía `docs/setup.md`.
-- Catálogo de cuatro ciudades: Caral, Chavín, Chan Chan y Wari.
-- Caral como piloto 3D con recorrido de seis paradas.
-- Capas de arquitectura, terreno, detalles y escala humana.
-- Luz de amanecer, mediodía, atardecer y noche.
-- Audio ambiental procedural; narración en español pendiente.
-- PWA con caché offline y modo kiosco `?kiosk=1`, este último congelado.
-- Interfaz responsive para 1080p táctil y móvil.
-- Dossieres de fuentes públicas para las cuatro ciudades.
-- Registro de assets y política de licencias.
-- Validación automática y workflows de CI / GitHub Pages.
-- Fase 0 del remaster de Caral: auditoría de escena, export reproducible y dossier de remaster en `docs/remaster/caral/`.
-- Remaster v1: GLB de 4,8 MB, 20 materiales y 31 imágenes, sin texturas de IA; desplegado el 2026-10-26.
-- Remaster v2 web: LOD0 high-poly de 230.800 tris (22,6 MB, 125 draw calls) y LOD1 horneado de 56.332 tris (6,7 MB, 72 draw calls), con capas y fallback v1.
-- `city.json` de Caral con `lod.levels` 0/1, `fallbackModel` v1, seis paradas y `stage: "v2"`.
-- Caral v2 promovido de preview a remaster v2, con portada actualizada y caché `v5`.
-- PR #5 mergeado (`a76fc8b`) y v2 desplegado en GitHub Pages: <https://joseamaya.github.io/ciudades-sagradas/>.
-- Release web documentado en `docs/remaster/caral/release-v2.md`.
-- Capturas en `docs/capturas/` y `docs/remaster/caral/`.
+- **Caral Remaster v2 es el estado actual y la referencia técnica del proyecto.**
+- LOD0 high-poly: 230.800 tris, 65 primitivas, 21 materiales, 31 imágenes, **3.277.080 bytes** con Draco.
+- LOD1 horneado: 56.332 tris, 38 primitivas, 23 materiales, 39 imágenes, **3.206.848 bytes** con Draco.
+- Fallback v1: 55.944 tris, 554 primitivas, 20 materiales, 31 imágenes, 4.778.308 bytes.
+- Selección automática LOD0/LOD1 por capacidad, override `?lod=0/1` y orden de fallback específico por dispositivo.
+- Ciclo de sombras estático: la shadow map se actualiza al cargar, cambiar hora o capas, no en cada frame.
+- Selección de materiales: culling en superficies sólidas, doble cara solo en vegetación/totora/algodón/agua/fuego; agua sin `KHR_materials_transmission`.
+- Cielos y entornos PMREM cacheados por hora del día.
+- Seis paradas de recorrido, cuatro capas, cuatro momentos de luz y audio ambiental procedural.
+- PWA con caché offline del modelo cargado; sin precarga forzada del fallback v1.
+- Manifiesto PWA `standalone`/`any`, iconos 192/512 y safe-area en móvil.
+- Modo kiosco `?kiosk=1` (congelado) y `?debug=1` con métricas en vivo.
+- Benchmark reproducible `scripts/bench.mjs` (Chrome/CDP + SwiftShader) para LOD0, LOD1, móvil, fallback y offline.
+- Validación ampliada: cabecera GLB, LOD/cámaras/capas, hashes y tamaños del registro de assets, versión de caché.
+- Dossieres de fuentes, registro de assets y política de licencias.
+- Piloto histórico con texturas de IA **retirado del repositorio**; los GLB publicados no contienen texturas de IA.
+- CI y GitHub Pages configurados; esta auditoría se validó en local y no se desplegó.
+
+## Métricas medidas
+
+| Elemento | LOD0 | LOD1 | v1 fallback |
+|---|---:|---:|---:|
+| Triángulos | 230.800 | 56.332 | 55.944 |
+| Primitivas Three.js | 65 | 38 | 554 |
+| Draw calls en régimen estable* | 44 | 31 | 342 |
+| GLB con Draco | 3.277.080 B | 3.206.848 B | 4.778.308 B (sin Draco) |
+| Materiales / imágenes | 21 / 31 | 23 / 39 | 20 / 31 |
+| Texturas decodificadas estimadas** | 373 MB | 544 MB | 373 MB |
+| Shadow map | 2048² escritorio | 1024² móvil | 2048² escritorio |
+
+\* Cámara inicial, 1600×900, Chrome headless/SwiftShader; las sombras ya están cacheadas y no hay pasada de transmisión. Al refrescar sombras se suman los casters: **100 draw calls** en LOD0 y **60** en LOD1, solo en el frame de actualización.
+\** Estimación RGBA8 + mipmaps de las texturas del modelo; no es el peso de descarga.
+
+- La carga local terminó en ~1,2–1,7 s de respuesta de red y ~6–7 s hasta el primer render en SwiftShader; en GPU real el primer render baja de forma importante. El dato de FPS de SwiftShader no representa hardware real.
+- `npm run validate` y `npm run build`: OK.
+- Fallback verificado: LOD0 → LOD1 → v1 en escritorio; LOD1 → v1 → LOD0 en móvil.
+- Offline verificado con caché `v6` y `?nosw=1` como escape de QA.
 
 ## Pendiente
 
-1. **Caral**: QA en hardware real y red lenta; medir 60 fps a 1080p y validar Safari/iOS y Android. El kiosco y el hardware de museo están congelados.
-2. **Texturas del piloto histórico**: confirmar el archivo definitivo de las texturas de IA; no se publican. Los GLB v1 y v2 no contienen texturas de IA.
-3. **Chavín, Chan Chan y Wari**: modelos 3D, recorridos y fichas visuales.
+1. **Caral**: QA en hardware real (iPhone/Safari, Android/Chrome, GPU media) y medición de 60 fps a 1080p. El kiosco y el hardware de museo siguen congelados.
+2. **VRAM de texturas en LOD1**: 544 MB estimados es el principal riesgo para móviles. Evaluar KTX2/BasisU con gltfpack o rehacer los atlas LOD1 a 1K.
+3. **Contenido**: 20 cubículos del Anfiteatro y perfil norte/sur del Mayor, limitados por fuentes.
 4. **Narración en español**: guion y grabación; congelada junto con el kiosco.
 5. **Renders cinematográficos**: Cycles con los assets high-poly.
 6. **Publicación**: mantener GitHub Pages actualizado y evaluar Cloudflare Pages para assets grandes.
 
 ## Limitaciones conocidas
 
-- Caral v2 está publicado; `model.glb` v1 se conserva como fallback y rollback.
-- LOD0 mide 125 draw calls con sombras; se acepta como perfil de escritorio. LOD1 mide 72 y cumple el objetivo <100.
-- LOD1 no conecta AO ni mapa de roughness: usa base color, normal y roughness constante 0,85.
+- Caral v2 está publicado; `model.glb` v1 se conserva como fallback y rollback, pero tiene 342 draw calls en la vista inicial y ~782 al refrescar sombras.
+- LOD1 no conecta AO ni mapa de roughness: usa base color, normal, roughness constante 0,85 y normal 0,35. El AO no está incluido en los GLB.
+- LOD1 tiene más VRAM de texturas que LOD0 por los atlas 2K; no es un LOD “ligero” en memoria, solo en geometría y draw calls.
 - La escala **0,08** está validada como diorama web; la escala métrica 1.0 queda fuera de esta entrega.
+- No se implementó LOD dinámico por distancia: la selección es por dispositivo/capacidad.
 - No se modelaron los 20 cubículos del Anfiteatro por falta de una planta publicada suficiente.
 - La diferencia de altura norte/sur del Mayor sigue pendiente de sección o DEM.
-- La sesión de 60 fps en GPU media y los dispositivos reales aún no se han medido.
-- El visor añade un plano de arena bajo el modelo; el terreno del GLB ya tiene variación macro.
+- La reexportación de v1 con WebP no es byte-a-byte determinista: mismo tamaño y estructura, hash distinto. El GLB v1 publicado es la referencia.
 - Wari no está en la Lista del Patrimonio Mundial; su ficha se basa en Ministerio de Cultura y academia.
-- La narración aún no existe; solo hay ambiente procedural.
 
 ## Próximo paso recomendado
 
-Cerrar la QA web en hardware real y abrir el bloque de Chavín. El kiosco, la escala 1.0 y la narración quedan congelados hasta nuevo aviso.
+Cerrar la QA en hardware real y decidir KTX2/atlas 1K para LOD1. Después, abrir Chavín con Caral v2 como plantilla técnica.

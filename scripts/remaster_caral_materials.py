@@ -39,10 +39,11 @@ def image_node(nodes, path, non_color=False):
     return node
 
 
-def make_flat_material(name, color, roughness=0.7):
+def make_flat_material(name, color, roughness=0.7, cull=True):
     material = bpy.data.materials.get(name) or bpy.data.materials.new(name)
     material.use_nodes = True
     material.metallic = 0.0
+    material.use_backface_culling = cull
     nodes = material.node_tree.nodes
     links = material.node_tree.links
     nodes.clear()
@@ -56,10 +57,11 @@ def make_flat_material(name, color, roughness=0.7):
     return material
 
 
-def make_material(name, diffuse, normal, roughness, normal_strength=1.0):
+def make_material(name, diffuse, normal, roughness, normal_strength=1.0, cull=True):
     material = bpy.data.materials.get(name) or bpy.data.materials.new(name)
     material.use_nodes = True
     material.metallic = 0.0
+    material.use_backface_culling = cull
     nodes = material.node_tree.nodes
     links = material.node_tree.links
     nodes.clear()
@@ -161,6 +163,7 @@ def main():
         f"{root}/dry_grass_normal.png",
         f"{root}/dry_grass_roughness.jpg",
         1.2,
+        cull=False,
     )
     foliage = make_material(
         "MAT-Caral_Remaster_Leaves",
@@ -168,6 +171,7 @@ def main():
         f"{root}/foliage_normal.png",
         f"{root}/foliage_roughness.jpg",
         1.2,
+        cull=False,
     )
     adobe = make_material(
         "MAT-Caral_Remaster_Adobe",
@@ -182,6 +186,7 @@ def main():
         f"{root}/thatch_normal.png",
         f"{root}/thatch_roughness.jpg",
         1.5,
+        cull=False,
     )
     wood = make_flat_material("MAT-Caral_Remaster_Wood", (0.18, 0.09, 0.04, 1.0), 0.7)
     mapping = {

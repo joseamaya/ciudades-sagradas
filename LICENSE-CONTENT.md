@@ -19,4 +19,5 @@ Texto legal completo: <https://creativecommons.org/licenses/by/4.0/legalcode.es>
 - El código fuente se distribuye bajo MIT (ver `LICENSE`).
 - Las texturas, imágenes de terceros y modelos de apoyo conservan su propia licencia y se documentan en `CREDITS.md` y `docs/licencias.md`.
 - Las imágenes oficiales de UNESCO, Ministerio de Cultura del Perú, ICOMOS y museos **no** se relicencian aquí; se citan como referencia o se usan con permiso.
-- El modelo `public/cities/caral/model.glb` incluye texturas de IA cuya licencia está pendiente de revisión. Su geometría es CC BY 4.0; las texturas no se relicencian hasta confirmar los términos. Ver `CREDITS.md`.
+- Los GLB publicados `public/cities/caral/model.glb`, `model_lod0.glb` y `model_lod1.glb` no incluyen texturas de IA. Usan materiales procedurales propios y, en LOD1, un atlas horneado desde geometría propia. La geometría es CC BY 4.0.
+- El piloto histórico con texturas de IA fue retirado del repositorio por licencia pendiente. No forma parte de los assets publicados ni del build web. Ver `CREDITS.md` y `docs/licencias.md`.

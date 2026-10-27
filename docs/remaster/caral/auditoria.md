@@ -1,3 +1,5 @@
+> **Nota histórica:** auditoría de la escena piloto `caral_art.blend`, retirada del repositorio. No describe Caral v2; ver `auditoria-v2.md` y `release-v2.md`.
+
 # Auditoría de la escena Caral
 
 Generada desde `blender/caral/caral_art.blend` con `scripts/audit_blender_scene.py`. El JSON completo está en `auditoria.json`.

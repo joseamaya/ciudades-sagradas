@@ -2,11 +2,12 @@
 
 Rama de cierre: `release/caral-v2`. Remaster v1: `release/caral-remaster-final`.
 
-Estado: **remaster v2 desplegado** en GitHub Pages; LOD0 de 230.800 tris y LOD1 de 56.332 tris, ambos con Draco y WebP. Los GLB LOD0/LOD1 y `city.json` están integrados en `public/`, con v1 como fallback. PR #5 mergeado en `a76fc8b`; `stage: "v2"` y caché `v7`. Kiosco, hardware y escala métrica 1.0 quedan congelados.
+Estado: **remaster v2 desplegado y contenido cerrado** en GitHub Pages bajo el estándar de ciudad representativa; LOD0 de 230.800 tris y LOD1 de 56.332 tris, ambos con Draco y WebP. Los GLB LOD0/LOD1 y `city.json` están integrados en `public/`, con v1 como fallback. PR #5 mergeado en `a76fc8b`; `stage: "v2"` y caché `v7`. Queda una incidencia Android P2 de parpadeo de suelo. Kiosco, hardware y escala métrica 1.0 quedan congelados.
 
 ## Decisiones fijadas
 
 - **Alcance inicial:** vertical slice — Pirámide Mayor, Plaza Mayor, Plaza Circular, Anfiteatro, Altar Circular, terraza y valle.
+- **Estándar de cierre:** ciudad representativa; no inventario 1:1 de los 32 edificios públicos. High-poly solo en las cuatro zonas hero.
 - **Texturas:** CC0 o procedurales; sin nuevas texturas de IA.
 - **Publicación:** v2 reemplaza al piloto; `model.glb` v1 se conserva como fallback y rollback. El piloto con texturas de IA fue retirado.
 - **Interiores:** solo lo visible desde plazas y altares; no galerías completas.
@@ -36,6 +37,8 @@ Estado: **remaster v2 desplegado** en GitHub Pages; LOD0 de 230.800 tris y LOD1 
 - `v2-plan.md`: evidencia UNESCO, decisión de escala, high-poly, LOD0/LOD1, métricas y fases v2.
 - `auditoria-v2.md`: auditoría de cierre, rendimiento medido, LOD, problemas y veredicto.
 - `qa-hardware.md`: protocolo y matriz de QA en dispositivos reales.
+- `cobertura.md`: qué elementos están en el GLB, con qué nivel de detalle y qué queda diferido.
+- `incidencias.md`: incidencias conocidas; incluye el parpadeo de suelo Android P2.
 - `plantilla.md`: checklist para reutilizar Caral v2 en la siguiente ciudad.
 - `v2-before-*.jpg` / `v2-after-*.jpg`: comparativas del Mayor, Plaza Mayor, Anfiteatro y Altar Circular.
 - `lod1-general.png`, `lod1-plaza.png`, `lod1-anfiteatro.png`, `lod1-altar.png`: capturas históricas del preview LOD1.
@@ -57,3 +60,5 @@ Estado: **remaster v2 desplegado** en GitHub Pages; LOD0 de 230.800 tris y LOD1 
 - 60 fps a 1080p en GPU media: pendiente de hardware real. Offline web verificado; kiosco congelado.
 - Escala **0,08** confirmada como diorama; 1.0 métrico fuera de esta entrega.
 - Manifiesto, créditos, capturas, portada y caché `v7` actualizados.
+- Cobertura de ciudad representativa documentada; 32/32 individual, 20 cubículos, perfil N/S y high-poly secundario quedan fuera de alcance o diferidos.
+- Incidencia Android P2 aceptada; no se presenta v2.0.1 como suelo resuelto.

@@ -2,6 +2,13 @@
 
 Checklist derivado de Caral Remaster v2.
 
+## Estándar de completitud
+
+- [ ] Fijar el estándar antes de modelar: **ciudad representativa** (volúmenes y sectores principales) o inventario 1:1.
+- [ ] Crear `cobertura.md` con elemento documentado → presente en GLB → nivel de detalle → evidencia.
+- [ ] Marcar los huecos por fuente como diferidos; no inventar para “completar”.
+- [ ] Definir qué zonas son hero y cuáles quedan como fondo.
+
 ## Escena
 
 - [ ] Unidades en metros y origen estable en el centro del sitio.
@@ -31,7 +38,7 @@ Checklist derivado de Caral Remaster v2.
 - [ ] Shadow map 2048/1024 y cámara ajustada a casters.
 - [ ] PMREM/cielos cacheados por preset.
 - [ ] Fallback móvil: LOD1 → v1 → LOD0.
-- [ ] `?lod=0/1`, `?debug=1`, `?nosw=1`.
+- [ ] `?lod=0/1`, `?debug=1`, `?nosw=1`, `?noground=1`, `?noshadows=1`.
 - [ ] Offline cachea el LOD cargado, no el fallback.
 
 ## Validación
@@ -39,6 +46,7 @@ Checklist derivado de Caral Remaster v2.
 - [ ] `npm run validate`
 - [ ] `npm run build`
 - [ ] `npm run bench`
+- [ ] QA visual en Android/iPhone real: `lod=0/1`, `noground=1`, `noshadows=1`, vídeo y métricas.
 - [ ] Fallback bloqueando LOD0/LOD1.
 - [ ] Offline tras primera visita.
 - [ ] 6 paradas, 4 luces, capas, móvil y kiosco.
@@ -49,6 +57,6 @@ Checklist derivado de Caral Remaster v2.
 ## Cierre
 
 - [ ] Capturas y portada.
-- [ ] `release-*.md` y `auditoria-*.md`.
-- [ ] QA en hardware real registrada.
+- [ ] `release-*.md`, `auditoria-*.md`, `cobertura.md` e `incidencias.md`.
+- [ ] QA en hardware real registrada; incidencias P2 aceptadas explícitamente.
 - [ ] Tag/release.

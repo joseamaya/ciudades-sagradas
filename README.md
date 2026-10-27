@@ -2,7 +2,7 @@
 
 Atlas interactivo de los grandes centros ceremoniales y ciudades del Perú antiguo. Reconstrucciones 3D en tiempo real, fichas educativas y fuentes públicas.
 
-**Estado:** Caral remaster v2 es el estado actual. LOD0 de 230.800 tris y LOD1 de 56.332 tris, ambos con Draco; el piloto histórico con texturas de IA fue retirado del repositorio. Incluye la auditoría de estabilización y LOD1 con texturas 1K, desplegada en GitHub Pages. Chavín de Huántar, Chan Chan y Wari están en investigación.
+**Estado:** Caral remaster v2 es el estado actual y su contenido queda cerrado bajo el estándar de **ciudad representativa**: seis pirámides y sectores principales, con high-poly en Pirámide Mayor, Plaza Mayor, Anfiteatro y Altar Circular. LOD0 de 230.800 tris y LOD1 de 56.332 tris, ambos con Draco; el piloto histórico con texturas de IA fue retirado del repositorio. Queda una incidencia Android P2 de parpadeo de suelo, documentada. Chavín de Huántar inicia Fase 0; Chan Chan y Wari siguen en investigación.
 
 ## Qué es
 
@@ -74,7 +74,7 @@ Más detalles en [`docs/kiosco.md`](./docs/kiosco.md).
 | Ciudad | Cultura | Período | Estado |
 |---|---|---|---|
 | Caral | Civilización Caral | 3000–1800 a. C. | Remaster v2 · LOD0/LOD1 |
-| Chavín de Huántar | Chavín | 1500–550 a. C. | En investigación |
+| Chavín de Huántar | Chavín | 1500–550 a. C. | Fase 0 · fuentes y alcance |
 | Chan Chan | Chimú | Siglos IX–XV d. C. | En investigación |
 | Wari | Wari | 600–1100 d. C. | En investigación |
 
@@ -129,8 +129,8 @@ El repo incluye un workflow de GitHub Pages en `.github/workflows/pages.yml`. Pa
 
 ## Hoja de ruta
 
-1. Caral: remaster v2 desplegado, LOD0/LOD1 con Draco, LOD1 a 1K y QA reproducible; quedan hardware real y mejoras de contenido. KTX2 queda como mejora opcional.
-2. Chavín de Huántar.
+1. Caral: remaster v2 desplegado, contenido cerrado como ciudad representativa, LOD0/LOD1 con Draco, LOD1 a 1K y QA reproducible; quedan hardware real e incidencia Android P2. KTX2 queda como mejora opcional.
+2. Chavín de Huántar: Fase 0 de fuentes, licencias, cobertura y alcance; modelado bloqueado hasta aprobar el gate.
 3. Chan Chan.
 4. Wari.
 5. Renders cinematográficos con Cycles y modo foto.

@@ -14,10 +14,10 @@
 - **Contenido:** 132 mallas, 7.381 vértices, 14.146 tris y 9 colecciones.
 - **Portada:** 47 mallas, 5.292 vértices y 10.364 tris; columnas de 2,30 m, jambas trilíticas, friso de 6,48 m, ocho falcónidas y un escalón de acceso inferido.
 - **UVs:** piedra ashlar con proyección de cubo por cara; Portada con smart UV; texturas con repetición.
-- **Texturas:** ashlar v2 en `blender/textures/chavin/chavin_ashlar_v2_*` y piedra labrada en `chavin_portada_v1_*`; generadores `scripts/make_chavin_materials_v2.py` y `scripts/make_chavin_portal_materials.py`; empaquetadas.
+- **Texturas:** ashlar v2 en `blender/textures/chavin/chavin_ashlar_v2_*` y piedra labrada en `chavin_portada_v1_*`; generadores `scripts/make_chavin_materials_v2.py`, `scripts/make_chavin_portal_materials.py` y `scripts/make_chavin_terrain_materials.py`; empaquetadas.
 - **Materiales:** 12; ashlar claro/oscuro, piedra labrada clara/oscura, plaster, tierra, agua, vegetación y galería.
 - **Cámaras:** `CAM-Chavin_Hero`, `Plan`, `Core`, `Gallery`, `Portal`, `Lanzon`, `Section`, `CAM-Chavin_PortadaFalconidas`, `CAM-Chavin_PortadaFalconidas_3q` y `CAM-Chavin_PortadaContext`.
-- **LOD:** 4 mallas fusionadas por capa (`city`, `terrain`, `props`, `reference`); LOD0 544.756 B, LOD1 466.708 B; 15 draw calls.
+- **LOD:** 4 mallas fusionadas por capa (`city`, `terrain`, `props`, `reference`); LOD0 732.780 B, LOD1 654.732 B; 15 draw calls; terreno con texturas propias 1K.
 - **Luces:** `LGT-Chavin_Sun`, `Fill`, `GalleryFill`, `LanzonFill` y `LGT-Chavin_PortadaFill`.
 
 ## Alcance

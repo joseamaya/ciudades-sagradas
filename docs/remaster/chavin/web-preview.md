@@ -30,7 +30,8 @@ Fuente Blender: `chavin_portada_v0.1.blend`; los derivados `chavin_lod0.blend` /
 - `scale: 0.08`, cámara inicial y seis paradas de recorrido.
 - Capas `city`, `terrain`, `props` y `reference`, exportadas en los extras del GLB.
 - `hero.jpg` propio desde la Portada, sin imágenes oficiales.
-- Caché del service worker `v11`.
+- Terreno con textura propia 1K en el GLB.
+- Caché del service worker `v12`.
 
 ## Métricas del preview
 
@@ -39,21 +40,21 @@ Fuente Blender: `chavin_portada_v0.1.blend`; los derivados `chavin_lod0.blend` /
 | Triángulos | 14.158 | 9.422 |
 | Mallas exportadas | 4 | 4 |
 | Draw calls en la vista inicial | 15 | 15 |
-| GLB | 544.756 B | 466.708 B |
-| Texturas decodificadas estimadas | 117,3 MB | 53,3 MB |
-| Imágenes | 10 | 10, a 1024 px |
+| GLB | 732.780 B | 654.732 B |
+| Texturas decodificadas estimadas | 133,3 MB | 69,3 MB |
+| Imágenes | 13 | 13, a 1024 px |
 
 - `?lod=0` fuerza LOD0; `?lod=1` fuerza LOD1.
 - Móvil emulado selecciona LOD1.
 - Sin LOD0, el visor cae a LOD1.
 - No hay fallback v1 independiente: LOD1 es el fallback de este preview.
-- Offline verificado con LOD0 y caché `v11`.
+- Offline probado con LOD0 antes del pase de textura; repetir en QA de hardware.
 
 ## QA ejecutado
 
 - `npm run validate`: OK.
 - `npm run build`: OK.
-- `npm run bench -- --city chavin --out /tmp/chavin-final --qa`: OK.
+- LOD0/LOD1 y las cámaras del recorrido se midieron con `bench --city chavin`; la corrida completa con `--qa` agotó el tiempo del entorno después de generar las capturas. El benchmark de hardware queda pendiente.
 - Escritorio 1600×900: LOD0, 15 draw calls.
 - Móvil 390×844: LOD1, 15 draw calls.
 - Seis paradas verificadas; la cámara de la Portada se acerca a 0,86 m de escena.
@@ -72,7 +73,7 @@ Los FPS de SwiftShader no representan hardware real y no se usan como certificac
 
 - El LOD0 está muy por debajo del presupuesto de producción de 150.000–250.000 tris.
 - El LOD1 no es un bake de alta fidelidad; elimina ojos, colmillos y serpentinas del relieve.
-- El terreno es procedural y en el GLB se representa con colores base, no con texturas de detalle.
+- El terreno es procedural; sus tres texturas propias (difusa, rugosidad y normal) se generan por `scripts/make_chavin_terrain_materials.py` y no constituyen topografía levantada.
 - La Portada mantiene relieves abstractos; el dintel no se modela y la escalera es un solo escalón inferido.
 - No hay QA en hardware real ni certificación de 60 fps.
 - No se copiaron imágenes oficiales ni se usaron texturas de IA.

@@ -87,6 +87,75 @@ def apply_material_fallbacks():
         print(f"MATERIAL_FALLBACK {name} {color[:3]} r={roughness}")
 
 
+def apply_earth_texture():
+    root = "/home/jamaya/Projects/ciudades-sagradas/blender/textures/chavin/"
+    earth = bpy.data.materials.get("MAT-Chavin_Earth")
+    if earth is None or not earth.use_nodes:
+        return
+    paths = {
+        "diffuse": root + "chavin_terrain_v1_diffuse.jpg",
+        "roughness": root + "chavin_terrain_v1_roughness.jpg",
+        "normal": root + "chavin_terrain_v1_normal.png",
+    }
+    images = {}
+    for key, path in paths.items():
+        image = bpy.data.images.get("chavin_terrain_v1_" + key)
+        if image is None:
+            image = bpy.data.images.load(path, check_existing=True)
+            image.name = "chavin_terrain_v1_" + key
+        if key != "diffuse":
+            image.colorspace_settings.name = "Non-Color"
+        if image.packed_file is None:
+            image.pack()
+        images[key] = image
+    nodes = earth.node_tree.nodes
+    links = earth.node_tree.links
+    bsdf = next((node for node in nodes if node.type == "BSDF_PRINCIPLED"), None)
+    if bsdf is None:
+        return
+    for socket_name in ("Base Color", "Roughness", "Normal"):
+        for link in list(bsdf.inputs[socket_name].links):
+            links.remove(link)
+    diffuse = nodes.new("ShaderNodeTexImage")
+    diffuse.name = "TerrainDiffuse"
+    diffuse.image = images["diffuse"]
+    diffuse.location = (-620, 240)
+    roughness = nodes.new("ShaderNodeTexImage")
+    roughness.name = "TerrainRoughness"
+    roughness.image = images["roughness"]
+    roughness.location = (-620, 0)
+    normal = nodes.new("ShaderNodeTexImage")
+    normal.name = "TerrainNormal"
+    normal.image = images["normal"]
+    normal.location = (-620, -240)
+    normal_map = nodes.new("ShaderNodeNormalMap")
+    normal_map.name = "TerrainNormalMap"
+    normal_map.location = (-300, -240)
+    normal_map.inputs["Strength"].default_value = 0.8
+    links.new(diffuse.outputs["Color"], bsdf.inputs["Base Color"])
+    links.new(roughness.outputs["Color"], bsdf.inputs["Roughness"])
+    links.new(normal.outputs["Color"], normal_map.inputs["Color"])
+    links.new(normal_map.outputs["Normal"], bsdf.inputs["Normal"])
+    earth["chavin:source"] = "scripts/make_chavin_terrain_materials.py"
+
+
+def scale_earth_uvs(obj, scale):
+    mesh = obj.data
+    if not mesh.uv_layers:
+        return
+    index = next((i for i, material in enumerate(mesh.materials) if material and material.name == "MAT-Chavin_Earth"), None)
+    if index is None:
+        return
+    uv_data = mesh.uv_layers.active.data
+    for polygon in mesh.polygons:
+        if polygon.material_index != index:
+            continue
+        for loop_index in polygon.loop_indices:
+            uv = uv_data[loop_index].uv
+            uv.x *= scale
+            uv.y *= scale
+
+
 def triangle_count(obj):
     depsgraph = bpy.context.evaluated_depsgraph_get()
     evaluated = obj.evaluated_get(depsgraph)
@@ -162,6 +231,7 @@ def main():
     out = os.path.abspath(args.out_blend)
     bpy.context.scene.camera = bpy.data.objects.get("CAM-Chavin_Hero")
     apply_material_fallbacks()
+    apply_earth_texture()
     for obj in bpy.data.objects:
         if obj.type == "MESH":
             obj["layer"] = layer_for(obj)
@@ -180,7 +250,9 @@ def main():
         objs = groups[layer]
         if not objs:
             continue
-        merge_layer(objs, layer, target, lod)
+        merged = merge_layer(objs, layer, target, lod)
+        if layer == "terrain" and merged is not None:
+            scale_earth_uvs(merged, 8.0)
     for obj in list(bpy.data.objects):
         if obj.type == "MESH" and not any(c == target for c in obj.users_collection):
             bpy.data.objects.remove(obj, do_unlink=True)

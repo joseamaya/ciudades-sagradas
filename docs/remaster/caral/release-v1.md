@@ -1,6 +1,6 @@
 # Remaster v1
 
-Rama: `release/caral-remaster-final`. **Publicado**: PR #4 mergeado y v1 desplegado en GitHub Pages el 2026-10-26. Documento histórico; v1 hoy es fallback de v2 y la caché vigente es `v6`.
+Rama: `release/caral-remaster-final`. **Publicado**: PR #4 mergeado y v1 desplegado en GitHub Pages el 2026-10-26. Documento histórico; v1 hoy es fallback de v2 y la caché vigente es `v7`.
 
 ## Modelo
 

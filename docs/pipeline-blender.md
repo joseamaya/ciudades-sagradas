@@ -61,7 +61,7 @@ bpy.ops.export_scene.gltf(
 
 ## Presupuesto
 
-- Objetivo: <25 MB por ciudad; Caral v2 está en 3,28 MB (LOD0) y 3,21 MB (LOD1) con Draco.
+- Objetivo: <25 MB por ciudad; Caral v2 está en 3,28 MB (LOD0) y 1,35 MB (LOD1) con Draco.
 - Draco está implementado; KTX2/BasisU queda pendiente por VRAM de texturas y requiere gltfpack/BasisU.
 - LOD0 para la vista cercana; LOD1 para móvil y atlas.
 - 60 fps en GPU media a 1080p; 30 fps mínimo en kiosco 4K. La medición real sigue pendiente.
@@ -83,4 +83,4 @@ La fuente v1 versionada es `blender/caral/caral_remaster.blend`. Las escenas v2 
 - Preferir CC0 (Poly Haven, ambientCG) o texturas propias.
 - No se añaden texturas de IA. El piloto histórico fue retirado del repositorio por licencia pendiente.
 - Si no se puede publicar una textura, sustituirla por una procedural o por un color PBR.
-- WebP es el formato publicado; evaluar KTX2 solo si se reduce la VRAM de forma medible.
+- WebP es el formato publicado; LOD1 se exporta con `--max-texture-size 1024`. Evaluar KTX2 solo si se reduce la VRAM de forma medible.

@@ -2,7 +2,7 @@
 
 Atlas interactivo de los grandes centros ceremoniales y ciudades del Perú antiguo. Reconstrucciones 3D en tiempo real, fichas educativas y fuentes públicas.
 
-**Estado:** Caral remaster v2 es el estado actual. LOD0 de 230.800 tris y LOD1 de 56.332 tris, ambos con Draco; el piloto histórico con texturas de IA fue retirado del repositorio. La versión desplegada en GitHub Pages se actualizará al publicar esta auditoría. Chavín de Huántar, Chan Chan y Wari están en investigación.
+**Estado:** Caral remaster v2 es el estado actual. LOD0 de 230.800 tris y LOD1 de 56.332 tris, ambos con Draco; el piloto histórico con texturas de IA fue retirado del repositorio. Incluye la auditoría de estabilización y LOD1 con texturas 1K, desplegada en GitHub Pages. Chavín de Huántar, Chan Chan y Wari están en investigación.
 
 ## Qué es
 
@@ -128,7 +128,7 @@ El repo incluye un workflow de GitHub Pages en `.github/workflows/pages.yml`. Pa
 
 ## Hoja de ruta
 
-1. Caral: remaster v2 desplegado, LOD0/LOD1 con Draco y QA reproducible; quedan hardware real, KTX2/VRAM y mejoras de contenido.
+1. Caral: remaster v2 desplegado, LOD0/LOD1 con Draco, LOD1 a 1K y QA reproducible; quedan hardware real y mejoras de contenido. KTX2 queda como mejora opcional.
 2. Chavín de Huántar.
 3. Chan Chan.
 4. Wari.

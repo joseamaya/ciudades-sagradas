@@ -54,4 +54,4 @@ npm run serve
 # http://127.0.0.1:4173/?lod=1#/ciudad/caral
 ```
 
-La caché de servicio actual es `ciudades-sagradas-v6`. El visor cachea el LOD cargado, no el fallback v1.
+La caché de servicio actual es `ciudades-sagradas-v7`. El visor cachea el LOD cargado, no el fallback v1.

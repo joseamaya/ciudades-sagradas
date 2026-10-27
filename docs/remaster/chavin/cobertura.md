@@ -1,7 +1,7 @@
 # Cobertura objetivo — Chavín de Huántar
 
 Fecha: 27 de octubre de 2026.
-Estado: **blockout v0.5 aceptado; look-dev v0.2 de mampostería en revisión**.
+Estado: **blockout v0.5 aceptado; texturizado UV v0.1 de mampostería en revisión**.
 Estándar: **ciudad representativa**.
 
 ## Definición
@@ -21,7 +21,7 @@ La marca **Documentado** de la tabla se apoya en la ficha UNESCO 330 y/o en el M
 | Galerías internas | Documentado | Hero parcial | Blockout parcial | 22 galerías / 689,70 m; una secuencia modelada en v0.5 |
 | Ventilación y drenaje | Documentado | Detalle visible | Blockout parcial | Un ducto esquemático de 0,5 m; sin red completa |
 | Lanzón | Documentado | Hero | Blockout | Volumen ahusado de ~4,5 m; sin talla ni textura |
-| Mampostería y juntas | Inferido | Base visual | Base procedural | Ashlar 2K propio; no es levantamiento de bloques |
+| Mampostería y juntas | Inferido | Base visual | UV tiling | Ashlar 2K propio con UVs de proyección cúbica; atlas 2K descartado; no es levantamiento de bloques |
 | Portada de las Falcónidas | Documentado | Hero | Blockout | Fachada del Edificio A |
 | Estela Raimondi | Documentado | Referencia | Pendiente | Museo; requiere licencia o réplica señalizada |
 | Obelisco Tello | Documentado | Referencia | Pendiente | Museo; opcional |

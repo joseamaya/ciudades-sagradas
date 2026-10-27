@@ -1,7 +1,7 @@
 # Chavín — look-dev v0.2 (mampostería ashlar)
 
 Fecha: 27 de octubre de 2026.
-Estado: **pase de mampostería para revisión; no es acabado final**.
+Estado: **pase de mampostería histórico; superado por `textured-v0.1.md`**.
 Fuente: `blender/chavin/chavin_lookdev_v0.2.blend` (585 KB).
 Base de escala: `blockout-v0.5.md` (aceptada).
 Pase anterior: `lookdev-v0.1.md` (histórico).
@@ -84,7 +84,7 @@ El `.blend` lleva empaquetadas la difusa y la rugosidad. La normal está generad
 
 ## Límites
 
-- **Sin UVs:** Box projection no exporta limpio a glTF. Antes del GLB hay que crear UVs y hornear color, rugosidad y normal.
+- **Sin UVs:** Box projection no exporta limpio a glTF. Este límite se resolvió en `textured-v0.1.md`.
 - **Sin bake:** el `.blend` es una fuente de trabajo; no hay texturas de GLB.
 - **Normal no conectada:** el relieve actual es bump procedural; la normal 2K queda para el bake.
 - El Lanzón sigue siendo un volumen; no tiene rostro, talla ni iconografía.
@@ -102,7 +102,7 @@ El `.blend` lleva empaquetadas la difusa y la rugosidad. La normal está generad
 
 ## Siguiente
 
-1. Crear UVs y hornear color, rugosidad y normal para el futuro GLB.
+1. UVs y texturizado: resuelto en `textured-v0.1.md`; el bake de atlas 2K se descartó por pérdida de detalle.
 2. Decidir si el terreno se queda procedural o pasa a DEM híbrido; por ahora se queda procedural.
 3. Portada de las Falcónidas, relieves, cabezas clavas y LOD.
 4. Visor web solo después.

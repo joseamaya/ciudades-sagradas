@@ -1,7 +1,7 @@
 # Plan de Chavín de Huántar — Fase 0
 
 Fecha: 27 de octubre de 2026.
-Estado: **Fase 0 cerrada; blockout v0.5 aceptado; look-dev v0.2 de mampostería en revisión**.
+Estado: **Fase 0 cerrada; blockout v0.5 aceptado; texturizado UV v0.1 de mampostería en revisión**.
 Estándar heredado de Caral: **ciudad representativa**, no inventario 1:1.
 
 ## Objetivo
@@ -124,4 +124,4 @@ No se abre Blender hasta completar:
 
 ## Siguiente hito
 
-**Acabado y GLB:** crear UVs y hornear color, rugosidad y normal; decidir el terreno definitivo (por ahora procedural, sin DEM); después Portada de las Falcónidas, relieves y LOD. Ver `lookdev-v0.2.md` y `terrain.md`.
+**Acabado y GLB:** afinar tinte e irregularidad de la piedra, resolver costuras de UV y decidir el terreno definitivo (por ahora procedural, sin DEM); después Portada de las Falcónidas, relieves y LOD. Ver `textured-v0.1.md` y `terrain.md`.

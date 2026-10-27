@@ -1,7 +1,7 @@
 # Cobertura objetivo — Chavín de Huántar
 
 Fecha: 27 de octubre de 2026.
-Estado: **blockout v0.1 generado; cobertura gruesa, revisión pendiente**.
+Estado: **blockout v0.2 generado; cobertura gruesa, revisión de terreno pendiente**.
 Estándar: **ciudad representativa**.
 
 ## Definición

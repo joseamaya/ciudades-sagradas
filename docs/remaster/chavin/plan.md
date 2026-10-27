@@ -1,7 +1,7 @@
 # Plan de Chavín de Huántar — Fase 0
 
 Fecha: 27 de octubre de 2026.
-Estado: **Fase 0 cerrada; blockout v0.1 generado; revisión pendiente**.
+Estado: **Fase 0 cerrada; blockout v0.2 generado; revisión de terreno pendiente**.
 Estándar heredado de Caral: **ciudad representativa**, no inventario 1:1.
 
 ## Objetivo
@@ -91,7 +91,8 @@ Los textos deben distinguir documentado, inferido e interpretativo; no afirmar f
 | Recorrido, capas y luces | Aprobados para blockout |
 | Licencias de imágenes/esculturas | Política aprobada; permisos de publicación pendientes |
 | Imágenes oficiales copiadas | 0 |
-| Blockout v0.1 | Generado en `blender/chavin/chavin_blockout_v0.1.blend`; revisión pendiente |
+| Blockout v0.1 | Generado y revisado; base de masas |
+| Blockout v0.2 | Pase de terreno en `blender/chavin/chavin_blockout_v0.2.blend`; revisión pendiente |
 
 ## Decisión de gate
 
@@ -118,4 +119,4 @@ No se abre Blender hasta completar:
 
 ## Siguiente hito
 
-**Revisión del blockout v0.1:** comparar la planta con PE-330, corregir huellas/ejes y decidir el tratamiento del terreno. Después: secuencia de galería y volumen del Lanzón. Ver `blockout-v0.1.md`.
+**Revisión del blockout v0.2:** revisar talud, rampa, ríos y Cerro Cochas; decidir DEM vs. terreno procedural. Después: ajustar huellas, detallar galería/Lanzón y materiales. Ver `blockout-v0.2.md`.

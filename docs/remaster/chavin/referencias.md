@@ -14,7 +14,7 @@ Estado: **Fase 0 cerrada; tablero verificado; permisos de publicación pendiente
 | [Periodic Reporting 2024](https://whc.unesco.org/document/216550) | Informe periódico | Superficie, gestión y conservación | No copiar sin permiso | Consultada |
 | [Ministerio de Cultura — Chavín](https://patrimoniomundial.cultura.pe/sitiosdelpatrimoniomundial/sitio-arqueol%C3%B3gico-chav%C3%ADn) | Ficha oficial | Datos generales | No copiar sin permiso | Consultada |
 | [Expediente de Nominación (Mincul)](https://patrimoniomundial.cultura.pe/sites/default/files/pm/pdf/CHAVIN%20Sitio%20arqueologico.pdf) | PDF oficial | Ficha y metadatos | No copiar sin permiso | Consultada |
-| [Plano del Sitio (Mincul)](https://patrimoniomundial.cultura.pe/sites/default/files/pm/pdf/PE-330%20Chav%C3%ADn%20WGS84.pdf) | Plano PDF | Huella y ubicación | No copiar sin permiso | Consultada; puntos usados en blockout v0.1 |
+| [Plano del Sitio (Mincul)](https://patrimoniomundial.cultura.pe/sites/default/files/pm/pdf/PE-330%20Chav%C3%ADn%20WGS84.pdf) | Plano PDF | Huella y ubicación | No copiar sin permiso | Consultada; puntos usados en blockout v0.2 |
 | [Plan de Manejo 2020](https://patrimoniomundial.cultura.pe/sites/default/files/pm/pdf/RM%20292-2020-DM-MC%20-%20ANEXO.pdf.pdf) | PDF oficial | Conservación y gestión | No copiar sin permiso | Consultada |
 | [Decisiones del Comité](https://patrimoniomundial.cultura.pe/sites/default/files/pm/pdf/Decisiones%20Chavin%207%20a%2044%20COM.pdf) | PDF oficial | Estado de conservación | No copiar sin permiso | Consultada |
 | [Museo Nacional Chavín](https://museos.cultura.pe/museos/museo-nacional-chav%C3%ADn) | Museo | Piezas y contexto | Requiere permiso | Consultada |

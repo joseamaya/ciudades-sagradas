@@ -1,7 +1,7 @@
 # Chavín — blockout v0.1
 
 Fecha: 27 de octubre de 2026.
-Estado: **generado y guardado; revisión pendiente**.
+Estado: **generado y guardado; revisión pendiente**. Actualizado por `blockout-v0.2.md` (pase de terreno).
 Fuente: `blender/chavin/chavin_blockout_v0.1.blend` (168 KB).
 
 ## Vistas

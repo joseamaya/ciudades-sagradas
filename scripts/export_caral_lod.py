@@ -4,6 +4,11 @@ Uso:
   blender --background blender/caral/caral_lod0.blend \
     --python scripts/export_caral_lod.py -- --lod 0 --out public/cities/caral/model_lod0.glb
 
+  # LOD1 móvil: texturas 1K
+  blender --background blender/caral/caral_lod1.blend \
+    --python scripts/export_caral_lod.py -- --lod 1 --max-texture-size 1024 \
+    --out public/cities/caral/model_lod1.glb
+
 No modifica la escena ni public/ salvo el archivo de salida indicado.
 """
 
@@ -40,6 +45,24 @@ def optimize_materials():
                         node.inputs[socket_name].default_value = 0.0
 
 
+def limit_textures(max_size):
+    """Escala en memoria las texturas por encima de max_size, sin tocar el .blend."""
+    if not max_size:
+        return
+    for image in bpy.data.images:
+        if image.users == 0 or image.type not in {"IMAGE"}:
+            continue
+        width, height = image.size
+        if max(width, height) <= max_size:
+            continue
+        scale = max_size / max(width, height)
+        new_width = max(1, round(width * scale))
+        new_height = max(1, round(height * scale))
+        image.scale(new_width, new_height)
+        image.pack()
+        print(f"TEXTURE_SCALED {image.name} {width}x{height} -> {new_width}x{new_height}")
+
+
 def parse_args():
     argv = sys.argv
     argv = argv[argv.index("--") + 1 :] if "--" in argv else []
@@ -48,6 +71,7 @@ def parse_args():
     parser.add_argument("--out", required=True)
     parser.add_argument("--no-draco", dest="draco", action="store_false", default=True)
     parser.add_argument("--keep-materials", action="store_true")
+    parser.add_argument("--max-texture-size", type=int, default=0)
     return parser.parse_args(argv)
 
 
@@ -62,6 +86,9 @@ def main():
     os.makedirs(os.path.dirname(out), exist_ok=True)
     if not args.keep_materials:
         optimize_materials()
+    if args.lod == "1" and not args.max_texture_size:
+        print("WARN LOD1 sin --max-texture-size; se exportarán las texturas originales")
+    limit_textures(args.max_texture_size)
     bpy.ops.object.select_all(action="DESELECT")
     selected = [obj for obj in bpy.data.objects if included(obj, prefix)]
     for obj in selected:
@@ -101,7 +128,8 @@ def main():
         evaluated.to_mesh_clear()
     print(
         f"CARAL_LOD{args.lod}_EXPORT_OK {out} MESHES {len(selected)} "
-        f"TRIS {triangles} BYTES {os.path.getsize(out)} DRACO {args.draco}"
+        f"TRIS {triangles} BYTES {os.path.getsize(out)} DRACO {args.draco} "
+        f"MAX_TEX {args.max_texture_size or 'orig'}"
     )
 
 

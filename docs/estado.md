@@ -6,7 +6,7 @@
 - OpenCode configurado con MCP de Blender y skills MIT en `.agents/skills/`.
 - **Caral Remaster v2 es el estado actual y la referencia técnica del proyecto.**
 - LOD0 high-poly: 230.800 tris, 65 primitivas, 21 materiales, 31 imágenes, **3.277.080 bytes** con Draco.
-- LOD1 horneado: 56.332 tris, 38 primitivas, 23 materiales, 39 imágenes, **3.206.848 bytes** con Draco.
+- LOD1 horneado: 56.332 tris, 38 primitivas, 23 materiales, 39 imágenes 1K, **1.345.092 bytes** con Draco.
 - Fallback v1: 55.944 tris, 554 primitivas, 20 materiales, 31 imágenes, 4.778.308 bytes.
 - Selección automática LOD0/LOD1 por capacidad, override `?lod=0/1` y orden de fallback específico por dispositivo.
 - Ciclo de sombras estático: la shadow map se actualiza al cargar, cambiar hora o capas, no en cada frame.
@@ -20,7 +20,7 @@
 - Validación ampliada: cabecera GLB, LOD/cámaras/capas, hashes y tamaños del registro de assets, versión de caché.
 - Dossieres de fuentes, registro de assets y política de licencias.
 - Piloto histórico con texturas de IA **retirado del repositorio**; los GLB publicados no contienen texturas de IA.
-- CI y GitHub Pages configurados; esta auditoría se validó en local y no se desplegó.
+- CI y GitHub Pages en verde; auditoría y fase VRAM LOD1 desplegadas.
 
 ## Métricas medidas
 
@@ -29,9 +29,9 @@
 | Triángulos | 230.800 | 56.332 | 55.944 |
 | Primitivas Three.js | 65 | 38 | 554 |
 | Draw calls en régimen estable* | 44 | 31 | 342 |
-| GLB con Draco | 3.277.080 B | 3.206.848 B | 4.778.308 B (sin Draco) |
+| GLB con Draco | 3.277.080 B | 1.345.092 B | 4.778.308 B (sin Draco) |
 | Materiales / imágenes | 21 / 31 | 23 / 39 | 20 / 31 |
-| Texturas decodificadas estimadas** | 373 MB | 544 MB | 373 MB |
+| Texturas decodificadas estimadas** | 373 MB | 208 MB | 373 MB |
 | Shadow map | 2048² escritorio | 1024² móvil | 2048² escritorio |
 
 \* Cámara inicial, 1600×900, Chrome headless/SwiftShader; las sombras ya están cacheadas y no hay pasada de transmisión. Al refrescar sombras se suman los casters: **100 draw calls** en LOD0 y **60** en LOD1, solo en el frame de actualización.
@@ -40,12 +40,12 @@
 - La carga local terminó en ~1,2–1,7 s de respuesta de red y ~6–7 s hasta el primer render en SwiftShader; en GPU real el primer render baja de forma importante. El dato de FPS de SwiftShader no representa hardware real.
 - `npm run validate` y `npm run build`: OK.
 - Fallback verificado: LOD0 → LOD1 → v1 en escritorio; LOD1 → v1 → LOD0 en móvil.
-- Offline verificado con caché `v6` y `?nosw=1` como escape de QA.
+- Offline verificado con caché `v7` y `?nosw=1` como escape de QA.
 
 ## Pendiente
 
 1. **Caral**: QA en hardware real (iPhone/Safari, Android/Chrome, GPU media) y medición de 60 fps a 1080p. El kiosco y el hardware de museo siguen congelados.
-2. **VRAM de texturas en LOD1**: 544 MB estimados es el principal riesgo para móviles. Evaluar KTX2/BasisU con gltfpack o rehacer los atlas LOD1 a 1K.
+2. **QA de hardware real**: falta medir FPS/frame time en iPhone/Safari, Android/Chrome y GPU media. KTX2/BasisU queda como mejora futura de VRAM.
 3. **Contenido**: 20 cubículos del Anfiteatro y perfil norte/sur del Mayor, limitados por fuentes.
 4. **Narración en español**: guion y grabación; congelada junto con el kiosco.
 5. **Renders cinematográficos**: Cycles con los assets high-poly.
@@ -55,7 +55,7 @@
 
 - Caral v2 está publicado; `model.glb` v1 se conserva como fallback y rollback, pero tiene 342 draw calls en la vista inicial y ~782 al refrescar sombras.
 - LOD1 no conecta AO ni mapa de roughness: usa base color, normal, roughness constante 0,85 y normal 0,35. El AO no está incluido en los GLB.
-- LOD1 tiene más VRAM de texturas que LOD0 por los atlas 2K; no es un LOD “ligero” en memoria, solo en geometría y draw calls.
+- LOD1 usa texturas 1K y ~208 MB estimados de VRAM; sigue por encima de un LOD ideal, pero ya no duplica la VRAM de LOD0.
 - La escala **0,08** está validada como diorama web; la escala métrica 1.0 queda fuera de esta entrega.
 - No se implementó LOD dinámico por distancia: la selección es por dispositivo/capacidad.
 - No se modelaron los 20 cubículos del Anfiteatro por falta de una planta publicada suficiente.
@@ -65,4 +65,4 @@
 
 ## Próximo paso recomendado
 
-Cerrar la QA en hardware real y decidir KTX2/atlas 1K para LOD1. Después, abrir Chavín con Caral v2 como plantilla técnica.
+Cerrar la QA en hardware real. KTX2/BasisU queda como mejora opcional si 208 MB de VRAM no bastan. Después, abrir Chavín con Caral v2 como plantilla técnica.

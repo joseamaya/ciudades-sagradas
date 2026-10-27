@@ -2,7 +2,7 @@
 
 Fecha: 26 de octubre de 2026. Rama de cierre: `release/caral-v2`, desde `a76fc8b`.
 
-**Estado:** Fases A–D web completadas y desplegadas. LOD0 de **230.800 tris / 44 draw calls** y LOD1 de **56.332 tris / 31 draw calls** en régimen estable, ambos con Draco. Los GLB `model_lod0.glb` y `model_lod1.glb` están integrados en `public/`, con `model.glb` v1 como fallback. PR #5 mergeado en `a76fc8b`; `stage: "v2"` y caché `v6`. Kiosco, hardware de museo y escala métrica 1.0 quedan congelados. Cierre y métricas en `auditoria-v2.md`.
+**Estado:** Fases A–D web completadas y desplegadas. LOD0 de **230.800 tris / 44 draw calls** y LOD1 de **56.332 tris / 31 draw calls** en régimen estable, ambos con Draco. Los GLB `model_lod0.glb` y `model_lod1.glb` están integrados en `public/`, con `model.glb` v1 como fallback. PR #5 mergeado en `a76fc8b`; `stage: "v2"` y caché `v7`. Kiosco, hardware de museo y escala métrica 1.0 quedan congelados. Cierre y métricas en `auditoria-v2.md`.
 
 ## Objetivo v2
 
@@ -102,11 +102,11 @@ El cálculo es `34.060 + 196.740 = 230.800` tris. La Fase B añade **82.564 tris
 | Mallas en Blender | **10** (4 high-poly + 6 infra) | **15** (9 baked + 6 infra) |
 | Primitivas en Three.js | **65** | **38** |
 | Materiales / imágenes | **21 / 31** | **23 / 39** |
-| GLB en `public/` | **3.277.080 bytes** | **3.206.848 bytes** |
+| GLB en `public/` | **3.277.080 bytes** | **1.345.092 bytes** |
 | Draw calls en régimen estable | **44** | **31** |
 | Capas | city, terrain, props, reference | city, terrain, props, reference |
 
-El LOD1 conserva la geometría v1 y añade un atlas 2K por región con base color y normal del high-poly. La roughness se fija en **0,85** (sin mapa) y la normal se conecta a **0,35**. El AO no se conecta ni se incluye en el GLB. La infraestructura se fusionó en seis mallas por grupo; el LOD0 fusiona además el high-poly por región. Los draw calls bajaron de **1.507 a 44** en LOD0 y de **1.177 a 31** en LOD1 (cámara inicial, sombras cacheadas).
+El LOD1 conserva la geometría v1 y añade un atlas horneado por región con base color y normal del high-poly, exportado a 1K. La roughness se fija en **0,85** (sin mapa) y la normal se conecta a **0,35**. El AO no se conecta ni se incluye en el GLB. La infraestructura se fusionó en seis mallas por grupo; el LOD0 fusiona además el high-poly por región. Los draw calls bajaron de **1.507 a 44** en LOD0 y de **1.177 a 31** en LOD1 (cámara inicial, sombras cacheadas).
 
 ## 5. Renders antes/después
 
@@ -129,12 +129,12 @@ Se verificaron visualmente las hiladas, juntas, erosión, esquinas, peldaños, g
 Los GLB `model_lod0.glb` y `model_lod1.glb` se copiaron a `public/cities/caral/`; `model.glb` v1 queda intacto como rollback. `city.json` declara `lod.levels` 0/1, `fallbackModel` v1 y `stage: "v2"`. El visor usa LOD0 en escritorio y LOD1 en móvil/táctil, con override `?lod=0/1`.
 
 - LOD0: **3.277.080 bytes**, 10 mallas, 65 primitivas, 230.800 tris, 21 materiales, 31 imágenes, **44 draw calls**; Draco + WebP.
-- LOD1: **3.206.848 bytes**, 15 mallas, 38 primitivas, 56.332 tris, 23 materiales, 39 imágenes, **31 draw calls**; Draco + WebP.
+- LOD1: **1.345.092 bytes**, 15 mallas, 38 primitivas, 56.332 tris, 23 materiales, 39 imágenes 1K, **31 draw calls**; Draco + WebP.
 - Capas verificadas en ambos LOD: `city`, `terrain`, `props` y `reference`; los toggles ocultan sus grupos.
 - Fallback verificado: al bloquear `model_lod0.glb`, el visor carga LOD1.
 - Tour de **6 paradas** con Altar Circular; cámara y texto verificados.
 - Capturas: `web-lod0.png`, `web-lod1.png`, `web-altar.png` y portada `hero.jpg` regenerada desde el visor v2.
-- Caché de servicio actualizada a **v6**; el preview temporal de `/tmp` ya no es necesario.
+- Caché de servicio actualizada a **v7**; el preview temporal de `/tmp` ya no es necesario.
 - Promovido a `stage: "v2"`, PR #5 mergeado y desplegado en GitHub Pages.
 - Kiosco, hardware de museo y escala métrica 1.0 no forman parte de esta entrega.
 
@@ -150,7 +150,7 @@ Los GLB `model_lod0.glb` y `model_lod1.glb` se copiaron a `public/cities/caral/`
 
 ### Fase C — completada
 
-- Geometría v1 + atlas UV 2K por región: Mayor, Plaza Mayor, Anfiteatro y Altar Circular. LOD1 final: **56.332 tris**, dentro de 50.000–80.000.
+- Geometría v1 + atlas UV horneado por región, exportado a 1K: Mayor, Plaza Mayor, Anfiteatro y Altar Circular. LOD1 final: **56.332 tris**, dentro de 50.000–80.000.
 - Bake DIFFUSE/COLOR y NORMAL tangente desde high-poly con `cage_extrusion=0.55`, `max_ray_distance=1.0`, margen 12 px. Normal a **0,35**; roughness constante **0,85**; AO no incluido en el GLB.
 - Plaza: `BandaRoja`, `PisoAnilloRojo`, `PisoRojo`, `Fogon` y `FogonAro` se mantienen separados con sus materiales originales; el piso high-poly se incluye por nombre exacto.
 - Mapas en `blender/textures/baked/caral/`; blend `blender/caral/caral_lod1.blend` (SHA-256 `9da242aa0e92f7b43ffa014af7af2fe11c27c47c2d027c65cc4515244856df9a`).
@@ -160,7 +160,7 @@ Los GLB `model_lod0.glb` y `model_lod1.glb` se copiaron a `public/cities/caral/`
 ### Fase D — integración web (completada)
 
 1. LOD0: high-poly fusionado por región + infraestructura en seis grupos; LOD1: infraestructura fusionada con capas `terrain`, `city`, `props` y `reference`.
-2. `model_lod0.glb` (3,28 MB) y `model_lod1.glb` (3,21 MB) exportados con WebP 80 + Draco, `extras` y sin cámaras/luces.
+2. `model_lod0.glb` (3,28 MB) y `model_lod1.glb` (1,35 MB) exportados con WebP 80 + Draco, `extras` y sin cámaras/luces.
 3. Draw calls medidos en el visor real: **44 en LOD0** y **31 en LOD1** en régimen estable; ver `auditoria-v2.md`.
 4. `city.json` con `lod.levels`, `fallbackModel` v1, `stage: "v2"` y parada de Altar.
 5. Selección automática escritorio/móvil, override `?lod=0/1` y fallback LOD0 → LOD1 → v1 (escritorio) / LOD1 → v1 → LOD0 (móvil) verificados.

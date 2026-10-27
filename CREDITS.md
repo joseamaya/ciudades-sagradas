@@ -9,7 +9,7 @@
 ## Caral
 
 - **Geometría:** escena de arte del proyecto Caral, modelada en Blender 5.2.
-- **Texturas:** remaster v1 con materiales procedurales en arquitectura, plazas, suelo, arena, roca, vegetación, adobe, totora y madera. LOD0 v2 conserva esos materiales; LOD1 añade atlas 2K horneados desde el high-poly propio. Los GLB usan WebP 80 y Draco. Ningún GLB publicado incluye texturas de IA.
+- **Texturas:** remaster v1 con materiales procedurales en arquitectura, plazas, suelo, arena, roca, vegetación, adobe, totora y madera. LOD0 v2 conserva esos materiales; LOD1 añade atlas horneados desde el high-poly propio y exportados a 1K. Los GLB usan WebP 80 y Draco. Ningún GLB publicado incluye texturas de IA.
 - **Portada:** captura del visor v2, proyecto Ciudades Sagradas.
 - **Estado de licencia:** los GLB v1 y v2 usan texturas procedurales propias o atlas propio y geometría CC BY 4.0. El piloto histórico con texturas de IA fue retirado del repositorio por licencia pendiente.
 - **Fuentes históricas:** UNESCO, ICOMOS, Ministerio de Cultura del Perú, Zona Arqueológica Caral y publicación de Shady Solís et al. (2001). Ver `docs/fuentes/caral.md`.

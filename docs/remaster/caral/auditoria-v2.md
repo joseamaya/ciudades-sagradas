@@ -3,11 +3,11 @@
 - Fecha: 26 de octubre de 2026.
 - Alcance: estado actual del repositorio `ciudades-sagradas`, sin Chavín, Chan Chan ni Wari.
 - Método: lectura de código, parseo de GLB, `npm run validate`, `npm run build` y benchmark reproducible con Chrome headless/SwiftShader.
-- Estado de publicación: cambios validados en local; **no se ha hecho commit ni deploy** en esta pasada.
+- Estado de publicación: cambios de la fase VRAM incluidos en el cierre de Caral v2; tag `caral-v2.0.0`.
 
 ## Estado general
 
-🟡 **Estable y utilizable como plantilla técnica**, con dos riesgos abiertos: la VRAM de texturas de LOD1 y la falta de QA en hardware real. No se encontró ningún P0 funcional.
+🟡 **Estable y utilizable como plantilla técnica**, pendiente de QA en hardware real. La VRAM de LOD1 se redujo de ~544 MB a ~208 MB con texturas 1K. No se encontró ningún P0 funcional.
 
 ## Performance
 
@@ -17,9 +17,9 @@
 | Primitivas / mallas | 65 / 10 | 38 / 15 | 554 / 554 |
 | Draw calls en régimen estable* | **44** | **31** | 342 |
 | Draw calls al refrescar sombras** | **100** | **60** | n/d |
-| GLB con Draco | **3.277.080 B** | **3.206.848 B** | 4.778.308 B |
+| GLB con Draco | **3.277.080 B** | **1.345.092 B** | 4.778.308 B |
 | Materiales / imágenes | 21 / 31 | 23 / 39 | 20 / 31 |
-| Texturas decodificadas estimadas*** | 373 MB | **544 MB** | 373 MB |
+| Texturas decodificadas estimadas*** | 373 MB | **208 MB** | 373 MB |
 | Respuesta de red local | ~1,2 s | ~1,5 s | ~1,9 s |
 | Hasta primer render (SwiftShader) | ~6,3 s | ~7,1 s | ~5,4 s |
 | FPS SwiftShader (no representativo) | ~2,0 | ~1,8 | ~2,2 |
@@ -39,7 +39,7 @@ El benchmark móvil (390×844, DPR 3, pixel ratio 1,25) carga LOD1 con **31 draw
 - **Fallback verificado:** bloqueando LOD0 carga LOD1; bloqueando ambos carga v1; en móvil, bloqueando LOD1 carga v1.
 - **Descargas:** el visor carga un solo LOD. `warmOfflineCache()` ya no descarga el fallback v1 si no se usa.
 - **Fallback v1:** 342 draw calls en régimen estable y ~782 al refrescar sombras; es un último recurso, no un perfil de rendimiento.
-- **Offline:** verificado con caché `v6`; el LOD cargado y sus recursos quedan disponibles sin red.
+- **Offline:** verificado con caché `v7`; el LOD cargado y sus recursos quedan disponibles sin red.
 
 ## Problemas encontrados
 
@@ -59,8 +59,9 @@ Ninguno.
 
 ### P1 — importante (abiertos, documentados)
 
-1. **VRAM de LOD1**: 544 MB estimados frente a 373 MB de LOD0. El LOD “móvil” ahorra geometría/draw calls, pero no memoria de texturas por los atlas 2K. Recomendación: KTX2/BasisU con gltfpack o atlas LOD1 a 1K.
-2. **QA en hardware real**: no se midió 60 fps en iPhone/Safari, Android/Chrome ni GPU media. SwiftShader solo sirve para comparar. El kiosco sigue congelado.
+1. **QA en hardware real**: no se midió 60 fps en iPhone/Safari, Android/Chrome ni GPU media. SwiftShader solo sirve para comparar. El kiosco sigue congelado.
+
+> **Ajuste posterior (VRAM):** LOD1 se reexportó con texturas 1K. Pasó de 3.206.848 B / ~544 MB estimados a **1.345.092 B / ~208 MB**, sin cambios de geometría, materiales ni draw calls. La comparación visual en Altar, Anfiteatro y vista general es aceptable para LOD móvil. KTX2/BasisU queda como mejora futura, no como bloqueo.
 
 ### P2 — mejoras (corregidas)
 
@@ -80,14 +81,25 @@ Ninguno.
 - Faltan los 20 cubículos del Anfiteatro y la corrección norte/sur del Mayor por fuentes.
 - El chunk JS de Three.js supera 500 kB (aviso de Vite); no afecta al runtime de forma medible con la caché actual.
 
+## Experimento VRAM LOD1 (27 de octubre de 2026)
+
+| Variante | GLB | Texturas estimadas | Decisión |
+|---|---:|---:|---|
+| A. 2K baked + 2K procedural | 3.206.848 B | ~544 MB | Descartada |
+| B. Solo baked 1K | — | ~444 MB | No aporta suficiente |
+| C. Todo 1K | **1.345.092 B** | **~208 MB** | **Elegida** |
+| D. KTX2/BasisU | — | ~80–120 MB | No necesaria por ahora |
+
+La comparación visual en Altar, Anfiteatro y vista general no muestra pérdida significativa para LOD móvil. Se mantienen geometría, materiales, 38 primitivas y 31 draw calls. KTX2 queda como mejora futura si la QA real muestra que 208 MB siguen siendo un problema.
+
 ## Cambios realizados
 
 - `src/core/viewer.js`: sombras estáticas y ajustadas, LOD/fallback, detección de dispositivo, culling, agua sin transmisión, PMREM cacheado, `verticalScale`, capas por defecto, métricas y render inicial antes de `onReady`.
 - `src/main.js`: `?debug=1`, `?nosw=1`, métricas globales, caché offline sin fallback forzado, guardas de navegación y errores de audio.
 - `src/styles.css`: panel móvil sobre la barra de recorrido, safe-area, foco visible y panel de diagnóstico.
 - `public/manifest.webmanifest` y `public/icons/icon-192.png`/`icon-512.png`: PWA instalable.
-- `public/sw.js` y `public/draco/`: caché `v6`, iconos en CORE, decoder Draco local y `.wasm` como asset.
-- `scripts/export_caral_lod.py`: Draco, WebP 80, culling y agua sin transmisión.
+- `public/sw.js` y `public/draco/`: caché `v7`, iconos en CORE, decoder Draco local y `.wasm` como asset.
+- `scripts/export_caral_lod.py`: Draco, WebP 80, culling, agua sin transmisión y `--max-texture-size` para exportar LOD1 a 1K.
 - `scripts/bench.mjs` y `package.json`: benchmark/QA reproducible.
 - `scripts/validate.mjs`: validación de GLB, LOD, tour, capas, caché y registro de assets.
 - `public/cities/caral/model_lod0.glb` y `model_lod1.glb`: reexportados con Draco (230.800 / 56.332 tris).
@@ -106,7 +118,7 @@ Ninguno.
 ## Recomendaciones siguientes (máximo 5)
 
 1. Validar en hardware real (iPhone/Safari, Android/Chrome, GPU media) y registrar FPS/frame time a 1080p.
-2. Reducir la VRAM de LOD1: probar KTX2/BasisU con gltfpack o rehacer los atlas a 1K y comparar visualmente.
+2. Evaluar KTX2/BasisU solo si la QA real muestra que 208 MB de VRAM siguen siendo un problema.
 3. Añadir una prueba de hardware/kiosco de sesión larga y memoria.
 4. Mantener el registro de hashes y la caché sincronizados en cada cambio de GLB.
 5. Usar Caral v2 como plantilla de LOD/fallback, validación y benchmark para la siguiente ciudad.
@@ -115,4 +127,4 @@ Ninguno.
 
 **¿Caral Remaster v2 está suficientemente estable para utilizarse como plantilla de las siguientes ciudades?**
 
-**Sí, como plantilla técnica y de pipeline**, con dos condiciones: validar hardware real y resolver o aceptar explícitamente la VRAM de LOD1. La experiencia web está estable, el fallback y el offline funcionan, la licencia publicada es coherente y el rendimiento en régimen estable está por debajo de 100 draw calls. No debe presentarse todavía como certificación de 60 fps en hardware real ni como reconstrucción histórica final.
+**Sí, como plantilla técnica y de pipeline**, con una condición: validar hardware real. La VRAM de LOD1 quedó mitigada con texturas 1K (~208 MB); KTX2 sigue como mejora opcional. La experiencia web está estable, el fallback y el offline funcionan, la licencia publicada es coherente y el rendimiento en régimen estable está por debajo de 100 draw calls. No debe presentarse todavía como certificación de 60 fps en hardware real ni como reconstrucción histórica final.

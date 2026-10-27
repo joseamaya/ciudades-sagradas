@@ -28,23 +28,47 @@ function setupDebug() {
   if (!DEBUG) return;
   debugEl = document.createElement('div');
   debugEl.className = 'debug-panel';
-  debugEl.setAttribute('aria-live', 'polite');
+  debugEl.innerHTML = '<button type="button" class="debug-copy">Copiar métricas</button><pre class="debug-text" aria-live="polite"></pre>';
   document.body.appendChild(debugEl);
+  const textEl = debugEl.querySelector('.debug-text');
+  const copyButton = debugEl.querySelector('.debug-copy');
 
   const render = () => {
     const metrics = viewer?.getMetrics?.();
     if (!metrics) {
-      debugEl.textContent = 'debug · esperando visor 3D';
+      textEl.textContent = 'debug · esperando visor 3D';
       return;
     }
     const mb = metrics.modelBytes ? `${(metrics.modelBytes / 1024 / 1024).toFixed(1)} MB` : '—';
-    debugEl.textContent = [
+    textEl.textContent = [
       `LOD ${metrics.lod ?? '—'} · ${metrics.lowPower ? 'móvil' : 'escritorio'} · ${metrics.timeOfDay}`,
       `${metrics.modelTriangles.toLocaleString('es')} tris · ${metrics.calls} calls · ${metrics.fps || 0} fps · ${metrics.frameMs || 0} ms`,
       `${metrics.viewport.width}×${metrics.viewport.height} @${metrics.pixelRatio} · sombras ${metrics.shadowMapSize[0]} · texturas ${metrics.textures} (${metrics.textureMB} MB)`,
       `carga ${metrics.loadMs ?? '—'} ms · ${mb} · ${metrics.modelUrl ?? ''}`,
     ].join('\n');
   };
+
+  copyButton.addEventListener('click', async () => {
+    const metrics = viewer?.getMetrics?.();
+    if (!metrics) {
+      toast('El visor aún no está listo');
+      return;
+    }
+    const text = JSON.stringify(metrics, null, 2);
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch {
+      const area = document.createElement('textarea');
+      area.value = text;
+      area.style.position = 'fixed';
+      area.style.opacity = '0';
+      document.body.appendChild(area);
+      area.select();
+      document.execCommand('copy');
+      area.remove();
+    }
+    toast('Métricas copiadas');
+  });
 
   render();
   debugTimer = setInterval(render, 500);

@@ -30,7 +30,7 @@ Verificación: GLB de 20 materiales y 31 imágenes WebP; nombres `MAT-Caral_Rema
 
 - LOD0 conserva los materiales procedurales del remaster, más `MAT-Caral_Remaster_Mortar` sin imagen. 21 materiales, 31 imágenes.
 - LOD1 usa **cuatro** materiales horneados `MAT-Caral_LOD1_*` (Mayor, Plaza Mayor, Anfiteatro y Altar Circular), no nueve.
-- Cada material horneado tiene base color y normal 2K. La roughness es constante 0,85; el AO no se conecta ni se incluye en el GLB.
+- Cada material horneado tiene base color y normal; el GLB LOD1 se exporta a 1K. La roughness es constante 0,85; el AO no se conecta ni se incluye en el GLB.
 - El atlas se generó desde el high-poly propio con Cycles; no incorpora imágenes externas ni de IA.
 - No se añadieron fotografías de UNESCO, ICOMOS o Ministerio de Cultura.
 

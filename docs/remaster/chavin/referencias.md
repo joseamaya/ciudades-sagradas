@@ -20,6 +20,8 @@ Estado: **Fase 0 cerrada; tablero verificado; permisos de publicación pendiente
 | [Museo Nacional Chavín](https://museos.cultura.pe/museos/museo-nacional-chav%C3%ADn) | Museo | Piezas y contexto | Requiere permiso | Consultada |
 | [MNAAHP — sala Chavín](https://mnaahp.cultura.pe/exposiciones/salas-permanentes/chavin) | Museo | Estela, Obelisco, piezas | Requiere permiso | Consultada |
 | [Stanford — John Rick](https://news.stanford.edu/stories/2016/04/stanford-archaeologist-traces-origins-authority-andes-peru) | Divulgación académica | Galerías, ritual, investigación | Uso referencial | Consultada |
+| [Wikipedia — Portada de las Falcónidas](https://es.wikipedia.org/wiki/Portada_de_las_Falc%C3%B3nidas) | Enciclopedia | Medidas, componentes y dualidad | Texto CC BY-SA 4.0; no copiar | Consultada; medida secundaria |
+| [Wikimedia Commons — Portada de las Falcónidas](https://commons.wikimedia.org/wiki/Category:Portada_de_las_Falc%C3%B3nidas) | Fotografías | Proporciones y lectura visual | Licencia por archivo | Consultada; no incorporada |
 
 - Los PDFs oficiales se consultaron para verificar datos; no se copian al repositorio.
 - El PDF de ICOMOS 1985 devolvió 403 en el entorno de trabajo; se revisará manualmente o con otra vía.
@@ -31,6 +33,8 @@ Estado: **Fase 0 cerrada; tablero verificado; permisos de publicación pendiente
 - Levantamiento de galerías y ventilación.
 - DEM o topografía del valle para pendientes y encuadre.
 - Fotos de referencia con licencia o permiso para modelado.
+- Sección o levantamiento métrico de la Portada que cierre el ancho de 6,48 m y el número de falcónidas (8 frente a 14 en algunas fuentes).
+- Cota de la escalera de acceso y del dintel de tres piezas.
 - Inventario y ubicación de esculturas in situ y en museo.
 - Estado de conservación y cambios modernos del sitio.
 

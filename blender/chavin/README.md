@@ -2,19 +2,21 @@
 
 ## Archivo
 
-- **Texturizado actual:** `chavin_textured_v0.2.blend`, 4,2 MB.
+- **Actual:** `chavin_portada_v0.1.blend`, 7,7 MB.
+- **Base texturizada:** `chavin_textured_v0.2.blend`, 4,2 MB.
 - **Texturizado anterior:** `chavin_textured_v0.1.blend`, 3,3 MB (histórico).
 - **Look-dev anterior:** `chavin_lookdev_v0.2.blend`, 585 KB (histórico).
 - **Base de escala:** `chavin_blockout_v0.5.blend`, 176 KB.
 - **Versiones anteriores:** `chavin_blockout_v0.4.blend` (patio B), `chavin_blockout_v0.3.blend` (galería), `chavin_blockout_v0.2.blend` (terreno), `chavin_blockout_v0.1.blend` (masas).
-- **Estado:** blockout v0.5 aceptado; texturizado UV v0.2 de mampostería ashlar.
+- **Estado:** blockout v0.5 aceptado; texturizado UV v0.2 de mampostería ashlar; Portada de las Falcónidas v0.1 en revisión.
 - **Escala:** metros; el visor aplicará su escala cuando exista `city.json`.
-- **Contenido:** 97 mallas, 2.148 vértices, 3.852 tris y 8 colecciones.
-- **UVs:** 52 objetos de piedra con proyección de cubo por cara; tile de 10 m (clara) y 11,11 m (oscura); texturas con repetición.
-- **Texturas:** `blender/textures/chavin/chavin_ashlar_v2_{diffuse,diffuse_dark,roughness,normal}`; generadas por `scripts/make_chavin_materials_v2.py`; las cuatro están conectadas y empaquetadas.
-- **Materiales:** 10; piedra clara usa difusa cálida + rugosidad + normal; piedra oscura usa difusa oscura + rugosidad + normal. El atlas horneado 2K se descartó por pérdida de detalle.
-- **Cámaras:** `CAM-Chavin_Hero`, `CAM-Chavin_Plan`, `CAM-Chavin_Core`, `CAM-Chavin_Gallery`, `CAM-Chavin_Portal`, `CAM-Chavin_Lanzon`, `CAM-Chavin_Section`.
-- **Luces:** `LGT-Chavin_Sun`, `LGT-Chavin_Fill`, `LGT-Chavin_GalleryFill`, `LGT-Chavin_LanzonFill`.
+- **Contenido:** 132 mallas, 7.381 vértices, 14.146 tris y 9 colecciones.
+- **Portada:** 47 mallas, 5.292 vértices y 10.364 tris; columnas de 2,30 m, jambas trilíticas, friso de 6,48 m, ocho falcónidas y un escalón de acceso inferido.
+- **UVs:** piedra ashlar con proyección de cubo por cara; Portada con smart UV; texturas con repetición.
+- **Texturas:** ashlar v2 en `blender/textures/chavin/chavin_ashlar_v2_*` y piedra labrada en `chavin_portada_v1_*`; generadores `scripts/make_chavin_materials_v2.py` y `scripts/make_chavin_portal_materials.py`; empaquetadas.
+- **Materiales:** 12; ashlar claro/oscuro, piedra labrada clara/oscura, plaster, tierra, agua, vegetación y galería.
+- **Cámaras:** `CAM-Chavin_Hero`, `Plan`, `Core`, `Gallery`, `Portal`, `Lanzon`, `Section`, `CAM-Chavin_PortadaFalconidas`, `CAM-Chavin_PortadaFalconidas_3q` y `CAM-Chavin_PortadaContext`.
+- **Luces:** `LGT-Chavin_Sun`, `Fill`, `GalleryFill`, `LanzonFill` y `LGT-Chavin_PortadaFill`.
 
 ## Alcance
 
@@ -24,9 +26,10 @@
 - Edificio B con patio de ~12 × 10 m y galería dentro de la masa.
 - Una secuencia de galería: corredor, cámara, dinteles, portal, ducto y hornacina.
 - Lanzón como prisma ahusado de 4,5 m; sigue sin talla.
+- Portada de las Falcónidas: vano, columnas, jambas, friso, cornisa, relieves interpretativos y escalón de acceso inferido.
 - Figura de 1,7 m en el atrio como referencia de escala.
-- Materiales de piedra ashlar, plaster, tierra, agua y vegetación.
-- Sin las 22 galerías, sin relieves, sin techos reconstructivos y sin acabado final.
+- Materiales de piedra ashlar, piedra labrada, plaster, tierra, agua y vegetación.
+- Sin las 22 galerías, sin dintel de la Portada, sin escalera completa, sin techos reconstructivos y sin acabado final.
 
 ## Convenciones
 
@@ -36,4 +39,4 @@
 
 ## Siguiente
 
-Revisar el texturizado v0.2 y decidir si se acepta la piedra como base. Después: Portada de las Falcónidas, relieves, cabezas clavas y LOD. El terreno se queda procedural por ahora.
+Revisar `portada-v0.1.md` y aceptar o corregir su escala. Después: dintel, desarrollo de la escalera, cabezas clavas y LOD. El terreno se queda procedural por ahora.

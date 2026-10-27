@@ -126,4 +126,4 @@ No se abre Blender hasta completar:
 
 ## Siguiente hito
 
-**Acabado y contenido:** revisar `textured-v0.2.md` y decidir si la piedra se acepta como base; después abrir la Portada de las Falcónidas, relieves y LOD. El terreno se queda procedural por ahora. Ver `textured-v0.2.md` y `terrain.md`.
+**Acabado y contenido:** revisar `portada-v0.1.md` y aceptar o corregir la escala de la Portada (columnas de 2,30 m, friso de 6,48 m). Decidir dintel, escalera y nivel de relieve antes de LOD/GLB. El terreno se queda procedural por ahora. Ver `portada-v0.1.md` y `terrain.md`.

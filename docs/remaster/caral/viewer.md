@@ -9,11 +9,14 @@ Acercar el aspecto del visor web al render de Blender del remaster y corregir la
 - **Color management:** ACES Filmic → **AgX**, con exposición ajustada.
 - **Ambiente:** mapa de entorno PMREM generado desde el cielo; `scene.environmentIntensity` por hora del día.
 - **Sol:** dirección invertida para coincidir con la luz clave de Blender; luz cálida más intensa y relleno neutro.
-- **Sombras:** `PCFSoftShadowMap`.
+- **Sombras:** `PCFShadowMap` (2048 escritorio, 1024 móvil), con shadow map estático que se refresca al cargar, cambiar hora o capas.
 - **Cámara inicial:** equivalente a `CAM-Caral_RTS_Hero` de Blender, desde el sur, con `fov` vertical 25,4°.
 - **Encuadre:** objetivo desplazado para que la Pirámide Mayor quede a la izquierda del panel de ficha.
 - **Recorrido:** stops 2–5 recentrados desde el sur; Plaza Circular y Anfiteatro reencuadrados.
-- **Móvil:** FOV responsivo en vertical (hasta 60°) para que la ciudad no quede recortada.
+- **Móvil:** FOV responsivo en vertical (hasta 60°) y pixel ratio 1,25 para que la ciudad no quede recortada sin castigar de más la GPU.
+- **Materiales:** culling en sólidos; doble cara solo en vegetación/totora/algodón/agua/fuego. Agua sin transmisión para evitar la pasada extra de Three.js.
+- **Entorno:** cielos y PMREM cacheados por hora; cambiar de luz no regenera todo cada vez.
+- **Diagnóstico:** `?debug=1` muestra LOD, draw calls, triángulos, texturas, FPS y carga.
 - **Suelo del visor:** color de arena ajustado al material del remaster.
 
 ## Capturas
@@ -38,9 +41,9 @@ Acercar el aspecto del visor web al render de Blender del remaster y corregir la
 
 - Los stops están revisados, pero falta validación en hardware real y una pasada de arte final.
 - El panel de ficha sigue ocupando el lado derecho en escritorio.
-- El terreno, las colinas y la vegetación conservan materiales del piloto.
+- El terreno, las colinas y la vegetación usan los materiales procedurales del remaster; no queda material del piloto.
 - El encuadre hero y la luz de atardecer definitivos aún requieren una pasada de arte.
-- Caral v2 está publicado con LOD0/LOD1; la escala 0,08 se mantiene como diorama y la 1.0 queda fuera.
+- Caral v2 está publicado con LOD0/LOD1 y Draco; la escala 0,08 se mantiene como diorama y la 1.0 queda fuera.
 
 ## Probar
 
@@ -51,4 +54,4 @@ npm run serve
 # http://127.0.0.1:4173/?lod=1#/ciudad/caral
 ```
 
-La caché de servicio actual es `ciudades-sagradas-v5`.
+La caché de servicio actual es `ciudades-sagradas-v6`. El visor cachea el LOD cargado, no el fallback v1.

@@ -1,51 +1,20 @@
-# Caral — escena editable
+# Caral — escenas de trabajo
 
-- **Archivo piloto:** `caral_art.blend`; 7.940.979 bytes, SHA-256 `5a7377f727a2e07931d90aabed7a83c9ef59705176e7f244ae6db4f4d93ab377`.
-- **Archivo de trabajo:** `caral_remaster.blend`; 1.128.020 bytes, SHA-256 `52d79bb5db315fcc22f703665d6dc39f49d9bc9be7b729f93800face301d1f5f`.
-- **Escena v2:** `caral_remaster_v2.blend`; 6.755.204 bytes, SHA-256 `386cc18bb141d167801157b4fa05bc16dd79ab86c4ac6ce24b19249522ae85d1`. High-poly de Mayor, Plaza Mayor, Anfiteatro y Altar Circular en `COL-Caral_HighPoly`; v1 conservado en `COL-Caral_LowPoly`.
-- **LOD0:** `caral_lod0.blend`; 13.479.232 bytes, SHA-256 `6db1c092a168272fa6ab3ff43fb4f503d809d81626b7f798029cc8c9191fdd4b`. 4 mallas high-poly por región + 6 mallas `COL-Caral_LOD0_Infra`; 230.800 tris.
-- **LOD1:** `caral_lod1.blend`; 7.747.386 bytes, SHA-256 `9da242aa0e92f7b43ffa014af7af2fe11c27c47c2d027c65cc4515244856df9a`. 9 objetos baked (`MAT-Caral_LOD1_*`) + 6 mallas `COL-Caral_LOD1_Infra`; 56.332 tris. Mapas en `../textures/baked/caral/`.
-- **Texturas:** `../textures/` (piloto) y `../textures/generated/remaster/` (pase procedural), con rutas relativas desde `blender/caral/`.
+## Archivos versionados
+
+- **Fuente v1:** `caral_remaster.blend`; 1.128.020 bytes, SHA-256 `52d79bb5db315fcc22f703665d6dc39f49d9bc9be7b729f93800face301d1f5f`. Es la base reproducible del GLB v1 y de la escena v2.
+- **Escenas locales (no versionadas):**
+  - `caral_remaster_v2.blend`: high-poly de Mayor, Plaza Mayor, Anfiteatro y Altar Circular; v1 en `COL-Caral_LowPoly`.
+  - `caral_lod0.blend`: high-poly fusionado por región + 6 mallas de infraestructura; 230.800 tris.
+  - `caral_lod1.blend`: 9 objetos horneados + 6 mallas de infraestructura; 56.332 tris.
+  - `blender/textures/baked/caral/`: atlas 2K de LOD1.
+  - Se excluyen del repo por tamaño; se regeneran con los scripts de `scripts/`.
+- **Texturas:** `../textures/generated/remaster/` (procedurales, versionadas); los atlas de LOD1 se generan en `../textures/baked/caral/`.
 - **Escala:** metros; el visor aplica `0.08`.
-- **Estado:** remaster v2 desplegado en GitHub Pages; `stage: "v2"` y caché `v5`. `model.glb` v1 queda como fallback.
+- **Estado:** remaster v2 desplegado en GitHub Pages; `stage: "v2"` y caché `v6`. `model.glb` v1 queda como fallback.
+- **Piloto histórico:** el antiguo `caral_art.blend` y sus texturas de IA fueron retirados del repositorio por licencia pendiente. No se usan en v1 ni v2.
 
-## Exportar
-
-```bash
-blender --background blender/caral/caral_art.blend \
-  --python blender/caral/export.py -- \
-  --out public/cities/caral/model.glb
-```
-
-El GLB v1 de respaldo se reproduce con `export.py`: 4.778.308 bytes, 554 mallas y 55.944 triángulos. Si cambias la escena, reexporta, valida el resultado y actualiza:
-
-- `public/cities/caral/README.md` (hash y tamaño).
-- `docs/fuentes/registro-assets.csv`.
-- `docs/estado.md`.
-- La versión de caché en `public/sw.js` si cambia el modelo.
-
-Para probar el remaster sin publicarlo:
-
-```bash
-python3 scripts/make_caral_materials.py
-
-blender --background blender/caral/caral_remaster.blend \
-  --python scripts/remaster_caral_materials.py -- \
-  --out blender/caral/caral_remaster.blend \
-  --hero /tmp/caral_materials_hero.png \
-  --close /tmp/caral_materials_close.png \
-  --scope all
-
-blender --background blender/caral/caral_remaster.blend \
-  --python blender/caral/export.py -- \
-  --out /tmp/caral_remaster_test.glb \
-  --image-format WEBP --image-quality 80
-```
-
-GLB v1: 4.778.308 bytes, 554 mallas, 55.944 tris, 20 materiales y 31 imágenes WebP.
-- **v1:** `release/caral-remaster-final`; GLB SHA-256 `c6bbe07b27640951373b96db4f6a610b7618224e37fc52eda8893ac79670bb34`.
-
-Regenerar la escena v2 desde una copia limpia de `caral_remaster.blend` (no exporta GLB):
+## Regenerar v2 desde la fuente versionada
 
 ```bash
 cp blender/caral/caral_remaster.blend blender/caral/caral_remaster_v2.blend
@@ -63,9 +32,18 @@ blender --background blender/caral/caral_remaster_v2.blend \
   --out-dir docs/remaster/caral
 ```
 
-Cámaras nuevas: `CAM-Caral_V2_Plaza`, `CAM-Caral_V2_PlazaDetail`, `CAM-Caral_V2_Anfiteatro`, `CAM-Caral_V2_Altar` y `CAM-Caral_V2_AltarDetail`.
+## Exportar v1 fallback
 
-LOD0: ensamblar high-poly por región + infraestructura y exportar:
+```bash
+blender --background blender/caral/caral_remaster.blend \
+  --python blender/caral/export.py -- \
+  --out public/cities/caral/model.glb \
+  --image-format WEBP --image-quality 80
+```
+
+El GLB v1 tiene 4.778.308 bytes, 554 mallas, 55.944 tris, 20 materiales y 31 imágenes WebP. La reexportación conserva tamaño/estructura, pero el SHA-256 puede variar por la codificación WebP. Actualiza `public/cities/caral/README.md`, `docs/fuentes/registro-assets.csv` y la caché si cambia el archivo.
+
+## Exportar LOD0
 
 ```bash
 blender --background blender/caral/caral_remaster_v2.blend \
@@ -77,7 +55,9 @@ blender --background blender/caral/caral_lod0.blend \
   --out public/cities/caral/model_lod0.glb
 ```
 
-LOD1: bake 2K, fusión de infraestructura y exportación:
+El exportador usa WebP 80, `extras` y Draco por defecto (`--no-draco` para depurar). También aplica culling a materiales sólidos, deja doble cara en vegetación/totora/algodón/agua/fuego y anula la transmisión del agua.
+
+## Exportar LOD1
 
 ```bash
 blender --background blender/caral/caral_remaster_v2.blend \
@@ -94,13 +74,7 @@ blender --background blender/caral/caral_lod1.blend \
   --out public/cities/caral/model_lod1.glb
 ```
 
-El bake usa base color y normal tangente; la roughness se fija en **0,85** y la normal en **0,35**. El AO se hornea pero no se conecta. La optimización fusiona `Terrain`, `LowerHalf`, `UpperHalf`, `Residential`, `Props` y `Reference` en seis mallas, asigna capas (`terrain`, `city`, `props`, `reference`) y oculta las colecciones originales. El LOD1 conserva 9 objetos baked. LOD0 y LOD1 se exportan con WebP 80 y `extras`; `model.glb` v1 queda como fallback.
-
-## Texturas
-
-El piloto histórico usa texturas PBR generadas con IA para el proyecto Caral (Cloudflare Workers AI / FLUX) y texturas procedurales propias. El pase de remaster usa texturas CC0/procedurales en `../textures/generated/remaster/`; el LOD1 de v2 usa un atlas 2K horneado desde el high-poly propio.
-
-Las texturas de IA del piloto no se publican y quedan pendientes de archivo definitivo. Los GLB v1 y v2 no contienen imágenes de IA.
+El bake usa base color y normal tangente; la roughness se fija en **0,85** y la normal en **0,35**. El AO no se conecta ni se incluye en el GLB. La optimización fusiona `Terrain`, `LowerHalf`, `UpperHalf`, `Residential`, `Props` y `Reference` en seis mallas y asigna capas.
 
 ## Convenciones
 
@@ -108,3 +82,4 @@ Las texturas de IA del piloto no se publican y quedan pendientes de archivo defi
 - No incluir colliders, spawns, recursos ni HUD del juego.
 - Mantener las rutas relativas de texturas.
 - Guardar una copia antes de operaciones destructivas.
+- No añadir texturas de IA.

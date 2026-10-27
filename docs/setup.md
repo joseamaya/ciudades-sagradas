@@ -50,17 +50,18 @@ Si `uvx` no está en el PATH, instala `uv` o ajusta el comando de `opencode.json
 ## Escena Blender
 
 ```bash
-blender blender/caral/caral_art.blend
+blender blender/caral/caral_remaster.blend
 ```
 
-Las texturas se resuelven desde `blender/textures/` con rutas relativas. La escena es un piloto en remasterización.
+Caral v2 es el estado actual. La fuente versionada es `blender/caral/caral_remaster.blend`; las escenas v2/LOD y los atlas se regeneran con `scripts/` y no se versionan por tamaño.
 
 ## Exportar Caral
 
 ```bash
-blender --background blender/caral/caral_art.blend \
+blender --background blender/caral/caral_remaster.blend \
   --python blender/caral/export.py -- \
-  --out public/cities/caral/model.glb
+  --out public/cities/caral/model.glb \
+  --image-format WEBP --image-quality 80
 ```
 
 Después:
@@ -70,7 +71,7 @@ npm run validate
 npm run build
 ```
 
-El GLB publicado se reproduce con `export.py` (excluye las colecciones de juego). Valida el resultado antes de reemplazarlo. Si cambia el modelo, actualiza su hash/tamaño en `public/cities/caral/README.md`, `docs/fuentes/registro-assets.csv` y la versión de caché de `public/sw.js`.
+El GLB v1 se reproduce con `export.py` (excluye las colecciones de juego). Los LOD0/LOD1 se exportan con `scripts/export_caral_lod.py` (WebP 80 + Draco). Valida el resultado antes de reemplazarlo. Si cambia un modelo, actualiza su hash/tamaño en `public/cities/caral/README.md`, `docs/fuentes/registro-assets.csv` y la versión de caché de `public/sw.js`.
 
 ## Kiosco
 
@@ -81,11 +82,23 @@ npm run serve
 
 Abre `http://127.0.0.1:4173/?kiosk=1` o usa `scripts/kiosk.sh`.
 
+Diagnóstico y benchmark:
+
+```bash
+# métricas en vivo
+http://127.0.0.1:4173/?debug=1#/ciudad/caral
+
+# benchmark reproducible (Chrome + build)
+npm run bench -- --out /tmp/caral-bench
+```
+
 ## Verificación rápida
 
 - `npm run validate` → OK.
 - `npm run build` → OK.
-- Caral carga en el navegador.
+- Caral carga en el navegador con LOD0 en escritorio y LOD1 en móvil.
+- `?debug=1` muestra draw calls, triángulos, texturas, FPS y carga.
+- `?lod=0` y `?lod=1` fuerzan el LOD; `?nosw=1` desactiva el service worker para QA.
 - El MCP responde a `blender_get_addon_status`.
 - Las skills de Blender aparecen en la sesión.
 - El sitio publicado carga desde GitHub Pages.

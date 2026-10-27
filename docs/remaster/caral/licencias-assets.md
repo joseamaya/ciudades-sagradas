@@ -2,7 +2,7 @@
 
 ## Resultado
 
-Los GLB publicados de Caral —v1 y v2— no contienen texturas de IA. Todas las imágenes provienen de los scripts procedurales del proyecto o del bake del high-poly propio.
+Los GLB publicados de Caral —v1 y v2— no contienen texturas de IA. Todas las imágenes provienen de los scripts procedurales del proyecto o del bake del high-poly propio. Los archivos usan WebP 80; LOD0/LOD1 usan Draco.
 
 ## Remaster v1
 
@@ -28,15 +28,16 @@ Verificación: GLB de 20 materiales y 31 imágenes WebP; nombres `MAT-Caral_Rema
 
 ## Remaster v2
 
-- LOD0 conserva los materiales procedurales del remaster, más `MAT-Caral_Remaster_Mortar` sin imagen.
-- LOD1 usa nueve materiales horneados `MAT-Caral_LOD1_*` y un atlas 2K por región con base color y normal.
+- LOD0 conserva los materiales procedurales del remaster, más `MAT-Caral_Remaster_Mortar` sin imagen. 21 materiales, 31 imágenes.
+- LOD1 usa **cuatro** materiales horneados `MAT-Caral_LOD1_*` (Mayor, Plaza Mayor, Anfiteatro y Altar Circular), no nueve.
+- Cada material horneado tiene base color y normal 2K. La roughness es constante 0,85; el AO no se conecta ni se incluye en el GLB.
 - El atlas se generó desde el high-poly propio con Cycles; no incorpora imágenes externas ni de IA.
 - No se añadieron fotografías de UNESCO, ICOMOS o Ministerio de Cultura.
 
 ## Alcance
 
 - **Remaster v1:** limpio, sin texturas de IA.
-- **Remaster v2:** limpio; atlas propio horneado desde geometría del proyecto.
-- **Piloto histórico:** conserva texturas de IA; no se publica y queda pendiente de archivo definitivo.
+- **Remaster v2:** limpio; atlas propio horneado desde geometría del proyecto, con Draco y WebP.
+- **Piloto histórico:** conservaba texturas de IA y fue **retirado del repositorio** por licencia pendiente. No forma parte de los assets publicados.
 
 Ver también `docs/licencias.md`, `CREDITS.md` y `docs/remaster/caral/release-v2.md`.

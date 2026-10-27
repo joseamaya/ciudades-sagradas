@@ -1,9 +1,9 @@
 # Chavín — blockout v0.3 (núcleo hero)
 
 Fecha: 27 de octubre de 2026.
-Estado: **secuencia de galería y Lanzón modelados; revisión pendiente**.
+Estado: **histórico; sustituido por v0.4, que cierra el patio de B**.
 Fuente: `blender/chavin/chavin_blockout_v0.3.blend` (174 KB).
-Base: `blockout-v0.2.md`.
+Base: `blockout-v0.2.md`. Siguiente: `blockout-v0.4.md`.
 Decisión de terreno: `terrain.md`.
 
 ## Vistas

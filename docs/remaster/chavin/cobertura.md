@@ -1,7 +1,7 @@
 # Cobertura objetivo — Chavín de Huántar
 
 Fecha: 27 de octubre de 2026.
-Estado: **blockout v0.3 generado; cobertura gruesa, revisión del núcleo pendiente**.
+Estado: **blockout v0.4 generado; cobertura gruesa, revisión del núcleo pendiente**.
 Estándar: **ciudad representativa**.
 
 ## Definición
@@ -18,7 +18,7 @@ La marca **Documentado** de la tabla se apoya en la ficha UNESCO 330 y/o en el M
 | Edificio A / Pirámide Mayor / “Castillo” | Documentado | Hero | Blockout | Tradicional “Templo Nuevo”; ~22,5 m + 2 m de cima |
 | Plaza Circular Hundida / Atrio del Lanzón | Documentado | Hero | Blockout | Pavimento, gradas y escalinatas este-oeste |
 | Plazas rectangulares y atrios | Documentado | Fondo | Pendiente | Lectura de conjunto |
-| Galerías internas | Documentado | Hero parcial | Blockout parcial | 22 galerías / 689,70 m; una secuencia modelada en v0.3 |
+| Galerías internas | Documentado | Hero parcial | Blockout parcial | 22 galerías / 689,70 m; una secuencia modelada en v0.4 |
 | Ventilación y drenaje | Documentado | Detalle visible | Blockout parcial | Un ducto esquemático de 0,5 m; sin red completa |
 | Lanzón | Documentado | Hero | Blockout | Volumen ahusado de ~4,5 m; sin talla ni textura |
 | Portada de las Falcónidas | Documentado | Hero | Blockout | Fachada del Edificio A |

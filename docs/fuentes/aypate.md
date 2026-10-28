@@ -1,6 +1,6 @@
 # Aypate — dossier de fuentes
 
-**Estado:** en investigación; modelo 3D pendiente.  
+**Estado:** preview web v0.1 con blockout; layout interpretativo, no reconstrucción final.
 **Fecha de consulta:** 28 de octubre de 2026.
 
 ## Ficha
@@ -76,6 +76,14 @@
 - UNESCO, *Qhapaq Ñan, Andean Road System* (n.º 1374): <https://whc.unesco.org/en/list/1374/>
 - Qhapaq Ñan, *Aypate: un monumento arqueológico y una montaña cósmica donde nace el agua*: <https://qhapaqnan.cultura.pe/sites/default/files/articulos/173473673-Aypate-un-monumento-arqueolo-gico-y-una-montan-a-co-smica-donde-nace-el-agua.pdf>
 - Sketchfab, *Puerta monumental inca de Aypate*, fjmOjeda, CC BY: <https://sketchfab.com/3d-models/puerta-monumental-inca-de-aypate-peru-53858cc105ac498ea016ceeaac67fc8c>
+
+## Blockout v0.1
+
+- Fuente: `blender/aypate/aypate_blockout_v0.1.blend`.
+- LOD0 de 43.420 tris y LOD1 de 14.252 tris; seis paradas.
+- Se modelaron plaza, ushnu, kallanka, acllawasi, palacio, colcas, fuente, andenes y Qhapaq Ñan.
+- La composición es interpretativa: la planta completa no está publicada.
+- Techos, alturas perdidas y recintos periféricos quedan fuera.
 
 ## Notas de reconstrucción
 

@@ -1,7 +1,7 @@
 # Plan de Aypate — Fase 0
 
-Fecha: 28 de octubre de 2026.  
-Estado: **ficha de investigación; no se abre Blender hasta cerrar el gate de planta y licencias**.
+Fecha: 28 de octubre de 2026.
+Estado: **blockout v0.1 y preview web; la planta completa sigue pendiente y el layout es interpretativo**.
 
 ## Objetivo
 
@@ -27,8 +27,8 @@ Construir una reconstrucción navegable del núcleo inca de Aypate que se lea co
 
 | Elemento | Objetivo |
 |---|---|
-| LOD0 escritorio | 150.000–250.000 tris |
-| LOD1 móvil | 40.000–70.000 tris |
+| LOD0 escritorio | 150.000–250.000 tris; blockout actual: 43.420 |
+| LOD1 móvil | 40.000–70.000 tris; blockout actual: 14.252 |
 | Draw calls | <100 en régimen estable |
 | GLB | <25 MB por LOD |
 | Texturas | 2K hero, 1K móvil; WebP 80 |
@@ -73,11 +73,11 @@ Los textos deben distinguir documentado, inferido e interpretativo; la atribuci�
 - [x] Dossier de fuentes.
 - [x] Ficha de investigación en el atlas.
 - [x] Alcance hero/fondo y límites.
-- [ ] Planta topográfica o aérea utilizable.
-- [ ] Cronología y atribución revisadas contra fuentes.
-- [ ] Licencias de imágenes y modelo 3D resueltas.
-- [ ] Presupuesto y recorrido aprobados para blockout.
+- [ ] Planta topográfica o aérea utilizable: no publicada; se usó una composición interpretativa basada en descripciones y fotos.
+- [x] Cronología y atribución revisadas con fuentes oficiales, marcando lo reportado.
+- [x] Licencias: sin imágenes oficiales; Sketchfab solo referencia CC BY.
+- [x] Presupuesto y recorrido aprobados para blockout.
 
 ## Siguiente
 
-Obtener/confirmar la planta y las cotas; después blockout v0.1 con plaza, ushnu, kallanka, acllawasi y camino. QA de hardware y LOD quedan para las fases siguientes, reutilizando el pipeline de Chavín/Caral.
+Blockout v0.1 completado con plaza, ushnu, kallanka, acllawasi, palacio, colcas, fuente, andenes y camino. Siguiente: QA visual, revisión de la planta cuando haya una copia autorizada y QA en hardware real. El layout actual no debe presentarse como reconstrucción final.

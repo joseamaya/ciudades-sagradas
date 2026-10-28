@@ -245,6 +245,7 @@ export class CityViewer {
     this.onReady = onReady;
     this.onError = onError;
     this.city = null;
+    this.cityLights = [];
     this.model = null;
     this.meshes = [];
     this.flight = null;
@@ -300,7 +301,7 @@ export class CityViewer {
     this.scene = new THREE.Scene();
     this.scene.fog = new THREE.Fog(0xb9c5c9, 110, 260);
 
-    this.camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.5, 500);
+    this.camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.05, 500);
     this.camera.position.set(24, 17, -26);
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
@@ -511,6 +512,7 @@ export class CityViewer {
   }
 
   async load(city) {
+    this._clearCityLights();
     this.city = city;
     if (Number.isFinite(city.minDistance)) this.controls.minDistance = city.minDistance;
     if (Number.isFinite(city.maxDistance)) this.controls.maxDistance = city.maxDistance;
@@ -557,6 +559,7 @@ export class CityViewer {
     });
     this.model = model;
     this.scene.add(model);
+    this._buildCityLights(city);
     this._collectModelStats();
     for (const layer of city.layers || []) {
       if (layer.default === false) this.setLayer(layer.id, false);
@@ -568,6 +571,28 @@ export class CityViewer {
     this.loadMs = performance.now() - this.loadStartedAt;
     this.modelBytes = this._resourceBytes(this.modelUrl);
     if (this.onReady) this.onReady();
+  }
+
+  _clearCityLights() {
+    for (const light of this.cityLights.splice(0)) {
+      this.scene.remove(light);
+      light.dispose?.();
+    }
+  }
+
+  _buildCityLights(city) {
+    for (const spec of city.lights || []) {
+      if (spec.type !== 'point') continue;
+      const light = new THREE.PointLight(
+        new THREE.Color(spec.color || 0xffd8a8),
+        spec.intensity ?? 6,
+        spec.distance ?? 2.2,
+        spec.decay ?? 2,
+      );
+      light.position.fromArray(spec.position || [0, 1, 0]);
+      this.scene.add(light);
+      this.cityLights.push(light);
+    }
   }
 
   _prepareMaterial(material, mesh) {
@@ -776,6 +801,7 @@ export class CityViewer {
   }
 
   dispose() {
+    this._clearCityLights();
     if (this._destroyed) return;
     this._destroyed = true;
     this.renderer.setAnimationLoop(null);

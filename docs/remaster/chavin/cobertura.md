@@ -1,7 +1,7 @@
 # Cobertura objetivo — Chavín de Huántar
 
 Fecha: 27 de octubre de 2026.
-Estado: **preview web v0.1 publicado en la rama; LOD0/LOD1 con 15 draw calls; blockout y Portada aceptados como base**.
+Estado: **preview web v0.1 con Lanzón escaneado v0.3; LOD0/LOD1; blockout y Portada aceptados como base**.
 Estándar: **ciudad representativa**.
 
 ## Definición
@@ -20,7 +20,7 @@ La marca **Documentado** de la tabla se apoya en la ficha UNESCO 330 y/o en el M
 | Plazas rectangulares y atrios | Documentado | Fondo | Pendiente | Lectura de conjunto |
 | Galerías internas | Documentado | Hero parcial | Blockout parcial | 22 galerías / 689,70 m; una secuencia modelada en v0.5 |
 | Ventilación y drenaje | Documentado | Detalle visible | Blockout parcial | Un ducto esquemático de 0,5 m; sin red completa |
-| Lanzón | Documentado | Hero | Blockout | Volumen ahusado de ~4,5 m; sin talla ni textura |
+| Lanzón | Documentado | Hero | Malla escaneada v0.3 | 4,5 m; derivado CyArk/Google Arts & Culture (CC BY-NC-SA 4.0); decimado; sin textura fotográfica |
 | Mampostería y juntas | Inferido | Base visual | UV tiling | Ashlar v2 2K propio con tinte cálido, difusa oscura y UVs de cubo; atlas 2K descartado; no es levantamiento de bloques |
 | Portada de las Falcónidas | Documentado | Hero | Base v0.1 + preview | Columnas de 2,30 m, jambas trilíticas, friso de 6,48 m partido en dos, relieves interpretativos y un escalón inferido; dintel omitido por evidencia |
 | Estela Raimondi | Documentado | Referencia | Pendiente | Museo; requiere licencia o réplica señalizada |

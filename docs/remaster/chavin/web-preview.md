@@ -1,19 +1,19 @@
 # Chavín — preview web v0.1
 
-Fecha: 27 de octubre de 2026.
+Fecha: 28 de octubre de 2026.
 Estado: **preview público controlado; no es un remaster final ni un LOD de producción**.
 Modelo: `public/cities/chavin/model_lod0.glb` y `model_lod1.glb`.
-Fuente Blender: `chavin_portada_v0.1.blend`; los derivados `chavin_lod0.blend` / `chavin_lod1.blend` se regeneran con scripts y no se versionan.
+Fuente Blender: `chavin_highpoly_v0.3.blend`; los derivados `chavin_lod0.blend` / `chavin_lod1.blend` se regeneran con scripts y no se versionan. El Lanzón deriva del escaneo CyArk/Google Arts & Culture (CC BY-NC-SA 4.0).
 
 ## Vistas
 
 ### Escritorio, LOD0
 
-![Preview LOD0](web-preview-lod0.png)
+![Preview LOD0](highpoly-v0.3-hero.png)
 
 ### Móvil, LOD1
 
-![Preview móvil](web-preview-mobile.png)
+![Parada del Lanzón](highpoly-v0.3-tour.png)
 
 ### Parada de la Portada
 
@@ -26,38 +26,38 @@ Fuente Blender: `chavin_portada_v0.1.blend`; los derivados `chavin_lod0.blend` /
 ## Qué se integró
 
 - `city.json` con `status: "available"` y `stage: "preview"`.
-- Dos niveles: LOD0 de 14.158 tris y LOD1 de 9.422 tris.
-- `scale: 0.08`, cámara inicial y seis paradas de recorrido.
+- Dos niveles: LOD0 de 249.266 tris con mampostería, friso integrado y Lanzón escaneado; LOD1 de 26.898 tris con una copia de 12.000 tris del Lanzón.
+- `scale: 0.08`, cámara inicial, seis paradas de recorrido y `minDistance: 0.1` para el primer plano del Lanzón.
 - Capas `city`, `terrain`, `props` y `reference`, exportadas en los extras del GLB.
 - `hero.jpg` propio desde la Portada, sin imágenes oficiales.
 - Terreno con textura propia 1K en el GLB.
-- Caché del service worker `v12`.
+- Caché del service worker `v19`.
 
 ## Métricas del preview
 
 | Métrica | LOD0 | LOD1 |
 |---|---:|---:|
-| Triángulos | 14.158 | 9.422 |
+| Triángulos | 249.266 | 26.898 |
 | Mallas exportadas | 4 | 4 |
-| Draw calls en la vista inicial | 15 | 15 |
-| GLB | 732.780 B | 654.732 B |
+| Draw calls en la vista inicial | 19 | 15 |
+| GLB | 1.960.828 B | 785.260 B |
 | Texturas decodificadas estimadas | 133,3 MB | 69,3 MB |
 | Imágenes | 13 | 13, a 1024 px |
 
 - `?lod=0` fuerza LOD0; `?lod=1` fuerza LOD1.
-- Móvil emulado selecciona LOD1.
+- Móvil emulado selecciona LOD1, que omite bloques de fachada y conserva una copia de 12.000 tris del Lanzón con relieve.
 - Sin LOD0, el visor cae a LOD1.
 - No hay fallback v1 independiente: LOD1 es el fallback de este preview.
-- Offline probado con LOD0 antes del pase de textura; repetir en QA de hardware.
+- Offline probado con LOD0 tras regenerar los assets; repetir en QA de hardware.
 
 ## QA ejecutado
 
 - `npm run validate`: OK.
 - `npm run build`: OK.
-- LOD0/LOD1 y las cámaras del recorrido se midieron con `bench --city chavin`; la corrida completa con `--qa` agotó el tiempo del entorno después de generar las capturas. El benchmark de hardware queda pendiente.
-- Escritorio 1600×900: LOD0, 15 draw calls.
+- LOD0/LOD1 y las cámaras del recorrido se midieron con `bench --city chavin --qa`, incluida la captura de las seis paradas. El benchmark de hardware real queda pendiente.
+- Escritorio 1600×900: LOD0, 19 draw calls.
 - Móvil 390×844: LOD1, 15 draw calls.
-- Seis paradas verificadas; la cámara de la Portada se acerca a 0,86 m de escena.
+- Seis paradas verificadas; el acercamiento mínimo al Lanzón equivale a 1,25 m del modelo (0,1 unidades de escena) y se ilumina con dos luces puntuales cálida/fría.
 - Capas presentes en los extras: `city`, `terrain`, `props`, `reference`.
 - Consola sin errores en las cargas medidas.
 
@@ -66,15 +66,17 @@ Los FPS de SwiftShader no representan hardware real y no se usan como certificac
 ## Cambios de visor
 
 - Se añadió `city.minDistance` y `city.maxDistance` a `CityViewer`.
-- Chavín usa `minDistance: 0.25` para permitir las cámaras de detalle de la Portada y el Lanzón; Caral conserva el valor por defecto de 5.
+- Chavín usa `minDistance: 0.1` para el primer plano del Lanzón; Caral conserva el valor por defecto de 5.
+- Se añadió `city.lights` a `CityViewer`; Chavín usa una luz puntual cálida en la Galería del Lanzón para revelar la incisión sin iluminar todo el recinto.
 - El resto de la lógica de LOD, capas y fallback se reutiliza sin cambios.
 
 ## Límites
 
-- El LOD0 está muy por debajo del presupuesto de producción de 150.000–250.000 tris.
-- El LOD1 no es un bake de alta fidelidad; elimina ojos, colmillos y serpentinas del relieve.
+- El LOD0 está dentro del presupuesto de producción de 150.000–250.000 tris; la mampostería de fachada concentra la mayor parte.
+- El LOD1 no es un bake de alta fidelidad; elimina bloques de fachada y conserva el Lanzón a 12.000 tris.
 - El terreno es procedural; sus tres texturas propias (difusa, rugosidad y normal) se generan por `scripts/make_chavin_terrain_materials.py` y no constituyen topografía levantada.
-- La Portada mantiene relieves abstractos; el dintel no se modela y la escalera es un solo escalón inferido.
+- La Portada mantiene relieves interpretativos; el dintel no se modela y la escalera es un solo escalón inferido.
+- El Lanzón es una adaptación del escaneo CyArk (CC BY-NC-SA 4.0), no la textura fotográfica original; el primer plano depende de la luz y del ancho de la galería.
 - No hay QA en hardware real ni certificación de 60 fps.
 - No se copiaron imágenes oficiales ni se usaron texturas de IA.
 - El preview no debe presentarse como remaster v2.
@@ -82,7 +84,12 @@ Los FPS de SwiftShader no representan hardware real y no se usan como certificac
 ## Reproducir
 
 ```bash
-blender --background blender/chavin/chavin_portada_v0.1.blend \
+blender --background blender/chavin/chavin_highpoly_v0.2.blend \
+  --python scripts/build_chavin_lanzon_scan_v0_3.py -- \
+  --scan /ruta/lanzon_cyark.glb \
+  --out-blend blender/chavin/chavin_highpoly_v0.3.blend --no-bake
+
+blender --background blender/chavin/chavin_highpoly_v0.3.blend \
   --python scripts/build_chavin_lod.py -- --lod 0 \
   --out-blend blender/chavin/chavin_lod0.blend
 

@@ -4,6 +4,6 @@ El estándar de calidad es [`../estandares/ciudad.md`](../estandares/ciudad.md).
 
 - [Caral](./caral/README.md): remaster v2 desplegado y contenido cerrado como ciudad representativa; LOD0/LOD1 con Draco y fallback v1. Es la plantilla técnica del proyecto. Incidencia Android P2 documentada.
 - Chavín de Huántar: preview web v0.1 con pase high-poly v0.4; LOD0 de 249.906 tris y LOD1 de 27.539 tris; friso integrado, Lanzón derivado del escaneo CyArk (CC BY-NC-SA 4.0) y Portada con fustes acanalados. Dintel, escalera completa y QA en hardware real pendientes.
-- [Aypate](./aypate/README.md): preview web v0.2 con high-poly navegable; LOD0 de 241.436 tris y LOD1 de 31.623 tris. Núcleo inca, Qhapaq Ñan y bosque de neblina; planta completa pendiente y layout interpretativo.
+- [Aypate](./aypate/README.md): preview web v0.2 con high-poly navegable; LOD0 de 241.436 tris y LOD1 de 31.623 tris. Núcleo inca, Qhapaq Ñan y bosque de neblina. El plano general de 2013 está publicado; la auditoría muestra que el layout v0.2 no coincide y requiere v0.3.
 - [Narihualá](./narihuala/README.md): Fase 0, ficha de investigación; sin modelo. Conjunto de adobe tallán; capilla republicana como capa posterior.
 - Chan Chan y Wari: en investigación; quedan en segundo plano frente a Aypate y Narihualá.

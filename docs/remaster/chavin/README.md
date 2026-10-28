@@ -1,8 +1,8 @@
 # Chavín de Huántar — remaster
 
-Estado: **preview web v0.1 publicado en la rama; blockout v0.5, texturizado UV v0.2 y Portada v0.1 aceptados como base**. LOD0 de 14.158 tris y LOD1 de 9.422 tris, con 15 draw calls y fallback LOD1. No es un remaster final. Fuentes UNESCO/Mincul, Plan de Manejo 2020 e ICOMOS 1999 verificados; ICOMOS 1985 y las secciones finas quedan como pendientes no bloqueantes.
+Estado: **preview web v0.1 con pase high-poly v0.3; blockout v0.5, texturizado UV v0.2 y Portada v0.1 aceptados como base**. LOD0 de 249.266 tris y LOD1 de 26.898 tris, con fallback LOD1. El Lanzón es una adaptación del escaneo CyArk/Google Arts & Culture (CC BY-NC-SA 4.0), no una reconstrucción final. Fuentes UNESCO/Mincul, Plan de Manejo 2020 e ICOMOS 1999 verificados; ICOMOS 1985 y las secciones finas quedan como pendientes no bloqueantes.
 
-Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 está aceptado como base de escala y `chavin_textured_v0.2.blend` añade UVs de proyección cúbica, texturas 2K repetidas, tinte cálido y una difusa oscura propia. El bake 2K se probó y se descartó por pérdida de detalle. La Portada v0.1 corrige el placeholder a escala documentada, añade relieves interpretativos y queda aceptada como base; el dintel se omite por evidencia y la escalera se reduce a un escalón inferido. El preview web usa la geometría actual como LOD0/LOD1 y sirve para validar cámaras, capas, fallback y caché; el terreno se queda procedural y el high-poly sigue pendiente.
+Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 está aceptado como base de escala y `chavin_textured_v0.2.blend` añade UVs de proyección cúbica, texturas 2K repetidas, tinte cálido y una difusa oscura propia. El bake 2K se probó y se descartó por pérdida de detalle. La Portada v0.1 corrige el placeholder a escala documentada, añade relieves interpretativos y queda aceptada como base; el dintel se omite por evidencia y la escalera se reduce a un escalón inferido. El pase high-poly v0.3 conserva la mampostería de fachada, las lomas y el friso integrado, y sustituye el rostro inciso del Lanzón por una malla derivada del escaneo CyArk; el LOD1 conserva una copia de 12.000 tris con relieve. El uso comercial de esa geometría está restringido por CC BY-NC-SA 4.0. El preview web usa esa geometría como LOD0/LOD1 y sirve para validar cámaras, capas, fallback y caché; el terreno sigue siendo procedural y el pase no es una reconstrucción final.
 
 ## Documentos
 
@@ -20,6 +20,9 @@ Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 e
 - `textured-v0.1.md`: UVs de proyección cúbica, texturas 2K y prueba de GLB; incluye el bake descartado (histórico).
 - `textured-v0.2.md`: ashlar con tinte cálido, difusa oscura, hiladas variables y normal más marcada; GLB de prueba de 5,5 MB.
 - `portada-v0.1.md`: escala corregida, columnas, jambas, friso, vano y relieves interpretativos.
+- `highpoly-v0.1.md`: mampostería en relieve, talla del Lanzón, lomas, rocas, métricas y límites del pase anterior (superado).
+- `highpoly-v0.2.md`: friso integrado y rostro inciso del Lanzón (superado por v0.3).
+- `highpoly-v0.3.md`: Lanzón derivado del escaneo CyArk, licencia, métricas y límites del pase actual.
 - `web-preview.md`: assets, métricas, QA, límites y limitación de LOD0/LOD1.
 
 ## Reglas

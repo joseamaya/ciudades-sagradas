@@ -1,12 +1,12 @@
-"""Prepara los LOD de preview de Chavín desde la escena de la Portada v0.1.
+"""Prepara los LOD de Chavín desde la fuente high-poly v0.3.
 
 Uso:
-  blender --background blender/chavin/chavin_portada_v0.1.blend \
+  blender --background blender/chavin/chavin_highpoly_v0.3.blend \
     --python scripts/build_chavin_lod.py -- --lod 0 \
     --out-blend blender/chavin/chavin_lod0.blend
 
-El LOD1 elimina los detalles mínimos del relieve de la Portada y se exporta
-después con texturas 1K. No modifica la escena fuente.
+El LOD1 elimina los detalles marcados con lod1_exclude y se exporta después con
+texturas 1K. No modifica la escena fuente.
 """
 
 import argparse
@@ -34,6 +34,9 @@ TERRAIN_SPECIAL = {
     "GEO-Chavin_Path_Terrace_N",
 }
 LOD1_EXCLUDE = ("_Eye", "_Fang", "_Serpent")
+# Los detalles del pase high-poly se omiten en móvil mediante su propiedad
+# lod1_exclude. La base de la Portada y el Lanzón permanecen.
+
 
 MATERIAL_FALLBACK = {
     "MAT-Chavin_Earth": ((0.34, 0.27, 0.18, 1.0), 0.96),
@@ -41,8 +44,9 @@ MATERIAL_FALLBACK = {
     "MAT-Chavin_Plaster": ((0.62, 0.57, 0.48, 1.0), 0.78),
     "MAT-Chavin_Water": ((0.06, 0.18, 0.24, 1.0), 0.30),
     "MAT-Chavin_Vegetation": ((0.14, 0.23, 0.10, 1.0), 0.88),
-    "MAT-Chavin_Lanzon": ((0.37, 0.34, 0.28, 1.0), 0.82),
+    "MAT-Chavin_Lanzon": ((0.50, 0.46, 0.38, 1.0), 0.80),
     "MAT-Chavin_GalleryDark": ((0.008, 0.010, 0.008, 1.0), 0.92),
+    "MAT-Chavin_Lanzon_Shadow": ((0.060, 0.052, 0.045, 1.0), 0.90),
     "MAT-Chavin_Reference": ((0.40, 0.24, 0.16, 1.0), 0.82),
 }
 
@@ -214,7 +218,7 @@ def merge_layer(objects, layer, collection, lod):
     joined["layer"] = layer
     joined["lod"] = int(lod)
     joined["units"] = "meters"
-    joined["source"] = "chavin_portada_v0.1"
+    joined["source"] = "chavin_highpoly_v0.3"
     joined["evidence"] = "documentado + inferido"
     joined.hide_set(False)
     joined.hide_render = False
@@ -237,9 +241,15 @@ def main():
             obj["layer"] = layer_for(obj)
             obj["lod"] = int(lod)
             obj["units"] = "meters"
+    if lod == "0":
+        for obj in list(bpy.data.objects):
+            if obj.type == "MESH" and obj.get("lod0_exclude"):
+                bpy.data.objects.remove(obj, do_unlink=True)
     if lod == "1":
         for obj in list(bpy.data.objects):
-            if obj.type == "MESH" and any(token in obj.name for token in LOD1_EXCLUDE):
+            if obj.type != "MESH":
+                continue
+            if any(token in obj.name for token in LOD1_EXCLUDE) or obj.get("lod1_exclude"):
                 bpy.data.objects.remove(obj, do_unlink=True)
     groups = {layer: [] for layer in ("city", "terrain", "props", "reference")}
     for obj in bpy.data.objects:

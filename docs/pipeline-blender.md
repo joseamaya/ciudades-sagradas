@@ -7,6 +7,7 @@
 - Y-up en el GLB; el visor aplica la escala de conversión indicada en `city.json`.
 - Materiales PBR con nombres estables (`MAT-<Ciudad>_<Material>`).
 - Nada de texturas con licencia incierta.
+- Los derivados de escaneos (p. ej. Lanzón de Chavín) conservan su licencia original; se documentan en `LICENSE-ASSETS.md` y no se relicencian a MIT.
 
 ## Estructura de la escena
 
@@ -73,6 +74,7 @@ bpy.ops.export_scene.gltf(
 - Sin texturas gigantes sin comprimir.
 - Sin elementos de juego: colliders, spawns, recursos o HUD.
 - Revisar la ficha de fuentes y el estado de evidencia.
+- Comprobar que la licencia del asset derivado permite el uso previsto (el Lanzón CyArk es CC BY-NC-SA 4.0, sin uso comercial).
 
 ## Fuentes actuales
 

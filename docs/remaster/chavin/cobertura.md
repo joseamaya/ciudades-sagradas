@@ -22,7 +22,7 @@ La marca **Documentado** de la tabla se apoya en la ficha UNESCO 330 y/o en el M
 | Ventilación y drenaje | Documentado | Detalle visible | Blockout parcial | Un ducto esquemático de 0,5 m; sin red completa |
 | Lanzón | Documentado | Hero | Malla escaneada v0.3 | 4,5 m; derivado CyArk/Google Arts & Culture (CC BY-NC-SA 4.0); decimado; sin textura fotográfica |
 | Mampostería y juntas | Inferido | Base visual | UV tiling | Ashlar v2 2K propio con tinte cálido, difusa oscura y UVs de cubo; atlas 2K descartado; no es levantamiento de bloques |
-| Portada de las Falcónidas | Documentado | Hero | Base v0.1 + preview | Columnas de 2,30 m, jambas trilíticas, friso de 6,48 m partido en dos, relieves interpretativos y un escalón inferido; dintel omitido por evidencia |
+| Portada de las Falcónidas | Documentado | Hero | Base v0.1 + preview v0.4 | Columnas de 2,30 m con fustes acanalados interpretativos, jambas trilíticas, friso de 6,48 m partido en dos, relieves interpretativos y un escalón inferido; dintel omitido por evidencia |
 | Estela Raimondi | Documentado | Referencia | Pendiente | Museo; requiere licencia o réplica señalizada |
 | Obelisco Tello | Documentado | Referencia | Pendiente | Museo; opcional |
 | Cabezas clavas | Documentado | Props/referencia | Pendiente | No todas; selección con fuente |

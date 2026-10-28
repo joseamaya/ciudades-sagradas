@@ -6,7 +6,7 @@
 - OpenCode configurado con MCP de Blender y skills MIT en `.agents/skills/`.
 - **Caral Remaster v2 es el estado actual y la referencia técnica del proyecto.**
 - Caral v2 queda cerrada bajo el estándar de **ciudad representativa**: volúmenes y sectores principales, high-poly solo en las cuatro zonas hero. No es un inventario 1:1 de los 32 edificios públicos. Ver `docs/remaster/caral/cobertura.md`.
-- Chavín Fase 0 cerrada, **blockout v0.5 aceptado**, **texturizado UV v0.2** de la mampostería ashlar y **Portada de las Falcónidas v0.1 aceptada como base**: columnas de 2,30 m, jambas trilíticas, friso de 6,48 m partido en dos, ocho perfiles de falcónidas, relieves interpretativos y un escalón de acceso inferido. **Preview web v0.1 con pase high-poly v0.4**: LOD0 de 250.866 tris / 1.963.916 B y LOD1 de 28.499 tris / 788.012 B, 19/15 draw calls, seis paradas, capas en extras y terreno texturizado; `stage: preview`, caché v21. La Portada usa `fov 28` en la parada 5 y fustes acanalados interpretativos. El Lanzón es una adaptación del escaneo CyArk/Google Arts & Culture (CC BY-NC-SA 4.0), con material propio y sin la textura fotográfica; el bake normal/AO se descartó por artefactos. Edificio A/B, patio de B, Plaza Circular, secuencia de galería y terreno procedural (talud, rampa, ríos). Chavín aprobado en Android con evidencia parcial; ver `docs/remaster/chavin/qa-hardware.md`.
+- Chavín Fase 0 cerrada, **blockout v0.5 aceptado**, **texturizado UV v0.2** de la mampostería ashlar y **Portada de las Falcónidas v0.1 aceptada como base**: columnas de 2,30 m, jambas trilíticas, friso de 6,48 m partido en dos, ocho perfiles de falcónidas, relieves interpretativos y un escalón de acceso inferido. **Preview web v0.1 con pase high-poly v0.4**: LOD0 de 249.906 tris / 1.962.060 B y LOD1 de 27.539 tris / 786.136 B, 19/15 draw calls, seis paradas, capas en extras y terreno texturizado; `stage: preview`, caché v22. La Portada usa `fov 28` en la parada 5 y fustes acanalados interpretativos. El Lanzón es una adaptación del escaneo CyArk/Google Arts & Culture (CC BY-NC-SA 4.0), con material propio y sin la textura fotográfica; el bake normal/AO se descartó por artefactos. Edificio A/B, patio de B, Plaza Circular, secuencia de galería y terreno procedural (talud, rampa, ríos). Chavín aprobado en Android con evidencia parcial; ver `docs/remaster/chavin/qa-hardware.md`.
 - LOD0 high-poly: 230.800 tris, 65 primitivas, 21 materiales, 31 imágenes, **3.277.080 bytes** con Draco.
 - LOD1 horneado: 56.332 tris, 38 primitivas, 23 materiales, 39 imágenes 1K, **1.345.092 bytes** con Draco.
 - Fallback v1: 55.944 tris, 554 primitivas, 20 materiales, 31 imágenes, 4.778.308 bytes.
@@ -43,7 +43,7 @@
 - La carga local terminó en ~1,2–1,7 s de respuesta de red y ~6–7 s hasta el primer render en SwiftShader; en GPU real el primer render baja de forma importante. El dato de FPS de SwiftShader no representa hardware real.
 - `npm run validate` y `npm run build`: OK.
 - Fallback verificado: LOD0 → LOD1 → v1 en escritorio; LOD1 → v1 → LOD0 en móvil.
-- Offline verificado con caché `v21` y `?nosw=1` como escape de QA.
+- Offline verificado con caché `v22` y `?nosw=1` como escape de QA.
 
 ## Pendiente
 

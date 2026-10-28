@@ -34,13 +34,8 @@ BAND = 0.075
 RINGS = (
     (Z_BOTTOM, RADIUS),
     (Z_BOTTOM + BAND, RADIUS),
-    (Z_BOTTOM + BAND + 0.06, None),
-    (-0.90, None),
-    (-0.45, None),
-    (0.00, None),
-    (0.45, None),
-    (0.90, None),
-    (Z_TOP - BAND - 0.06, None),
+    (Z_BOTTOM + BAND + 0.03, None),
+    (Z_TOP - BAND - 0.03, None),
     (Z_TOP - BAND, RADIUS),
     (Z_TOP, RADIUS),
 )

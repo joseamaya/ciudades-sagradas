@@ -10,15 +10,15 @@
 - **Look-dev anterior:** `chavin_lookdev_v0.2.blend`, 585 KB (histórico).
 - **Base de escala:** `chavin_blockout_v0.5.blend`, 176 KB.
 - **Versiones anteriores:** `chavin_blockout_v0.4.blend` (patio B), `chavin_blockout_v0.3.blend` (galería), `chavin_blockout_v0.2.blend` (terreno), `chavin_blockout_v0.1.blend` (masas).
-- **Estado:** preview web v0.1 con pase high-poly v0.4; LOD0 de 250.866 tris y LOD1 de 28.499 tris; blockout v0.5, texturizado UV v0.2 y Portada v0.1 aceptados como base.
+- **Estado:** preview web v0.1 con pase high-poly v0.4; LOD0 de 249.906 tris y LOD1 de 27.539 tris; blockout v0.5, texturizado UV v0.2 y Portada v0.1 aceptados como base.
 - **Escala:** metros; el preview usa `scale: 0.08` en `city.json` y `minDistance: 0.1` para el primer plano del Lanzón.
-- **Contenido:** 2.813 mallas y ~250.866 tris en la fuente high-poly; 9 colecciones.
+- **Contenido:** 2.813 mallas y ~249.906 tris en la fuente high-poly; 9 colecciones.
 - **Portada:** columnas de 2,30 m con fustes acanalados interpretativos, jambas trilíticas, friso de 6,48 m, ocho falcónidas con relieve y un escalón de acceso inferido.
 - **UVs:** piedra ashlar con proyección de cubo por cara; Portada con smart UV; texturas con repetición.
 - **Texturas:** ashlar v2 en `blender/textures/chavin/chavin_ashlar_v2_*` y piedra labrada en `chavin_portada_v1_*`; generadores `scripts/make_chavin_materials_v2.py`, `scripts/make_chavin_portal_materials.py` y `scripts/make_chavin_terrain_materials.py`; empaquetadas.
 - **Materiales:** ashlar claro/oscuro, ashlar high-poly A/B/C, piedra labrada clara/oscura, plaster, tierra, agua, vegetación, galería y Lanzón.
 - **Cámaras:** `CAM-Chavin_Hero`, `Plan`, `Core`, `Gallery`, `Portal`, `Lanzon`, `Section`, `CAM-Chavin_PortadaFalconidas`, `CAM-Chavin_PortadaFalconidas_3q`, `CAM-Chavin_PortadaContext` y las cámaras de QA `CAM-Chavin_HP_*`.
-- **LOD:** 4 mallas fusionadas por capa (`city`, `terrain`, `props`, `reference`); LOD0 1.963.916 B / 250.866 tris / 19 draw calls, LOD1 788.012 B / 28.499 tris / 15 draw calls; terreno con texturas propias 1K.
+- **LOD:** 4 mallas fusionadas por capa (`city`, `terrain`, `props`, `reference`); LOD0 1.962.060 B / 249.906 tris / 19 draw calls, LOD1 786.136 B / 27.539 tris / 15 draw calls; terreno con texturas propias 1K.
 - **Luces:** `LGT-Chavin_Sun`, `Fill`, `GalleryFill`, `LanzonFill`, `LGT-Chavin_PortadaFill` y `LGT-Chavin_HP_LanzonFill` (solo QA).
 
 ## Alcance

@@ -311,20 +311,6 @@ def stairs(name, start, width, run, rise, steps, axis="x", mat=None, layer="city
         box(f"{name}_{i}", (run if axis == "x" else width, width if axis == "x" else run, height), (x, y, start[2] + height / 2), mat, layer, 3.0, 0.015)
 
 
-def mountain(name, x, y, radius, height, mat, scale_y=1.0, lod1_exclude=False):
-    bpy.ops.mesh.primitive_cone_add(vertices=9, radius1=radius, radius2=radius * 0.08, depth=height, location=(x, y, height / 2 - 8))
-    obj = bpy.context.object
-    obj.name = name
-    obj.data.name = f"MESH-{name}"
-    obj.scale.y = scale_y
-    apply_scale(obj)
-    obj.data.materials.append(mat)
-    obj["layer"] = "terrain"
-    obj["lod1_exclude"] = bool(lod1_exclude)
-    add_to(obj, bucket("Terrain"))
-    return obj
-
-
 def tree(name, x, y, z, scale, mats, lod1_exclude=False):
     parts = []
     trunk_h = 4.0 * scale

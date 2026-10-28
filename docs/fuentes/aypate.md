@@ -1,6 +1,6 @@
 # Aypate — dossier de fuentes
 
-**Estado:** preview web v0.2 con high-poly; layout interpretativo, no reconstrucción final.
+**Estado:** preview web v0.2 con high-poly; layout interpretativo no coincidente con el plano de 2013; v0.3 pendiente.
 **Fecha de consulta:** 28 de octubre de 2026.
 
 ## Ficha
@@ -61,7 +61,7 @@
 | Ocupación inca y edificios estatales | Documentado | Plaza, ushnu, kallanka, acllawasi, palacio y colcas. |
 | Qhapaq Ñan y ramal alternativo | Documentado | Trazado y anchos reportados por el proyecto oficial. |
 | Baño/fuente ritual | Documentado | Rocas labradas y hornacinas. |
-| Planta completa y cotas | Parcial | Existe levantamiento del proyecto; no se ha publicado completo. |
+| Planta completa y cotas | Documentado / parcial | Levantamiento topográfico y arquitectónico de 2013 publicado como figura general en Campos 2017; la memoria de 36 sectores y el original de alta resolución no son públicos. |
 | Atribución a Túpac Yupanqui | Reportado | Ficha turística; no se usa como fecha cerrada. |
 | Alturas originales y techos | Inferido / no conservado | No reconstruir sin fuente. |
 | Función exacta de cada recinto | Documentado / interpretado | Se distingue en la ficha. |
@@ -73,7 +73,8 @@
 - Mincetur, ficha de inventario 374: <https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=374>
 - Revista de Investigación Científica Aypate, Universidad Nacional de Frontera (2022): <https://revistas.unf.edu.pe/aypate/article/view/7>
 - Ministerio de Cultura, investigaciones en la zona arqueológica de Aypate (2014): <https://www.gob.pe/institucion/cultura/noticias/47292-ministerio-de-cultura-brindo-exposicion-sobre-las-investigaciones-en-la-zona-arqueologica-de-aypate>
-- UNESCO, *Qhapaq Ñan, Andean Road System* (n.º 1374): <https://whc.unesco.org/en/list/1374/>
+- Carlos E. Campos Napán, *Dominando el paisaje sagrado: los incas y la construcción del ushnu de Aypate*, Cuadernos del Qhapaq Ñan 5 (2017), pp. 68–98, figura 1 (plano de 2013): <https://revistas.cultura.gob.pe/index.php/cuadernosqn/article/view/499>
+- UNESCO, *Qhapaq Ñan, Andean Road System* (n.º 1459): <https://whc.unesco.org/en/list/1459/>
 - Qhapaq Ñan, *Aypate: un monumento arqueológico y una montaña cósmica donde nace el agua*: <https://qhapaqnan.cultura.pe/sites/default/files/articulos/173473673-Aypate-un-monumento-arqueolo-gico-y-una-montan-a-co-smica-donde-nace-el-agua.pdf>
 - Sketchfab, *Puerta monumental inca de Aypate*, fjmOjeda, CC BY: <https://sketchfab.com/3d-models/puerta-monumental-inca-de-aypate-peru-53858cc105ac498ea016ceeaac67fc8c>
 
@@ -82,13 +83,15 @@
 - Fuente: `blender/aypate/aypate_highpoly_v0.2.blend`.
 - LOD0 de 241.436 tris y LOD1 de 31.623 tris; seis paradas.
 - Se modelaron plaza, ushnu, kallanka, acllawasi, palacio, colcas, fuente, andenes y Qhapaq Ñan.
-- La composición es interpretativa: la planta completa no está publicada.
+- La composición es interpretativa y **no coincide** con el plano de 2013: ushnu, kallanka, acllawasi, palacio, colcas y Qhapaq Ñan están en relaciones espaciales distintas. Ver `docs/remaster/aypate/auditoria-plano-2013.md`.
 - Techos, alturas perdidas y recintos periféricos quedan fuera.
+- La v0.3 debe rehacer el blockout y el recorrido; no se corrige con mover una sola pieza.
 
 ## Notas de reconstrucción
 
 - Prioridad: núcleo estatal alrededor de la plaza y relaciones con el cerro, el camino y el bosque.
-- Usar el levantamiento planimétrico y topográfico del Proyecto Integral Aypate si se obtiene una copia autorizada; mientras tanto, no inventar el trazado completo.
+- Usar el levantamiento topográfico y arquitectónico de 2013 publicado en Campos 2017 para rehacer el layout macro; no copiar la figura y no tomar sus medidas como cotas de precisión.
+- La memoria de 36 sectores y el original de alta resolución siguen siendo la fuente pendiente para detalles y cotas.
 - La puerta monumental escaneada se usa como referencia de proporciones; no se publica en v0.2.
 - No reconstruir techos, alturas perdidas ni recintos sin planta.
 - Materiales pétreos, musgo y niebla propios del bosque de neblina; no paleta costeña ni imaginería cusqueña genérica.

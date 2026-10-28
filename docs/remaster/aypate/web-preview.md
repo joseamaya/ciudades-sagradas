@@ -55,8 +55,9 @@ Fuente: `blender/aypate/aypate_highpoly_v0.2.blend`; los LOD se regeneran con `s
 
 ## Límites
 
-- La planta completa de Aypate no está publicada; el layout es interpretativo.
-- Los edificios se muestran sin techos y con volúmenes de high-poly; el layout sigue siendo interpretativo.
+- El plano general de 2013 está publicado en Campos 2017; la memoria de 36 sectores no es pública.
+- La composición de v0.2 no coincide con ese plano: ushnu, kallanka, acllawasi, palacio, colcas y Qhapaq Ñan tienen relaciones espaciales distintas. Ver `auditoria-plano-2013.md`.
+- Los edificios se muestran sin techos y con volúmenes de high-poly; el layout v0.2 no debe leerse como planta documentada.
 - La vegetación y la niebla son una lectura ambiental, no un inventario.
 - No hay QA en hardware real todavía.
 - La puerta escaneada de Sketchfab no se incorporó al GLB; solo se usó como referencia.

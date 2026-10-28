@@ -1,7 +1,7 @@
 # Plan de Aypate — Fase 0
 
 Fecha: 28 de octubre de 2026.
-Estado: **high-poly v0.2 y preview web; la planta completa sigue pendiente y el layout es interpretativo**.
+Estado: **high-poly v0.2 y preview web; plano general de 2013 localizado; layout v0.2 no coincide y requiere v0.3**.
 
 ## Objetivo
 
@@ -55,7 +55,8 @@ Los textos deben distinguir documentado, inferido e interpretativo; la atribuci�
 - El modelo de la puerta monumental de Sketchfab es **CC BY**; si se integra, se registra autoría y atribución. En v0.2 se usa como referencia.
 - No se copian imágenes de Qhapaq Ñan/Mincul/Mincetur.
 - Sin texturas de IA; materiales procedurales o CC0.
-- La planta topográfica es un requisito: si no hay una copia autorizada, se modela solo el núcleo documentado y se marca el resto como inferido.
+- La planta topográfica y arquitectónica de 2013 está publicada en Campos 2017; se usa para el layout macro, sin copiar la figura ni asumir cotas finas.
+- La memoria de 36 sectores y el original de alta resolución siguen pendientes para detalles.
 
 ## Riesgos
 
@@ -73,11 +74,12 @@ Los textos deben distinguir documentado, inferido e interpretativo; la atribuci�
 - [x] Dossier de fuentes.
 - [x] Ficha de investigación en el atlas.
 - [x] Alcance hero/fondo y límites.
-- [ ] Planta topográfica o aérea utilizable: no publicada; se usó una composición interpretativa basada en descripciones y fotos.
+- [x] Plano general localizado: levantamiento de 2013 publicado en Campos 2017; sirve para relaciones macro, no para cotas finas.
+- [ ] Planta y cotas cotejadas: la v0.2 no coincide con el plano; la v0.3 debe rehacer el layout.
 - [x] Cronología y atribución revisadas con fuentes oficiales, marcando lo reportado.
 - [x] Licencias: sin imágenes oficiales; Sketchfab solo referencia CC BY.
 - [x] Presupuesto y recorrido aprobados para blockout.
 
 ## Siguiente
 
-High-poly v0.2 completado con plaza, ushnu, kallanka, acllawasi, palacio, colcas, fuente, andenes y camino. Siguiente: QA visual, revisión de la planta cuando haya una copia autorizada y QA en hardware real. El layout actual no debe presentarse como reconstrucción final.
+High-poly v0.2 completado con plaza, ushnu, kallanka, acllawasi, palacio, colcas, fuente, andenes y camino. La auditoría del plano de 2013 muestra que el layout no coincide; el siguiente paso es **v0.3**: rehacer blockout, recorrido y cámaras con el plano publicado, reutilizando materiales y generadores. Después, QA visual y QA en hardware real. El layout v0.2 no debe presentarse como reconstrucción final.

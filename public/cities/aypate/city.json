@@ -47,7 +47,7 @@
     },
     {
       "title": "La Plaza Inca",
-      "text": "La plaza es una planicie trapezoidal en la ladera del cerro. Alrededor se organizan el ushnu, la kallanka, el acllawasi y el palacio; la composición exacta es interpretativa porque la planta completa no está publicada.",
+      "text": "La plaza es una planicie trapezoidal en la ladera del cerro. Alrededor se organizan el ushnu, la kallanka, el acllawasi y el palacio. La composición de esta versión es interpretativa y no coincide con el plano de 2013; la v0.3 corregirá el layout.",
       "camera": {
         "position": [
           5.6,
@@ -171,15 +171,19 @@
       "url": "https://www.gob.pe/institucion/cultura/noticias/47292-ministerio-de-cultura-brindo-exposicion-sobre-las-investigaciones-en-la-zona-arqueologica-de-aypate"
     },
     {
-      "label": "UNESCO — Qhapaq Ñan, Andean Road System (n.º 1374)",
-      "url": "https://whc.unesco.org/en/list/1374/"
+      "label": "Campos Napán — Dominando el paisaje sagrado (2017), plano de 2013",
+      "url": "https://revistas.cultura.gob.pe/index.php/cuadernosqn/article/view/499"
+    },
+    {
+      "label": "UNESCO — Qhapaq Ñan, Andean Road System (n.º 1459)",
+      "url": "https://whc.unesco.org/en/list/1459/"
     },
     {
       "label": "Sketchfab — Puerta monumental inca de Aypate (referencia 3D, CC BY)",
       "url": "https://sketchfab.com/3d-models/puerta-monumental-inca-de-aypate-peru-53858cc105ac498ea016ceeaac67fc8c"
     }
   ],
-  "disclaimer": "Preview de revisión v0.2. La planta completa de Aypate no está publicada: la composición del núcleo sigue siendo interpretativa y se apoya en descripciones, fotos y levantamientos parciales. El high-poly detalla los elementos documentados; no es una reconstrucción histórica final. La puerta escaneada de Sketchfab no se incorpora al GLB.",
+  "disclaimer": "Preview de revisión v0.2. El levantamiento topográfico y arquitectónico de 2013 está publicado como figura general; la memoria de 36 sectores no es pública. La composición de esta versión es interpretativa y no coincide con ese plano: la v0.3 corregirá el layout. El high-poly detalla los elementos documentados; no es una reconstrucción histórica final. La puerta escaneada de Sketchfab no se incorpora al GLB.",
   "credits": "Geometría, materiales y renders propios; sin imágenes oficiales ni texturas de IA. Referencia 3D de la puerta: fjmOjeda, CC BY, no incorporada. Fuentes en docs/fuentes/aypate.md.",
   "stage": "preview",
   "lod": {

@@ -1,7 +1,7 @@
 # Cobertura objetivo — Aypate
 
 Fecha: 28 de octubre de 2026.
-Estado: **preview web v0.2 con high-poly; layout interpretativo**.
+Estado: **preview web v0.2 con high-poly; layout no coincidente con el plano de 2013; v0.3 pendiente**.
 Estándar: **centro representativo**.
 
 | Elemento | Evidencia | Nivel objetivo | Estado | Nota |
@@ -21,7 +21,7 @@ Estándar: **centro representativo**.
 | Kanchas de control | Documentado | Fondo | High-poly | Asociadas al camino alternativo |
 | Bosque de neblina | Documentado/inferido | Fondo | High-poly | Ambiente, no inventario botánico |
 | Techos y cubiertas | No conservado | No reconstruir | Diferido | Sin evidencia |
-| Planta completa y cotas | Parcial | Gate | Pendiente; layout interpretativo | Levantamiento no publicado completo |
+| Planta completa y cotas | Documentado / parcial | Gate | Parcial; v0.2 no coincide | Levantamiento de 2013 publicado como figura general; memoria de 36 sectores no pública |
 
 ## Huecos de evidencia
 
@@ -33,12 +33,17 @@ Estándar: **centro representativo**.
 | Atribución a un gobernante | Reportada, no cerrada |
 | Límites de las 156–200 ha | Modelar solo núcleo y contexto |
 
+## Auditoría del plano de 2013
+
+La comparación con la figura 1 de Campos 2017 muestra un desajuste macro: el ushnu está al este de la plaza en el plano y al oeste en v0.2; la kallanka está al oeste/noroeste en el plano y al sur en v0.2; el acllawasi está al sur/suroeste en el plano y al este en v0.2. No se corrige con una rotación o espejo simple. Ver `auditoria-plano-2013.md`.
+
 ## Criterio de aceptación
 
 - [x] Ficha y fuentes.
-- [ ] Planta y cotas completas: no publicadas.
+- [x] Plano general localizado: levantamiento de 2013 publicado en Campos 2017; no copiado al repositorio.
+- [ ] Planta y cotas cotejadas: v0.2 no coincide; v0.3 debe rehacer el layout.
 - [x] High-poly generado y revisado.
-- [x] Ushnu, kallanka, acllawasi y plaza legibles.
+- [x] Ushnu, kallanka, acllawasi y plaza legibles como volúmenes, no como planta documentada.
 - [x] Sin techos ni recintos inventados.
 - [x] Licencias y atribuciones.
 - [x] LOD0/LOD1 y preview web; QA de hardware pendiente.

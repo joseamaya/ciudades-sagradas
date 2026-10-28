@@ -110,6 +110,8 @@ La prioridad es el impacto visual, pero sin presentar invenciones como hechos. C
 - **Inferido:** reconstrucción razonable a partir de la evidencia.
 - **Interpretativo:** decisiones artísticas para completar vacíos.
 
+El estándar obligatorio de ciudad publicada está en [`docs/estandares/ciudad.md`](./docs/estandares/ciudad.md); la auditoría de las seis ciudades está en [`docs/estandares/auditoria-ciudades.md`](./docs/estandares/auditoria-ciudades.md). Ninguna ciudad se marca `available` si no cumple sus gates.
+
 El visor no usa fotografías históricas como textura. Las imágenes oficiales se citan como referencia; para publicar se usan materiales propios, CC0 o con permiso. Los GLB publicados usan WebP, Draco y, en LOD1, atlas horneados; no incluyen texturas de IA.
 
 ## Licencias

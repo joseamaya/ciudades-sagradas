@@ -1,5 +1,7 @@
 # Plantilla técnica — nueva ciudad
 
+> El estándar obligatorio y la auditoría están en [`../../estandares/ciudad.md`](../../estandares/ciudad.md) y [`../../estandares/auditoria-ciudades.md`](../../estandares/auditoria-ciudades.md). Esta plantilla es el checklist operativo.
+
 Checklist derivado de Caral Remaster v2.
 
 ## Estándar de completitud

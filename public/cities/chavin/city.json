@@ -21,7 +21,7 @@
   "fallbackModel": "cities/chavin/model_lod1.glb",
   "scale": 0.08,
   "verticalScale": 1,
-  "minDistance": 0.25,
+  "minDistance": 0.08,
   "maxDistance": 180,
   "camera": {
     "position": [16.8, 10.4, 18.8],
@@ -49,7 +49,7 @@
     },
     {
       "title": "Edificio B y el Lanzón",
-      "text": "El Edificio B alberga la Galería del Lanzón. La pieza es un monolito ahusado de unos 4,5 m; en esta vista se presenta como volumen de estudio, sin talla ni acabado final.",
+      "text": "El Edificio B alberga la Galería del Lanzón. La pieza es un monolito ahusado de unos 4,5 m; esta vista recorre el corredor y presenta el volumen tallado de forma interpretativa, no una reproducción iconográfica.",
       "camera": {
         "position": [1.12, 0.52, -4.96],
         "target": [0, 0.416, -4.96],

@@ -6,7 +6,7 @@
 - OpenCode configurado con MCP de Blender y skills MIT en `.agents/skills/`.
 - **Caral Remaster v2 es el estado actual y la referencia técnica del proyecto.**
 - Caral v2 queda cerrada bajo el estándar de **ciudad representativa**: volúmenes y sectores principales, high-poly solo en las cuatro zonas hero. No es un inventario 1:1 de los 32 edificios públicos. Ver `docs/remaster/caral/cobertura.md`.
-- Chavín Fase 0 cerrada, **blockout v0.5 aceptado**, **texturizado UV v0.2** de la mampostería ashlar y **Portada de las Falcónidas v0.1 aceptada como base**: columnas de 2,30 m, jambas trilíticas, friso de 6,48 m partido en dos, ocho perfiles de falcónidas, relieves interpretativos y un escalón de acceso inferido. **Preview web v0.1**: LOD0 de 14.158 tris / 732.780 B y LOD1 de 9.422 tris / 654.732 B, 15 draw calls, seis paradas, capas en extras y terreno texturizado; `stage: preview`, caché v12. El bake 2K se descartó por pérdida de detalle. Edificio A/B, patio de B, Plaza Circular, secuencia de galería, Lanzón ahusado y terreno procedural (talud, rampa, ríos).
+- Chavín Fase 0 cerrada, **blockout v0.5 aceptado**, **texturizado UV v0.2** de la mampostería ashlar y **Portada de las Falcónidas v0.1 aceptada como base**: columnas de 2,30 m, jambas trilíticas, friso de 6,48 m partido en dos, ocho perfiles de falcónidas, relieves interpretativos y un escalón de acceso inferido. **Preview web v0.1 con pase high-poly**: LOD0 de 174.582 tris / 1.846.904 B y LOD1 de 18.738 tris / 751.384 B, 20/15 draw calls, seis paradas, capas en extras y terreno texturizado; `stage: preview`, caché v13. El bake 2K se descartó por pérdida de detalle. Edificio A/B, patio de B, Plaza Circular, secuencia de galería, Lanzón ahusado y terreno procedural (talud, rampa, ríos).
 - LOD0 high-poly: 230.800 tris, 65 primitivas, 21 materiales, 31 imágenes, **3.277.080 bytes** con Draco.
 - LOD1 horneado: 56.332 tris, 38 primitivas, 23 materiales, 39 imágenes 1K, **1.345.092 bytes** con Draco.
 - Fallback v1: 55.944 tris, 554 primitivas, 20 materiales, 31 imágenes, 4.778.308 bytes.
@@ -71,4 +71,4 @@
 
 ## Próximo paso recomendado
 
-Documentar y aceptar la incidencia Android P2; no bloquear el cierre de contenido. Chavín ya tiene un preview web v0.1 con LOD0/LOD1 y seis paradas; el siguiente hito es un pase high-poly, QA en hardware real y decidir dintel/escalera. El terreno se queda procedural por ahora. KTX2/BasisU sigue como mejora opcional si 208 MB de VRAM no bastan.
+Documentar y aceptar la incidencia Android P2; no bloquear el cierre de contenido. Chavín ya tiene un preview web v0.1 con pase high-poly, LOD0/LOD1 y seis paradas; el siguiente hito es QA en hardware real y decidir dintel/escalera y el close-up iluminado del Lanzón. El terreno se queda procedural por ahora. KTX2/BasisU sigue como mejora opcional si 208 MB de VRAM no bastan.

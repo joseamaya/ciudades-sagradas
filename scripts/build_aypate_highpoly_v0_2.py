@@ -194,6 +194,9 @@ def replace_textures():
         if mat is None:
             continue
         diffuse, rough, normal = b.texture_set(label, seed, base, accent, kind, 2048)
+        for image in (rough, normal):
+            image.scale(1024, 1024)
+            image.pack()
         for node in mat.node_tree.nodes:
             if node.type != "TEX_IMAGE":
                 continue

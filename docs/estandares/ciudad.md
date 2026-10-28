@@ -105,7 +105,7 @@ Una ciudad está terminada cuando:
 |---|---|---|
 | Caral | Parpadeo de suelo Android `CARAL-ANDROID-GROUND-001` | P2 aceptada; no resuelta |
 | Chavín | QA de hardware incompleta; Lanzón CC BY-NC-SA | Documentada; no bloquea preview |
-| Aypate | Preview v0.1 por debajo del gate visual (blockout) | Debe subir a v0.2; excepción temporal |
+| Aypate | QA de hardware y plano autorizado pendientes | Visual/técnico v0.2 en el estándar; QA abierta |
 
 Las excepciones no autorizan a declarar una ciudad terminada ni a omitir el estándar en ciudades nuevas.
 

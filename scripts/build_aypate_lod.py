@@ -13,7 +13,7 @@ import sys
 import bpy
 
 LAYERS = ("City", "Terrain", "Props", "Reference")
-DECIMATE = {"City": 0.72, "Terrain": 0.34, "Props": 0.48, "Reference": 1.0}
+DECIMATE = {"City": 0.25, "Terrain": 0.28, "Props": 0.30, "Reference": 1.0}
 
 
 def parse_args():

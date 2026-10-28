@@ -1,6 +1,6 @@
 # Aypate — dossier de fuentes
 
-**Estado:** preview web v0.1 con blockout; layout interpretativo, no reconstrucción final.
+**Estado:** preview web v0.2 con high-poly; layout interpretativo, no reconstrucción final.
 **Fecha de consulta:** 28 de octubre de 2026.
 
 ## Ficha
@@ -77,10 +77,10 @@
 - Qhapaq Ñan, *Aypate: un monumento arqueológico y una montaña cósmica donde nace el agua*: <https://qhapaqnan.cultura.pe/sites/default/files/articulos/173473673-Aypate-un-monumento-arqueolo-gico-y-una-montan-a-co-smica-donde-nace-el-agua.pdf>
 - Sketchfab, *Puerta monumental inca de Aypate*, fjmOjeda, CC BY: <https://sketchfab.com/3d-models/puerta-monumental-inca-de-aypate-peru-53858cc105ac498ea016ceeaac67fc8c>
 
-## Blockout v0.1
+## High-poly v0.2
 
-- Fuente: `blender/aypate/aypate_blockout_v0.1.blend`.
-- LOD0 de 43.420 tris y LOD1 de 14.252 tris; seis paradas.
+- Fuente: `blender/aypate/aypate_highpoly_v0.2.blend`.
+- LOD0 de 241.436 tris y LOD1 de 31.623 tris; seis paradas.
 - Se modelaron plaza, ushnu, kallanka, acllawasi, palacio, colcas, fuente, andenes y Qhapaq Ñan.
 - La composición es interpretativa: la planta completa no está publicada.
 - Techos, alturas perdidas y recintos periféricos quedan fuera.
@@ -89,7 +89,7 @@
 
 - Prioridad: núcleo estatal alrededor de la plaza y relaciones con el cerro, el camino y el bosque.
 - Usar el levantamiento planimétrico y topográfico del Proyecto Integral Aypate si se obtiene una copia autorizada; mientras tanto, no inventar el trazado completo.
-- La puerta monumental escaneada se usa como referencia de proporciones; no se publica en v0.1.
+- La puerta monumental escaneada se usa como referencia de proporciones; no se publica en v0.2.
 - No reconstruir techos, alturas perdidas ni recintos sin planta.
 - Materiales pétreos, musgo y niebla propios del bosque de neblina; no paleta costeña ni imaginería cusqueña genérica.
 - El Qhapaq Ñan se modela como infraestructura, no como escenografía decorativa.
@@ -98,5 +98,5 @@
 
 - No se incorporan fotografías oficiales de Qhapaq Ñan, Mincetur o Ministerio de Cultura.
 - Las imágenes de referencia se citan; para publicar se requiere permiso o una alternativa propia/CC0.
-- El modelo de Sketchfab es CC BY y requiere atribución a fjmOjeda si se integra; en v0.1 se usa solo como referencia.
+- El modelo de Sketchfab es CC BY y requiere atribución a fjmOjeda si se integra; en v0.2 se usa solo como referencia.
 - Sin texturas de IA.

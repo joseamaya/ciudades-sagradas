@@ -71,6 +71,8 @@ scripts/validate.mjs      validación de datos y assets
 
 ## Convenciones
 
+- Toda ciudad publicada debe cumplir `docs/estandares/ciudad.md`; el estado real está en `docs/estandares/auditoria-ciudades.md`.
+
 - Nombres: `GEO-` geometría, `MAT-` materiales, `LGT-` luces, `CAM-` cámaras, `COL-` colecciones.
 - Usa `bpy.data.objects['nombre']`; cada llamada a `blender_execute_blender_code` tiene un namespace nuevo.
 - Escala de escena: metros; el visor aplica la escala indicada en `city.json`.

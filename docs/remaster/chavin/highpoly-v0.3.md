@@ -45,7 +45,7 @@ Derivados: LOD0/LOD1 regenerados con `scripts/build_chavin_lod.py` y `scripts/ex
 
 | Métrica | LOD0 | LOD1 |
 |---|---:|---:|
-| Triángulos | 249.266 (249.160 render) | 26.898 |
+| Triángulos | 249.266 | 26.898 |
 | GLB | 1.960.828 B | 785.260 B |
 | Mallas exportadas | 4 | 4 |
 | Draw calls en la vista inicial | 19 | 15 |

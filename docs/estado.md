@@ -1,5 +1,7 @@
 # Estado del proyecto
 
+El estándar de ciudad publicada y la auditoría están en [`docs/estandares/ciudad.md`](./estandares/ciudad.md) y [`docs/estandares/auditoria-ciudades.md`](./estandares/auditoria-ciudades.md).
+
 ## Hecho
 
 - Repositorio independiente con Vite + Three.js.

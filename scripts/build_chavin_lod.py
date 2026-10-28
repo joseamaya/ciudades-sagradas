@@ -1,7 +1,7 @@
-"""Prepara los LOD de Chavín desde la fuente high-poly v0.1.
+"""Prepara los LOD de Chavín desde la fuente high-poly v0.2.
 
 Uso:
-  blender --background blender/chavin/chavin_highpoly_v0.1.blend \
+  blender --background blender/chavin/chavin_highpoly_v0.2.blend \
     --python scripts/build_chavin_lod.py -- --lod 0 \
     --out-blend blender/chavin/chavin_lod0.blend
 
@@ -46,6 +46,7 @@ MATERIAL_FALLBACK = {
     "MAT-Chavin_Vegetation": ((0.14, 0.23, 0.10, 1.0), 0.88),
     "MAT-Chavin_Lanzon": ((0.50, 0.46, 0.38, 1.0), 0.80),
     "MAT-Chavin_GalleryDark": ((0.008, 0.010, 0.008, 1.0), 0.92),
+    "MAT-Chavin_Lanzon_Shadow": ((0.060, 0.052, 0.045, 1.0), 0.90),
     "MAT-Chavin_Reference": ((0.40, 0.24, 0.16, 1.0), 0.82),
 }
 
@@ -217,7 +218,7 @@ def merge_layer(objects, layer, collection, lod):
     joined["layer"] = layer
     joined["lod"] = int(lod)
     joined["units"] = "meters"
-    joined["source"] = "chavin_highpoly_v0.1"
+    joined["source"] = "chavin_highpoly_v0.2"
     joined["evidence"] = "documentado + inferido"
     joined.hide_set(False)
     joined.hide_render = False
@@ -240,6 +241,10 @@ def main():
             obj["layer"] = layer_for(obj)
             obj["lod"] = int(lod)
             obj["units"] = "meters"
+    if lod == "0":
+        for obj in list(bpy.data.objects):
+            if obj.type == "MESH" and obj.get("lod0_exclude"):
+                bpy.data.objects.remove(obj, do_unlink=True)
     if lod == "1":
         for obj in list(bpy.data.objects):
             if obj.type != "MESH":

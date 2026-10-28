@@ -5,7 +5,10 @@
   "culture": "Cultura Chavín",
   "period": "1500–550 a. C.",
   "region": "Valle del Mosna, Huari, Áncash",
-  "coordinates": { "lat": -9.593, "lon": -77.178 },
+  "coordinates": {
+    "lat": -9.593,
+    "lon": -77.178
+  },
   "elevation": "3180 m s. n. m.",
   "status": "available",
   "stage": "preview",
@@ -21,7 +24,7 @@
   "fallbackModel": "cities/chavin/model_lod1.glb",
   "scale": 0.08,
   "verticalScale": 1,
-  "minDistance": 0.08,
+  "minDistance": 0.18,
   "maxDistance": 180,
   "camera": {
     "position": [16.8, 10.4, 18.8],
@@ -49,7 +52,7 @@
     },
     {
       "title": "Edificio B y el Lanzón",
-      "text": "El Edificio B alberga la Galería del Lanzón. La pieza es un monolito ahusado de unos 4,5 m; esta vista recorre el corredor y presenta el volumen tallado de forma interpretativa, no una reproducción iconográfica.",
+      "text": "El Edificio B alberga la Galería del Lanzón. La pieza es un monolito ahusado de unos 4,5 m; esta vista recorre el corredor y presenta el volumen con una lectura incisa del rostro, no una reproducción iconográfica.",
       "camera": {
         "position": [1.12, 0.52, -4.96],
         "target": [0, 0.416, -4.96],
@@ -70,8 +73,8 @@
       "text": "La portada se abre en el frontis este del Edificio A. Dos columnas circulares de 2,30 m, jambas trilíticas y un friso partido en dos enmarcan el acceso; las tallas de esta versión son una lectura geométrica, no una reproducción iconográfica.",
       "camera": {
         "position": [3.376, 0.528, -0.664],
-        "target": [2.84, 0.4, 0],
-        "fov": 38.2
+        "target": [2.84, 0.4, 0.0],
+        "fov": 46
       }
     },
     {
@@ -85,10 +88,26 @@
     }
   ],
   "layers": [
-    { "id": "city", "label": "Arquitectura", "default": true },
-    { "id": "terrain", "label": "Valle y quebradas", "default": true },
-    { "id": "props", "label": "Escultura y detalles", "default": true },
-    { "id": "reference", "label": "Escala humana", "default": true }
+    {
+      "id": "city",
+      "label": "Arquitectura",
+      "default": true
+    },
+    {
+      "id": "terrain",
+      "label": "Valle y quebradas",
+      "default": true
+    },
+    {
+      "id": "props",
+      "label": "Escultura y detalles",
+      "default": true
+    },
+    {
+      "id": "reference",
+      "label": "Escala humana",
+      "default": true
+    }
   ],
   "sources": [
     {
@@ -117,5 +136,15 @@
     }
   ],
   "disclaimer": "Preview de revisión. Reconstrucción artística en investigación; no es una reconstrucción histórica final. El terreno es procedural y la Portada conserva relieves interpretativos.",
-  "credits": "Geometría y texturas propias del proyecto; sin imágenes oficiales ni texturas de IA."
+  "credits": "Geometría y texturas propias del proyecto; sin imágenes oficiales ni texturas de IA.",
+  "lights": [
+    {
+      "type": "point",
+      "color": "#ffd8a8",
+      "intensity": 0.5,
+      "distance": 1.0,
+      "decay": 2,
+      "position": [0.5, 0.56, -4.88]
+    }
+  ]
 }

@@ -1,7 +1,7 @@
 """Renderiza vistas de revisión del pase high-poly de Chavín.
 
 Uso:
-  blender --background blender/chavin/chavin_highpoly_v0.1.blend \
+  blender --background blender/chavin/chavin_highpoly_v0.2.blend \
     --python scripts/render_chavin_highpoly.py -- --out-dir /tmp/chavin_highpoly
 """
 

@@ -1,20 +1,38 @@
 # Aypate — remaster
 
-Estado: **Fase 0, ficha de investigación; sin modelo 3D**.  
-Estándar: **centro representativo**, no inventario 1:1 de las ~156–200 ha.
+Estado: **preview web v0.1 con blockout navegable; no reconstrucción final**.
+Fuente: `blender/aypate/aypate_blockout_v0.1.blend` (1,8 MB).
+LOD0: **43.420 tris / 393.908 B**; LOD1: **14.252 tris / 287.028 B**; 16/14 draw calls.
+Caché `v23`.
 
-Aypate es un centro administrativo y ceremonial inca del siglo XV, en el bosque de neblina de Ayabaca. La plaza trapezoidal, el ushnu, la kallanka, el acllawasi y el Qhapaq Ñan son el núcleo de la futura reconstrucción. La puerta monumental tiene un modelo fotogramétrico CC BY en Sketchfab, pero se usa solo como referencia en v0.1.
+Aypate es un centro administrativo y ceremonial inca del siglo XV, en el bosque de neblina de Ayabaca. El blockout modela el núcleo documentado —plaza, ushnu, kallanka, acllawasi, palacio, colcas, fuente, andenes y Qhapaq Ñan— y marca la composición como interpretativa, porque la planta topográfica completa no está publicada. La puerta escaneada de Sketchfab se usa como referencia, no como asset del GLB.
 
 ## Documentos
 
 - `plan.md`: alcance, presupuesto, recorrido, riesgos y gate de Fase 0.
 - `cobertura.md`: elementos documentados, inferidos y diferidos.
 - `referencias.md`: fuentes, licencias y criterios de imagen.
+- `web-preview.md`: assets, métricas, QA y límites del preview.
 - Dossier de fuentes: [`../../fuentes/aypate.md`](../../fuentes/aypate.md).
+
+## Vistas
+
+### Blockout, cámara hero
+
+![Blockout de Aypate](blockout-v0.1-hero.jpg)
+
+### Plaza Inca en el visor
+
+![Plaza Inca](web-preview-plaza.png)
+
+### Kallanka
+
+![Kallanka](web-preview-kallanka.png)
 
 ## Límites
 
-- No hay un escaneo 3D completo del sitio.
-- El levantamiento topográfico del Proyecto Integral Aypate no está publicado completo; la planta es un gate antes de modelar.
-- No se reconstruyen techos, alturas perdidas ni recintos sin evidencia.
-- El modelo de la puerta de Sketchfab es una pieza aislada y no define el conjunto.
+- La planta completa no está publicada: la composición es una hipótesis de trabajo, no un levantamiento.
+- No se reconstruyen techos, alturas perdidas ni todos los recintos periféricos.
+- La vegetación y la niebla son una lectura de ambiente, no un inventario botánico.
+- No hay QA v0.1 en hardware real.
+- El escaneo de la puerta no se incorporó; si se integra, requiere retopología, material propio y atribución CC BY.

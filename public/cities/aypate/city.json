@@ -10,24 +10,127 @@
     "lon": -79.5759
   },
   "elevation": "2.920 m s. n. m.",
-  "status": "research",
+  "status": "available",
   "summary": "Centro administrativo y ceremonial inca en la sierra de Piura, entre bosques de neblina. Su plaza trapezoidal, el ushnu, la kallanka y el acllawasi articulaban el Qhapaq Ñan entre el norte andino y el Cusco.",
-  "model": null,
-  "scale": 1,
+  "model": "cities/aypate/model_lod0.glb",
+  "scale": 0.08,
   "camera": {
     "position": [
-      24,
-      16,
-      26
+      6.88,
+      3.36,
+      -8.96
     ],
     "target": [
-      0,
-      4,
-      0
+      0.0,
+      0.64,
+      -0.32
     ],
-    "fov": 45
+    "fov": 40
   },
-  "tour": [],
+  "tour": [
+    {
+      "title": "Llegada por el Qhapaq Ñan",
+      "text": "El camino Inca asciende entre bosque de neblina hasta el conjunto. El blockout usa un ancho de ocho metros para el camino principal y seis para el ramal alterno, según las descripciones del Proyecto Integral Aypate.",
+      "camera": {
+        "position": [
+          2.0,
+          3.04,
+          -13.2
+        ],
+        "target": [
+          0.0,
+          0.56,
+          -5.2
+        ],
+        "fov": 42
+      }
+    },
+    {
+      "title": "La Plaza Inca",
+      "text": "La plaza es una planicie trapezoidal en la ladera del cerro. Alrededor se organizan el ushnu, la kallanka, el acllawasi y el palacio; la composición exacta es interpretativa porque la planta completa no está publicada.",
+      "camera": {
+        "position": [
+          5.6,
+          3.04,
+          -6.8
+        ],
+        "target": [
+          0.0,
+          0.48,
+          0.0
+        ],
+        "fov": 40
+      }
+    },
+    {
+      "title": "El Ushnu",
+      "text": "Tres plataformas sobrepuestas y escalonadas forman el ushnu. La reconstrucción muestra solo volúmenes y escalinatas; no inventa cubiertas ni objetos rituales.",
+      "camera": {
+        "position": [
+          -1.0,
+          2.6,
+          0.8
+        ],
+        "target": [
+          -3.76,
+          0.6,
+          0.8
+        ],
+        "fov": 50
+      }
+    },
+    {
+      "title": "La Kallanka",
+      "text": "La kallanka es un edificio alargado sin subdivisiones, con trece accesos hacia la plaza. Aquí se alojaban peregrinos, guerreros y mitimaes; el blockout deja el interior sin techo porque no se conserva.",
+      "camera": {
+        "position": [
+          6.0,
+          2.4,
+          0.6
+        ],
+        "target": [
+          0,
+          0.6,
+          4.2
+        ],
+        "fov": 50
+      }
+    },
+    {
+      "title": "El Acllawasi",
+      "text": "El acllawasi reúne recintos alrededor de un patio y una portada de grandes bloques. Las fuentes lo vinculan a mujeres escogidas y a la producción de alimentos, chicha y textiles; la planta es una lectura de conjunto.",
+      "camera": {
+        "position": [
+          0.8,
+          2.8,
+          3.5
+        ],
+        "target": [
+          3.8,
+          0.5,
+          0.2
+        ],
+        "fov": 48
+      }
+    },
+    {
+      "title": "La fuente ritual",
+      "text": "La fuente Inca es una estructura hundida de rocas labradas, con hornacinas y un conducto de agua. El agua y el cerro articulan la lectura ritual del sitio; la escalera y los recintos inmediatos quedan marcados como inferidos.",
+      "camera": {
+        "position": [
+          -2.8,
+          2.2,
+          -1.8
+        ],
+        "target": [
+          -4.64,
+          0.2,
+          -3.84
+        ],
+        "fov": 45
+      }
+    }
+  ],
   "layers": [
     {
       "id": "city",
@@ -76,6 +179,18 @@
       "url": "https://sketchfab.com/3d-models/puerta-monumental-inca-de-aypate-peru-53858cc105ac498ea016ceeaac67fc8c"
     }
   ],
-  "disclaimer": "Ficha en investigación. El modelo 3D aún no está publicado; la reconstrucción se basará en el plano topográfico y en la documentación del Proyecto Integral Aypate. Las zonas sin planta suficiente se marcarán como inferidas.",
-  "credits": "Ficha documental en preparación. Sin imágenes oficiales incorporadas."
+  "disclaimer": "Preview de revisión. La planta completa de Aypate no está publicada: la composición del núcleo es interpretativa y se apoya en descripciones, fotos y levantamientos parciales. No es una reconstrucción histórica final; la puerta escaneada de Sketchfab no se incorpora al GLB.",
+  "credits": "Geometría, materiales y renders propios; sin imágenes oficiales ni texturas de IA. Referencia 3D de la puerta: fjmOjeda, CC BY, no incorporada. Fuentes en docs/fuentes/aypate.md.",
+  "stage": "preview",
+  "lod": {
+    "default": "auto",
+    "levels": {
+      "0": "cities/aypate/model_lod0.glb",
+      "1": "cities/aypate/model_lod1.glb"
+    }
+  },
+  "fallbackModel": "cities/aypate/model_lod1.glb",
+  "verticalScale": 1,
+  "minDistance": 0.1,
+  "maxDistance": 180
 }

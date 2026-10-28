@@ -1,11 +1,11 @@
 # Aypate — remaster
 
-Estado: **preview web v0.1 con blockout navegable; no reconstrucción final**.
-Fuente: `blender/aypate/aypate_blockout_v0.1.blend` (1,8 MB).
-LOD0: **43.420 tris / 393.908 B**; LOD1: **14.252 tris / 287.028 B**; 16/14 draw calls.
-Caché `v23`.
+Estado: **preview web v0.2 con high-poly navegable; no reconstrucción final**.
+Fuente: `blender/aypate/aypate_highpoly_v0.2.blend` (10,4 MB).
+LOD0: **241.436 tris / 2.204.924 B**; LOD1: **31.623 tris / 459.108 B**; 16/14 draw calls.
+Caché `v24`.
 
-Aypate es un centro administrativo y ceremonial inca del siglo XV, en el bosque de neblina de Ayabaca. El blockout modela el núcleo documentado —plaza, ushnu, kallanka, acllawasi, palacio, colcas, fuente, andenes y Qhapaq Ñan— y marca la composición como interpretativa, porque la planta topográfica completa no está publicada. La puerta escaneada de Sketchfab se usa como referencia, no como asset del GLB.
+Aypate es un centro administrativo y ceremonial inca del siglo XV, en el bosque de neblina de Ayabaca. El high-poly modela el núcleo documentado —plaza, ushnu, kallanka, acllawasi, palacio, colcas, fuente, andenes y Qhapaq Ñan— y marca la composición como interpretativa, porque la planta topográfica completa no está publicada. La puerta escaneada de Sketchfab se usa como referencia, no como asset del GLB.
 
 ## Documentos
 
@@ -17,9 +17,9 @@ Aypate es un centro administrativo y ceremonial inca del siglo XV, en el bosque 
 
 ## Vistas
 
-### Blockout, cámara hero
+### High-poly, cámara hero
 
-![Blockout de Aypate](blockout-v0.1-hero.jpg)
+![High-poly de Aypate](highpoly-v0.2-hero.jpg)
 
 ### Plaza Inca en el visor
 
@@ -34,5 +34,5 @@ Aypate es un centro administrativo y ceremonial inca del siglo XV, en el bosque 
 - La planta completa no está publicada: la composición es una hipótesis de trabajo, no un levantamiento.
 - No se reconstruyen techos, alturas perdidas ni todos los recintos periféricos.
 - La vegetación y la niebla son una lectura de ambiente, no un inventario botánico.
-- No hay QA v0.1 en hardware real.
+- No hay QA v0.2 en hardware real.
 - El escaneo de la puerta no se incorporó; si se integra, requiere retopología, material propio y atribución CC BY.

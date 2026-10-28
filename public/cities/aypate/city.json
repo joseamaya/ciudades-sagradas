@@ -179,7 +179,7 @@
       "url": "https://sketchfab.com/3d-models/puerta-monumental-inca-de-aypate-peru-53858cc105ac498ea016ceeaac67fc8c"
     }
   ],
-  "disclaimer": "Preview de revisión. La planta completa de Aypate no está publicada: la composición del núcleo es interpretativa y se apoya en descripciones, fotos y levantamientos parciales. No es una reconstrucción histórica final; la puerta escaneada de Sketchfab no se incorpora al GLB.",
+  "disclaimer": "Preview de revisión v0.2. La planta completa de Aypate no está publicada: la composición del núcleo sigue siendo interpretativa y se apoya en descripciones, fotos y levantamientos parciales. El high-poly detalla los elementos documentados; no es una reconstrucción histórica final. La puerta escaneada de Sketchfab no se incorpora al GLB.",
   "credits": "Geometría, materiales y renders propios; sin imágenes oficiales ni texturas de IA. Referencia 3D de la puerta: fjmOjeda, CC BY, no incorporada. Fuentes en docs/fuentes/aypate.md.",
   "stage": "preview",
   "lod": {

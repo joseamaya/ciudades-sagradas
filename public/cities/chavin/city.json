@@ -193,6 +193,10 @@
     {
       "label": "CyArk / Google Arts & Culture — modelo 3D del Lanzón (Open Heritage)",
       "url": "https://storage.googleapis.com/culturalinstitute-3d-serving/manual-testing/000-PROD-DONT-DELETE/240391958/3QFU2nR_dVV9Lg/model.glb"
+    },
+    {
+      "label": "Licencia CC BY-NC-SA 4.0 — Lanzón de Chavín",
+      "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
     }
   ],
   "disclaimer": "Preview de revisión. Reconstrucción artística en investigación; no es una reconstrucción histórica final. El Lanzón es una adaptación geométrica del escaneo CyArk (CC BY-NC-SA 4.0); el terreno es procedural y la Portada conserva relieves interpretativos.",

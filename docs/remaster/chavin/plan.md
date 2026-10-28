@@ -104,7 +104,7 @@ Los textos deben distinguir documentado, inferido e interpretativo; no afirmar f
 | Preview web v0.1 | LOD0 14.158 tris / LOD1 9.422 tris, 15 draw calls, seis paradas, capas y fallback LOD1 |
 | High-poly v0.1 | 174.582 tris / 1.846.904 B en LOD0 y 18.738 tris / 751.384 B en LOD1; 20/15 draw calls; relieves y terreno detallado (superado) |
 | High-poly v0.2 | 235.098 tris / 1.814.248 B en LOD0 y 14.902 tris / 713.952 B en LOD1; 19/14 draw calls; friso integrado y rostro inciso (histórico) |
-| High-poly v0.3 | 249.266 tris / 1.960.828 B en LOD0 y 18.899 tris / 742.024 B en LOD1; 19/15 draw calls; Lanzón del escaneo CyArk (CC BY-NC-SA 4.0) |
+| High-poly v0.3 | 249.266 tris / 1.960.828 B en LOD0 y 26.898 tris / 785.260 B en LOD1; 19/15 draw calls; Lanzón del escaneo CyArk (CC BY-NC-SA 4.0) |
 
 ## Decisión de gate
 

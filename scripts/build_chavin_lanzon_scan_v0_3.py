@@ -259,10 +259,10 @@ def main():
     plain.data.name = "MESH-Chavin_Lanzon_Plain"
     for collection in imported.users_collection:
         collection.objects.link(plain)
-    decimate(plain, 4000)
+    decimate(plain, 12000)
     plain.data.materials.clear()
     plain.data.materials.append(scan_material)
-    plain["lod1_quality"] = "malla decimada 4k"
+    plain["lod1_quality"] = "malla decimada 12k"
     plain["lod0_exclude"] = True
     plain["lod1_exclude"] = False
     plain["lod"] = 1

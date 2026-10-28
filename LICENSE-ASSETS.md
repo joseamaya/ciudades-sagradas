@@ -17,7 +17,7 @@ sigue bajo [`LICENSE`](LICENSE) (MIT). Los assets descritos aquí no se relicenc
   (<https://creativecommons.org/licenses/by-nc-sa/4.0/>).
 - **Atribución requerida:** «Lanzón de Chavín, escaneo 3D de CyArk / Google Arts &
   Culture; adaptación geométrica del proyecto Ciudades Sagradas».
-- **Cambios:** malla decimada de 50.000 a 4.000 triángulos, reparada y reorientada; se
+- **Cambios:** malla decimada de 50.000 a 12.000 triángulos, reparada y reorientada; se
   descartó la textura fotográfica original y se usó un material granítico propio. La
   geometría derivada conserva la licencia de la obra original.
 - **Restricción:** CC BY-NC-SA 4.0 **no permite uso comercial** de estos derivados.

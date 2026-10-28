@@ -29,9 +29,9 @@ Derivados: LOD0/LOD1 regenerados con `scripts/build_chavin_lod.py` y `scripts/ex
 - **Lanzón:** se retiró el rostro inciso construido en v0.2 (`GEO-Chavin_Lanzon_HP_FaceRelief`) y se sustituyó por una malla derivada del escaneo 3D de CyArk / Google Arts & Culture. La silueta, la inclinación, el relieve y las proporciones provienen del escaneo, no de una interpretación gráfica.
 - **Escala y colocación:** 4,5 m de alto, base en `z=3.0` y centro en `y=62`; caja final `0,502 × 0,972 × 4,5 m` (la profundidad incluye el relieve). El modelo se reorientó para que el frente mire hacia la cámara del recorrido (`-X` del visor).
 - **Geometría:** se eliminó la placa de montaje del escaneo, se repararon normales y agujeros y se decimó a 50.000 triángulos. La textura fotográfica del escaneo **no se reutiliza**; el material es un granito oscuro procedural propio (`MAT-Chavin_Lanzon_Scan`, base 0,085 / rugosidad 0,93).
-- **LOD1:** en lugar del monolito liso de 298 triángulos, incluye una copia decimada a 4.000 triángulos con el mismo material. Así el rostro y el relieve siguen existiendo en móvil, a costa de ~4.000 triángulos.
+- **LOD1:** en lugar del monolito liso de 298 triángulos, incluye una copia decimada a 12.000 triángulos con el mismo material. Así el rostro y el relieve siguen existiendo en móvil, a costa de ~12.000 triángulos.
 - **Visor:** `near` baja de 0,5 a 0,05 para permitir el primer plano; la parada 3 usa una cámara interior a 0,15 m del frente, fov 80, `minDistance: 0,1` y dos luces puntuales cálida/fría globales de baja intensidad en la galería.
-- **Caché:** `ciudades-sagradas-v18`.
+- **Caché:** `ciudades-sagradas-v19`.
 
 ## Licencia y atribución
 
@@ -45,15 +45,15 @@ Derivados: LOD0/LOD1 regenerados con `scripts/build_chavin_lod.py` y `scripts/ex
 
 | Métrica | LOD0 | LOD1 |
 |---|---:|---:|
-| Triángulos | 249.266 (249.160 render) | 18.899 |
-| GLB | 1.960.828 B | 742.024 B |
+| Triángulos | 249.266 (249.160 render) | 26.898 |
+| GLB | 1.960.828 B | 785.260 B |
 | Mallas exportadas | 4 | 4 |
 | Draw calls en la vista inicial | 19 | 15 |
 | Texturas decodificadas estimadas | 133,3 MB | 69,3 MB |
-| Lanzón | 50.000 tris | 4.000 tris |
+| Lanzón | 50.000 tris | 12.000 tris |
 
 - LOD0 sigue dentro del presupuesto de 150.000–250.000 tris.
-- LOD1 sube de 14.902 a 18.899 tris para conservar el relieve del Lanzón.
+- LOD1 sube de 14.902 a 26.898 tris para conservar el relieve del Lanzón.
 - El bench de SwiftShader no certifica FPS; solo detecta regresiones y errores.
 
 ## Evidencia e inferencia
@@ -72,7 +72,7 @@ Derivados: LOD0/LOD1 regenerados con `scripts/build_chavin_lod.py` y `scripts/ex
 **Interpretativo o pendiente:**
 
 - El material granítico oscuro es una elección de look-dev, no una muestra de color medida.
-- La decimación a 50.000/4.000 tris suaviza incisiones finas; no se horneó normal/AO porque el bake produjo artefactos por UVs y geometría no manifiesta.
+- La decimación a 50.000/12.000 tris suaviza incisiones finas; no se horneó normal/AO porque el bake produjo artefactos por UVs y geometría no manifiesta.
 - La cámara de la parada 3 está limitada por el ancho de la galería: el primer plano recorta la cresta superior y prioriza el relieve central.
 
 ## QA ejecutado

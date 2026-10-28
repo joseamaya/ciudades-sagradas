@@ -26,26 +26,26 @@ Fuente Blender: `chavin_highpoly_v0.3.blend`; los derivados `chavin_lod0.blend` 
 ## Qué se integró
 
 - `city.json` con `status: "available"` y `stage: "preview"`.
-- Dos niveles: LOD0 de 249.266 tris con mampostería, friso integrado y Lanzón escaneado; LOD1 de 18.899 tris con una copia de 4.000 tris del Lanzón.
+- Dos niveles: LOD0 de 249.266 tris con mampostería, friso integrado y Lanzón escaneado; LOD1 de 26.898 tris con una copia de 12.000 tris del Lanzón.
 - `scale: 0.08`, cámara inicial, seis paradas de recorrido y `minDistance: 0.1` para el primer plano del Lanzón.
 - Capas `city`, `terrain`, `props` y `reference`, exportadas en los extras del GLB.
 - `hero.jpg` propio desde la Portada, sin imágenes oficiales.
 - Terreno con textura propia 1K en el GLB.
-- Caché del service worker `v18`.
+- Caché del service worker `v19`.
 
 ## Métricas del preview
 
 | Métrica | LOD0 | LOD1 |
 |---|---:|---:|
-| Triángulos | 249.266 | 18.899 |
+| Triángulos | 249.266 | 26.898 |
 | Mallas exportadas | 4 | 4 |
 | Draw calls en la vista inicial | 19 | 15 |
-| GLB | 1.960.828 B | 742.024 B |
+| GLB | 1.960.828 B | 785.260 B |
 | Texturas decodificadas estimadas | 133,3 MB | 69,3 MB |
 | Imágenes | 13 | 13, a 1024 px |
 
 - `?lod=0` fuerza LOD0; `?lod=1` fuerza LOD1.
-- Móvil emulado selecciona LOD1, que omite bloques de fachada y conserva una copia de 4.000 tris del Lanzón con relieve.
+- Móvil emulado selecciona LOD1, que omite bloques de fachada y conserva una copia de 12.000 tris del Lanzón con relieve.
 - Sin LOD0, el visor cae a LOD1.
 - No hay fallback v1 independiente: LOD1 es el fallback de este preview.
 - Offline probado con LOD0 tras regenerar los assets; repetir en QA de hardware.
@@ -73,7 +73,7 @@ Los FPS de SwiftShader no representan hardware real y no se usan como certificac
 ## Límites
 
 - El LOD0 está dentro del presupuesto de producción de 150.000–250.000 tris; la mampostería de fachada concentra la mayor parte.
-- El LOD1 no es un bake de alta fidelidad; elimina bloques de fachada y conserva el Lanzón a 4.000 tris.
+- El LOD1 no es un bake de alta fidelidad; elimina bloques de fachada y conserva el Lanzón a 12.000 tris.
 - El terreno es procedural; sus tres texturas propias (difusa, rugosidad y normal) se generan por `scripts/make_chavin_terrain_materials.py` y no constituyen topografía levantada.
 - La Portada mantiene relieves interpretativos; el dintel no se modela y la escalera es un solo escalón inferido.
 - El Lanzón es una adaptación del escaneo CyArk (CC BY-NC-SA 4.0), no la textura fotográfica original; el primer plano depende de la luz y del ancho de la galería.

@@ -479,6 +479,9 @@ async function main() {
       await evaluate(cdp, `document.querySelector('[data-tour="5"]')?.click()`);
       await sleep(2200);
       await capture(cdp, path.join(OUT_DIR, 'qa-lod1-altar.png'));
+      await evaluate(cdp, `document.querySelector('[data-tour="2"]')?.click()`);
+      await sleep(2200);
+      await capture(cdp, path.join(OUT_DIR, 'qa-lod1-tour-3.png'));
 
       await resetDevice(cdp);
       await cdp.send('Emulation.setDeviceMetricsOverride', {
@@ -508,6 +511,14 @@ async function main() {
       await evaluate(cdp, `document.body.classList.add('ui-hidden')`);
       await sleep(500);
       await capture(cdp, path.join(OUT_DIR, 'qa-mobile-clean.png'));
+      await evaluate(cdp, `document.body.classList.remove('ui-hidden')`);
+
+      await navigate(cdp, `${BASE}?lod=1&_=${Date.now()}${CITY_ROUTE}`);
+      await evaluate(cdp, `document.querySelector('[data-tour="2"]')?.click()`);
+      await sleep(2200);
+      await evaluate(cdp, `document.body.classList.add('ui-hidden')`);
+      await sleep(500);
+      await capture(cdp, path.join(OUT_DIR, 'qa-mobile-lod1-tour-3.png'));
       await evaluate(cdp, `document.body.classList.remove('ui-hidden')`);
 
       await resetDevice(cdp);

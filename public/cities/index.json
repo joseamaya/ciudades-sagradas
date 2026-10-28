@@ -60,11 +60,12 @@
     "culture": "Imperio Inca · Qhapaq Ñan",
     "period": "Siglo XV d. C.",
     "region": "Ayabaca, Piura",
-    "status": "research",
+    "status": "available",
     "accent": "#7f9b84",
-    "thumb": null,
+    "thumb": "cities/aypate/hero.jpg",
     "summary": "Centro administrativo y ceremonial inca en el bosque de neblina de Ayabaca. Su plaza, ushnu, kallanka y acllawasi articulaban el Qhapaq Ñan.",
-    "monogram": "Ay"
+    "monogram": "Ay",
+    "stage": "preview"
   },
   {
     "id": "narihuala",

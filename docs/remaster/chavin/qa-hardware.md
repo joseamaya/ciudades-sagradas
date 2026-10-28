@@ -2,7 +2,7 @@
 
 Fecha: 28 de octubre de 2026.
 Estado: **Chavín aprobado en Android; iPhone/Safari y desktop GPU pendientes**.
-Modelo: `model_lod0.glb` / `model_lod1.glb` v0.3, caché `v20`.
+Modelo probado: `model_lod0.glb` / `model_lod1.glb` v0.3, caché `v20`. La v0.4 (columnas acanaladas y `fov 28`) está pendiente de repetir en el mismo dispositivo.
 
 ## Resultado Android
 
@@ -48,3 +48,5 @@ GPU, métricas y evidencia.
 - No hay medición de FPS/frame time en hardware; SwiftShader no certifica rendimiento.
 - La parada 3 del Lanzón recorta la cresta por el ancho de la galería; el relieve se
   lee con la luz de relleno.
+- La aprobación Android no cubre la v0.4: hay que repetir al menos la parada 5 y el
+  recorrido completo con la caché `v21`.

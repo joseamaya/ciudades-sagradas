@@ -22,7 +22,7 @@
 - Presencia Chimú y luego Inca en el Horizonte Tardío; los materiales y arquitectura muestran una ocupación sucesiva.
 - La tradición local lo vincula al dios Walac y a la capital religiosa tallán; la función exacta de cada sector sigue siendo interpretativa.
 - La capilla de la Inmaculada Concepción, en la cima del montículo mayor, es un añadido republicano y no forma parte de la arquitectura prehispánica.
-- El Museo de Sitio de Narihualá funciona dentro del complejo y reúne cerámica, metales, textiles y materiales de las investigaciones.
+- El Museo de Sitio de Narihualá funciona dentro del complejo y reúne cerámica, metales y materiales arqueológicos de las investigaciones; también aborda las tradiciones textiles locales.
 
 ## Arquitectura y urbanismo
 

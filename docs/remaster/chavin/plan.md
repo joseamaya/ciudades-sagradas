@@ -103,7 +103,8 @@ Los textos deben distinguir documentado, inferido e interpretativo; no afirmar f
 | Portada v0.1 | Escala corregida, relieves abstractos, dintel omitido y escalón inferido; aceptada como base de trabajo |
 | Preview web v0.1 | LOD0 14.158 tris / LOD1 9.422 tris, 15 draw calls, seis paradas, capas y fallback LOD1 |
 | High-poly v0.1 | 174.582 tris / 1.846.904 B en LOD0 y 18.738 tris / 751.384 B en LOD1; 20/15 draw calls; relieves y terreno detallado (superado) |
-| High-poly v0.2 | 235.098 tris / 1.814.248 B en LOD0 y 14.902 tris / 713.952 B en LOD1; 19/14 draw calls; friso integrado y rostro inciso |
+| High-poly v0.2 | 235.098 tris / 1.814.248 B en LOD0 y 14.902 tris / 713.952 B en LOD1; 19/14 draw calls; friso integrado y rostro inciso (histórico) |
+| High-poly v0.3 | 249.266 tris / 1.960.828 B en LOD0 y 18.899 tris / 742.024 B en LOD1; 19/15 draw calls; Lanzón del escaneo CyArk (CC BY-NC-SA 4.0) |
 
 ## Decisión de gate
 
@@ -130,4 +131,4 @@ No se abre Blender hasta completar:
 
 ## Siguiente hito
 
-**High-poly y QA:** el pase high-poly v0.2 deja el LOD0 en 235.098 tris, dentro del presupuesto de 150k–250k, con friso integrado y rostro inciso. Falta QA en hardware real, decidir dintel/escalera, tallar las columnas y resolver el Lanzón con un modelo esculpido y mapa normal/AO. El terreno se queda procedural por ahora. Ver `highpoly-v0.2.md`, `web-preview.md`, `portada-v0.1.md` y `terrain.md`.
+**High-poly y QA:** el pase high-poly v0.3 deja el LOD0 en 249.266 tris, dentro del presupuesto de 150k–250k, con friso integrado y Lanzón derivado del escaneo CyArk. Falta QA en hardware real, decidir dintel/escalera y tallar las columnas; el bake normal/AO del Lanzón se descartó por artefactos. La licencia CC BY-NC-SA 4.0 limita el uso comercial del Lanzón. Ver `highpoly-v0.3.md`, `web-preview.md`, `portada-v0.1.md` y `terrain.md`.

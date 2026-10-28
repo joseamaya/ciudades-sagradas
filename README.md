@@ -2,7 +2,7 @@
 
 Atlas interactivo de los grandes centros ceremoniales y ciudades del Perú antiguo. Reconstrucciones 3D en tiempo real, fichas educativas y fuentes públicas.
 
-**Estado:** Caral remaster v2 es el estado actual y su contenido queda cerrado bajo el estándar de **ciudad representativa**: seis pirámides y sectores principales, con high-poly en Pirámide Mayor, Plaza Mayor, Anfiteatro y Altar Circular. LOD0 de 230.800 tris y LOD1 de 56.332 tris, ambos con Draco; el piloto histórico con texturas de IA fue retirado del repositorio. Queda una incidencia Android P2 de parpadeo de suelo, documentada. Chavín de Huántar tiene un **preview web v0.1** con LOD0 de 14.158 tris y LOD1 de 9.422 tris, terreno texturizado; el blockout v0.5, el texturizado UV v0.2 y la Portada v0.1 quedan como base de revisión. El bake 2K se descartó por pérdida de detalle. Chan Chan y Wari siguen en investigación.
+**Estado:** Caral remaster v2 es el estado actual y su contenido queda cerrado bajo el estándar de **ciudad representativa**: seis pirámides y sectores principales, con high-poly en Pirámide Mayor, Plaza Mayor, Anfiteatro y Altar Circular. LOD0 de 230.800 tris y LOD1 de 56.332 tris, ambos con Draco; el piloto histórico con texturas de IA fue retirado del repositorio. Queda una incidencia Android P2 de parpadeo de suelo, documentada. Chavín de Huántar tiene un **preview web v0.1** con LOD0 de 249.266 tris y LOD1 de 18.899 tris, terreno texturizado, seis paradas y un Lanzón derivado del escaneo CyArk/Google Arts & Culture (CC BY-NC-SA 4.0); el blockout v0.5, el texturizado UV v0.2 y la Portada v0.1 quedan como base de revisión. El bake 2K se descartó por pérdida de detalle. Chan Chan y Wari siguen en investigación.
 
 ## Qué es
 
@@ -113,12 +113,12 @@ El visor no usa fotografías históricas como textura. Las imágenes oficiales s
 ## Licencias
 
 - Código: MIT. Ver [`LICENSE`](./LICENSE).
-- Textos y modelos: CC BY 4.0, salvo indicación contraria. Ver [`LICENSE-CONTENT.md`](./LICENSE-CONTENT.md).
+- Textos y modelos: CC BY 4.0, salvo indicación contraria. El Lanzón de Chavín derivado del escaneo CyArk es CC BY-NC-SA 4.0. Ver [`LICENSE-CONTENT.md`](./LICENSE-CONTENT.md) y [`LICENSE-ASSETS.md`](./LICENSE-ASSETS.md).
 - Terceros y procedencia: [`CREDITS.md`](./CREDITS.md).
 - Avisos de dependencias: [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md).
 - Política de assets: [`docs/licencias.md`](./docs/licencias.md).
 
-> **Nota de licencia:** los remasters v1 y v2 usan materiales procedurales y sus GLB no incluyen texturas de IA. El piloto histórico con texturas de IA fue retirado del repositorio. Ver `CREDITS.md`, `LICENSE-CONTENT.md` y `docs/licencias.md`.
+> **Nota de licencia:** los remasters v1 y v2 usan materiales procedurales y sus GLB no incluyen texturas de IA. El piloto histórico con texturas de IA fue retirado del repositorio. Ver `CREDITS.md`, `LICENSE-CONTENT.md`, `LICENSE-ASSETS.md` y `docs/licencias.md`.
 
 ## Despliegue
 
@@ -130,7 +130,7 @@ El repo incluye un workflow de GitHub Pages en `.github/workflows/pages.yml`. Pa
 ## Hoja de ruta
 
 1. Caral: remaster v2 desplegado, contenido cerrado como ciudad representativa, LOD0/LOD1 con Draco, LOD1 a 1K y QA reproducible; quedan hardware real e incidencia Android P2. KTX2 queda como mejora opcional.
-2. Chavín de Huántar: preview web v0.1 con LOD0/LOD1, seis paradas y capas; high-poly, terreno con detalle y permisos de publicación pendientes.
+2. Chavín de Huántar: preview web v0.1 con LOD0/LOD1, seis paradas, capas y Lanzón escaneado; quedan QA de hardware, dintel/escalera, columnas y revisión de la licencia CC BY-NC-SA 4.0 del Lanzón.
 3. Chan Chan.
 4. Wari.
 5. Renders cinematográficos con Cycles y modo foto.

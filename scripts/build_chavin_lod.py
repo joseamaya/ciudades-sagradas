@@ -1,7 +1,7 @@
-"""Prepara los LOD de Chavín desde la fuente high-poly v0.2.
+"""Prepara los LOD de Chavín desde la fuente high-poly v0.3.
 
 Uso:
-  blender --background blender/chavin/chavin_highpoly_v0.2.blend \
+  blender --background blender/chavin/chavin_highpoly_v0.3.blend \
     --python scripts/build_chavin_lod.py -- --lod 0 \
     --out-blend blender/chavin/chavin_lod0.blend
 
@@ -218,7 +218,7 @@ def merge_layer(objects, layer, collection, lod):
     joined["layer"] = layer
     joined["lod"] = int(lod)
     joined["units"] = "meters"
-    joined["source"] = "chavin_highpoly_v0.2"
+    joined["source"] = "chavin_highpoly_v0.3"
     joined["evidence"] = "documentado + inferido"
     joined.hide_set(False)
     joined.hide_render = False

@@ -1,7 +1,7 @@
 # Chavín — pase high-poly v0.2
 
 Fecha: 28 de octubre de 2026.
-Estado: **corrección del pase v0.1; preview controlado, no reconstrucción final**.
+Estado: **superado por `highpoly-v0.3.md`; se conserva como registro del pase anterior**.
 Fuente: `blender/chavin/chavin_highpoly_v0.2.blend` (11,7 MB), derivada de `chavin_highpoly_v0.1.blend`.
 Generadores: `scripts/build_chavin_highpoly.py` y `scripts/build_chavin_relief_v0_2.py`.
 Derivados: `chavin_lod0.blend` / `chavin_lod1.blend`, regenerados con `scripts/build_chavin_lod.py` y exportados con `scripts/export_chavin_lod.py`.

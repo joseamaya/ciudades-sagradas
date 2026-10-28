@@ -301,7 +301,7 @@ export class CityViewer {
     this.scene = new THREE.Scene();
     this.scene.fog = new THREE.Fog(0xb9c5c9, 110, 260);
 
-    this.camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.5, 500);
+    this.camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.05, 500);
     this.camera.position.set(24, 17, -26);
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);

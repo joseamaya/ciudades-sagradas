@@ -16,7 +16,7 @@ Todo asset publicado debe tener una licencia compatible con un proyecto educativ
 
 ## Licencias que evitar
 
-- CC BY-NC: bloquea el uso museístico/comercial.
+- CC BY-NC: bloquea el uso museístico/comercial. **Excepción documentada:** el Lanzón de Chavín derivado del escaneo CyArk es CC BY-NC-SA 4.0; se acepta solo para el preview no comercial y se sustituirá si el proyecto se comercializa. Ver `LICENSE-ASSETS.md`.
 - CC BY-ND: impide adaptar o integrar.
 - “Todos los derechos reservados” sin permiso.
 - Imágenes de UNESCO, Ministerio de Cultura, ICOMOS o museos sin autorización.
@@ -39,6 +39,10 @@ El piloto histórico con texturas de IA fue **retirado del repositorio** por lic
 3. Si no permite la distribución, mantenerlo fuera del repo o sustituir por texturas CC0/procedurales y reexportar.
 
 El código, los textos y los GLB v1/v2 sí pueden publicarse.
+
+## Lanzón de Chavín
+
+El Lanzón de Chavín es la única excepción CC BY-NC-SA 4.0 del repositorio. Proviene del escaneo de CyArk / Google Arts & Culture (Open Heritage), se decimó y se le asignó material propio; no se reutiliza la textura fotográfica. El código sigue en MIT. Cualquier uso comercial requiere sustituir la malla o negociar una licencia. Detalle en `LICENSE-ASSETS.md`.
 
 ## Imágenes oficiales
 

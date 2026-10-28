@@ -1,0 +1,81 @@
+{
+  "id": "aypate",
+  "name": "Aypate",
+  "subtitle": "La llaqta de la niebla",
+  "culture": "Imperio Inca · Qhapaq Ñan",
+  "period": "Siglo XV d. C.",
+  "region": "Ayabaca, Piura",
+  "coordinates": {
+    "lat": -4.7078,
+    "lon": -79.5759
+  },
+  "elevation": "2.920 m s. n. m.",
+  "status": "research",
+  "summary": "Centro administrativo y ceremonial inca en la sierra de Piura, entre bosques de neblina. Su plaza trapezoidal, el ushnu, la kallanka y el acllawasi articulaban el Qhapaq Ñan entre el norte andino y el Cusco.",
+  "model": null,
+  "scale": 1,
+  "camera": {
+    "position": [
+      24,
+      16,
+      26
+    ],
+    "target": [
+      0,
+      4,
+      0
+    ],
+    "fov": 45
+  },
+  "tour": [],
+  "layers": [
+    {
+      "id": "city",
+      "label": "Arquitectura inca",
+      "default": true
+    },
+    {
+      "id": "terrain",
+      "label": "Cerro y bosque de neblina",
+      "default": true
+    },
+    {
+      "id": "props",
+      "label": "Ushnu, kallanka y detalles",
+      "default": true
+    },
+    {
+      "id": "reference",
+      "label": "Escala humana",
+      "default": true
+    }
+  ],
+  "sources": [
+    {
+      "label": "Qhapaq Ñan — Proyecto Integral Aypate",
+      "url": "https://qhapaqnan.cultura.pe/proyectosdesitio/proyecto-integral-aypate"
+    },
+    {
+      "label": "Mincetur — Complejo Arqueológico de Aypate (ficha 374)",
+      "url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=374"
+    },
+    {
+      "label": "Revista de Investigación Científica Aypate — UNF (2022)",
+      "url": "https://revistas.unf.edu.pe/aypate/article/view/7"
+    },
+    {
+      "label": "Ministerio de Cultura — investigaciones en Aypate (2014)",
+      "url": "https://www.gob.pe/institucion/cultura/noticias/47292-ministerio-de-cultura-brindo-exposicion-sobre-las-investigaciones-en-la-zona-arqueologica-de-aypate"
+    },
+    {
+      "label": "UNESCO — Qhapaq Ñan, Andean Road System (n.º 1374)",
+      "url": "https://whc.unesco.org/en/list/1374/"
+    },
+    {
+      "label": "Sketchfab — Puerta monumental inca de Aypate (referencia 3D, CC BY)",
+      "url": "https://sketchfab.com/3d-models/puerta-monumental-inca-de-aypate-peru-53858cc105ac498ea016ceeaac67fc8c"
+    }
+  ],
+  "disclaimer": "Ficha en investigación. El modelo 3D aún no está publicado; la reconstrucción se basará en el plano topográfico y en la documentación del Proyecto Integral Aypate. Las zonas sin planta suficiente se marcarán como inferidas.",
+  "credits": "Ficha documental en preparación. Sin imágenes oficiales incorporadas."
+}

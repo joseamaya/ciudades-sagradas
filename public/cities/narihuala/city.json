@@ -1,0 +1,86 @@
+{
+  "id": "narihuala",
+  "name": "Narihualá",
+  "subtitle": "La huaca de los Tallanes",
+  "culture": "Cultura Tallán",
+  "period": "Siglos XI–XV d. C.",
+  "region": "Catacaos, Piura",
+  "coordinates": {
+    "lat": -5.2945,
+    "lon": -80.6871
+  },
+  "elevation": "22 m s. n. m.",
+  "status": "research",
+  "summary": "Centro político y ceremonial tallán en el valle bajo del Piura. Dos montículos de adobe, una plaza de 60 × 40 m, rampas y corredores organizan un sitio ocupado sucesivamente por tallanes, chimúes e incas.",
+  "model": null,
+  "scale": 1,
+  "camera": {
+    "position": [
+      20,
+      14,
+      22
+    ],
+    "target": [
+      0,
+      4,
+      0
+    ],
+    "fov": 45
+  },
+  "tour": [],
+  "layers": [
+    {
+      "id": "city",
+      "label": "Arquitectura de adobe",
+      "default": true
+    },
+    {
+      "id": "terrain",
+      "label": "Valle y bosque seco",
+      "default": true
+    },
+    {
+      "id": "props",
+      "label": "Rampas, corredores y detalles",
+      "default": true
+    },
+    {
+      "id": "reference",
+      "label": "Escala humana",
+      "default": true
+    },
+    {
+      "id": "later",
+      "label": "Capilla republicana",
+      "default": false
+    }
+  ],
+  "sources": [
+    {
+      "label": "Mincetur — Complejo Arqueológico Monumental Narihualá (ficha 364)",
+      "url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=364"
+    },
+    {
+      "label": "Municipalidad Distrital de Catacaos — Complejo Arqueológico Monumental de Narihualá (2025)",
+      "url": "https://www.gob.pe/institucion/municatacaos/informes-publicaciones/7301029-complejo-arqueologico-monumental-de-narihuala"
+    },
+    {
+      "label": "Ministerio de Cultura — RVM N.º 000084-2023-VMPCIC/MC",
+      "url": "https://cdn.www.gob.pe/uploads/document/file/4403434/RVM%20N%C2%B0%200084-2023-VMPCIC-MC.pdf"
+    },
+    {
+      "label": "Ministerio de Cultura — Museo de Sitio de Narihualá",
+      "url": "https://museos.cultura.pe/museos/museo-de-sitio-de-narihual%C3%A1"
+    },
+    {
+      "label": "SciELO Perú — Diversidad natural y cultural del Complejo Arqueológico Narihualá (2023)",
+      "url": "http://www.scielo.org.pe/scielo.php?pid=S2413-32992023000300323&script=sci_arttext&tlng=es"
+    },
+    {
+      "label": "Fernández Villegas — La huaca Narihualá (BIFEA, 1990)",
+      "url": "https://doi.org/10.3406/bifea.1990.1001"
+    }
+  ],
+  "disclaimer": "Ficha en investigación. El modelo 3D aún no está publicado. La capilla republicana se documentará como añadido posterior y no formará parte de la reconstrucción prehispánica principal.",
+  "credits": "Ficha documental en preparación. Sin imágenes oficiales incorporadas."
+}

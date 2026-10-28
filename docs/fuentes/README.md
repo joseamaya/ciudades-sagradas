@@ -6,6 +6,8 @@ Cada ciudad tiene un dossier con ficha técnica, cronología, arquitectura, mate
 - [Chavín de Huántar](./chavin.md)
 - [Chan Chan](./chan-chan.md)
 - [Wari](./wari.md)
+- [Aypate](./aypate.md)
+- [Narihualá](./narihuala.md)
 
 ## Criterios
 

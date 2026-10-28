@@ -52,5 +52,31 @@
     "thumb": null,
     "summary": "Capital del primer imperio andino, en la sierra de Ayacucho. Sus recintos de piedra, templos en D y barrios extensos redefinieron el urbanismo andino.",
     "monogram": "W"
+  },
+  {
+    "id": "aypate",
+    "name": "Aypate",
+    "subtitle": "La llaqta de la niebla",
+    "culture": "Imperio Inca · Qhapaq Ñan",
+    "period": "Siglo XV d. C.",
+    "region": "Ayabaca, Piura",
+    "status": "research",
+    "accent": "#7f9b84",
+    "thumb": null,
+    "summary": "Centro administrativo y ceremonial inca en el bosque de neblina de Ayabaca. Su plaza, ushnu, kallanka y acllawasi articulaban el Qhapaq Ñan.",
+    "monogram": "Ay"
+  },
+  {
+    "id": "narihuala",
+    "name": "Narihualá",
+    "subtitle": "La huaca de los Tallanes",
+    "culture": "Cultura Tallán",
+    "period": "Siglos XI–XV d. C.",
+    "region": "Catacaos, Piura",
+    "status": "research",
+    "accent": "#c98a5a",
+    "thumb": null,
+    "summary": "Centro político y ceremonial tallán en el valle del Piura. Dos montículos de adobe, una plaza de 60 × 40 m y rampas organizan el conjunto.",
+    "monogram": "N"
   }
 ]

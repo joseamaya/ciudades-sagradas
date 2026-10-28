@@ -225,6 +225,18 @@
         0.36,
         -4.84
       ]
+    },
+    {
+      "type": "point",
+      "color": "#ffe2c4",
+      "intensity": 0.012,
+      "distance": 0.35,
+      "decay": 2,
+      "position": [
+        -0.16,
+        0.38,
+        -4.95
+      ]
     }
   ]
 }

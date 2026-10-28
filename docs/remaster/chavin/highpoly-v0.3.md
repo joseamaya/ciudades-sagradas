@@ -31,7 +31,7 @@ Derivados: LOD0/LOD1 regenerados con `scripts/build_chavin_lod.py` y `scripts/ex
 - **Geometría:** se eliminó la placa de montaje del escaneo, se repararon normales y agujeros y se decimó a 50.000 triángulos. La textura fotográfica del escaneo **no se reutiliza**; el material es un granito oscuro procedural propio (`MAT-Chavin_Lanzon_Scan`, base 0,085 / rugosidad 0,93).
 - **LOD1:** en lugar del monolito liso de 298 triángulos, incluye una copia decimada a 12.000 triángulos con el mismo material. Así el rostro y el relieve siguen existiendo en móvil, a costa de ~12.000 triángulos.
 - **Visor:** `near` baja de 0,5 a 0,05 para permitir el primer plano; la parada 3 usa una cámara interior a 0,15 m del frente, fov 80, `minDistance: 0,1` y dos luces puntuales cálida/fría globales de baja intensidad en la galería.
-- **Caché:** `ciudades-sagradas-v19`.
+- **Caché:** `ciudades-sagradas-v20`.
 
 ## Licencia y atribución
 

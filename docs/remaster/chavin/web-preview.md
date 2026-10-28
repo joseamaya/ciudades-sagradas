@@ -31,7 +31,7 @@ Fuente Blender: `chavin_highpoly_v0.3.blend`; los derivados `chavin_lod0.blend` 
 - Capas `city`, `terrain`, `props` y `reference`, exportadas en los extras del GLB.
 - `hero.jpg` propio desde la Portada, sin imágenes oficiales.
 - Terreno con textura propia 1K en el GLB.
-- Caché del service worker `v19`.
+- Caché del service worker `v20`.
 
 ## Métricas del preview
 

@@ -24,6 +24,7 @@ Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 e
 - `highpoly-v0.2.md`: friso integrado y rostro inciso del Lanzón (superado por v0.3).
 - `highpoly-v0.3.md`: Lanzón derivado del escaneo CyArk, licencia, métricas y límites del pase actual.
 - `web-preview.md`: assets, métricas, QA, límites y limitación de LOD0/LOD1.
+- `qa-hardware.md`: resultado Android y matriz de QA pendiente.
 
 ## Reglas
 

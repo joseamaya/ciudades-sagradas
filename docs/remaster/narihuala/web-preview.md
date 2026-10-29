@@ -1,17 +1,17 @@
-# Narihualá — preview web v0.1
+# Narihualá — preview web v0.2
 
 Fecha: 29 de octubre de 2026.
 Estado: **preview interpretativo; no reconstrucción final**.
 Modelo: `public/cities/narihuala/model_lod0.glb` y `model_lod1.glb`.
-Fuente: `blender/narihuala/narihuala_highpoly_v0.1.blend`.
+Fuente: `blender/narihuala/narihuala_highpoly_v0.2.blend`.
 
 ## Qué se integró
 
-- LOD0: **211.288 tris / 1.904.556 B**; LOD1: **28.162 tris / 411.376 B**.
+- LOD0: **175.724 tris / 1.739.336 B**; LOD1: **26.894 tris / 393.000 B**.
 - 14/13 draw calls; 96/48 MB de texturas; 2K/1K.
 - Seis paradas: valle, montículo oeste, plaza, rampas, montículo este y mirador.
 - Capas: arquitectura tallán, valle y bosque seco, detalles, escala humana y capilla republicana (`later`, apagada).
-- `scale: 0.08`; caché `v28`.
+- `scale: 0.08`; caché `v29`.
 
 ## Vistas
 

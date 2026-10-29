@@ -1,8 +1,8 @@
-# Narihualá — planta interpretativa v0.1
+# Narihualá — planta interpretativa v0.2
 
 Fecha: 29 de octubre de 2026.
 Estado: **preview interpretativo; no es un plano arqueológico ni un cierre de cotas**.
-Modelo: `narihuala_highpoly_v0.1.blend`.
+Modelo: `narihuala_highpoly_v0.2.blend`.
 
 ## Base de la interpretación
 

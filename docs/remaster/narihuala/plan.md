@@ -1,7 +1,7 @@
 # Plan de Narihualá — Fase 0
 
 Fecha: 28 de octubre de 2026.
-Estado: **preview interpretativo v0.1; el plano arqueológico de sectores sigue pendiente y no se declara cierre de cotas**.
+Estado: **preview interpretativo v0.2; el plano arqueológico de sectores sigue pendiente y no se declara cierre de cotas**.
 
 ## Objetivo
 
@@ -74,8 +74,8 @@ Reconstruir el conjunto monumental de adobe de Narihualá como centro político-
 - [ ] Planta arqueológica de sectores y cotas finas; el montículo oeste y la plaza son inferencias.
 - [x] Capilla documentada como añadido republicano; no se modela en el núcleo; capa `later` si se incluye.
 - [x] Licencias resueltas para el alcance documental: fuentes citadas, sin copiar imágenes ni planos.
-- [x] Presupuesto y recorrido aprobados; blockout v0.1 ejecutado como interpretación, no como cierre de planta.
+- [x] Presupuesto y recorrido aprobados; blockout v0.2 ejecutado como interpretación, no como cierre de planta.
 
 ## Siguiente
 
-La v0.1 es un preview interpretativo: el montículo este y la capilla se apoyan en SIGRID; el montículo oeste, la plaza y las rampas son inferencias. No se declara cierre de cotas ni estándar. La capilla queda en `later`.
+La v0.2 es un preview interpretativo: el montículo este y la capilla se apoyan en SIGRID; el montículo oeste, la plaza y las rampas son inferencias. No se declara cierre de cotas ni estándar. La capilla queda en `later`.

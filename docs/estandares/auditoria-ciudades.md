@@ -8,7 +8,7 @@ Estándar: [`ciudad.md`](./ciudad.md).
 | **Caral** | `available` · v2 | 230.800 / 56.332 | 2K/1K | 6 | Android P2; hardware pendiente | **Técnico/visual sí; QA con excepción** | Cerrar o mantener waiver de `CARAL-ANDROID-GROUND-001`; QA iPhone/desktop. |
 | **Chavín** | `available` · preview v0.4 | 249.906 / 27.539 | 2K/1K | 6 | Hardware pendiente; Lanzón CC BY-NC-SA | **Visual/técnico sí; QA pendiente** | Repetir QA v0.4; revisar primer plano del Lanzón y licencia comercial. |
 | **Aypate** | `available` · preview v0.4 | 209.560 / 30.663 | 2K/1K | 6 | Sin QA hardware | **Visual/técnico sí; QA pendiente** | QA de hardware; cotas finas y recintos periféricos; cierre de conjunto documentado. |
-| **Narihualá** | `available` · preview v0.1 | 211.288 / 28.162 | 2K/1K | 6 | Sin QA hardware | **Parcial; interpretativo** | Montículo este y capilla desde SIGRID; oeste/plaza inferidos; cotas finas pendientes. |
+| **Narihualá** | `available` · preview v0.2 | 175.724 / 26.894 | 2K/1K | 6 | Sin QA hardware | **Parcial; interpretativo** | Montículo este y capilla desde SIGRID; oeste/plaza inferidos; cotas finas pendientes. |
 | **Chan Chan** | `research` | — | — | — | — | **No** | Producir desde cero; ciudad de adobe, nueve ciudadelas y relieves. Prioridad posterior. |
 | **Wari** | `research` | — | — | — | — | **No** | Producir desde cero; barrios, templos en D y galerías. Prioridad posterior. |
 

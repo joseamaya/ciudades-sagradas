@@ -1,7 +1,7 @@
-"""Prepara LOD0/LOD1 de Narihualá desde el high-poly v0.1.
+"""Prepara LOD0/LOD1 de Narihualá desde el high-poly v0.2.
 
 Uso:
-  blender --background blender/narihuala/narihuala_highpoly_v0.1.blend \
+  blender --background blender/narihuala/narihuala_highpoly_v0.2.blend \
     --python scripts/build_narihuala_lod.py -- --lod 0 \
     --out-blend blender/narihuala/narihuala_lod0.blend
 """
@@ -13,7 +13,7 @@ import sys
 import bpy
 
 LAYERS = ("city", "terrain", "props", "reference", "later")
-DECIMATE = {"city": 0.24, "terrain": 0.24, "props": 0.24, "reference": 1.0, "later": 0.5}
+DECIMATE = {"city": 0.26, "terrain": 0.26, "props": 0.26, "reference": 1.0, "later": 0.5}
 
 
 def parse_args():
@@ -59,7 +59,7 @@ def join_layer(name, objects, lod):
     joined["layer"] = name
     joined["lod"] = int(lod)
     joined["units"] = "meters"
-    joined["source"] = "narihuala_highpoly_v0.1"
+    joined["source"] = "narihuala_highpoly_v0.2"
     joined["evidence"] = "SIGRID 2018 + inferencia documentada"
     if lod == "1":
         ratio = DECIMATE[name]

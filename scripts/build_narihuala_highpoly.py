@@ -1,7 +1,7 @@
-"""Sube el blockout de Narihualá a un pase high-poly v0.1.
+"""Sube el blockout de Narihualá a un pase high-poly v0.2.
 
 Uso:
-  blender --background blender/narihuala/narihuala_blockout_v0.1.blend \
+  blender --background blender/narihuala/narihuala_blockout_v0.2.blend \
     --python scripts/build_narihuala_highpoly.py
 
 Añade cursos de adobe, erosión, vegetación y texturas 2K. No inventa techos ni
@@ -20,9 +20,10 @@ from mathutils import Vector
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import build_aypate_blockout as base  # noqa: E402
+import build_narihuala_blockout as block  # noqa: E402
 
-OUT = os.path.join(ROOT, "blender", "narihuala", "narihuala_highpoly_v0.1.blend")
-HERO = "/tmp/narihuala_highpoly_v0.1.jpg"
+OUT = os.path.join(ROOT, "blender", "narihuala", "narihuala_highpoly_v0.2.blend")
+HERO = "/tmp/narihuala_highpoly_v0.2.jpg"
 SEED = 91357
 rng = random.Random(SEED)
 
@@ -176,7 +177,7 @@ def replace_textures():
 
 
 def main():
-    bpy.ops.wm.open_mainfile(filepath=os.path.join(ROOT, "blender", "narihuala", "narihuala_blockout_v0.1.blend"))
+    bpy.ops.wm.open_mainfile(filepath=os.path.join(ROOT, "blender", "narihuala", "narihuala_blockout_v0.2.blend"))
     replace_textures()
     mats = {name: bpy.data.materials[name] for name in ("MAT-Narihuala_Adobe", "MAT-Narihuala_Sand", "MAT-Narihuala_Stone", "MAT-Narihuala_Wood", "MAT-Narihuala_Leaf", "MAT-Narihuala_LeafDark")}
     # Adobe courses on architectural volumes.
@@ -193,15 +194,13 @@ def main():
         x, y = math.cos(angle) * radius, math.sin(angle) * radius
         if abs(x) < 110 and abs(y) < 110:
             continue
-        z = 20.0 + 0.55 * math.sin(x * 0.018) * math.cos(y * 0.021)
-        # use blockout height approximation for placement
-        z = max(z, 20.0)
+        z = block.terrain_height(x, y)
         add_tree_high(f"GEO-Narihuala_HighTree_{i}", x, y, z, rng.uniform(0.65, 1.1), tree_mats, lod1_exclude=(i % 2 == 1))
     for i in range(55):
         angle = rng.uniform(0, math.tau)
         radius = rng.uniform(115, 220)
         x, y = math.cos(angle) * radius, math.sin(angle) * radius
-        z = 20.0
+        z = block.terrain_height(x, y)
         bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=1, radius=rng.uniform(0.35, 0.9), location=(x, y, z + 0.4))
         shrub = bpy.context.object
         shrub.name = f"GEO-Narihuala_HighShrub_{i}"

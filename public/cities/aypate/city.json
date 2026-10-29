@@ -16,42 +16,42 @@
   "scale": 0.08,
   "camera": {
     "position": [
-      6.88,
-      3.36,
-      -8.96
+      17.2,
+      6.8,
+      20.4
     ],
     "target": [
-      0.0,
+      2.0,
       0.64,
-      -0.32
+      0.8
     ],
-    "fov": 40
+    "fov": 42
   },
   "tour": [
     {
       "title": "Llegada por el Qhapaq Ñan",
-      "text": "El camino Inca asciende entre bosque de neblina hasta el conjunto. El blockout usa un ancho de ocho metros para el camino principal y seis para el ramal alterno, según las descripciones del Proyecto Integral Aypate.",
+      "text": "El camino Inca asciende entre bosque de neblina hasta el conjunto. El Qhapaq Ñan principal se modela con ocho metros de ancho y el ramal alterno con seis, según las descripciones del Proyecto Integral Aypate.",
       "camera": {
         "position": [
-          2.0,
-          3.04,
-          -13.2
+          -14.0,
+          4.8,
+          19.6
         ],
         "target": [
           0.0,
-          0.56,
-          -5.2
+          0.64,
+          5.2
         ],
         "fov": 42
       }
     },
     {
       "title": "La Plaza Inca",
-      "text": "La plaza es una planicie trapezoidal en la ladera del cerro. Alrededor se organizan el ushnu, la kallanka, el acllawasi y el palacio. La composición de esta versión es interpretativa y no coincide con el plano de 2013; la v0.3 corregirá el layout.",
+      "text": "La plaza es una planicie trapezoidal en la ladera del cerro. En la v0.3 el ushnu queda al este, la kallanka al oeste y el acllawasi al sur, siguiendo el levantamiento topográfico y arquitectónico de 2013.",
       "camera": {
         "position": [
-          5.6,
-          3.04,
+          7.6,
+          3.36,
           -6.8
         ],
         "target": [
@@ -64,36 +64,36 @@
     },
     {
       "title": "El Ushnu",
-      "text": "Tres plataformas sobrepuestas y escalonadas forman el ushnu. La reconstrucción muestra solo volúmenes y escalinatas; no inventa cubiertas ni objetos rituales.",
+      "text": "Tres plataformas sobrepuestas y escalonadas forman el ushnu, situado en el borde este de la plaza. La reconstrucción muestra solo volúmenes y escalinatas; no inventa cubiertas ni objetos rituales.",
       "camera": {
         "position": [
-          -1.0,
-          2.6,
-          0.8
+          13.6,
+          2.56,
+          -6.4
         ],
         "target": [
-          -3.76,
-          0.6,
-          0.8
+          8.8,
+          0.56,
+          -3.6
         ],
-        "fov": 50
+        "fov": 42
       }
     },
     {
       "title": "La Kallanka",
-      "text": "La kallanka es un edificio alargado sin subdivisiones, con trece accesos hacia la plaza. Aquí se alojaban peregrinos, guerreros y mitimaes; el blockout deja el interior sin techo porque no se conserva.",
+      "text": "La kallanka es un edificio alargado sin subdivisiones, con trece accesos hacia la plaza. En la v0.3 su eje norte-sur y su posición al oeste siguen el plano de 2013; el interior queda sin techo porque no se conserva.",
       "camera": {
         "position": [
-          6.0,
+          -13.2,
           2.4,
-          0.6
+          0.8
         ],
         "target": [
-          0,
-          0.6,
-          4.2
+          -8.0,
+          0.48,
+          1.6
         ],
-        "fov": 50
+        "fov": 40
       }
     },
     {
@@ -101,16 +101,16 @@
       "text": "El acllawasi reúne recintos alrededor de un patio y una portada de grandes bloques. Las fuentes lo vinculan a mujeres escogidas y a la producción de alimentos, chicha y textiles; la planta es una lectura de conjunto.",
       "camera": {
         "position": [
-          0.8,
           2.8,
-          3.5
+          2.72,
+          15.6
         ],
         "target": [
-          3.8,
-          0.5,
-          0.2
+          0.0,
+          0.48,
+          10.8
         ],
-        "fov": 48
+        "fov": 42
       }
     },
     {
@@ -118,16 +118,16 @@
       "text": "La fuente Inca es una estructura hundida de rocas labradas, con hornacinas y un conducto de agua. El agua y el cerro articulan la lectura ritual del sitio; la escalera y los recintos inmediatos quedan marcados como inferidos.",
       "camera": {
         "position": [
-          -2.8,
-          2.2,
-          -1.8
+          13.6,
+          1.6,
+          -3.2
         ],
         "target": [
-          -4.64,
-          0.2,
-          -3.84
+          11.6,
+          0.56,
+          -1.6
         ],
-        "fov": 45
+        "fov": 36
       }
     }
   ],
@@ -183,8 +183,8 @@
       "url": "https://sketchfab.com/3d-models/puerta-monumental-inca-de-aypate-peru-53858cc105ac498ea016ceeaac67fc8c"
     }
   ],
-  "disclaimer": "Preview de revisión v0.2. El levantamiento topográfico y arquitectónico de 2013 está publicado como figura general; la memoria de 36 sectores no es pública. La composición de esta versión es interpretativa y no coincide con ese plano: la v0.3 corregirá el layout. El high-poly detalla los elementos documentados; no es una reconstrucción histórica final. La puerta escaneada de Sketchfab no se incorpora al GLB.",
-  "credits": "Geometría, materiales y renders propios; sin imágenes oficiales ni texturas de IA. Referencia 3D de la puerta: fjmOjeda, CC BY, no incorporada. Fuentes en docs/fuentes/aypate.md.",
+  "disclaimer": "Preview de revisión v0.3. El levantamiento topográfico y arquitectónico de 2013 está publicado como figura general; la memoria de 36 sectores no es pública. La composición macro de esta versión se apoya en ese plano; los detalles no conservados y algunos recintos periféricos siguen siendo interpretativos. El high-poly no es una reconstrucción histórica final. La puerta escaneada de Sketchfab no se incorpora al GLB.",
+  "credits": "Geometría, materiales y renders propios; sin imágenes oficiales ni texturas de IA. Layout macro basado en el levantamiento de 2013 publicado en Campos Napán (2017). Referencia 3D de la puerta: fjmOjeda, CC BY, no incorporada. Fuentes en docs/fuentes/aypate.md.",
   "stage": "preview",
   "lod": {
     "default": "auto",

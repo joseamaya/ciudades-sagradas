@@ -1,7 +1,7 @@
 # Cobertura objetivo — Aypate
 
 Fecha: 28 de octubre de 2026.
-Estado: **preview web v0.2 con high-poly; layout no coincidente con el plano de 2013; v0.3 pendiente**.
+Estado: **preview web v0.3 con high-poly; layout macro según el plano de 2013; QA de hardware pendiente**.
 Estándar: **centro representativo**.
 
 | Elemento | Evidencia | Nivel objetivo | Estado | Nota |
@@ -11,17 +11,17 @@ Estándar: **centro representativo**.
 | Kallanka | Documentado | Hero | High-poly | Edificio alargado; fachada con accesos |
 | Acllawasi | Documentado | Hero | High-poly | Recintos alrededor de patio |
 | Palacio | Documentado | Fondo | High-poly | Detrás de la kallanka |
-| Colcas | Documentado | Fondo | High-poly | Almacenes cerca del ingreso |
+| Colcas | Documentado | Fondo | High-poly | Almacenes al norte, junto al camino |
 | Andenes | Documentado | Fondo | High-poly | Terrazas agrícolas |
 | Cima del cerro | Documentado | Fondo | Diferido | Plataformas ceremoniales |
 | Templo del Sol | Documentado | Fondo | Diferido | Plataformas escalonadas |
 | Baño / fuente ritual | Documentado | Hero parcial | High-poly | Rocas labradas y hornacinas |
-| Puerta monumental | Documentado | Hero | Referencia; no integrada | Modelo Sketchfab CC BY; no integrado en v0.2 |
+| Puerta monumental | Documentado | Hero | Referencia; no integrada | Modelo Sketchfab CC BY; no integrado en v0.3 |
 | Qhapaq Ñan | Documentado | Hero parcial | High-poly | Camino de ~8 m y ramal de ~6 m |
 | Kanchas de control | Documentado | Fondo | High-poly | Asociadas al camino alternativo |
 | Bosque de neblina | Documentado/inferido | Fondo | High-poly | Ambiente, no inventario botánico |
 | Techos y cubiertas | No conservado | No reconstruir | Diferido | Sin evidencia |
-| Planta completa y cotas | Documentado / parcial | Gate | Parcial; v0.2 no coincide | Levantamiento de 2013 publicado como figura general; memoria de 36 sectores no pública |
+| Planta completa y cotas | Documentado / parcial | Gate | Macro cotejado; cotas finas pendientes | Levantamiento de 2013 usado para el layout; memoria de 36 sectores no pública |
 
 ## Huecos de evidencia
 
@@ -35,15 +35,15 @@ Estándar: **centro representativo**.
 
 ## Auditoría del plano de 2013
 
-La comparación con la figura 1 de Campos 2017 muestra un desajuste macro: el ushnu está al este de la plaza en el plano y al oeste en v0.2; la kallanka está al oeste/noroeste en el plano y al sur en v0.2; el acllawasi está al sur/suroeste en el plano y al este en v0.2. No se corrige con una rotación o espejo simple. Ver `auditoria-plano-2013.md`.
+La v0.3 corrigió el desajuste macro de v0.2 usando la figura 1 de Campos 2017: ushnu al este, kallanka al oeste, acllawasi al sur, palacio al noroeste, colcas al norte y Qhapaq Ñan al oeste. Ver `auditoria-plano-2013.md`.
 
 ## Criterio de aceptación
 
 - [x] Ficha y fuentes.
 - [x] Plano general localizado: levantamiento de 2013 publicado en Campos 2017; no copiado al repositorio.
-- [ ] Planta y cotas cotejadas: v0.2 no coincide; v0.3 debe rehacer el layout.
+- [x] Layout macro cotejado con el plano de 2013; cotas finas y memoria de 36 sectores pendientes.
 - [x] High-poly generado y revisado.
-- [x] Ushnu, kallanka, acllawasi y plaza legibles como volúmenes, no como planta documentada.
+- [x] Ushnu, kallanka, acllawasi y plaza legibles en la posición macro del plano.
 - [x] Sin techos ni recintos inventados.
 - [x] Licencias y atribuciones.
 - [x] LOD0/LOD1 y preview web; QA de hardware pendiente.

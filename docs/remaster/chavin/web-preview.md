@@ -3,17 +3,17 @@
 Fecha: 28 de octubre de 2026.
 Estado: **preview público controlado; no es un remaster final ni un LOD de producción**.
 Modelo: `public/cities/chavin/model_lod0.glb` y `model_lod1.glb`.
-Fuente Blender: `chavin_highpoly_v0.4.blend`; los derivados `chavin_lod0.blend` / `chavin_lod1.blend` se regeneran con scripts y no se versionan. El Lanzón deriva del escaneo CyArk/Google Arts & Culture (CC BY-NC-SA 4.0).
+Fuente Blender: `chavin_highpoly_v0.5.blend`; los derivados `chavin_lod0.blend` / `chavin_lod1.blend` se regeneran con scripts y no se versionan. El Lanzón deriva del escaneo CyArk/Google Arts & Culture (CC BY-NC-SA 4.0).
 
 ## Vistas
 
 ### Escritorio, LOD0
 
-![Preview LOD0](highpoly-v0.3-hero.png)
+![Preview LOD0](web-preview-lod0.png)
 
 ### Móvil, LOD1
 
-![Parada del Lanzón](highpoly-v0.3-tour.png)
+![Mirador v0.5](highpoly-v0.5-tour.png)
 
 ### Parada de la Portada
 
@@ -26,22 +26,22 @@ Fuente Blender: `chavin_highpoly_v0.4.blend`; los derivados `chavin_lod0.blend` 
 ## Qué se integró
 
 - `city.json` con `status: "available"` y `stage: "preview"`.
-- Dos niveles: LOD0 de 249.906 tris con mampostería, friso integrado, Lanzón escaneado y columnas acanaladas; LOD1 de 27.539 tris con una copia de 12.000 tris del Lanzón.
+- Dos niveles: LOD0 de 249.930 tris con mampostería, friso integrado, Lanzón escaneado y columnas acanaladas; LOD1 de 27.563 tris con una copia de 12.000 tris del Lanzón.
 - `scale: 0.08`, cámara inicial, seis paradas de recorrido y `minDistance: 0.1` para el primer plano del Lanzón.
 - Capas `city`, `terrain`, `props` y `reference`, exportadas en los extras del GLB.
 - `hero.jpg` propio desde la Portada, sin imágenes oficiales.
 - Terreno con textura propia 1K en el GLB.
-- Caché del service worker `v22`.
+- Caché del service worker `v35`.
 - Parada 5 con `fov 28` para que las columnas y el friso de la Portada entren en el encuadre; las acanaladuras son una lectura geométrica interpretativa.
 
 ## Métricas del preview
 
 | Métrica | LOD0 | LOD1 |
 |---|---:|---:|
-| Triángulos | 249.906 | 27.539 |
+| Triángulos | 249.930 | 27.563 |
 | Mallas exportadas | 4 | 4 |
 | Draw calls en la vista inicial | 19 | 15 |
-| GLB | 1.962.060 B | 786.136 B |
+| GLB | 1.962.280 B | 786.356 B |
 | Texturas decodificadas estimadas | 133,3 MB | 69,3 MB |
 | Imágenes | 13 | 13, a 1024 px |
 
@@ -56,7 +56,7 @@ Fuente Blender: `chavin_highpoly_v0.4.blend`; los derivados `chavin_lod0.blend` 
 - `npm run validate`: OK.
 - `npm run build`: OK.
 - LOD0/LOD1 y las cámaras del recorrido se midieron con `bench --city chavin --qa`, incluida la captura de las seis paradas. El benchmark de hardware real queda pendiente.
-- Escritorio 1600×900: LOD0, 19 draw calls.
+- Escritorio 1600×900: LOD0, 18 draw calls.
 - Móvil 390×844: LOD1, 15 draw calls.
 - Seis paradas verificadas; el acercamiento mínimo al Lanzón equivale a 1,25 m del modelo (0,1 unidades de escena) y se ilumina con dos luces puntuales cálida/fría.
 - Capas presentes en los extras: `city`, `terrain`, `props`, `reference`.
@@ -95,6 +95,10 @@ blender --background blender/chavin/chavin_highpoly_v0.3.blend \
   --out-blend blender/chavin/chavin_highpoly_v0.4.blend
 
 blender --background blender/chavin/chavin_highpoly_v0.4.blend \
+  --python scripts/fix_chavin_summit_blocks.py -- \
+  --out-blend blender/chavin/chavin_highpoly_v0.5.blend
+
+blender --background blender/chavin/chavin_highpoly_v0.5.blend \
   --python scripts/build_chavin_lod.py -- --lod 0 \
   --out-blend blender/chavin/chavin_lod0.blend
 

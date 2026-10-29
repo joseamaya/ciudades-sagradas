@@ -56,7 +56,7 @@ Fuente: `blender/aypate/aypate_highpoly_v0.4.blend`; los LOD se regeneran con `s
 ## Límites
 
 - El plano general de 2013 está publicado en Campos 2017; la memoria de 36 sectores no es pública.
-- La v0.4 conserva el layout macro y corrige escala: ushnu de 30 × 30 m con terraza superior de 20,7 × 23,7 m y 25 peldaños; kallanka de 115 × 12 m; acllawasi en cuatro canchas. Ver `escala.md` y `auditoria-plano-2013.md`.
+- La v0.4 conserva el layout macro y corrige escala: ushnu de 30 × 30 m con terraza superior de 20,7 × 23,7 m y 25 peldaños; kallanka de 115 × 12 m; acllawasi en cuatro canchas. Ver `escala.md`, `cotas.md` y `auditoria-plano-2013.md`.
 - Los edificios se muestran sin techos y con volúmenes de high-poly; el layout macro es documentado y los detalles siguen siendo interpretativos.
 - La vegetación y la niebla son una lectura ambiental, no un inventario.
 - No hay QA en hardware real todavía.

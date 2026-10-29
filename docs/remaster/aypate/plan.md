@@ -75,11 +75,11 @@ Los textos deben distinguir documentado, inferido e interpretativo; la atribuci�
 - [x] Ficha de investigación en el atlas.
 - [x] Alcance hero/fondo y límites.
 - [x] Plano general localizado: levantamiento de 2013 publicado en Campos 2017; sirve para relaciones macro, no para cotas finas.
-- [x] Layout macro cotejado con el plano de 2013; cotas finas pendientes.
+- [x] Layout macro cotejado con el plano de 2013; cierre de cotas de conjunto en `cotas.md`; cotas finas pendientes.
 - [x] Cronología y atribución revisadas con fuentes oficiales, marcando lo reportado.
 - [x] Licencias: sin imágenes oficiales; Sketchfab solo referencia CC BY.
 - [x] Presupuesto y recorrido aprobados para blockout.
 
 ## Siguiente
 
-High-poly v0.4 completado con plaza, ushnu, kallanka, acllawasi, palacio, colcas, fuente, andenes y camino. Se corrigieron la terraza superior y escalinata del ushnu, el ancho de la kallanka, la meseta y las cámaras. Siguiente: QA visual, QA en hardware real y cierre de cotas finas. El layout v0.4 no es una reconstrucción histórica final.
+High-poly v0.4 completado con plaza, ushnu, kallanka, acllawasi, palacio, colcas, fuente, andenes y camino. Se corrigieron la terraza superior y escalinata del ushnu, el ancho de la kallanka, la meseta y las cámaras. Siguiente: QA visual, QA en hardware real y cotas finas de detalle. El layout v0.4 no es una reconstrucción histórica final.

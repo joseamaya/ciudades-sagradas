@@ -21,7 +21,7 @@ Estándar: **centro representativo**.
 | Kanchas de control | Documentado | Fondo | High-poly | Asociadas al camino alternativo |
 | Bosque de neblina | Documentado/inferido | Fondo | High-poly | Ambiente, no inventario botánico |
 | Techos y cubiertas | No conservado | No reconstruir | Diferido | Sin evidencia |
-| Planta completa y cotas | Documentado / parcial | Gate | Macro cotejado; cotas finas pendientes | Levantamiento de 2013 usado para el layout; memoria de 36 sectores no pública |
+| Planta completa y cotas | Documentado / parcial | Gate | Cierre de conjunto cerrado; cotas finas pendientes | `cotas.md`; memoria de 36 sectores no pública |
 
 ## Huecos de evidencia
 
@@ -41,7 +41,7 @@ La v0.4 conserva el desajuste macro corregido en v0.3 y ajusta la escala: ushnu 
 
 - [x] Ficha y fuentes.
 - [x] Plano general localizado: levantamiento de 2013 publicado en Campos 2017; no copiado al repositorio.
-- [x] Layout macro cotejado con el plano de 2013; cotas finas y memoria de 36 sectores pendientes.
+- [x] Cierre de cotas de conjunto en `cotas.md`; cotas finas y memoria de 36 sectores pendientes.
 - [x] High-poly v0.4 generado y revisado.
 - [x] Ushnu, kallanka, acllawasi y plaza legibles en la posición macro del plano, con escala corregida.
 - [x] Sin techos ni recintos inventados.

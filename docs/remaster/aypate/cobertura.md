@@ -1,7 +1,7 @@
 # Cobertura objetivo — Aypate
 
 Fecha: 28 de octubre de 2026.
-Estado: **preview web v0.3 con high-poly; layout macro según el plano de 2013; QA de hardware pendiente**.
+Estado: **preview web v0.4 con high-poly; escala contrastada con el plano de 2013; QA de hardware pendiente**.
 Estándar: **centro representativo**.
 
 | Elemento | Evidencia | Nivel objetivo | Estado | Nota |
@@ -16,7 +16,7 @@ Estándar: **centro representativo**.
 | Cima del cerro | Documentado | Fondo | Diferido | Plataformas ceremoniales |
 | Templo del Sol | Documentado | Fondo | Diferido | Plataformas escalonadas |
 | Baño / fuente ritual | Documentado | Hero parcial | High-poly | Rocas labradas y hornacinas |
-| Puerta monumental | Documentado | Hero | Referencia; no integrada | Modelo Sketchfab CC BY; no integrado en v0.3 |
+| Puerta monumental | Documentado | Hero | Referencia; no integrada | Modelo Sketchfab CC BY; no integrado en v0.4 |
 | Qhapaq Ñan | Documentado | Hero parcial | High-poly | Camino de ~8 m y ramal de ~6 m |
 | Kanchas de control | Documentado | Fondo | High-poly | Asociadas al camino alternativo |
 | Bosque de neblina | Documentado/inferido | Fondo | High-poly | Ambiente, no inventario botánico |
@@ -35,15 +35,15 @@ Estándar: **centro representativo**.
 
 ## Auditoría del plano de 2013
 
-La v0.3 corrigió el desajuste macro de v0.2 usando la figura 1 de Campos 2017: ushnu al este, kallanka al oeste, acllawasi al sur, palacio al noroeste, colcas al norte y Qhapaq Ñan al oeste. Ver `auditoria-plano-2013.md`.
+La v0.4 conserva el desajuste macro corregido en v0.3 y ajusta la escala: ushnu de 30 × 30 m con terraza superior de 20,7 × 23,7 m, kallanka de 115 × 12 m, acllawasi en cuatro canchas y meseta de ~500 × 300 m. Ver `escala.md` y `auditoria-plano-2013.md`.
 
 ## Criterio de aceptación
 
 - [x] Ficha y fuentes.
 - [x] Plano general localizado: levantamiento de 2013 publicado en Campos 2017; no copiado al repositorio.
 - [x] Layout macro cotejado con el plano de 2013; cotas finas y memoria de 36 sectores pendientes.
-- [x] High-poly generado y revisado.
-- [x] Ushnu, kallanka, acllawasi y plaza legibles en la posición macro del plano.
+- [x] High-poly v0.4 generado y revisado.
+- [x] Ushnu, kallanka, acllawasi y plaza legibles en la posición macro del plano, con escala corregida.
 - [x] Sin techos ni recintos inventados.
 - [x] Licencias y atribuciones.
 - [x] LOD0/LOD1 y preview web; QA de hardware pendiente.

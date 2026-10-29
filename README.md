@@ -2,7 +2,7 @@
 
 Atlas interactivo de los grandes centros ceremoniales y ciudades del Perú antiguo. Reconstrucciones 3D en tiempo real, fichas educativas y fuentes públicas.
 
-**Estado:** Caral remaster v2 es el estado actual y su contenido queda cerrado bajo el estándar de **ciudad representativa**: seis pirámides y sectores principales, con high-poly en Pirámide Mayor, Plaza Mayor, Anfiteatro y Altar Circular. LOD0 de 230.800 tris y LOD1 de 56.332 tris, ambos con Draco; el piloto histórico con texturas de IA fue retirado del repositorio. Queda una incidencia Android P2 de parpadeo de suelo, documentada. Chavín de Huántar tiene un **preview web v0.1** con LOD0 de 249.906 tris y LOD1 de 27.539 tris, terreno texturizado, seis paradas, un Lanzón derivado del escaneo CyArk/Google Arts & Culture (CC BY-NC-SA 4.0) y la Portada con fustes acanalados v0.4; el blockout v0.5, el texturizado UV v0.2 y la Portada v0.1 quedan como base de revisión. El bake 2K se descartó por pérdida de detalle. Aypate ya tiene un preview web v0.4 con high-poly navegable y LOD0/LOD1, con layout macro y escala contrastados con el plano de 2013; el cierre de cotas de conjunto está documentado; quedan QA de hardware y cotas finas. Narihualá sigue como ficha de investigación. Chan Chan y Wari siguen en investigación.
+**Estado:** Caral remaster v2 es el estado actual y su contenido queda cerrado bajo el estándar de **ciudad representativa**: seis pirámides y sectores principales, con high-poly en Pirámide Mayor, Plaza Mayor, Anfiteatro y Altar Circular. LOD0 de 230.800 tris y LOD1 de 56.332 tris, ambos con Draco; el piloto histórico con texturas de IA fue retirado del repositorio. Queda una incidencia Android P2 de parpadeo de suelo, documentada. Chavín de Huántar tiene un **preview web v0.1** con LOD0 de 249.906 tris y LOD1 de 27.539 tris, terreno texturizado, seis paradas, un Lanzón derivado del escaneo CyArk/Google Arts & Culture (CC BY-NC-SA 4.0) y la Portada con fustes acanalados v0.4; el blockout v0.5, el texturizado UV v0.2 y la Portada v0.1 quedan como base de revisión. El bake 2K se descartó por pérdida de detalle. Aypate ya tiene un preview web v0.4 con high-poly navegable y LOD0/LOD1, con layout macro y escala contrastados con el plano de 2013; el cierre de cotas de conjunto está documentado; quedan QA de hardware y cotas finas. Narihualá sigue en Fase 0: envolvente legal y cotas de control documentadas, plano arqueológico de sectores pendiente. Chan Chan y Wari siguen en investigación.
 
 ## Qué es
 
@@ -78,7 +78,7 @@ Más detalles en [`docs/kiosco.md`](./docs/kiosco.md).
 | Chan Chan | Chimú | Siglos IX–XV d. C. | En investigación |
 | Wari | Wari | 600–1100 d. C. | En investigación |
 | Aypate | Imperio Inca · Qhapaq Ñan | Siglo XV d. C. | Preview v0.4 · LOD0/LOD1 |
-| Narihualá | Cultura Tallán | Siglos XI–XV d. C. | En investigación |
+| Narihualá | Cultura Tallán | Siglos XI–XV d. C. | Fase 0 · control documentado |
 
 Los dossieres de fuentes están en [`docs/fuentes/`](./docs/fuentes/). El estado, el setup, el pipeline Blender y el remaster de Caral están en [`docs/estado.md`](./docs/estado.md), [`docs/setup.md`](./docs/setup.md), [`docs/pipeline-blender.md`](./docs/pipeline-blender.md) y [`docs/remaster/caral/`](./docs/remaster/caral/).
 

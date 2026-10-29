@@ -8,7 +8,7 @@ Estándar: [`ciudad.md`](./ciudad.md).
 | **Caral** | `available` · v2 | 230.800 / 56.332 | 2K/1K | 6 | Android P2; hardware pendiente | **Técnico/visual sí; QA con excepción** | Cerrar o mantener waiver de `CARAL-ANDROID-GROUND-001`; QA iPhone/desktop. |
 | **Chavín** | `available` · preview v0.4 | 249.906 / 27.539 | 2K/1K | 6 | Hardware pendiente; Lanzón CC BY-NC-SA | **Visual/técnico sí; QA pendiente** | Repetir QA v0.4; revisar primer plano del Lanzón y licencia comercial. |
 | **Aypate** | `available` · preview v0.4 | 209.560 / 30.663 | 2K/1K | 6 | Sin QA hardware | **Visual/técnico sí; QA pendiente** | QA de hardware; cotas finas y recintos periféricos; cierre de conjunto documentado. |
-| **Narihualá** | `research` | — | — | — | — | **No** | Cerrar ficha, plan y cobertura; construir blockout y high-poly hasta el estándar. |
+| **Narihualá** | `research` · Fase 0 | — | — | — | — | **No** | Envolvente legal y cotas de control en `planta-cotas.md`; falta plano arqueológico de sectores para abrir Blender. |
 | **Chan Chan** | `research` | — | — | — | — | **No** | Producir desde cero; ciudad de adobe, nueve ciudadelas y relieves. Prioridad posterior. |
 | **Wari** | `research` | — | — | — | — | **No** | Producir desde cero; barrios, templos en D y galerías. Prioridad posterior. |
 
@@ -21,7 +21,7 @@ Estándar: [`ciudad.md`](./ciudad.md).
 ## Orden de trabajo
 
 1. **Aypate:** QA de hardware y cotas finas; el layout, la escala y el cierre de conjunto v0.4 ya siguen el plano de 2013.
-2. **Narihualá:** de ficha a preview completo.
+2. **Narihualá:** conseguir el plano arqueológico de sectores; después blockout y preview.
 3. **Chan Chan:** blockout y high-poly por ciudadelas.
 4. **Wari:** blockout y high-poly por sectores.
 5. **Caral/Chavín:** cerrar QA y excepciones; no reconstruir.

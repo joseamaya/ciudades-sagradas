@@ -9,8 +9,8 @@ Estándar: **conjunto representativo**.
 | Montículo mayor / Sector III | Documentado / visible | Hero | High-poly | Lado este; capilla en `later` |
 | Montículo menor / Sector I | Documentado / inferido | Hero | High-poly | Lado oeste; cubierto por el museo |
 | Sector II | Documentado / inferido | Hero | High-poly | Recintos, patios y corredores |
-| Plaza de 60 × 40 m | Documentado / inferido | Hero | High-poly | Accesos por rampas; 2.400 m² |
-| Rampas y corredores | Documentado / inferido | Hero parcial | High-poly | Circulación interpretativa |
+| Plaza de 60 × 40 m | Documentado / inferido | Hero | High-poly | Plataforma apoyada y recorte local; 2.400 m² |
+| Accesos y corredores | Documentado / inferido | Hero parcial | High-poly | Escalinatas apoyadas; rampas documentadas no modeladas |
 | Muros de adobe | Documentado | Base visual | High-poly | 1,10–1,20 m de ancho; adobe 60 × 30 × 10 cm; sector I reporta 1,60 m |
 | Rellenos de arena | Documentado / inferido | Fondo | High-poly | Volumetría de plataformas |
 | Capilla de la Inmaculada Concepción | Documentado | Capa posterior | High-poly | Republicana; `later`, fuera del hero |
@@ -35,7 +35,7 @@ Estándar: **conjunto representativo**.
 - [x] Ficha y fuentes.
 - [ ] Planta arqueológica de sectores; envolvente legal en `planta-cotas.md`.
 - [x] Blockout y high-poly v0.2 interpretativos.
-- [x] Dos montículos, plaza y rampas legibles; sectores I–III no asignados.
+- [x] Dos montículos, plaza y accesos legibles; sectores I–III no asignados.
 - [x] Capilla documentada; `later` si se incluye.
 - [x] Sin techos ni recintos interiores inventados; alturas de conjunto desde DTM.
 - [x] LOD0/LOD1; QA de hardware pendiente.

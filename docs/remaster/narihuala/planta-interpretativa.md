@@ -10,7 +10,7 @@ Modelo: `narihuala_highpoly_v0.2.blend`.
 - **Capilla republicana:** visible en la cima; va en capa `later`, desactivada por defecto.
 - **Montículo oeste:** cubierto por el museo; se infiere a partir de Mincetur 364, RVM 2023 y Fernández Villegas 1990.
 - **Plaza de 60 × 40 m:** inferida; no tiene borde arqueológico legible en la ortofoto.
-- **Rampas, corredores y tres hileras de muros:** inferidos a partir de las descripciones; no se presentan como planta medida.
+- **Accesos, corredores y tres hileras de muros:** inferidos a partir de las descripciones; las rampas documentadas no se modelan y se sustituyen por escalinatas apoyadas. No se presentan como planta medida.
 - **Sectorización I–III:** no se asigna porque RVM y Mincetur no coinciden.
 
 ## Tabla
@@ -21,7 +21,7 @@ Modelo: `narihuala_highpoly_v0.2.blend`.
 | Capilla | Visible, posterior | SIGRID / Mincetur | Capa `later`, oculta |
 | Montículo oeste | Inferido | Mincetur / RVM / Persée | Dos plataformas, más bajo |
 | Plaza 60 × 40 m | Inferido | Mincetur 364 | Losa y muros bajos |
-| Rampas y corredores | Inferido | Mincetur / RVM | Rampas y tres muros paralelos |
+| Accesos y corredores | Inferido | Mincetur / RVM | Escalinatas y tres muros paralelos; rampas no modeladas |
 | Altura de base / cima | Medida | DTM SIGRID | ~24 m / ~42,7 m |
 | Techos y recintos interiores | No conservado | — | No modelados |
 

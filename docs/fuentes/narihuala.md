@@ -84,8 +84,8 @@
 ## High-poly v0.2
 
 - Fuente: `blender/narihuala/narihuala_highpoly_v0.2.blend`.
-- LOD0 de 175.724 tris y LOD1 de 26.894 tris; 14/13 draw calls; texturas 96/48 MB.
-- Montículo este y capilla desde SIGRID 2018; montículo oeste, plaza y rampas inferidos.
+- LOD0 de 162.432 tris y LOD1 de 29.682 tris; 13/13 draw calls; texturas 96/48 MB.
+- Montículo este y capilla desde SIGRID 2018; montículo oeste, plaza y accesos inferidos; rampas documentadas no modeladas.
 - Capilla en capa `later`, apagada por defecto. Sin techos ni recintos interiores inventados.
 - Preview interpretativo; no cierre de cotas.
 

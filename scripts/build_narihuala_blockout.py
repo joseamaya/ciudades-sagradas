@@ -17,6 +17,7 @@ import random
 import sys
 
 import bpy
+import bmesh
 from mathutils import Vector
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +28,7 @@ OUT_BLEND = os.path.join(ROOT, "blender", "narihuala", "narihuala_blockout_v0.2.
 HERO = "/tmp/narihuala_blockout_v0.2.jpg"
 SEED = 8451
 TERRAIN_SIZE = 600
-TERRAIN_N = 120
+TERRAIN_N = 180
 PLAZA_Z = 37.5
 HEIGHTMAP = json.loads(open(os.path.join(ROOT, "blender", "narihuala", "terrain_heightmap.json")).read())
 
@@ -105,12 +106,34 @@ def make_materials():
 
 
 
-def terrace(name, points, z_top, thickness, mat, layer="city"):
-    """Plataforma de contorno irregular con talud inferior, no una caja."""
+def terrain_min(points, pad=1.06):
+    """Cota mínima del DTM bajo una huella, con muestreo interior."""
     cx = sum(p[0] for p in points) / len(points)
     cy = sum(p[1] for p in points) / len(points)
+    xs = [cx + (p[0] - cx) * pad for p in points]
+    ys = [cy + (p[1] - cy) * pad for p in points]
+    samples = list(zip(xs, ys))
+    for i in range(9):
+        for j in range(9):
+            x = min(xs) + (max(xs) - min(xs)) * i / 8
+            y = min(ys) + (max(ys) - min(ys)) * j / 8
+            inside = False
+            for a, b in zip(points, points[1:] + points[:1]):
+                if ((a[1] > y) != (b[1] > y)) and (x < (b[0] - a[0]) * (y - a[1]) / (b[1] - a[1]) + a[0]):
+                    inside = not inside
+            if inside:
+                samples.append((x, y))
+    return min(terrain_height(x, y) for x, y in samples)
+
+
+def terrace(name, points, z_top, thickness, mat, layer="city", base_z=None, pad=1.06):
+    """Plataforma maciza de contorno irregular, apoyada en terreno o plataforma inferior."""
+    cx = sum(p[0] for p in points) / len(points)
+    cy = sum(p[1] for p in points) / len(points)
+    if base_z is None:
+        base_z = z_top - thickness
     top = [(x, y, z_top) for x, y in points]
-    bottom = [(cx + (x - cx) * 1.06, cy + (y - cy) * 1.06, z_top - thickness) for x, y in points]
+    bottom = [(cx + (x - cx) * pad, cy + (y - cy) * pad, base_z) for x, y in points]
     verts = top + bottom
     n = len(points)
     faces = [tuple(range(n - 1, -1, -1)), tuple(range(n, 2 * n))]
@@ -120,6 +143,12 @@ def terrace(name, points, z_top, thickness, mat, layer="city"):
     mesh = bpy.data.meshes.new(f"MESH-{name}")
     mesh.from_pydata(verts, [], faces)
     mesh.update()
+    bm = bmesh.new()
+    bm.from_mesh(mesh)
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    bm.to_mesh(mesh)
+    bm.free()
+    mesh.update()
     obj = bpy.data.objects.new(name, mesh)
     base.bucket(layer.title()).objects.link(obj)
     obj.data.materials.append(mat)
@@ -127,38 +156,27 @@ def terrace(name, points, z_top, thickness, mat, layer="city"):
     base.bevel(obj, 0.06)
     obj["layer"] = layer
     obj["lod1_exclude"] = False
+    obj["skip_courses"] = True
     return obj
 
-def ramp(name, center, size, z0, z1, axis, mat, layer="city"):
-    sx, sy, sz = (v / 2 for v in size)
-    verts = [
-        (-sx, -sy, z0), (sx, -sy, z0), (sx, sy, z0), (-sx, sy, z0),
-        (-sx, -sy, z1), (sx, -sy, z1), (sx, sy, z1), (-sx, sy, z1),
-    ]
-    # A wedge: one end at z0, the other at z1.
-    if axis == "x":
-        verts[4] = (-sx, -sy, z0)
-        verts[5] = (sx, -sy, z1)
-        verts[6] = (sx, sy, z1)
-        verts[7] = (-sx, sy, z0)
-    else:
-        verts[4] = (-sx, -sy, z0)
-        verts[5] = (sx, -sy, z0)
-        verts[6] = (sx, sy, z1)
-        verts[7] = (-sx, sy, z1)
-    faces = [(0, 3, 2, 1), (4, 5, 6, 7), (0, 1, 5, 4), (1, 2, 6, 5), (2, 3, 7, 6), (3, 0, 4, 7)]
-    mesh = bpy.data.meshes.new(f"MESH-{name}")
-    mesh.from_pydata(verts, [], faces)
-    mesh.update()
-    obj = bpy.data.objects.new(name, mesh)
-    base.bucket(layer.title()).objects.link(obj)
-    obj.location = center
-    obj.data.materials.append(mat)
-    base.uv_cube(obj, 4.0)
-    base.bevel(obj, 0.03)
-    obj["layer"] = layer
-    obj["lod1_exclude"] = False
-    return obj
+
+def cut_terrain_area(obj, points, z_top, margin=10.0):
+    """Recorte local: deja una plataforma plana y una transición suave."""
+    x0, x1 = min(p[0] for p in points), max(p[0] for p in points)
+    y0, y1 = min(p[1] for p in points), max(p[1] for p in points)
+    target = z_top - 0.12
+    for vert in obj.data.vertices:
+        x, y, old = vert.co.x, vert.co.y, vert.co.z
+        dx = max(x0 - x, 0.0, x - x1)
+        dy = max(y0 - y, 0.0, y - y1)
+        dist = max(dx, dy)
+        if dist <= 0.0:
+            vert.co.z = target
+        elif dist < margin:
+            t = 1.0 - dist / margin
+            t = t * t * (3.0 - 2.0 * t)
+            vert.co.z = old * (1.0 - t) + target * t
+    obj.data.update()
 
 
 def main():
@@ -168,52 +186,56 @@ def main():
         scene.collection.children.link(col)
     base.bucket = lambda name: bpy.data.collections[f"COL-Narihuala_{name}"]
     mats = make_materials()
-    terrain(mats)
+    terrain_obj = terrain(mats)
 
-    # Plaza central de 60 x 40 m, entre los dos montículos.
-    terrace("GEO-Narihuala_Plaza", [(-45, -10), (15, -10), (15, 30), (-45, 30)], PLAZA_Z, 0.7, mats["sand"])
-    base.wall_x("GEO-Narihuala_Plaza_N", -45, 15, 30, PLAZA_Z + 0.1, 1.0, 0.8, mats["adobe"], [(0, 8.0)], "city")
-    base.wall_x("GEO-Narihuala_Plaza_S", -45, 15, -10, PLAZA_Z + 0.1, 1.0, 0.8, mats["adobe"], [(0, 8.0)], "city")
-    base.wall_y("GEO-Narihuala_Plaza_W", -45, -10, 30, PLAZA_Z + 0.1, 1.0, 0.8, mats["adobe"], [(-5, 8.0)], "city")
-    base.wall_y("GEO-Narihuala_Plaza_E", 15, -10, 30, PLAZA_Z + 0.1, 1.0, 0.8, mats["adobe"], [(0, 8.0)], "city")
-
-    # Montículo oeste: plataformas inferidas, ocultas en parte por el museo.
+    # Huellas principales.
+    plaza = [(-45, -10), (15, -10), (15, 30), (-45, 30)]
     west_base = [(-90, 45), (-30, 50), (-25, -40), (-85, -45)]
     west_mid = [(-85, 35), (-35, 40), (-30, -30), (-80, -35)]
     west_top = [(-75, 25), (-45, 30), (-40, -20), (-70, -25)]
-    terrace("GEO-Narihuala_West_Base", west_base, 30.0, 3.0, mats["adobe"])
-    terrace("GEO-Narihuala_West_Mid", west_mid, 33.0, 3.0, mats["adobe"])
-    terrace("GEO-Narihuala_West_Top", west_top, 37.0, 3.0, mats["adobe"])
+    east_base = [(-20, 55), (80, 60), (85, -45), (-15, -50)]
+    east_mid = [(-10, 45), (65, 50), (70, -35), (0, -40)]
+    east_top = [(5, 35), (55, 40), (60, -25), (10, -30)]
+
+    # El montículo oeste está cubierto por el museo; se recorta el terreno
+    # para exponer las plataformas inferidas y evitar bordes enterrados.
+    cut_terrain_area(terrain_obj, west_base, 30.0)
+    cut_terrain_area(terrain_obj, plaza, PLAZA_Z)
+
+    # Plaza central de 60 x 40 m, entre los dos montículos.
+    terrace("GEO-Narihuala_Plaza", plaza, PLAZA_Z, 0.7, mats["sand"], base_z=terrain_min(plaza) - 0.35, pad=1.0)
+    base.wall_x("GEO-Narihuala_Plaza_N", -45, 15, 30, PLAZA_Z, 1.0, 0.8, mats["adobe"], [(0, 8.0)], "city")
+    base.wall_x("GEO-Narihuala_Plaza_S", -45, 15, -10, PLAZA_Z, 1.0, 0.8, mats["adobe"], [(0, 8.0)], "city")
+    base.wall_y("GEO-Narihuala_Plaza_W", -45, -10, 30, PLAZA_Z, 1.0, 0.8, mats["adobe"], [(-5, 8.0)], "city")
+    base.wall_y("GEO-Narihuala_Plaza_E", 15, -10, 30, PLAZA_Z, 1.0, 0.8, mats["adobe"], [(0, 8.0)], "city")
+
+    # Montículo oeste: plataformas inferidas, ocultas en parte por el museo.
+    terrace("GEO-Narihuala_West_Base", west_base, 30.0, 3.0, mats["adobe"], base_z=terrain_min(west_base) - 0.35)
+    terrace("GEO-Narihuala_West_Mid", west_mid, 33.0, 3.0, mats["adobe"], base_z=30.0 - 0.6, pad=1.0)
+    terrace("GEO-Narihuala_West_Top", west_top, 37.0, 3.0, mats["adobe"], base_z=33.0 - 0.6, pad=1.0)
     base.stairs("GEO-Narihuala_West_Stairs", (-95, 5, 30.0), 4.0, 0.8, 0.28, 25, "x", mats["adobe"])
     base.wall_y("GEO-Narihuala_West_Front", -75, -25, 30, 37.0, 1.8, 0.9, mats["adobe"], [(5, 4.0)], "city")
 
     # Montículo este: tres plataformas de contorno irregular y terraza superior.
-    east_base = [(-20, 55), (80, 60), (85, -45), (-15, -50)]
-    east_mid = [(-10, 45), (65, 50), (70, -35), (0, -40)]
-    east_top = [(5, 35), (55, 40), (60, -25), (10, -30)]
-    terrace("GEO-Narihuala_East_Base", east_base, 31.0, 3.0, mats["adobe"])
-    terrace("GEO-Narihuala_East_Mid", east_mid, 37.0, 4.0, mats["adobe"])
-    terrace("GEO-Narihuala_East_Top", east_top, 44.0, 4.0, mats["adobe"])
-    base.stairs("GEO-Narihuala_East_Stairs", (-15, 5, 37.5), 5.0, 0.9, 0.34, 20, "x", mats["adobe"])
+    terrace("GEO-Narihuala_East_Base", east_base, 31.0, 3.0, mats["adobe"], base_z=terrain_min(east_base) - 0.35)
+    terrace("GEO-Narihuala_East_Mid", east_mid, 37.0, 4.0, mats["adobe"], base_z=31.0 - 0.6, pad=1.0)
+    terrace("GEO-Narihuala_East_Top", east_top, 44.0, 4.0, mats["adobe"], base_z=37.0 - 0.6, pad=1.0)
+    base.stairs("GEO-Narihuala_East_Stairs", (-15, 5, 31.0), 5.0, 0.9, (44.0 - 31.0) / 20, 20, "x", mats["adobe"])
     base.wall_y("GEO-Narihuala_East_Front", 5, -25, 35, 44.0, 1.8, 1.0, mats["adobe"], [(5, 5.0)], "city")
     base.wall_y("GEO-Narihuala_East_Back", 60, -25, 35, 44.0, 1.8, 1.0, mats["adobe"], layer="city")
     base.wall_x("GEO-Narihuala_East_N", 5, 60, 35, 44.0, 1.8, 1.0, mats["adobe"], layer="city")
     base.wall_x("GEO-Narihuala_East_S", 5, 60, -25, 44.0, 1.8, 1.0, mats["adobe"], layer="city")
 
-    # Rampas desde la plaza a los dos montículos.
-    ramp("GEO-Narihuala_Ramp_East", (0, 10, 0), (20, 10, 5.0), 37.5, 39.0, "x", mats["sand"], "city")
-    ramp("GEO-Narihuala_Ramp_West", (-60, 10, 0), (20, 10, 4.0), 37.5, 38.5, "x", mats["sand"], "city")
-
     # Sector II: tres hileras de muros paralelos y corredores.
     for i, y in enumerate((-8, 0, 8)):
-        base.wall_x(f"GEO-Narihuala_SectorII_Wall_{i}", -45, 15, y, PLAZA_Z + 0.1, 1.2, 0.7, mats["adobe"], [(-20, 4.0)], "city")
-    base.box("GEO-Narihuala_SectorII_Patio", (40, 22, 0.2), (-15, 10, PLAZA_Z + 0.1), mats["sand"], "props", 4.0, 0.01, True)
+        base.wall_x(f"GEO-Narihuala_SectorII_Wall_{i}", -45, 15, y, PLAZA_Z, 1.2, 0.7, mats["adobe"], [(-20, 4.0)], "city")
+    base.box("GEO-Narihuala_SectorII_Patio", (40, 22, 0.2), (-15, 10, PLAZA_Z), mats["sand"], "props", 4.0, 0.01, True)
 
     # Camino de acceso desde el sur.
     for i in range(28):
         y = -235 + i * 7
         x = -15
-        z = terrain_height(x, y) + 0.25
+        z = terrain_height(x, y) - 0.02
         base.box(f"GEO-Narihuala_Path_{i}", (8, 7.2, 0.18), (x, y, z), mats["sand"], "props", 3.0, 0.01, True)
     base.wall_y("GEO-Narihuala_Path_W", -22, -240, -40, 0, 0.8, 0.6, mats["adobe"], layer="props")
 

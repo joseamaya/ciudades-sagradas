@@ -3,7 +3,7 @@
 Fecha: 29 de octubre de 2026.
 Estado: **corrección visual; preview controlado, no reconstrucción final**.
 Fuente: `blender/chavin/chavin_highpoly_v0.5.blend`, derivada de v0.4.
-Registro de la corrección: `blender/chavin/chavin_portada_v0.2.blend`.
+Registro de la corrección: `blender/chavin/chavin_portada_v0.2.blend`. El high-poly v0.5 se derivó de v0.4 para conservar columnas, friso y Lanzón; la fuente portada v0.2 documenta el cambio de remates.
 Derivados: LOD0/LOD1 regenerados con `scripts/build_chavin_lod.py` y `scripts/export_chavin_lod.py`.
 
 ## Qué se corrigió

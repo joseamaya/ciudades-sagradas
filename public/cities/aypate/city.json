@@ -16,33 +16,33 @@
   "scale": 0.08,
   "camera": {
     "position": [
-      5.6,
-      1.44,
-      0.4
+      16.8,
+      8.0,
+      21.0
     ],
     "target": [
-      8.8,
+      2.4,
       0.64,
-      -3.6
+      0.4
     ],
-    "fov": 23
+    "fov": 36
   },
   "tour": [
     {
-      "title": "Llegada por el Qhapaq Ñan",
-      "text": "El Qhapaq Ñan asciende entre bosque de neblina hasta la terraza monumental. El camino principal conserva 8 m de ancho y el ramal alterno 6 m, según el Proyecto Integral Aypate.",
+      "title": "Aypate desde el Qhapaq Ñan",
+      "text": "La llagta se lee sobre la terraza monumental, entre el bosque de neblina y el Qhapaq Ñan. La Gran Plaza, el ushnu al este y la kallanka al oeste organizan el conjunto; el camino principal conserva 8 m de ancho y el ramal alterno 6 m.",
       "camera": {
         "position": [
-          -6.24,
-          0.72,
-          16
+          16.8,
+          8.0,
+          21.0
         ],
         "target": [
-          -6.24,
+          2.4,
           0.64,
-          12
+          0.4
         ],
-        "fov": 28
+        "fov": 36
       }
     },
     {

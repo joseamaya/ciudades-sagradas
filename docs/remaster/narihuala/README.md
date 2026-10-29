@@ -1,9 +1,9 @@
 # Narihualá — remaster
 
-Estado: **preview web v0.1 interpretativo; no reconstrucción final**.
-Fuente: `blender/narihuala/narihuala_highpoly_v0.1.blend` (6,8 MB).
-LOD0: **211.288 tris / 1.904.556 B**; LOD1: **28.162 tris / 411.376 B**; 14/13 draw calls.
-Caché `v28`.
+Estado: **preview web v0.2 interpretativo; no reconstrucción final**.
+Fuente: `blender/narihuala/narihuala_highpoly_v0.2.blend` (6,2 MB).
+LOD0: **175.724 tris / 1.739.336 B**; LOD1: **26.894 tris / 393.000 B**; 14/13 draw calls.
+Caché `v29`.
 
 Narihualá es el principal conjunto monumental de adobe de la cultura Tallán, en Catacaos. Dos montículos, una plaza de 60 × 40 m, rampas y corredores organizan el sitio, ocupado también por chimúes e incas. La capilla republicana de la cima se trata como añadido posterior.
 
@@ -21,7 +21,7 @@ Narihualá es el principal conjunto monumental de adobe de la cultura Tallán, e
 
 ### High-poly
 
-![High-poly de Narihualá](highpoly-v0.1-hero.jpg)
+![High-poly de Narihualá](highpoly-v0.2-hero.jpg)
 
 ### Montículo oeste
 

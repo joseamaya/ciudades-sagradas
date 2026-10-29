@@ -1,7 +1,7 @@
 # Aypate — auditoría del layout v0.2 contra el plano de 2013
 
 Fecha: 28 de octubre de 2026.  
-Estado: **auditoría cerrada; v0.2 no coincidía; v0.3 implementada con el layout macro del plano**.
+Estado: **auditoría cerrada; v0.2 no coincidía; v0.3 corrigió el layout macro y v0.4 la escala**.
 Alcance: comparación de relaciones espaciales de v0.2; la corrección se registra al final.
 
 ## Fuente del plano
@@ -80,4 +80,17 @@ La implementación v0.3:
 
 ## Decisión de esta auditoría
 
-El layout macro de v0.3 queda alineado con el plano publicado. No se copia la figura al repositorio. La v0.2 se conserva como evidencia histórica; el preview público usa v0.3.
+El layout macro de v0.3 queda alineado con el plano publicado. No se copia la figura al repositorio. La v0.2 se conserva como evidencia histórica; el preview público usa v0.4.
+
+## Implementación v0.4
+
+La v0.4 conserva el layout macro del plano y corrige la lectura de escala:
+
+- La Gran Plaza mantiene su envolvente de ~140 × 95 m, pero incorpora el muro perimetral bajo documentado y un tratamiento de arcilla rosada compacta, sin cuadrícula de losas.
+- El ushnu recupera la terraza superior de 20,7 × 23,7 m, la escalinata de 25 peldaños y el pozo de ofrendas de 6,6 × 2,14 m.
+- La kallanka se ajusta a 115 × 12 m y conserva los 13 accesos.
+- El acllawasi se divide en cuatro canchas; su envolvente sigue siendo interpretativa.
+- La meseta baja de ~560 × 600 m a ~500 × 300 m y el terreno total a 600 × 600 m.
+- La cámara hero baja de 85 m a 18 m; se añaden seis figuras humanas de 1,7 m.
+
+La tabla completa y los límites están en `escala.md`.

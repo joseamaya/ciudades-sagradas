@@ -1,6 +1,6 @@
 # Aypate — dossier de fuentes
 
-**Estado:** preview web v0.3 con high-poly; layout macro basado en el plano de 2013; QA de hardware pendiente.
+**Estado:** preview web v0.4 con high-poly; layout y escala contrastados con el plano de 2013; QA de hardware pendiente.
 **Fecha de consulta:** 28 de octubre de 2026.
 
 ## Ficha
@@ -78,21 +78,21 @@
 - Qhapaq Ñan, *Aypate: un monumento arqueológico y una montaña cósmica donde nace el agua*: <https://qhapaqnan.cultura.pe/sites/default/files/articulos/173473673-Aypate-un-monumento-arqueolo-gico-y-una-montan-a-co-smica-donde-nace-el-agua.pdf>
 - Sketchfab, *Puerta monumental inca de Aypate*, fjmOjeda, CC BY: <https://sketchfab.com/3d-models/puerta-monumental-inca-de-aypate-peru-53858cc105ac498ea016ceeaac67fc8c>
 
-## High-poly v0.3
+## High-poly v0.4
 
-- Fuente: `blender/aypate/aypate_highpoly_v0.3.blend`.
-- LOD0 de 226.408 tris y LOD1 de 28.735 tris; seis paradas.
+- Fuente: `blender/aypate/aypate_highpoly_v0.4.blend`.
+- LOD0 de 209.560 tris y LOD1 de 30.663 tris; seis paradas; 16/14 draw calls; texturas 160/80 MB.
 - Se modelaron plaza, ushnu, kallanka, acllawasi, palacio, colcas, fuente, andenes y Qhapaq Ñan.
-- La v0.3 rehízo el layout macro según el plano de 2013: ushnu al este, kallanka al oeste, acllawasi al sur, colcas al norte y Qhapaq Ñan al oeste. Ver `docs/remaster/aypate/auditoria-plano-2013.md`.
+- La v0.4 conserva el layout macro del plano de 2013 y corrige escala: ushnu de 30 × 30 m con terraza superior de 20,7 × 23,7 m y 25 peldaños; kallanka de 115 × 12 m; acllawasi en cuatro canchas; meseta de ~500 × 300 m. Ver `docs/remaster/aypate/escala.md` y `docs/remaster/aypate/auditoria-plano-2013.md`.
 - Techos, alturas perdidas y recintos periféricos quedan fuera.
-- Quedan pendientes las cotas finas, los recintos periféricos y la QA de hardware.
+- Quedan pendientes las cotas finas, los recintos periféricos y la QA de hardware. La v0.4 mantiene la incertidumbre de la planta del acllawasi, palacio y colcas.
 
 ## Notas de reconstrucción
 
 - Prioridad: núcleo estatal alrededor de la plaza y relaciones con el cerro, el camino y el bosque.
-- El layout macro de v0.3 usa el levantamiento topográfico y arquitectónico de 2013 publicado en Campos 2017; no se copió la figura y no se toman sus medidas como cotas de precisión.
+- El layout macro de v0.4 usa el levantamiento topográfico y arquitectónico de 2013 publicado en Campos 2017; no se copió la figura y no se toman sus medidas como cotas de precisión.
 - La memoria de 36 sectores y el original de alta resolución siguen siendo la fuente pendiente para detalles y cotas.
-- La puerta monumental escaneada se usa como referencia de proporciones; no se publica en v0.3.
+- La puerta monumental escaneada se usa como referencia de proporciones; no se publica en v0.4.
 - No reconstruir techos, alturas perdidas ni recintos sin planta.
 - Materiales pétreos, musgo y niebla propios del bosque de neblina; no paleta costeña ni imaginería cusqueña genérica.
 - El Qhapaq Ñan se modela como infraestructura, no como escenografía decorativa.
@@ -101,5 +101,5 @@
 
 - No se incorporan fotografías oficiales de Qhapaq Ñan, Mincetur o Ministerio de Cultura.
 - Las imágenes de referencia se citan; para publicar se requiere permiso o una alternativa propia/CC0.
-- El modelo de Sketchfab es CC BY y requiere atribución a fjmOjeda si se integra; en v0.3 se usa solo como referencia.
+- El modelo de Sketchfab es CC BY y requiere atribución a fjmOjeda si se integra; en v0.4 se usa solo como referencia.
 - Sin texturas de IA.

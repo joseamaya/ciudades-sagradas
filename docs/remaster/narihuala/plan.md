@@ -1,7 +1,7 @@
 # Plan de Narihualá — Fase 0
 
-Fecha: 28 de octubre de 2026.  
-Estado: **ficha de investigación; no se abre Blender hasta cerrar planta y licencias**.
+Fecha: 28 de octubre de 2026.
+Estado: **Fase 0 con envolvente oficial documentada; no se abre Blender hasta obtener el plano arqueológico de sectores**.
 
 ## Objetivo
 
@@ -70,11 +70,11 @@ Reconstruir el conjunto monumental de adobe de Narihualá como centro político-
 - [x] Dossier de fuentes.
 - [x] Ficha de investigación en el atlas.
 - [x] Alcance hero/fondo y límites.
-- [ ] Planta y cotas cotejadas.
-- [ ] Decisión final sobre la capilla.
-- [ ] Licencias de imágenes resueltas.
-- [ ] Presupuesto y recorrido aprobados para blockout.
+- [ ] Planta arqueológica de sectores y cotas de detalle; la envolvente legal está en `planta-cotas.md`.
+- [x] Capilla documentada como añadido republicano; no se modela en el núcleo; capa `later` si se incluye.
+- [x] Licencias resueltas para el alcance documental: fuentes citadas, sin copiar imágenes ni planos.
+- [x] Presupuesto y recorrido aprobados; el blockout queda bloqueado por la planta.
 
 ## Siguiente
 
-Blockout v0.1 con los dos montículos, la plaza, las rampas y los sectores; después materiales de adobe y recorrido. La capilla se evalúa como capa `later`; no entra en la lectura principal.
+Solicitar el expediente técnico y el plano arqueológico de sectores. Sin ese plano no hay blockout: no se inventan montículos, rampas ni recintos. La capilla queda documentada y, si se incluye, en capa `later`.

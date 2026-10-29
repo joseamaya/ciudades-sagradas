@@ -1,7 +1,7 @@
 # Narihualá — dossier de fuentes
 
-**Estado:** en investigación; modelo 3D pendiente.  
-**Fecha de consulta:** 28 de octubre de 2026.
+**Estado:** Fase 0; envolvente legal y cotas de control documentadas; plano arqueológico de sectores pendiente; sin modelo.
+**Fecha de consulta:** 29 de octubre de 2026.
 
 ## Ficha
 
@@ -11,9 +11,9 @@
 | Cultura | Tallán, con ocupación Chimú e Inca |
 | Período | Siglos XI–XV d. C.; Intermedio Tardío y Horizonte Tardío |
 | Ubicación | Centro poblado de Narihualá, distrito de Catacaos, Piura |
-| Coordenadas | 5°17′40″ S, 80°41′13″ O (aprox.; UTM 17M 534788 E, 9414760 N) |
+| Coordenadas | UTM 17S 534.788,2567 E / 9.414.759,7812 N (centroide oficial); 5°17′05″ S, 80°40′45″ O |
 | Altitud | 22 m s. n. m. |
-| Extensión | ~60.000 m² (6 ha) |
+| Extensión | 62.959,36 m² (6,295936 ha); perímetro 1.014,38 m |
 | Protección | Patrimonio Cultural de la Nación, RDN N.º 76/INC (2003); denominación actualizada a Complejo Arqueológico Monumental (2023) |
 
 ## Cronología
@@ -51,9 +51,9 @@
 
 | Tema | Estado | Nota |
 |---|---|---|
-| Dos montículos y tres sectores | Documentado | Fichas oficiales y estudios. |
-| Plaza de 60 × 40 m y rampas | Documentado | Sector II. |
-| Adobe y dimensiones de muros | Documentado | 60 × 30 × 10 cm; muros 1,10–1,20 m. |
+| Dos montículos y tres sectores | Documentado / conflictivo | RVM y Mincetur difieren en la numeración de sectores; no asignar hasta tener plano. |
+| Plaza de 60 × 40 m y rampas | Documentado | 2.400 m²; sector II en Mincetur. |
+| Adobe y dimensiones de muros | Documentado | 60 × 30 × 10 cm; muros 1,10–1,20 m; sector I reporta 1,60 m. |
 | Ocupación Tallán, Chimú e Inca | Documentado / parcial | Secuencia reportada por materiales y fuentes. |
 | Capital religiosa tallán | Interpretado | Tradición e etnohistoria; no un hecho cerrado. |
 | Alturas originales y techos | Inferido / no conservado | No reconstruir sin fuente. |
@@ -72,8 +72,8 @@
 ## Notas de reconstrucción
 
 - Prioridad: los dos montículos, la plaza, las rampas y la relación con el valle; no todo el pueblo actual.
-- La capilla republicana se modela, si se incluye, en una capa `later` desactivada por defecto y nunca en el hero prehispánico.
-- No reconstruir alturas, techos ni recintos sin planta; usar vacíos y cortes señalizados.
+- La capilla republicana se documenta; si se incluye, va en una capa `later` desactivada por defecto y nunca en el hero prehispánico.
+- No reconstruir alturas, techos ni recintos sin planta. La planta arqueológica de sectores sigue pendiente; ver `docs/remaster/narihuala/planta-cotas.md`.
 - El adobe se representa con erosión, juntas y variación; no como plástico uniforme.
 - Evitar la imagen de pirámide mesoamericana: Narihualá es un conjunto de plataformas de adobe con patios, rampas y corredores.
 - No usar imágenes oficiales ni texturas de IA.

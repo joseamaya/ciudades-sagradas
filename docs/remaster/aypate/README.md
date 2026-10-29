@@ -2,8 +2,8 @@
 
 Estado: **preview web v0.4 con high-poly navegable; escala contrastada con el plano de 2013; QA de hardware pendiente**.
 Fuente: `blender/aypate/aypate_highpoly_v0.4.blend` (8,9 MB).
-LOD0: **209.560 tris / 2.139.720 B**; LOD1: **30.663 tris / 443.372 B**; 16/14 draw calls.
-Caché `v26`.
+LOD0: **209.560 tris / 2.139.720 B**; LOD1: **30.663 tris / 443.372 B**; 18/16 draw calls.
+Caché `v27`.
 
 Aypate es un centro administrativo y ceremonial inca del siglo XV, en el bosque de neblina de Ayabaca. El high-poly modela el núcleo documentado —plaza, ushnu, kallanka, acllawasi, palacio, colcas, fuente, andenes y Qhapaq Ñan— con una composición macro basada en el levantamiento publicado de 2013; los detalles no conservados siguen siendo interpretativos. La puerta escaneada de Sketchfab se usa como referencia, no como asset del GLB.
 

@@ -1,6 +1,6 @@
 # Narihualá — dossier de fuentes
 
-**Estado:** Fase 0; envolvente legal y cotas de control documentadas; plano arqueológico de sectores pendiente; sin modelo.
+**Estado:** preview interpretativo v0.1; envolvente legal y SIGRID documentados; plano arqueológico de sectores pendiente.
 **Fecha de consulta:** 29 de octubre de 2026.
 
 ## Ficha
@@ -80,6 +80,14 @@
 - El adobe se representa con erosión, juntas y variación; no como plástico uniforme.
 - Evitar la imagen de pirámide mesoamericana: Narihualá es un conjunto de plataformas de adobe con patios, rampas y corredores.
 - No usar imágenes oficiales ni texturas de IA.
+
+## High-poly v0.1
+
+- Fuente: `blender/narihuala/narihuala_highpoly_v0.1.blend`.
+- LOD0 de 211.288 tris y LOD1 de 28.162 tris; 14/13 draw calls; texturas 96/48 MB.
+- Montículo este y capilla desde SIGRID 2018; montículo oeste, plaza y rampas inferidos.
+- Capilla en capa `later`, apagada por defecto. Sin techos ni recintos interiores inventados.
+- Preview interpretativo; no cierre de cotas.
 
 ## Imágenes y licencias
 

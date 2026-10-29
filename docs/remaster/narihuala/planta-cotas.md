@@ -1,8 +1,8 @@
 # Narihualá — planta y cotas de control
 
 Fecha: 29 de octubre de 2026.
-Estado: **envolvente oficial y cotas de control documentadas; plano arqueológico de sectores pendiente**.
-Modelo: no iniciado. No se abre Blender hasta resolver la planta de los sectores I–III.
+Estado: **preview interpretativo v0.1; envolvente legal y SIGRID documentados; plano arqueológico de sectores pendiente**.
+Modelo: v0.1 interpretativo; no es cierre de cotas ni plano arqueológico.
 
 ## Lo que sí está documentado
 
@@ -43,7 +43,7 @@ No se resuelve por mayoría ni por interpretación. Hasta tener el plano arqueol
 - **Capilla:** se documenta como añadido republicano. No se modela en el núcleo prehispánico; si se incluye, va en capa `later`, desactivada por defecto.
 - **Museo:** fuera de alcance.
 - **Licencias:** se citan las fuentes oficiales y no se copian fotografías ni planos. Renders y geometría propios; sin texturas de IA.
-- **Presupuesto y recorrido:** se mantienen los del plan, pero el blockout queda bloqueado por la planta.
+- **Presupuesto y recorrido:** se mantienen; el blockout v0.1 se ejecutó como preview interpretativo, no como cierre de planta.
 - **Modelo:** no se inicia.
 
 ## Próxima acción
@@ -85,4 +85,4 @@ La diferencia entre la base y la cima es de unos **19 m**; el dato de “40 m”
 
 ### Consecuencia
 
-La ortofoto libre **no cierra la planta arqueológica**. Permite localizar los montículos y medir alturas, pero no separar los sectores I–III ni reconstruir la plaza, las rampas y los recintos con la precisión del estándar. El gate sigue bloqueado y no se abre Blender.
+La ortofoto libre **no cierra la planta arqueológica**. Permite localizar los montículos y medir alturas, pero no separar los sectores I–III ni reconstruir la plaza, las rampas y los recintos con la precisión del estándar. El cierre de cotas sigue bloqueado; el preview v0.1 se construyó como interpretación explícita, no como plano arqueológico.

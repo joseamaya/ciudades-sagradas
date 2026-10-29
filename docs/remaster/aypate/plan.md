@@ -1,7 +1,7 @@
 # Plan de Aypate — Fase 0
 
 Fecha: 28 de octubre de 2026.
-Estado: **high-poly v0.2 y preview web; plano general de 2013 localizado; layout v0.2 no coincide y requiere v0.3**.
+Estado: **high-poly v0.3 y preview web; layout macro según el plano de 2013; QA de hardware pendiente**.
 
 ## Objetivo
 
@@ -27,8 +27,8 @@ Construir una reconstrucción navegable del núcleo inca de Aypate que se lea co
 
 | Elemento | Objetivo |
 |---|---|
-| LOD0 escritorio | 150.000–250.000 tris; actual: 241.436 |
-| LOD1 móvil | 25.000–80.000 tris; actual: 31.623 |
+| LOD0 escritorio | 150.000–250.000 tris; actual: 226.408 |
+| LOD1 móvil | 25.000–80.000 tris; actual: 28.735 |
 | Draw calls | <100 en régimen estable |
 | GLB | <25 MB por LOD |
 | Texturas | 2K hero, 1K móvil; WebP 80 |
@@ -52,7 +52,7 @@ Los textos deben distinguir documentado, inferido e interpretativo; la atribuci�
 ## Evidencia y licencias
 
 - Base: Proyecto Integral Aypate (Qhapaq Ñan), Mincetur 374, Ministerio de Cultura, revista UNF y UNESCO Qhapaq Ñan.
-- El modelo de la puerta monumental de Sketchfab es **CC BY**; si se integra, se registra autoría y atribución. En v0.2 se usa como referencia.
+- El modelo de la puerta monumental de Sketchfab es **CC BY**; si se integra, se registra autoría y atribución. En v0.3 se usa como referencia.
 - No se copian imágenes de Qhapaq Ñan/Mincul/Mincetur.
 - Sin texturas de IA; materiales procedurales o CC0.
 - La planta topográfica y arquitectónica de 2013 está publicada en Campos 2017; se usa para el layout macro, sin copiar la figura ni asumir cotas finas.
@@ -66,7 +66,7 @@ Los textos deben distinguir documentado, inferido e interpretativo; la atribuci�
 | Bosque de neblina | Coste de vegetación y niebla | Fondo procedural, LOD y niebla de visor |
 | Pendientes y terrazas | Escala y colisiones visuales | Blockout de terreno antes del detalle |
 | Techos y alturas no conservados | Invención | No reconstruir; usar vacíos señalizados |
-| Modelo escaneado aislado | Estilo y escala inconsistentes | Referencia en v0.2; integración solo con retopo y material propio |
+| Modelo escaneado aislado | Estilo y escala inconsistentes | Referencia en v0.3; integración solo con retopo y material propio |
 | Licencias de imágenes | Bloqueo de publicación | Registro y renders propios |
 
 ## Gate de Fase 0
@@ -75,11 +75,11 @@ Los textos deben distinguir documentado, inferido e interpretativo; la atribuci�
 - [x] Ficha de investigación en el atlas.
 - [x] Alcance hero/fondo y límites.
 - [x] Plano general localizado: levantamiento de 2013 publicado en Campos 2017; sirve para relaciones macro, no para cotas finas.
-- [ ] Planta y cotas cotejadas: la v0.2 no coincide con el plano; la v0.3 debe rehacer el layout.
+- [x] Layout macro cotejado con el plano de 2013; cotas finas pendientes.
 - [x] Cronología y atribución revisadas con fuentes oficiales, marcando lo reportado.
 - [x] Licencias: sin imágenes oficiales; Sketchfab solo referencia CC BY.
 - [x] Presupuesto y recorrido aprobados para blockout.
 
 ## Siguiente
 
-High-poly v0.2 completado con plaza, ushnu, kallanka, acllawasi, palacio, colcas, fuente, andenes y camino. La auditoría del plano de 2013 muestra que el layout no coincide; el siguiente paso es **v0.3**: rehacer blockout, recorrido y cámaras con el plano publicado, reutilizando materiales y generadores. Después, QA visual y QA en hardware real. El layout v0.2 no debe presentarse como reconstrucción final.
+High-poly v0.3 completado con plaza, ushnu, kallanka, acllawasi, palacio, colcas, fuente, andenes y camino, con layout macro basado en el plano de 2013. Siguiente: QA visual, QA en hardware real y cierre de cotas finas. El layout v0.3 no es una reconstrucción histórica final.

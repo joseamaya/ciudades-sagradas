@@ -16,13 +16,14 @@ La marca **Documentado** de la tabla se apoya en la ficha UNESCO 330 y/o en el M
 |---|---|---|---|---|
 | Edificio B / Templo del Lanzón | Documentado | Hero | Blockout | Tradicional “Templo Antiguo”; volumen, acceso y galería |
 | Edificio A / Pirámide Mayor / “Castillo” | Documentado | Hero | Blockout | Tradicional “Templo Nuevo”; ~22,5 m + 2 m de cima |
+| Remates de cima A/B | A documentado; B inferido | Hero | Integrado v0.5 | A: +2 m sobre terraza; B volumen inferido; ambos en piedra con basa |
 | Plaza Circular Hundida / Atrio del Lanzón | Documentado | Hero | Blockout | Pavimento, gradas y escalinatas este-oeste |
 | Plazas rectangulares y atrios | Documentado | Fondo | Pendiente | Lectura de conjunto |
 | Galerías internas | Documentado | Hero parcial | Blockout parcial | 22 galerías / 689,70 m; una secuencia modelada en v0.5 |
 | Ventilación y drenaje | Documentado | Detalle visible | Blockout parcial | Un ducto esquemático de 0,5 m; sin red completa |
 | Lanzón | Documentado | Hero | Malla escaneada v0.3 | 4,5 m; derivado CyArk/Google Arts & Culture (CC BY-NC-SA 4.0); decimado; sin textura fotográfica |
 | Mampostería y juntas | Inferido | Base visual | UV tiling | Ashlar v2 2K propio con tinte cálido, difusa oscura y UVs de cubo; atlas 2K descartado; no es levantamiento de bloques |
-| Portada de las Falcónidas | Documentado | Hero | Base v0.1 + preview v0.4 | Columnas de 2,30 m con fustes acanalados interpretativos, jambas trilíticas, friso de 6,48 m partido en dos, relieves interpretativos y un escalón inferido; dintel omitido por evidencia |
+| Portada de las Falcónidas | Documentado | Hero | Base v0.1 + preview v0.5 | Columnas de 2,30 m con fustes acanalados interpretativos, jambas trilíticas, friso de 6,48 m partido en dos, relieves interpretativos y un escalón inferido; dintel omitido por evidencia |
 | Estela Raimondi | Documentado | Referencia | Pendiente | Museo; requiere licencia o réplica señalizada |
 | Obelisco Tello | Documentado | Referencia | Pendiente | Museo; opcional |
 | Cabezas clavas | Documentado | Props/referencia | Pendiente | No todas; selección con fuente |

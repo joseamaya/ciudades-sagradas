@@ -86,7 +86,7 @@ El layout macro de v0.3 queda alineado con el plano publicado. No se copia la fi
 
 La v0.4 conserva el layout macro del plano y corrige la lectura de escala:
 
-- La Gran Plaza mantiene su envolvente de ~140 × 95 m, pero incorpora el muro perimetral bajo documentado y un tratamiento de arcilla rosada compacta, sin cuadrícula de losas.
+- La Gran Plaza mantiene su envolvente de ~135 × 110 m, pero incorpora el muro perimetral bajo documentado y un tratamiento de arcilla rosada compacta, sin cuadrícula de losas.
 - El ushnu recupera la terraza superior de 20,7 × 23,7 m, la escalinata de 25 peldaños y el pozo de ofrendas de 6,6 × 2,14 m.
 - La kallanka se ajusta a 115 × 12 m y conserva los 13 accesos.
 - El acllawasi se divide en cuatro canchas; su envolvente sigue siendo interpretativa.
@@ -94,3 +94,7 @@ La v0.4 conserva el layout macro del plano y corrige la lectura de escala:
 - La cámara hero baja de 85 m a 18 m; se añaden seis figuras humanas de 1,7 m.
 
 La tabla completa y los límites están en `escala.md`.
+
+## Cierre de cotas de conjunto
+
+El cierre documental de dimensiones está en `cotas.md`. Se calibró la barra de 500 m del plano y se contrastaron las huellas del núcleo con las fuentes publicadas. La Gran Plaza, el ushnu, la kallanka, la terraza y los caminos quedan cerrados como conjunto; acllawasi, palacio y colcas se mantienen como lectura interpretativa y las cotas finas siguen abiertas.

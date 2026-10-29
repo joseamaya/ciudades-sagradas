@@ -1,8 +1,8 @@
 # Aypate — auditoría del layout v0.2 contra el plano de 2013
 
 Fecha: 28 de octubre de 2026.  
-Estado: **auditoría cerrada; v0.2 no coincide con el plano publicado; v0.3 pendiente**.  
-Alcance: comparación de relaciones espaciales, no levantamiento ni corrección del GLB.
+Estado: **auditoría cerrada; v0.2 no coincidía; v0.3 implementada con el layout macro del plano**.
+Alcance: comparación de relaciones espaciales de v0.2; la corrección se registra al final.
 
 ## Fuente del plano
 
@@ -49,7 +49,7 @@ La figura publicada mide 947 × 1368 px y está reducida para la revista. No tie
 - El desajuste es **macro y sistemático**: no es una diferencia de detalle ni un pequeño error de escala.
 - No se corrige con una rotación o un espejo simple, porque las relaciones entre ushnu, kallanka, acllawasi y palacio no guardan la misma geometría relativa.
 - La v0.2 conserva valor como **maqueta interpretativa** y como ejercicio de high-poly, materiales y LOD. No debe presentarse como layout documentado.
-- La auditoría no cambia el GLB: mover una pieza aislada empeoraría la lectura. La corrección requiere rehacer el blockout y el recorrido.
+- Esta auditoría de v0.2 no cambió el GLB: mover una pieza aislada habría empeorado la lectura. La corrección se hizo en v0.3, rehaciendo el blockout y el recorrido.
 
 ## Límites
 
@@ -60,16 +60,24 @@ La figura publicada mide 947 × 1368 px y está reducida para la revista. No tie
 
 ## Consecuencia
 
-La v0.2 queda marcada como **layout interpretativo no coincidente** con el plano publicado. El siguiente paso es una **v0.3** que rehaga el blockout a partir de las relaciones del plano de 2013, reutilice los generadores de arquitectura y materiales, y vuelva a construir cámaras, recorrido y evidencia visual.
+La v0.2 quedó marcada como **layout interpretativo no coincidente**. La v0.3 ya rehízo el blockout con las relaciones del plano de 2013, reutilizó los generadores de arquitectura y materiales, y reconstruyó cámaras, recorrido y evidencia visual.
 
-La v0.3 debe:
+La implementación v0.3:
 
-- fijar un norte de escena explícito;
-- situar la plaza, el ushnu, la kallanka, el acllawasi, el palacio, las colcas y el camino según el plano;
-- mantener fuera techos, alturas perdidas y recintos sin evidencia;
-- actualizar el hero, las seis paradas, los hashes, el registro de assets y la caché;
-- repetir `validate`, `build` y `bench`.
+- fijó un norte de escena explícito;
+- situó la plaza, el ushnu, la kallanka, el acllawasi, el palacio, las colcas y el camino según el plano;
+- mantuvo fuera techos, alturas perdidas y recintos sin evidencia;
+- actualizó el hero, las seis paradas, los hashes, el registro de assets y la caché;
+- repitió `validate`, `build` y `bench`.
+
+## Implementación v0.3
+
+- Fuente: `blender/aypate/aypate_blockout_v0.3.blend` y `blender/aypate/aypate_highpoly_v0.3.blend`.
+- La plaza se modela como trapecio, con el ushnu al este, la kallanka al oeste, el acllawasi al sur, el palacio al noroeste, las colcas al norte y el Qhapaq Ñan al oeste.
+- LOD0: 226.408 tris / 1.983.580 B; LOD1: 28.735 tris / 424.772 B; 14/13 draw calls; 128/64 MB de texturas.
+- Las cámaras y los seis textos del recorrido se rehicieron; la fuente se elevó para que sea visible sobre la planicie.
+- Quedan pendientes las cotas finas y la QA de hardware.
 
 ## Decisión de esta auditoría
 
-No se modifica el GLB ni se actualizan hashes. Solo se documenta el hallazgo, se corrige la afirmación de que la planta no estaba publicada y se rebaja el estado de cumplimiento de Aypate a **parcial** hasta la v0.3.
+El layout macro de v0.3 queda alineado con el plano publicado. No se copia la figura al repositorio. La v0.2 se conserva como evidencia histórica; el preview público usa v0.3.

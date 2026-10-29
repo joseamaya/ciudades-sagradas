@@ -1,7 +1,7 @@
-"""Prepara LOD0/LOD1 de Aypate desde el blockout v0.1.
+"""Prepara LOD0/LOD1 de Aypate desde el high-poly v0.3.
 
 Uso:
-  blender --background blender/aypate/aypate_blockout_v0.1.blend \
+  blender --background blender/aypate/aypate_highpoly_v0.3.blend \
     --python scripts/build_aypate_lod.py -- --lod 0 \
     --out-blend blender/aypate/aypate_lod0.blend
 """
@@ -59,7 +59,7 @@ def join_layer(name, objects, lod):
     joined["layer"] = name.lower()
     joined["lod"] = int(lod)
     joined["units"] = "meters"
-    joined["source"] = "aypate_blockout_v0.1"
+    joined["source"] = "aypate_highpoly_v0.3"
     joined["evidence"] = "documentado + inferido"
     if lod == "1":
         ratio = DECIMATE[name]

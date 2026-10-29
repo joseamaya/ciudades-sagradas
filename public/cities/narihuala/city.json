@@ -1,37 +1,140 @@
 {
   "id": "narihuala",
   "name": "Narihualá",
-  "subtitle": "La huaca de los Tallanes",
-  "culture": "Cultura Tallán",
-  "period": "Siglos XI–XV d. C.",
+  "subtitle": "La huaca de barro",
+  "culture": "Tallán · Chimú · Inca",
+  "period": "Intermedio Tardío–Horizonte Tardío",
   "region": "Catacaos, Piura",
   "coordinates": {
-    "lat": -5.2945,
-    "lon": -80.6871
+    "lat": -5.294477,
+    "lon": -80.687059
   },
   "elevation": "22 m s. n. m.",
-  "status": "research",
-  "summary": "Centro político y ceremonial tallán en el valle bajo del Piura. Dos montículos de adobe, una plaza de 60 × 40 m, rampas y corredores organizan un sitio ocupado sucesivamente por tallanes, chimúes e incas.",
-  "model": null,
-  "scale": 1,
+  "status": "available",
+  "summary": "Centro político-ceremonial de barro en el valle bajo del Piura. Dos montículos, una plaza de 60 × 40 m, rampas y corredores organizan el conjunto tallán, después ocupado por chimúes e incas.",
+  "model": "cities/narihuala/model_lod0.glb",
+  "scale": 0.08,
   "camera": {
     "position": [
-      20,
-      14,
-      22
+      13.6,
+      6.0,
+      16.8
     ],
     "target": [
-      0,
-      4,
-      0
+      0.0,
+      2.4,
+      0.0
     ],
-    "fov": 45
+    "fov": 28
   },
-  "tour": [],
+  "tour": [
+    {
+      "title": "Llegada al valle",
+      "text": "El conjunto aparece entre los campos del valle bajo del Piura. La vista inicial es aérea y muestra los dos montículos y la plaza central; el museo y el pueblo actual quedan fuera de la lectura prehispánica.",
+      "camera": {
+        "position": [
+          0,
+          0.96,
+          20
+        ],
+        "target": [
+          0,
+          0.8,
+          14.4
+        ],
+        "fov": 28
+      }
+    },
+    {
+      "title": "El montículo oeste",
+      "text": "El montículo oeste se modela como inferencia: la ortofoto libre de SIGRID lo muestra cubierto por el museo. Se leen dos plataformas y un frente de adobe, sin inventar recintos interiores.",
+      "camera": {
+        "position": [
+          -7.6,
+          3.6,
+          18.4
+        ],
+        "target": [
+          -7.6,
+          2.56,
+          -0.4
+        ],
+        "fov": 30
+      }
+    },
+    {
+      "title": "La plaza central",
+      "text": "La plaza de 60 × 40 m se reconstruye como espacio de encuentro entre los montículos. Los muros bajos y los accesos por rampas son inferencias a partir de Mincetur y la RVM; no hay un borde arqueológico legible en la ortofoto.",
+      "camera": {
+        "position": [
+          -0.8,
+          4.0,
+          13.6
+        ],
+        "target": [
+          -0.8,
+          2.4,
+          0
+        ],
+        "fov": 30
+      }
+    },
+    {
+      "title": "Rampas y corredores",
+      "text": "El sector intermedio se representa con tres hileras de muros paralelos, patios y corredores. La compartimentación es interpretativa y no sustituye la planta arqueológica pendiente.",
+      "camera": {
+        "position": [
+          2.4,
+          4.0,
+          15.2
+        ],
+        "target": [
+          0.8,
+          2.56,
+          0
+        ],
+        "fov": 30
+      }
+    },
+    {
+      "title": "El montículo este",
+      "text": "El montículo este y su cima se apoyan en la ortofoto y el DTM de SIGRID 2018. Se modelan tres plataformas y una terraza superior; la capilla republicana queda en una capa posterior, desactivada por defecto.",
+      "camera": {
+        "position": [
+          6.0,
+          4.4,
+          18.4
+        ],
+        "target": [
+          6.0,
+          3.2,
+          0
+        ],
+        "fov": 28
+      }
+    },
+    {
+      "title": "Mirador del valle",
+      "text": "El conjunto se relaciona con el río Piura, los campos y el bosque seco. La vegetación es una lectura ambiental, no un inventario botánico; el pueblo y el museo actuales no forman parte de la reconstrucción.",
+      "camera": {
+        "position": [
+          14.4,
+          6.4,
+          -14.4
+        ],
+        "target": [
+          0,
+          2.4,
+          0
+        ],
+        "fov": 30
+      }
+    }
+  ],
   "layers": [
     {
       "id": "city",
-      "label": "Arquitectura de adobe",
+      "label": "Arquitectura tallán",
       "default": true
     },
     {
@@ -41,7 +144,7 @@
     },
     {
       "id": "props",
-      "label": "Rampas, corredores y detalles",
+      "label": "Rampas y detalles",
       "default": true
     },
     {
@@ -57,30 +160,38 @@
   ],
   "sources": [
     {
-      "label": "Mincetur — Complejo Arqueológico Monumental Narihualá (ficha 364)",
-      "url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=364"
+      "label": "CENEPRED/SIGRID — ortomosaico Narihualá, Campiña y Pedregal (2018)",
+      "url": "https://sigrid.cenepred.gob.pe/sigridv3/documento/6778"
     },
     {
-      "label": "Municipalidad Distrital de Catacaos — Complejo Arqueológico Monumental de Narihualá (2025)",
-      "url": "https://www.gob.pe/institucion/municatacaos/informes-publicaciones/7301029-complejo-arqueologico-monumental-de-narihuala"
+      "label": "CENEPRED/SIGRID — modelo digital del terreno (2018)",
+      "url": "https://sigrid.cenepred.gob.pe/sigridv3/documento/6779"
     },
     {
       "label": "Ministerio de Cultura — RVM N.º 000084-2023-VMPCIC/MC",
       "url": "https://cdn.www.gob.pe/uploads/document/file/4403434/RVM%20N%C2%B0%200084-2023-VMPCIC-MC.pdf"
     },
     {
-      "label": "Ministerio de Cultura — Museo de Sitio de Narihualá",
-      "url": "https://museos.cultura.pe/museos/museo-de-sitio-de-narihual%C3%A1"
-    },
-    {
-      "label": "SciELO Perú — Diversidad natural y cultural del Complejo Arqueológico Narihualá (2023)",
-      "url": "http://www.scielo.org.pe/scielo.php?pid=S2413-32992023000300323&script=sci_arttext&tlng=es"
+      "label": "Mincetur — Complejo Arqueológico Monumental Narihualá (ficha 364)",
+      "url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=364"
     },
     {
       "label": "Fernández Villegas — La huaca Narihualá (BIFEA, 1990)",
-      "url": "https://doi.org/10.3406/bifea.1990.1001"
+      "url": "https://www.persee.fr/doc/bifea_0303-7495_1990_num_19_1_1001"
     }
   ],
-  "disclaimer": "Ficha en investigación. El modelo 3D aún no está publicado. La capilla republicana se documentará como añadido posterior y no formará parte de la reconstrucción prehispánica principal.",
-  "credits": "Ficha documental en preparación. Sin imágenes oficiales incorporadas."
+  "disclaimer": "Preview interpretativo v0.1. El montículo este y la capilla se apoyan en la ortofoto y el DTM libres de SIGRID 2018; el montículo oeste, la plaza de 60 × 40 m, las rampas y los recintos interiores son inferencias documentadas, no un levantamiento arqueológico. La sectorización I–III no se resuelve porque RVM y Mincetur no coinciden. La capilla republicana está en la capa later, desactivada por defecto. No es una reconstrucción histórica final.",
+  "credits": "Geometría, materiales y renders propios; sin imágenes oficiales ni texturas de IA. Referencias: SIGRID/CENEPRED 2018, RVM 000084-2023-VMPCIC/MC, Mincetur 364 y Fernández Villegas 1990. Fuentes en docs/fuentes/narihuala.md.",
+  "stage": "preview",
+  "lod": {
+    "default": "auto",
+    "levels": {
+      "0": "cities/narihuala/model_lod0.glb",
+      "1": "cities/narihuala/model_lod1.glb"
+    }
+  },
+  "fallbackModel": "cities/narihuala/model_lod1.glb",
+  "verticalScale": 1,
+  "minDistance": 0.1,
+  "maxDistance": 180
 }

@@ -66,6 +66,9 @@
 - Municipalidad Distrital de Catacaos, *Complejo Arqueológico Monumental de Narihualá* (2025): <https://www.gob.pe/institucion/municatacaos/informes-publicaciones/7301029-complejo-arqueologico-monumental-de-narihuala>
 - Ministerio de Cultura, RVM N.º 000084-2023-VMPCIC/MC: <https://cdn.www.gob.pe/uploads/document/file/4403434/RVM%20N%C2%B0%200084-2023-VMPCIC-MC.pdf>
 - Ministerio de Cultura, Museo de Sitio de Narihualá: <https://museos.cultura.pe/museos/museo-de-sitio-de-narihual%C3%A1>
+- CENEPRED/SIGRID, ortomosaico 2018 de Narihualá, Campiña y Pedregal: <https://sigrid.cenepred.gob.pe/sigridv3/documento/6778>
+- CENEPRED/SIGRID, modelo digital del terreno 2018: <https://sigrid.cenepred.gob.pe/sigridv3/documento/6779>
+- CENEPRED/SIGRID, curvas de nivel 2018: <https://sigrid.cenepred.gob.pe/sigridv3/documento/5367>
 - *Diversidad natural y cultural del Complejo Arqueológico Narihualá, región Piura, Perú* (SciELO, 2023): <http://www.scielo.org.pe/scielo.php?pid=S2413-32992023000300323&script=sci_arttext&tlng=es>
 - Fernández Villegas, O., *La huaca Narihualá: un documento para la etnohistoria de la costa norte del Perú* (BIFEA, 1990): <https://doi.org/10.3406/bifea.1990.1001>
 

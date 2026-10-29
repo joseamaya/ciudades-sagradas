@@ -70,11 +70,11 @@ Reconstruir el conjunto monumental de adobe de Narihualá como centro político-
 - [x] Dossier de fuentes.
 - [x] Ficha de investigación en el atlas.
 - [x] Alcance hero/fondo y límites.
-- [ ] Planta arqueológica de sectores y cotas de detalle; la envolvente legal está en `planta-cotas.md`.
+- [ ] Planta arqueológica de sectores y cotas de detalle. La envolvente legal y la lectura SIGRID 2018 están en `planta-cotas.md`; la ortofoto no separa los sectores.
 - [x] Capilla documentada como añadido republicano; no se modela en el núcleo; capa `later` si se incluye.
 - [x] Licencias resueltas para el alcance documental: fuentes citadas, sin copiar imágenes ni planos.
 - [x] Presupuesto y recorrido aprobados; el blockout queda bloqueado por la planta.
 
 ## Siguiente
 
-Solicitar el expediente técnico y el plano arqueológico de sectores. Sin ese plano no hay blockout: no se inventan montículos, rampas ni recintos. La capilla queda documentada y, si se incluye, en capa `later`.
+La ortofoto y el DTM libres de SIGRID localizan los montículos y las alturas, pero no cierran la planta. Sin un plano arqueológico o un levantamiento propio no hay blockout: no se inventan montículos, rampas ni recintos. La capilla queda documentada y, si se incluye, en capa `later`.

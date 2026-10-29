@@ -71,6 +71,8 @@ def make_block_mesh(name, verts, faces, mat_indices, materials, layer="city"):
 def adobe_courses(obj, adobe, adobe_dark, max_blocks=900):
     if obj.type != "MESH" or obj.name.startswith("GEO-Narihuala_Courses"):
         return 0
+    if obj.get("skip_courses"):
+        return 0
     if not any(k in obj.name for k in ("East", "West", "Plaza", "SectorII")):
         return 0
     dx, dy, dz = obj.dimensions

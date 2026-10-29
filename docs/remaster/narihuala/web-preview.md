@@ -7,11 +7,12 @@ Fuente: `blender/narihuala/narihuala_highpoly_v0.2.blend`.
 
 ## Qué se integró
 
-- LOD0: **175.724 tris / 1.739.336 B**; LOD1: **26.894 tris / 393.000 B**.
-- 14/13 draw calls; 96/48 MB de texturas; 2K/1K.
-- Seis paradas: valle, montículo oeste, plaza, rampas, montículo este y mirador.
+- LOD0: **162.432 tris / 1.599.008 B**; LOD1: **29.682 tris / 441.800 B**.
+- 13/13 draw calls; 96/48 MB de texturas; 2K/1K.
+- Seis paradas: valle, montículo oeste, plaza, accesos, montículo este y mirador.
 - Capas: arquitectura tallán, valle y bosque seco, detalles, escala humana y capilla republicana (`later`, apagada).
-- `scale: 0.08`; caché `v29`.
+- `scale: 0.08`; caché `v34`.
+- `lighting` es un override opcional de `fill`, `hemiIntensity` y `envIntensity`; solo se aplica a esta ciudad y no cambia el preset global.
 
 ## Vistas
 
@@ -34,7 +35,7 @@ Fuente: `blender/narihuala/narihuala_highpoly_v0.2.blend`.
 ## Lectura
 
 - El montículo este y la capilla se apoyan en SIGRID 2018.
-- El montículo oeste, la plaza y las rampas son inferencias explícitas.
+- El montículo oeste, la plaza y los accesos son inferencias explícitas; el terreno se recorta localmente para exponer el oeste; las rampas documentadas no se modelan y se sustituyen por escalinatas apoyadas.
 - La capilla no se muestra en el hero; está en `later`.
 - No se asigna la numeración I–III.
 

@@ -10,7 +10,7 @@ Reconstruir el conjunto monumental de adobe de Narihualá como centro político-
 ## Zonas hero
 
 1. **Montículo mayor / Sector III** y su relación con la plaza.
-2. **Plaza de 60 × 40 m** y accesos por rampas.
+2. **Plaza de 60 × 40 m** y accesos apoyados.
 3. **Montículo menor / Sector I** y sus compartimentos.
 4. **Sector II:** recintos, patios y corredores.
 5. **Faldeos y rellenos de adobe** con erosión visible.
@@ -42,7 +42,7 @@ Reconstruir el conjunto monumental de adobe de Narihualá como centro político-
 
 1. **Llegada al valle.** Catacaos, bosque seco y posición del conjunto.
 2. **Fachada de adobe.** Rellenos, plataformas y erosión.
-3. **Plaza de 60 × 40 m.** Rampas, accesos y organización.
+3. **Plaza de 60 × 40 m.** Accesos, escalinatas y organización.
 4. **Sector II.** Patios, recintos y corredores.
 5. **Montículo mayor.** Plataformas y lectura del poder tallán.
 6. **Mirador del valle.** Relación con el río, la ciudad y el paisaje.
@@ -78,4 +78,4 @@ Reconstruir el conjunto monumental de adobe de Narihualá como centro político-
 
 ## Siguiente
 
-La v0.2 es un preview interpretativo: el montículo este y la capilla se apoyan en SIGRID; el montículo oeste, la plaza y las rampas son inferencias. No se declara cierre de cotas ni estándar. La capilla queda en `later`.
+La v0.2 es un preview interpretativo: el montículo este y la capilla se apoyan en SIGRID; el montículo oeste, la plaza y los accesos son inferencias. Las rampas documentadas no se modelan por falta de cotas; se usan escalinatas apoyadas. La plaza y el montículo oeste se apoyan con relleno y recorte local; la luz de relleno evita caras negras. No se declara cierre de cotas ni estándar. La capilla queda en `later`.

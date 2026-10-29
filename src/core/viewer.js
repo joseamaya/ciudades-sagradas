@@ -428,12 +428,13 @@ export class CityViewer {
     this.sun.intensity = preset.sunIntensity;
     this.hemi.color.setHex(preset.hemiSky);
     this.hemi.groundColor.setHex(preset.hemiGround);
-    this.hemi.intensity = preset.hemiIntensity;
-    this.fill.intensity = preset.fill;
+    const overrides = this.city?.lighting || {};
+    this.hemi.intensity = overrides.hemiIntensity ?? preset.hemiIntensity;
+    this.fill.intensity = overrides.fill ?? preset.fill;
     const { sky, envTarget } = this._skyFor(key);
     this.scene.background = sky;
     this.scene.environment = envTarget.texture;
-    this.scene.environmentIntensity = preset.envIntensity ?? 0.8;
+    this.scene.environmentIntensity = overrides.envIntensity ?? preset.envIntensity ?? 0.8;
     this.scene.backgroundIntensity = preset.backgroundIntensity ?? 1;
     if (this.scene.fog) this.scene.fog.color.setHex(preset.fog);
     this.renderer.toneMappingExposure = preset.exposure;
@@ -514,6 +515,7 @@ export class CityViewer {
   async load(city) {
     this._clearCityLights();
     this.city = city;
+    this._applyTime(this.timeOfDay);
     if (Number.isFinite(city.minDistance)) this.controls.minDistance = city.minDistance;
     if (Number.isFinite(city.maxDistance)) this.controls.maxDistance = city.maxDistance;
     this.loadStartedAt = performance.now();

@@ -11,8 +11,13 @@
   },
   "elevation": "22 m s. n. m.",
   "status": "available",
-  "summary": "Centro político-ceremonial de barro en el valle bajo del Piura. Dos montículos, una plaza de 60 × 40 m, rampas y corredores organizan el conjunto tallán, después ocupado por chimúes e incas.",
+  "summary": "Centro político-ceremonial de barro en el valle bajo del Piura. Dos montículos, una plaza de 60 × 40 m, accesos y corredores organizan el conjunto tallán, después ocupado por chimúes e incas.",
   "model": "cities/narihuala/model_lod0.glb",
+  "lighting": {
+    "fill": 0.8,
+    "hemiIntensity": 0.35,
+    "envIntensity": 0.4
+  },
   "scale": 0.08,
   "camera": {
     "position": [
@@ -64,7 +69,7 @@
     },
     {
       "title": "La plaza central",
-      "text": "La plaza de 60 × 40 m se reconstruye como espacio de encuentro entre los montículos. Los muros bajos y los accesos por rampas son inferencias a partir de Mincetur y la RVM; no hay un borde arqueológico legible en la ortofoto.",
+      "text": "La plaza de 60 × 40 m se reconstruye como espacio de encuentro entre los montículos. Los muros bajos y los accesos son inferencias a partir de Mincetur y la RVM; no hay un borde arqueológico legible en la ortofoto. Las rampas documentadas no se modelan por falta de cotas y se sustituyen por escalinatas apoyadas.",
       "camera": {
         "position": [
           -1.2,
@@ -80,8 +85,8 @@
       }
     },
     {
-      "title": "Rampas y corredores",
-      "text": "El sector intermedio se representa con tres hileras de muros paralelos, patios y corredores. La compartimentación es interpretativa y no sustituye la planta arqueológica pendiente.",
+      "title": "Accesos y corredores",
+      "text": "El sector intermedio se representa con tres hileras de muros paralelos, patios, corredores y escalinatas. La compartimentación es interpretativa y no sustituye la planta arqueológica pendiente.",
       "camera": {
         "position": [
           1.2,
@@ -144,7 +149,7 @@
     },
     {
       "id": "props",
-      "label": "Rampas y detalles",
+      "label": "Accesos y detalles",
       "default": true
     },
     {
@@ -180,7 +185,7 @@
       "url": "https://www.persee.fr/doc/bifea_0303-7495_1990_num_19_1_1001"
     }
   ],
-  "disclaimer": "Preview interpretativo v0.2. El montículo este y la capilla se apoyan en la ortofoto y el DTM libres de SIGRID 2018; el montículo oeste, la plaza de 60 × 40 m, las rampas y los recintos interiores son inferencias documentadas, no un levantamiento arqueológico. La sectorización I–III no se resuelve porque RVM y Mincetur no coinciden. La capilla republicana está en la capa later, desactivada por defecto. No es una reconstrucción histórica final.",
+  "disclaimer": "Preview interpretativo v0.2. El montículo este y la capilla se apoyan en la ortofoto y el DTM libres de SIGRID 2018; el montículo oeste, la plaza de 60 × 40 m, los accesos y los recintos interiores son inferencias documentadas; las rampas documentadas no se modelan y se usan escalinatas apoyadas, no un levantamiento arqueológico. La sectorización I–III no se resuelve porque RVM y Mincetur no coinciden. La capilla republicana está en la capa later, desactivada por defecto. No es una reconstrucción histórica final.",
   "credits": "Geometría, materiales y renders propios; sin imágenes oficiales ni texturas de IA. Referencias: SIGRID/CENEPRED 2018, RVM 000084-2023-VMPCIC/MC, Mincetur 364 y Fernández Villegas 1990. Fuentes en docs/fuentes/narihuala.md.",
   "stage": "preview",
   "lod": {

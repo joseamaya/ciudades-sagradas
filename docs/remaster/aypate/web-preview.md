@@ -1,19 +1,19 @@
-# Aypate — preview web v0.3
+# Aypate — preview web v0.4
 
-Fecha: 28 de octubre de 2026.
-Estado: **preview público controlado; high-poly con layout macro de 2013, no reconstrucción final**.
+Fecha: 29 de octubre de 2026.
+Estado: **preview público controlado; high-poly con layout y escala contrastados, no reconstrucción final**.
 Modelo: `public/cities/aypate/model_lod0.glb` y `model_lod1.glb`.
-Fuente: `blender/aypate/aypate_highpoly_v0.3.blend`; los LOD se regeneran con `scripts/build_aypate_lod.py` y no se versionan.
+Fuente: `blender/aypate/aypate_highpoly_v0.4.blend`; los LOD se regeneran con `scripts/build_aypate_lod.py` y no se versionan.
 
 ## Qué se integró
 
 - `city.json` con `status: "available"` y `stage: "preview"`.
-- LOD0 de 226.408 tris / 1.983.580 B; LOD1 de 28.735 tris / 424.772 B.
-- 14 y 13 draw calls en la vista inicial; 8 materiales y 12 imágenes 2K/1K px.
+- LOD0 de 209.560 tris / 2.139.720 B; LOD1 de 30.663 tris / 443.372 B.
+- 16 y 14 draw calls en la vista inicial; 12/9 materiales y 15 imágenes 2K/1K px.
 - Seis paradas: Qhapaq Ñan, plaza, ushnu, kallanka, acllawasi y fuente ritual.
 - Capas: arquitectura inca, cerro y bosque de neblina, detalles y escala humana.
 - `scale: 0.08`, `minDistance: 0.1` y `maxDistance: 180`.
-- Caché `v25`.
+- Caché `v26`.
 
 ## Vistas
 
@@ -33,12 +33,12 @@ Fuente: `blender/aypate/aypate_highpoly_v0.3.blend`; los LOD se regeneran con `s
 
 | Métrica | LOD0 | LOD1 |
 |---|---:|---:|
-| Triángulos | 226.408 | 28.735 |
-| GLB | 1.983.580 B | 424.772 B |
+| Triángulos | 209.560 | 30.663 |
+| GLB | 2.139.720 B | 443.372 B |
 | Mallas exportadas | 4 | 4 |
-| Draw calls | 14 | 13 |
-| Materiales / imágenes | 8 / 12 | 8 / 12 |
-| Texturas decodificadas | 128 MB | 64 MB |
+| Draw calls | 16 | 14 |
+| Materiales / imágenes | 12 / 15 | 9 / 15 |
+| Texturas decodificadas | 160 MB | 80 MB |
 
 - `?lod=0` fuerza LOD0; `?lod=1` fuerza LOD1.
 - Móvil emulado selecciona LOD1.
@@ -56,7 +56,7 @@ Fuente: `blender/aypate/aypate_highpoly_v0.3.blend`; los LOD se regeneran con `s
 ## Límites
 
 - El plano general de 2013 está publicado en Campos 2017; la memoria de 36 sectores no es pública.
-- La v0.3 rehízo el layout macro con ese plano; ushnu, kallanka, acllawasi, palacio, colcas y Qhapaq Ñan siguen las relaciones del levantamiento. Ver `auditoria-plano-2013.md`.
+- La v0.4 conserva el layout macro y corrige escala: ushnu de 30 × 30 m con terraza superior de 20,7 × 23,7 m y 25 peldaños; kallanka de 115 × 12 m; acllawasi en cuatro canchas. Ver `escala.md` y `auditoria-plano-2013.md`.
 - Los edificios se muestran sin techos y con volúmenes de high-poly; el layout macro es documentado y los detalles siguen siendo interpretativos.
 - La vegetación y la niebla son una lectura ambiental, no un inventario.
 - No hay QA en hardware real todavía.

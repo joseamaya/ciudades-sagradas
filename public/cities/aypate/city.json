@@ -16,118 +16,118 @@
   "scale": 0.08,
   "camera": {
     "position": [
-      17.2,
-      6.8,
-      20.4
+      5.6,
+      1.44,
+      0.4
     ],
     "target": [
-      2.0,
+      8.8,
       0.64,
-      0.8
+      -3.6
     ],
-    "fov": 42
+    "fov": 23
   },
   "tour": [
     {
       "title": "Llegada por el Qhapaq Ñan",
-      "text": "El camino Inca asciende entre bosque de neblina hasta el conjunto. El Qhapaq Ñan principal se modela con ocho metros de ancho y el ramal alterno con seis, según las descripciones del Proyecto Integral Aypate.",
+      "text": "El Qhapaq Ñan asciende entre bosque de neblina hasta la terraza monumental. El camino principal conserva 8 m de ancho y el ramal alterno 6 m, según el Proyecto Integral Aypate.",
       "camera": {
         "position": [
-          -14.0,
-          4.8,
-          19.6
+          -6.24,
+          0.72,
+          16
         ],
         "target": [
-          0.0,
+          -6.24,
           0.64,
-          5.2
+          12
         ],
-        "fov": 42
+        "fov": 28
       }
     },
     {
       "title": "La Plaza Inca",
-      "text": "La plaza es una planicie trapezoidal en la ladera del cerro. En la v0.3 el ushnu queda al este, la kallanka al oeste y el acllawasi al sur, siguiendo el levantamiento topográfico y arquitectónico de 2013.",
+      "text": "La Gran Plaza es una explanada trapezoidal de arcilla rosada compacta, delimitada por un muro perimetral bajo. En esta versión el ushnu queda al este, la kallanka al oeste y el acllawasi al sur, siguiendo el levantamiento de 2013.",
       "camera": {
         "position": [
-          7.6,
-          3.36,
-          -6.8
-        ],
-        "target": [
-          0.0,
-          0.48,
-          0.0
-        ],
-        "fov": 40
-      }
-    },
-    {
-      "title": "El Ushnu",
-      "text": "Tres plataformas sobrepuestas y escalonadas forman el ushnu, situado en el borde este de la plaza. La reconstrucción muestra solo volúmenes y escalinatas; no inventa cubiertas ni objetos rituales.",
-      "camera": {
-        "position": [
-          13.6,
-          2.56,
-          -6.4
+          1.6,
+          0.8,
+          1.6
         ],
         "target": [
           8.8,
           0.56,
           -3.6
         ],
-        "fov": 42
+        "fov": 30
+      }
+    },
+    {
+      "title": "El Ushnu",
+      "text": "El ushnu ocupa unos 30 × 30 m y se compone de tres plataformas. La terraza superior mide 20,7 × 23,7 m y se alcanza por una escalinata central de 25 peldaños; el pozo de ofrendas se marca como estructura semihundida.",
+      "camera": {
+        "position": [
+          6.0,
+          0.96,
+          -1.2
+        ],
+        "target": [
+          8.8,
+          0.64,
+          -3.6
+        ],
+        "fov": 26
       }
     },
     {
       "title": "La Kallanka",
-      "text": "La kallanka es un edificio alargado sin subdivisiones, con trece accesos hacia la plaza. En la v0.3 su eje norte-sur y su posición al oeste siguen el plano de 2013; el interior queda sin techo porque no se conserva.",
+      "text": "La kallanka mide 115 × 12 m y tiene 13 accesos con escalinatas hacia la plaza. Su eje norte-sur y su posición al oeste siguen el plano de 2013; el interior queda sin techo porque no se conserva.",
       "camera": {
         "position": [
-          -13.2,
-          2.4,
-          0.8
+          -8.08,
+          0.8,
+          5.6
         ],
         "target": [
-          -8.0,
+          -8.08,
           0.48,
-          1.6
+          -1.6
         ],
-        "fov": 40
+        "fov": 34
       }
     },
     {
       "title": "El Acllawasi",
-      "text": "El acllawasi reúne recintos alrededor de un patio y una portada de grandes bloques. Las fuentes lo vinculan a mujeres escogidas y a la producción de alimentos, chicha y textiles; la planta es una lectura de conjunto.",
+      "text": "El acllawasi reúne cuatro canchas con patios y recintos perimetrales. Las fuentes lo vinculan a mujeres escogidas y a la producción de alimentos, chicha y textiles; la compartimentación es una lectura de conjunto.",
       "camera": {
         "position": [
-          2.8,
-          2.72,
-          15.6
+          0,
+          1.28,
+          6.0
         ],
         "target": [
-          0.0,
-          0.48,
+          0,
+          0.64,
           10.8
         ],
-        "fov": 42
+        "fov": 30
       }
     },
     {
       "title": "La fuente ritual",
-      "text": "La fuente Inca es una estructura hundida de rocas labradas, con hornacinas y un conducto de agua. El agua y el cerro articulan la lectura ritual del sitio; la escalera y los recintos inmediatos quedan marcados como inferidos.",
+      "text": "La fuente Inca es una estructura hundida de rocas labradas, con seis hornacinas, un conducto de agua y una poza. El agua y el cerro articulan la lectura ritual; la escalera y los recintos inmediatos quedan marcados como inferidos.",
       "camera": {
         "position": [
-          13.6,
-          1.6,
-          -3.2
+          10.8,
+          0.8,
+          -2.4
         ],
         "target": [
           11.6,
-          0.56,
+          0.64,
           -1.6
         ],
-        "fov": 36
+        "fov": 26
       }
     }
   ],
@@ -183,8 +183,8 @@
       "url": "https://sketchfab.com/3d-models/puerta-monumental-inca-de-aypate-peru-53858cc105ac498ea016ceeaac67fc8c"
     }
   ],
-  "disclaimer": "Preview de revisión v0.3. El levantamiento topográfico y arquitectónico de 2013 está publicado como figura general; la memoria de 36 sectores no es pública. La composición macro de esta versión se apoya en ese plano; los detalles no conservados y algunos recintos periféricos siguen siendo interpretativos. El high-poly no es una reconstrucción histórica final. La puerta escaneada de Sketchfab no se incorpora al GLB.",
-  "credits": "Geometría, materiales y renders propios; sin imágenes oficiales ni texturas de IA. Layout macro basado en el levantamiento de 2013 publicado en Campos Napán (2017). Referencia 3D de la puerta: fjmOjeda, CC BY, no incorporada. Fuentes en docs/fuentes/aypate.md.",
+  "disclaimer": "Preview de revisión v0.4. La Gran Plaza y la terraza monumental se ajustaron con el levantamiento topográfico y arquitectónico de 2013; la memoria de 36 sectores y las cotas finas siguen sin publicación completa. El ushnu, la kallanka y el acllawasi usan dimensiones publicadas; los recintos periféricos y los detalles no conservados son interpretativos. El high-poly no es una reconstrucción histórica final. La puerta escaneada de Sketchfab no se incorpora al GLB.",
+  "credits": "Geometría, materiales y renders propios; sin imágenes oficiales ni texturas de IA. Layout macro y dimensiones contrastados con el levantamiento de 2013 publicado en Campos Napán (2017), la ficha del Proyecto Integral Aypate y la descripción del ushnu de Campos Napán. Referencia 3D de la puerta: fjmOjeda, CC BY, no incorporada. Fuentes en docs/fuentes/aypate.md.",
   "stage": "preview",
   "lod": {
     "default": "auto",

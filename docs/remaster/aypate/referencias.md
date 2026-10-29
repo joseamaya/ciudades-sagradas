@@ -24,6 +24,6 @@ Fecha: 28 de octubre de 2026.
 ## Pendiente
 
 - El plano general de 2013 ya está localizado en Campos 2017; falta la memoria de 36 sectores y el original de alta resolución.
-- Rehacer el layout v0.3 con el plano de 2013 antes de otra QA visual.
+- Rehacer el layout y la escala v0.4 con el plano de 2013 antes de otra QA visual.
 - Revisar la atribución cronológica a Túpac Yupanqui/Huayna Cápac con una fuente académica.
 - Definir permiso de uso del modelo de Sketchfab si se integra en una fase posterior.

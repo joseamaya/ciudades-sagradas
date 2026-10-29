@@ -16,14 +16,14 @@
   "scale": 0.08,
   "camera": {
     "position": [
-      13.6,
-      6.0,
-      16.8
+      12.8,
+      6.4,
+      19.2
     ],
     "target": [
-      0.0,
-      2.4,
-      0.0
+      0,
+      2.8,
+      0
     ],
     "fov": 28
   },
@@ -34,13 +34,13 @@
       "camera": {
         "position": [
           0,
-          0.96,
+          1.2,
           20
         ],
         "target": [
           0,
-          0.8,
-          14.4
+          1.6,
+          13.6
         ],
         "fov": 28
       }
@@ -50,13 +50,13 @@
       "text": "El montículo oeste se modela como inferencia: la ortofoto libre de SIGRID lo muestra cubierto por el museo. Se leen dos plataformas y un frente de adobe, sin inventar recintos interiores.",
       "camera": {
         "position": [
-          -7.6,
-          3.6,
-          18.4
+          -4.8,
+          4.8,
+          20
         ],
         "target": [
-          -7.6,
-          2.56,
+          -4.8,
+          2.64,
           -0.4
         ],
         "fov": 30
@@ -67,14 +67,14 @@
       "text": "La plaza de 60 × 40 m se reconstruye como espacio de encuentro entre los montículos. Los muros bajos y los accesos por rampas son inferencias a partir de Mincetur y la RVM; no hay un borde arqueológico legible en la ortofoto.",
       "camera": {
         "position": [
-          -0.8,
-          4.0,
-          13.6
+          -1.2,
+          5.2,
+          17.6
         ],
         "target": [
-          -0.8,
-          2.4,
-          0
+          -1.2,
+          3.04,
+          -0.8
         ],
         "fov": 30
       }
@@ -84,14 +84,14 @@
       "text": "El sector intermedio se representa con tres hileras de muros paralelos, patios y corredores. La compartimentación es interpretativa y no sustituye la planta arqueológica pendiente.",
       "camera": {
         "position": [
-          2.4,
-          4.0,
-          15.2
+          1.2,
+          4.4,
+          17.6
         ],
         "target": [
-          0.8,
-          2.56,
-          0
+          0,
+          2.88,
+          -0.4
         ],
         "fov": 30
       }
@@ -101,16 +101,16 @@
       "text": "El montículo este y su cima se apoyan en la ortofoto y el DTM de SIGRID 2018. Se modelan tres plataformas y una terraza superior; la capilla republicana queda en una capa posterior, desactivada por defecto.",
       "camera": {
         "position": [
-          6.0,
-          4.4,
-          18.4
+          2.4,
+          5.6,
+          20.8
         ],
         "target": [
-          6.0,
-          3.2,
-          0
+          2.4,
+          3.36,
+          -0.8
         ],
-        "fov": 28
+        "fov": 30
       }
     },
     {
@@ -118,13 +118,13 @@
       "text": "El conjunto se relaciona con el río Piura, los campos y el bosque seco. La vegetación es una lectura ambiental, no un inventario botánico; el pueblo y el museo actuales no forman parte de la reconstrucción.",
       "camera": {
         "position": [
-          14.4,
+          12.8,
           6.4,
-          -14.4
+          -12.8
         ],
         "target": [
           0,
-          2.4,
+          2.8,
           0
         ],
         "fov": 30
@@ -180,7 +180,7 @@
       "url": "https://www.persee.fr/doc/bifea_0303-7495_1990_num_19_1_1001"
     }
   ],
-  "disclaimer": "Preview interpretativo v0.1. El montículo este y la capilla se apoyan en la ortofoto y el DTM libres de SIGRID 2018; el montículo oeste, la plaza de 60 × 40 m, las rampas y los recintos interiores son inferencias documentadas, no un levantamiento arqueológico. La sectorización I–III no se resuelve porque RVM y Mincetur no coinciden. La capilla republicana está en la capa later, desactivada por defecto. No es una reconstrucción histórica final.",
+  "disclaimer": "Preview interpretativo v0.2. El montículo este y la capilla se apoyan en la ortofoto y el DTM libres de SIGRID 2018; el montículo oeste, la plaza de 60 × 40 m, las rampas y los recintos interiores son inferencias documentadas, no un levantamiento arqueológico. La sectorización I–III no se resuelve porque RVM y Mincetur no coinciden. La capilla republicana está en la capa later, desactivada por defecto. No es una reconstrucción histórica final.",
   "credits": "Geometría, materiales y renders propios; sin imágenes oficiales ni texturas de IA. Referencias: SIGRID/CENEPRED 2018, RVM 000084-2023-VMPCIC/MC, Mincetur 364 y Fernández Villegas 1990. Fuentes en docs/fuentes/narihuala.md.",
   "stage": "preview",
   "lod": {

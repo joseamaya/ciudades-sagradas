@@ -1,7 +1,7 @@
 # Cobertura objetivo — Narihualá
 
 Fecha: 28 de octubre de 2026.
-Estado: **preview interpretativo v0.1; no estándar cerrado**.
+Estado: **preview interpretativo v0.2; no estándar cerrado**.
 Estándar: **conjunto representativo**.
 
 | Elemento | Evidencia | Nivel objetivo | Estado | Nota |
@@ -34,7 +34,7 @@ Estándar: **conjunto representativo**.
 
 - [x] Ficha y fuentes.
 - [ ] Planta arqueológica de sectores; envolvente legal en `planta-cotas.md`.
-- [x] Blockout y high-poly v0.1 interpretativos.
+- [x] Blockout y high-poly v0.2 interpretativos.
 - [x] Dos montículos, plaza y rampas legibles; sectores I–III no asignados.
 - [x] Capilla documentada; `later` si se incluye.
 - [x] Sin techos ni recintos interiores inventados; alturas de conjunto desde DTM.

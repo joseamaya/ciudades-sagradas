@@ -1,4 +1,4 @@
-"""Genera el blockout interpretativo v0.1 de Narihualá.
+"""Genera el blockout interpretativo v0.2 de Narihualá.
 
 Uso:
   blender --background --python scripts/build_narihuala_blockout.py
@@ -10,6 +10,7 @@ Fernández Villegas 1990. No se copia la ortofoto ni se presenta esto como un
 levantamiento arqueológico.
 """
 
+import json
 import math
 import os
 import random
@@ -22,22 +23,35 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import build_aypate_blockout as base  # noqa: E402
 
-OUT_BLEND = os.path.join(ROOT, "blender", "narihuala", "narihuala_blockout_v0.1.blend")
-HERO = "/tmp/narihuala_blockout_v0.1.jpg"
+OUT_BLEND = os.path.join(ROOT, "blender", "narihuala", "narihuala_blockout_v0.2.blend")
+HERO = "/tmp/narihuala_blockout_v0.2.jpg"
 SEED = 8451
 TERRAIN_SIZE = 600
-TERRAIN_N = 100
-PLAZA_Z = 30.0
+TERRAIN_N = 120
+PLAZA_Z = 37.5
+HEIGHTMAP = json.loads(open(os.path.join(ROOT, "blender", "narihuala", "terrain_heightmap.json")).read())
 
 
 def terrain_height(x, y):
-    """Terreno de valle con dos montículos; el este sigue la lectura SIGRID."""
-    base_z = 20.0 + 0.55 * math.sin(x * 0.018) * math.cos(y * 0.021)
-    base_z += 0.35 * math.sin((x + y) * 0.047)
-    core = math.exp(-((x / 165.0) ** 4 + ((y - 5.0) / 155.0) ** 4))
-    east = 15.0 * math.exp(-(((x - 75.0) / 42.0) ** 2 + ((y - 5.0) / 50.0) ** 2))
-    west = 8.0 * math.exp(-(((x + 95.0) / 38.0) ** 2 + ((y - 5.0) / 45.0) ** 2))
-    return base_z + 8.0 * core + east + west
+    """Terreno del núcleo desde el DTM SIGRID; valle suave fuera del recorte."""
+    size = HEIGHTMAP["size_m"]
+    n = HEIGHTMAP["n"]
+    if -size / 2 <= x <= size / 2 and -size / 2 <= y <= size / 2:
+        u = (x + size / 2) / size * (n - 1)
+        v = (size / 2 - y) / size * (n - 1)
+        i = min(n - 2, max(0, int(u)))
+        j = min(n - 2, max(0, int(v)))
+        fx = u - i
+        fy = v - j
+        z = HEIGHTMAP["z"]
+        a = z[j][i] * (1 - fx) + z[j][i + 1] * fx
+        b = z[j + 1][i] * (1 - fx) + z[j + 1][i + 1] * fx
+        return a * (1 - fy) + b * fy
+    # Borde del recorte: valle agrícola suave, sin inventar montículos.
+    cx = max(-size / 2, min(size / 2, x))
+    cy = max(-size / 2, min(size / 2, y))
+    edge = terrain_height(cx, cy) if (cx != x or cy != y) else 24.0
+    return edge + 0.35 * math.sin(x * 0.025) * math.cos(y * 0.022)
 
 
 def terrain(mats):
@@ -64,7 +78,7 @@ def terrain(mats):
     for poly in mesh.polygons:
         for loop in poly.loop_indices:
             co = mesh.vertices[mesh.loops[loop].vertex_index].co
-            uv.data[loop].uv = ((co.x + size / 2) / 42.0, (co.y + size / 2) / 42.0)
+            uv.data[loop].uv = ((co.x + size / 2) / 260.0, (co.y + size / 2) / 260.0)
     obj["layer"] = "terrain"
     return obj
 
@@ -89,6 +103,31 @@ def make_materials():
     mats["ground"] = mats["sand"]
     return mats
 
+
+
+def terrace(name, points, z_top, thickness, mat, layer="city"):
+    """Plataforma de contorno irregular con talud inferior, no una caja."""
+    cx = sum(p[0] for p in points) / len(points)
+    cy = sum(p[1] for p in points) / len(points)
+    top = [(x, y, z_top) for x, y in points]
+    bottom = [(cx + (x - cx) * 1.06, cy + (y - cy) * 1.06, z_top - thickness) for x, y in points]
+    verts = top + bottom
+    n = len(points)
+    faces = [tuple(range(n - 1, -1, -1)), tuple(range(n, 2 * n))]
+    for i in range(n):
+        j = (i + 1) % n
+        faces.append((i, j, n + j, n + i))
+    mesh = bpy.data.meshes.new(f"MESH-{name}")
+    mesh.from_pydata(verts, [], faces)
+    mesh.update()
+    obj = bpy.data.objects.new(name, mesh)
+    base.bucket(layer.title()).objects.link(obj)
+    obj.data.materials.append(mat)
+    base.uv_cube(obj, 4.0)
+    base.bevel(obj, 0.06)
+    obj["layer"] = layer
+    obj["lod1_exclude"] = False
+    return obj
 
 def ramp(name, center, size, z0, z1, axis, mat, layer="city"):
     sx, sy, sz = (v / 2 for v in size)
@@ -132,65 +171,71 @@ def main():
     terrain(mats)
 
     # Plaza central de 60 x 40 m, entre los dos montículos.
-    base.box("GEO-Narihuala_Plaza", (60, 40, 0.5), (-10, 0, PLAZA_Z - 0.25), mats["sand"], "city", 6.0, 0.02)
-    base.wall_x("GEO-Narihuala_Plaza_N", -40, 20, 20, PLAZA_Z + 0.1, 1.1, 0.8, mats["adobe"], [(0, 8.0)], "city")
-    base.wall_x("GEO-Narihuala_Plaza_S", -40, 20, -20, PLAZA_Z + 0.1, 1.1, 0.8, mats["adobe"], [(0, 8.0)], "city")
-    base.wall_y("GEO-Narihuala_Plaza_W", -40, -20, 20, PLAZA_Z + 0.1, 1.1, 0.8, mats["adobe"], [(-5, 8.0)], "city")
-    base.wall_y("GEO-Narihuala_Plaza_E", 20, -20, 20, PLAZA_Z + 0.1, 1.1, 0.8, mats["adobe"], [(0, 8.0)], "city")
+    terrace("GEO-Narihuala_Plaza", [(-45, -10), (15, -10), (15, 30), (-45, 30)], PLAZA_Z, 0.7, mats["sand"])
+    base.wall_x("GEO-Narihuala_Plaza_N", -45, 15, 30, PLAZA_Z + 0.1, 1.0, 0.8, mats["adobe"], [(0, 8.0)], "city")
+    base.wall_x("GEO-Narihuala_Plaza_S", -45, 15, -10, PLAZA_Z + 0.1, 1.0, 0.8, mats["adobe"], [(0, 8.0)], "city")
+    base.wall_y("GEO-Narihuala_Plaza_W", -45, -10, 30, PLAZA_Z + 0.1, 1.0, 0.8, mats["adobe"], [(-5, 8.0)], "city")
+    base.wall_y("GEO-Narihuala_Plaza_E", 15, -10, 30, PLAZA_Z + 0.1, 1.0, 0.8, mats["adobe"], [(0, 8.0)], "city")
 
-    # Montículo oeste: dos plataformas inferidas, ocultas en parte por el museo.
-    base.box("GEO-Narihuala_West_Base", (75, 85, 4.0), (-95, 5, 30.0), mats["adobe"], "city", 8.0, 0.04)
-    base.box("GEO-Narihuala_West_Mid", (55, 65, 4.0), (-95, 5, 33.0), mats["adobe"], "city", 8.0, 0.04)
-    base.box("GEO-Narihuala_West_Top", (35, 45, 3.5), (-95, 5, 36.25), mats["adobe"], "city", 7.0, 0.04)
-    base.stairs("GEO-Narihuala_West_Stairs", (-60, 5, 30.0), 4.0, 0.75, 0.30, 26, "x", mats["adobe"])
-    base.wall_y("GEO-Narihuala_West_Front", -77.5, -35, 45, 37.5, 2.0, 0.9, mats["adobe"], [(5, 4.0)], "city")
+    # Montículo oeste: plataformas inferidas, ocultas en parte por el museo.
+    west_base = [(-90, 45), (-30, 50), (-25, -40), (-85, -45)]
+    west_mid = [(-85, 35), (-35, 40), (-30, -30), (-80, -35)]
+    west_top = [(-75, 25), (-45, 30), (-40, -20), (-70, -25)]
+    terrace("GEO-Narihuala_West_Base", west_base, 30.0, 3.0, mats["adobe"])
+    terrace("GEO-Narihuala_West_Mid", west_mid, 33.0, 3.0, mats["adobe"])
+    terrace("GEO-Narihuala_West_Top", west_top, 37.0, 3.0, mats["adobe"])
+    base.stairs("GEO-Narihuala_West_Stairs", (-95, 5, 30.0), 4.0, 0.8, 0.28, 25, "x", mats["adobe"])
+    base.wall_y("GEO-Narihuala_West_Front", -75, -25, 30, 37.0, 1.8, 0.9, mats["adobe"], [(5, 4.0)], "city")
 
-    # Montículo este: tres plataformas y terraza superior, lectura SIGRID.
-    base.box("GEO-Narihuala_East_Base", (100, 110, 5.0), (75, 5, 30.5), mats["adobe"], "city", 8.0, 0.04)
-    base.box("GEO-Narihuala_East_Mid", (75, 85, 5.0), (75, 5, 34.5), mats["adobe"], "city", 8.0, 0.04)
-    base.box("GEO-Narihuala_East_Top", (50, 60, 7.0), (75, 5, 41.5), mats["adobe"], "city", 7.0, 0.04)
-    base.stairs("GEO-Narihuala_East_Stairs", (25, 5, 30.0), 5.0, 0.9, 0.55, 28, "x", mats["adobe"])
-    base.wall_y("GEO-Narihuala_East_Front", 50, -25, 35, 45.0, 2.2, 1.0, mats["adobe"], [(5, 5.0)], "city")
-    base.wall_y("GEO-Narihuala_East_Back", 100, -25, 35, 45.0, 2.2, 1.0, mats["adobe"], layer="city")
-    base.wall_x("GEO-Narihuala_East_N", 50, 100, 35, 45.0, 2.2, 1.0, mats["adobe"], layer="city")
-    base.wall_x("GEO-Narihuala_East_S", 50, 100, -25, 45.0, 2.2, 1.0, mats["adobe"], layer="city")
+    # Montículo este: tres plataformas de contorno irregular y terraza superior.
+    east_base = [(-20, 55), (80, 60), (85, -45), (-15, -50)]
+    east_mid = [(-10, 45), (65, 50), (70, -35), (0, -40)]
+    east_top = [(5, 35), (55, 40), (60, -25), (10, -30)]
+    terrace("GEO-Narihuala_East_Base", east_base, 31.0, 3.0, mats["adobe"])
+    terrace("GEO-Narihuala_East_Mid", east_mid, 37.0, 4.0, mats["adobe"])
+    terrace("GEO-Narihuala_East_Top", east_top, 44.0, 4.0, mats["adobe"])
+    base.stairs("GEO-Narihuala_East_Stairs", (-15, 5, 37.5), 5.0, 0.9, 0.34, 20, "x", mats["adobe"])
+    base.wall_y("GEO-Narihuala_East_Front", 5, -25, 35, 44.0, 1.8, 1.0, mats["adobe"], [(5, 5.0)], "city")
+    base.wall_y("GEO-Narihuala_East_Back", 60, -25, 35, 44.0, 1.8, 1.0, mats["adobe"], layer="city")
+    base.wall_x("GEO-Narihuala_East_N", 5, 60, 35, 44.0, 1.8, 1.0, mats["adobe"], layer="city")
+    base.wall_x("GEO-Narihuala_East_S", 5, 60, -25, 44.0, 1.8, 1.0, mats["adobe"], layer="city")
 
     # Rampas desde la plaza a los dos montículos.
-    ramp("GEO-Narihuala_Ramp_East", (35, 0, 0), (22, 10, 5.0), 30.0, 33.0, "x", mats["sand"], "city")
-    ramp("GEO-Narihuala_Ramp_West", (-70, 0, 0), (22, 10, 4.0), 30.0, 32.0, "x", mats["sand"], "city")
+    ramp("GEO-Narihuala_Ramp_East", (0, 10, 0), (20, 10, 5.0), 37.5, 39.0, "x", mats["sand"], "city")
+    ramp("GEO-Narihuala_Ramp_West", (-60, 10, 0), (20, 10, 4.0), 37.5, 38.5, "x", mats["sand"], "city")
 
     # Sector II: tres hileras de muros paralelos y corredores.
     for i, y in enumerate((-8, 0, 8)):
-        base.wall_x(f"GEO-Narihuala_SectorII_Wall_{i}", -40, 20, y, PLAZA_Z + 0.1, 1.4, 0.7, mats["adobe"], [(-20, 4.0)], "city")
-    base.box("GEO-Narihuala_SectorII_Patio", (36, 22, 0.2), (-10, 0, PLAZA_Z + 0.1), mats["sand"], "props", 4.0, 0.01, True)
+        base.wall_x(f"GEO-Narihuala_SectorII_Wall_{i}", -45, 15, y, PLAZA_Z + 0.1, 1.2, 0.7, mats["adobe"], [(-20, 4.0)], "city")
+    base.box("GEO-Narihuala_SectorII_Patio", (40, 22, 0.2), (-15, 10, PLAZA_Z + 0.1), mats["sand"], "props", 4.0, 0.01, True)
 
     # Camino de acceso desde el sur.
     for i in range(28):
         y = -235 + i * 7
-        x = -10
+        x = -15
         z = terrain_height(x, y) + 0.25
         base.box(f"GEO-Narihuala_Path_{i}", (8, 7.2, 0.18), (x, y, z), mats["sand"], "props", 3.0, 0.01, True)
-    base.wall_y("GEO-Narihuala_Path_W", -17, -240, -40, 0, 0.8, 0.6, mats["adobe"], layer="props")
+    base.wall_y("GEO-Narihuala_Path_W", -22, -240, -40, 0, 0.8, 0.6, mats["adobe"], layer="props")
 
     # Capilla republicana: capa later, oculta por defecto.
-    base.box("GEO-Narihuala_Chapel", (10, 16, 4.0), (75, 5, 45.0), mats["plaster"], "later", 4.0, 0.03)
-    base.box("GEO-Narihuala_Chapel_Roof", (12, 18, 1.0), (75, 5, 47.5), mats["stone"], "later", 4.0, 0.02)
-    base.box("GEO-Narihuala_Chapel_Door", (2.5, 0.4, 2.8), (75, -3.2, 44.8), mats["wood"], "later", 1.0, 0.01, True)
+    base.box("GEO-Narihuala_Chapel", (10, 16, 4.0), (30, 5, 46.0), mats["plaster"], "later", 4.0, 0.03)
+    base.box("GEO-Narihuala_Chapel_Roof", (12, 18, 1.0), (30, 5, 48.5), mats["stone"], "later", 4.0, 0.02)
+    base.box("GEO-Narihuala_Chapel_Door", (2.5, 0.4, 2.8), (30, -3.2, 45.8), mats["wood"], "later", 1.0, 0.01, True)
 
     # Rocas, arbustos y bosque seco.
     rng = random.Random(SEED)
-    for i in range(70):
+    for i in range(85):
         angle = rng.uniform(0, math.tau)
-        radius = rng.uniform(155, 290)
+        radius = rng.uniform(150, 290)
         x, y = math.cos(angle) * radius, math.sin(angle) * radius
-        if abs(x) < 130 and abs(y) < 130:
+        if abs(x) < 115 and abs(y) < 105:
             continue
         z = terrain_height(x, y)
         base.tree(f"GEO-Narihuala_Tree_{i}", x, y, z, rng.uniform(0.7, 1.25), mats, lod1_exclude=(i % 2 == 1))
-    for i in range(45):
+    for i in range(55):
         x = rng.uniform(-150, 150)
         y = rng.uniform(-150, 150)
-        if abs(x) < 105 and abs(y) < 100:
+        if abs(x) < 105 and abs(y) < 95:
             continue
         z = terrain_height(x, y)
         bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=1, radius=rng.uniform(0.35, 0.9), location=(x, y, z + 0.35))
@@ -201,10 +246,10 @@ def main():
         shrub["layer"] = "props"
         shrub["lod1_exclude"] = True
         base.add_to(shrub, base.bucket("Props"))
-    for i in range(35):
+    for i in range(40):
         x = rng.uniform(-120, 120)
         y = rng.uniform(-120, 120)
-        if abs(x) < 80 and abs(y) < 75:
+        if abs(x) < 75 and abs(y) < 70:
             continue
         z = terrain_height(x, y)
         bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=1, radius=rng.uniform(0.4, 1.2), location=(x, y, z + 0.25))
@@ -216,22 +261,22 @@ def main():
         rock["lod1_exclude"] = i % 2 == 0
         base.add_to(rock, base.bucket("Props"))
 
-    for i, (x, y) in enumerate(((-25, -8), (5, 10), (30, -5), (68, 20), (-95, 30), (75, -35))):
+    for i, (x, y) in enumerate(((-30, -8), (5, 10), (25, -5), (50, 20), (-60, 30), (30, -35))):
         base.human(f"GEO-Narihuala_Human_{i + 1}", x, y, terrain_height(x, y) + 0.15, mats)
 
     # Lighting.
     sun_data = bpy.data.lights.new("LGT-Narihuala_Sun", "SUN")
-    sun_data.energy = 3.2
-    sun_data.angle = math.radians(7)
-    sun_data.color = (1.0, 0.90, 0.76)
+    sun_data.energy = 2.7
+    sun_data.angle = math.radians(5)
+    sun_data.color = (1.0, 0.82, 0.63)
     sun = bpy.data.objects.new("LGT-Narihuala_Sun", sun_data)
     scene.collection.objects.link(sun)
-    sun.rotation_euler = (math.radians(42), math.radians(-18), math.radians(-38))
+    sun.rotation_euler = (math.radians(24), math.radians(-20), math.radians(-36))
     fill_data = bpy.data.lights.new("LGT-Narihuala_Fill", "AREA")
-    fill_data.energy = 1100
+    fill_data.energy = 700
     fill_data.shape = "DISK"
-    fill_data.size = 180
-    fill_data.color = (0.65, 0.78, 0.90)
+    fill_data.size = 200
+    fill_data.color = (0.62, 0.76, 0.92)
     fill = bpy.data.objects.new("LGT-Narihuala_Fill", fill_data)
     scene.collection.objects.link(fill)
     fill.location = (0, -180, 100)
@@ -239,13 +284,13 @@ def main():
 
     # Cameras: viewer x = model x * 0.08; viewer z = -model y * 0.08.
     camera_defs = {
-        "Hero": ((170, -210, 75), (0, 0, 30), 45),
-        "Tour1": ((0, -250, 12), (0, -180, 10), 42),
-        "Tour2": ((-95, -230, 45), (-95, 5, 32), 42),
-        "Tour3": ((-10, -170, 50), (-10, 0, 30), 40),
-        "Tour4": ((30, -190, 50), (10, 0, 32), 42),
-        "Tour5": ((75, -230, 55), (75, 0, 40), 45),
-        "Tour6": ((180, 180, 80), (0, 0, 30), 40),
+        "Hero": ((160, -240, 80), (0, 0, 35), 45),
+        "Tour1": ((0, -250, 15), (0, -170, 20), 42),
+        "Tour2": ((-60, -250, 60), (-60, 5, 33), 42),
+        "Tour3": ((-15, -220, 65), (-15, 10, 38), 40),
+        "Tour4": ((15, -220, 55), (0, 5, 36), 42),
+        "Tour5": ((30, -260, 70), (30, 10, 42), 45),
+        "Tour6": ((160, 160, 80), (0, 0, 35), 40),
     }
     for name, (pos, target, lens) in camera_defs.items():
         cam_data = bpy.data.cameras.new(f"CAM-Narihuala_{name}")

@@ -15,6 +15,7 @@ Aypate es un centro administrativo y ceremonial inca del siglo XV, en el bosque 
 - `web-preview.md`: assets, métricas, QA y límites del preview.
 - `auditoria-plano-2013.md`: comparación y corrección del layout macro.
 - `escala.md`: tabla de dimensiones y decisiones de escala v0.4.
+- `cotas.md`: cierre documental de cotas de conjunto y límites.
 - Dossier de fuentes: [`../../fuentes/aypate.md`](../../fuentes/aypate.md).
 
 ## Vistas

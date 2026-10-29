@@ -61,7 +61,7 @@
 | Ocupación inca y edificios estatales | Documentado | Plaza, ushnu, kallanka, acllawasi, palacio y colcas. |
 | Qhapaq Ñan y ramal alternativo | Documentado | Trazado y anchos reportados por el proyecto oficial. |
 | Baño/fuente ritual | Documentado | Rocas labradas y hornacinas. |
-| Planta completa y cotas | Documentado / parcial | Levantamiento topográfico y arquitectónico de 2013 publicado como figura general en Campos 2017; la memoria de 36 sectores y el original de alta resolución no son públicos. |
+| Planta completa y cotas | Documentado / parcial | Cierre de conjunto en `docs/remaster/aypate/cotas.md`; la memoria de 36 sectores y el original de alta resolución no son públicos. |
 | Atribución a Túpac Yupanqui | Reportado | Ficha turística; no se usa como fecha cerrada. |
 | Alturas originales y techos | Inferido / no conservado | No reconstruir sin fuente. |
 | Función exacta de cada recinto | Documentado / interpretado | Se distingue en la ficha. |
@@ -85,12 +85,12 @@
 - Se modelaron plaza, ushnu, kallanka, acllawasi, palacio, colcas, fuente, andenes y Qhapaq Ñan.
 - La v0.4 conserva el layout macro del plano de 2013 y corrige escala: ushnu de 30 × 30 m con terraza superior de 20,7 × 23,7 m y 25 peldaños; kallanka de 115 × 12 m; acllawasi en cuatro canchas; meseta de ~500 × 300 m. Ver `docs/remaster/aypate/escala.md` y `docs/remaster/aypate/auditoria-plano-2013.md`.
 - Techos, alturas perdidas y recintos periféricos quedan fuera.
-- Quedan pendientes las cotas finas, los recintos periféricos y la QA de hardware. La v0.4 mantiene la incertidumbre de la planta del acllawasi, palacio y colcas.
+- Cierre de cotas de conjunto cerrado en `docs/remaster/aypate/cotas.md`; quedan pendientes las cotas finas, los recintos periféricos y la QA de hardware. La v0.4 mantiene la incertidumbre de la planta del acllawasi, palacio y colcas.
 
 ## Notas de reconstrucción
 
 - Prioridad: núcleo estatal alrededor de la plaza y relaciones con el cerro, el camino y el bosque.
-- El layout macro de v0.4 usa el levantamiento topográfico y arquitectónico de 2013 publicado en Campos 2017; no se copió la figura y no se toman sus medidas como cotas de precisión.
+- El layout macro de v0.4 usa el levantamiento topográfico y arquitectónico de 2013 publicado en Campos 2017; no se copió la figura. Las medidas de conjunto tienen incertidumbre y no equivalen a cotas topográficas finas.
 - La memoria de 36 sectores y el original de alta resolución siguen siendo la fuente pendiente para detalles y cotas.
 - La puerta monumental escaneada se usa como referencia de proporciones; no se publica en v0.4.
 - No reconstruir techos, alturas perdidas ni recintos sin planta.

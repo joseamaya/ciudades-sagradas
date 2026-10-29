@@ -28,7 +28,7 @@ Estándar: **conjunto representativo**.
 | Función precisa de cada recinto | Marcar como interpretada |
 | Capital religiosa tallán | Interpretada, no cerrada |
 | Límites del sitio | 62.959,36 m² y 1.014,38 m de perímetro según RVM 2023 |
-| Planta de sectores | Pendiente; no modelar hasta obtener el plano arqueológico |
+| Planta de sectores | SIGRID 2018 localiza montículos y alturas; no separa sectores; no modelar |
 
 ## Criterio de aceptación
 

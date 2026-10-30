@@ -2,18 +2,40 @@
 
 Atlas interactivo de los grandes centros ceremoniales y ciudades del Perú antiguo. Reconstrucciones 3D en tiempo real, fichas educativas y fuentes públicas.
 
-**Estado:** Caral remaster v2 es el estado actual y su contenido queda cerrado bajo el estándar de **ciudad representativa**: seis pirámides y sectores principales, con high-poly en Pirámide Mayor, Plaza Mayor, Anfiteatro y Altar Circular. LOD0 de 230.800 tris y LOD1 de 56.332 tris, ambos con Draco; el piloto histórico con texturas de IA fue retirado del repositorio. Queda una incidencia Android P2 de parpadeo de suelo, documentada. Chavín de Huántar tiene un **preview web v0.2** con LOD0 de 249.906 tris y LOD1 de 27.539 tris, terreno texturizado, seis paradas, un Lanzón derivado del escaneo CyArk/Google Arts & Culture (CC BY-NC-SA 4.0) y la Portada con fustes acanalados v0.4; el blockout v0.5, el texturizado UV v0.2 y la Portada v0.2 quedan como base de revisión. El bake 2K se descartó por pérdida de detalle. Aypate ya tiene un preview web v0.4 con high-poly navegable y LOD0/LOD1, con layout macro y escala contrastados con el plano de 2013; el cierre de cotas de conjunto está documentado; quedan QA de hardware y cotas finas. Narihualá ya tiene un preview web v0.2 interpretativo, con montículo este y capilla desde SIGRID 2018 y montículo oeste/plaza inferidos; el plano arqueológico de sectores sigue pendiente. Chan Chan y Wari siguen en investigación.
+**Estado:** atlas en **preview público**. Caral Remaster v2 es la referencia técnica y su contenido está cerrado como ciudad representativa. Chavín, Aypate y Narihualá son previews navegables con distinto nivel de cierre; Chan Chan y Wari son fichas documentales en investigación. Ninguna ciudad se presenta como reconstrucción arqueológica final.
+
+| Ciudad | Cultura / período | Disponibilidad | Madurez | Evidencia | QA |
+|---|---|---|---|---|---|
+| Caral | Civilización Caral · 3000–1800 a. C. | `available` | `released` · v2 | Mixta | Excepción P2 aceptada |
+| Chavín de Huántar | Chavín · 1500–550 a. C. | `available` | `preview` · v0.2 | Mixta | Parcial |
+| Aypate | Inca · Qhapaq Ñan · siglo XV | `available` | `preview` · v0.4 | Mixta | Pendiente |
+| Narihualá | Tallán · Chimú · Inca | `available` | `preview` · v0.2 | Interpretativa | Pendiente |
+| Chan Chan | Chimú · siglos IX–XV | `research` | `research` | Ficha documental | No aplica |
+| Wari | Wari · 600–1100 d. C. | `research` | `research` | Ficha documental | No aplica |
+
+La matriz completa de QA y el protocolo reproducible están en [`docs/estandares/qa-hardware.md`](./docs/estandares/qa-hardware.md). La checklist de publicación y el smoke post-deploy están en [`docs/release/preview-publico.md`](./docs/release/preview-publico.md).
 
 ## Qué es
 
-Un proyecto independiente, pensado para museos, aulas y público general. No es un videojuego ni un visor técnico. Cada ciudad tendrá:
+Un proyecto independiente, pensado para museos, aulas y público general. No es un videojuego ni un visor técnico. Cada ciudad publicada incluye:
 
 - Una reconstrucción 3D navegable con LOD por capacidad de dispositivo y fallback entre modelos.
-- Un recorrido guiado en español.
+- Un recorrido guiado en español, con el nivel de evidencia de cada parada.
 - Capas de arquitectura, terreno, detalles y escala humana.
 - Luz de amanecer, mediodía, atardecer y noche.
 - Ficha con cronología, arquitectura, materiales y fuentes.
 - Aviso explícito: reconstrucción artística, no fotografía histórica.
+
+## Estado, madurez y evidencia
+
+El atlas separa cuatro conceptos que antes se mezclaban en `status` y `stage`:
+
+- **Disponibilidad** (`availability`): `available` si hay modelo navegable; `research` si solo hay ficha documental.
+- **Madurez** (`maturity`): `research`, `blockout`, `preview` o `released`. `version` indica la entrega publicada.
+- **Evidencia** (`evidence`): `documented`, `mixed`, `interpretive` o `not-applicable`. Cada parada añade `documented`, `inferred` o `interpretive`.
+- **QA** (`qa`): `passed`, `partial`, `pending`, `waived` o `not-applicable`.
+
+Una ciudad `available` no es automáticamente una ciudad terminada. El estándar obligatorio está en [`docs/estandares/ciudad.md`](./docs/estandares/ciudad.md) y la auditoría en [`docs/estandares/auditoria-ciudades.md`](./docs/estandares/auditoria-ciudades.md).
 
 ## Abrir en local
 
@@ -27,7 +49,7 @@ Abre `http://127.0.0.1:5173/`.
 Para ver métricas del visor: `http://127.0.0.1:5173/?debug=1#/ciudad/caral`.
 Para forzar un LOD: `?lod=0` o `?lod=1`.
 Para desactivar el service worker en pruebas: `?nosw=1`.
-Para QA de render: `?noground=1` oculta el plano de arena y `?noshadows=1` desactiva sombras.
+Para QA de render: `?noground=1` oculta el plano de apoyo y `?noshadows=1` desactiva sombras.
 
 ## OpenCode + Blender
 
@@ -40,17 +62,19 @@ El repo incluye `opencode.json`, `AGENTS.md` y `.agents/skills/`. Abre OpenCode 
 
 Guía completa: [`docs/setup.md`](./docs/setup.md).
 
-## Compilar
+## Compilar y validar
 
 ```bash
 npm run validate
 npm run build
 npm run serve
 # benchmark reproducible con Chrome headless (requiere Chrome + build)
-npm run bench -- --out /tmp/caral-bench
+npm run bench -- --city caral --out /tmp/caral-bench
 ```
 
-El build queda en `dist/`. Vite usa rutas relativas, así que funciona en GitHub Pages, Cloudflare Pages o un servidor local. El benchmark usa SwiftShader: sirve para comparar draw calls, triángulos, texturas y carga, no para declarar FPS de hardware real.
+El build queda en `dist/`. Vite usa rutas relativas, así que funciona en GitHub Pages, Cloudflare Pages o un servidor local. El benchmark usa SwiftShader: sirve para comparar draw calls, triángulos, texturas y carga, **no para declarar FPS de hardware real**.
+
+`npm run validate` comprueba datos, estados, evidencia, coherencia índice/ficha, GLB, capas `extras.layer`, rangos de LOD, hashes y assets.
 
 ## Modo museo / kiosco
 
@@ -71,36 +95,35 @@ Más detalles en [`docs/kiosco.md`](./docs/kiosco.md).
 
 ## Ciudades
 
-| Ciudad | Cultura | Período | Estado |
-|---|---|---|---|
-| Caral | Civilización Caral | 3000–1800 a. C. | Remaster v2 · LOD0/LOD1 |
-| Chavín de Huántar | Chavín | 1500–550 a. C. | Preview web v0.2 · LOD0/LOD1 |
-| Chan Chan | Chimú | Siglos IX–XV d. C. | En investigación |
-| Wari | Wari | 600–1100 d. C. | En investigación |
-| Aypate | Imperio Inca · Qhapaq Ñan | Siglo XV d. C. | Preview v0.4 · LOD0/LOD1 |
-| Narihualá | Cultura Tallán | Siglos XI–XV d. C. | Preview v0.2 · interpretativo |
+- **Caral:** remaster v2 cerrado como ciudad representativa; LOD0/LOD1 con Draco y fallback v1. Queda una incidencia Android P2 de suelo y QA de hardware pendiente.
+- **Chavín de Huántar:** preview web con pase high-poly v0.6, Lanzón derivado de CyArk (CC BY-NC-SA 4.0) y Portada de las Falcónidas. No es una reconstrucción final.
+- **Aypate:** preview v0.4 con layout y escala contrastados con el plano de 2013. No se reabren dimensiones; quedan cotas finas y QA.
+- **Narihualá:** preview interpretativo v0.2. Montículo este y capilla desde SIGRID 2018; oeste, plaza y accesos inferidos. No es un plano arqueológico.
+- **Chan Chan y Wari:** fichas documentales; sin modelo 3D publicado.
 
-Los dossieres de fuentes están en [`docs/fuentes/`](./docs/fuentes/). El estado, el setup, el pipeline Blender y el remaster de Caral están en [`docs/estado.md`](./docs/estado.md), [`docs/setup.md`](./docs/setup.md), [`docs/pipeline-blender.md`](./docs/pipeline-blender.md) y [`docs/remaster/caral/`](./docs/remaster/caral/).
+Los dossieres de fuentes están en [`docs/fuentes/`](./docs/fuentes/). El estado detallado, el setup y el pipeline Blender están en [`docs/estado.md`](./docs/estado.md), [`docs/setup.md`](./docs/setup.md) y [`docs/pipeline-blender.md`](./docs/pipeline-blender.md).
 
 ## Estructura
 
 ```text
 public/cities/<slug>/     city.json + LOD0/LOD1/fallback + portada
 src/core/                 visor, audio, cámara, luz, métricas
-src/ui/                   catálogo y ficha de ciudad
+src/ui/                   catálogo, ficha y semántica de estado
 docs/fuentes/             dossier por ciudad
 scripts/validate.mjs      validación de datos, GLB, hashes y assets
 scripts/bench.mjs         benchmark y QA con Chrome/CDP
-docs/remaster/            auditoría, pipeline y release de Caral
+docs/remaster/            auditoría, pipeline y release por ciudad
 ```
 
-Cada ciudad se describe con un `city.json`. Para añadir una ciudad nueva:
+Cada ciudad se describe con un `city.json`. Para añadir una quinta ciudad:
 
-1. Crear `public/cities/<slug>/city.json` con `stage`, `camera`, `tour`, `layers`, `lod.levels` y `fallbackModel`.
-2. Añadir los GLB (LOD0/LOD1 y fallback) y la portada `hero.jpg`.
-3. Añadir la entrada en `public/cities/index.json`.
-4. Escribir el dossier en `docs/fuentes/<slug>.md` y registrar los assets.
-5. Subir `CACHE` en `public/sw.js` si cambian assets existentes y ejecutar `npm run validate`, `npm run build` y `npm run bench`.
+1. Crear `public/cities/<slug>/city.json` con `availability`, `maturity`, `version`, `evidence`, `qa`, `camera`, `tour`, `layers`, `lod.levels`, `fallbackModel`, `ground` y, si aplica, `fog`.
+2. Añadir los GLB LOD0/LOD1 y la portada `hero.jpg`. Cada nodo con mesh debe traer `extras.layer` (`city`, `terrain`, `props`, `reference` o una capa adicional justificada).
+3. Añadir la entrada en `public/cities/index.json` con los mismos campos canónicos.
+4. Escribir el dossier en `docs/fuentes/<slug>.md`, la cobertura en `docs/remaster/<slug>/cobertura.md` y registrar los assets.
+5. Ejecutar `npm run validate`, `npm run build` y `npm run bench`.
+
+No debería hacer falta tocar `src/` para una ciudad nueva si el GLB trae capas y la configuración está completa.
 
 ## Realismo y evidencia
 
@@ -110,9 +133,7 @@ La prioridad es el impacto visual, pero sin presentar invenciones como hechos. C
 - **Inferido:** reconstrucción razonable a partir de la evidencia.
 - **Interpretativo:** decisiones artísticas para completar vacíos.
 
-El estándar obligatorio de ciudad publicada está en [`docs/estandares/ciudad.md`](./docs/estandares/ciudad.md); la auditoría de las seis ciudades está en [`docs/estandares/auditoria-ciudades.md`](./docs/estandares/auditoria-ciudades.md). Ninguna ciudad se marca `available` si no cumple sus gates.
-
-El visor no usa fotografías históricas como textura. Las imágenes oficiales se citan como referencia; para publicar se usan materiales propios, CC0 o con permiso. Los GLB publicados usan WebP, Draco y, en LOD1, atlas horneados; no incluyen texturas de IA.
+El visor muestra el nivel de evidencia de cada parada y el estado general de la ciudad. No se usan fotografías históricas como textura. Las imágenes oficiales se citan como referencia; para publicar se usan materiales propios, CC0 o con permiso. Los GLB publicados usan WebP y Draco; Caral LOD1 usa además un atlas horneado. No incluyen texturas de IA.
 
 ## Licencias
 
@@ -122,7 +143,7 @@ El visor no usa fotografías históricas como textura. Las imágenes oficiales s
 - Avisos de dependencias: [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md).
 - Política de assets: [`docs/licencias.md`](./docs/licencias.md).
 
-> **Nota de licencia:** los remasters v1 y v2 usan materiales procedurales y sus GLB no incluyen texturas de IA. El piloto histórico con texturas de IA fue retirado del repositorio. Ver `CREDITS.md`, `LICENSE-CONTENT.md`, `LICENSE-ASSETS.md` y `docs/licencias.md`.
+> **Nota de licencia:** los GLB publicados no incluyen texturas de IA. El piloto histórico con texturas de IA fue retirado del repositorio. Ver `CREDITS.md`, `LICENSE-CONTENT.md`, `LICENSE-ASSETS.md` y `docs/licencias.md`.
 
 ## Despliegue
 
@@ -133,10 +154,11 @@ El repo incluye un workflow de GitHub Pages en `.github/workflows/pages.yml`. Pa
 
 ## Hoja de ruta
 
-1. Caral: remaster v2 desplegado, contenido cerrado como ciudad representativa, LOD0/LOD1 con Draco, LOD1 a 1K y QA reproducible; quedan hardware real e incidencia Android P2. KTX2 queda como mejora opcional.
-2. Chavín de Huántar: preview web v0.2 con LOD0/LOD1, seis paradas, capas y Lanzón escaneado; quedan QA de hardware, dintel/escalera, columnas y revisión de la licencia CC BY-NC-SA 4.0 del Lanzón.
-3. Chan Chan.
-4. Wari.
-5. Renders cinematográficos con Cycles y modo foto.
+1. **Caral:** mantener v2 estable; cerrar o mantener la excepción Android P2 y completar QA en iPhone/Safari y GPU de escritorio.
+2. **Chavín:** repetir QA de la v0.6, decidir dintel/escalera y revisar la licencia CC BY-NC-SA del Lanzón antes de cualquier uso comercial.
+3. **Aypate:** QA de hardware y cotas finas; no reabrir el layout de la v0.4.
+4. **Narihualá:** plano arqueológico de sectores y cotas finas; mantener el carácter interpretativo.
+5. **Chan Chan:** incorporarla como piloto solo-datos para validar que el atlas escala sin código específico.
+6. **Wari:** después de Chan Chan.
 
 Release web de Caral: [`docs/remaster/caral/release-v2.md`](./docs/remaster/caral/release-v2.md).

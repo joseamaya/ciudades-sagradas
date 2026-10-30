@@ -1,0 +1,68 @@
+# QA en hardware real — protocolo del atlas
+
+Actualizado: 30 de octubre de 2026.
+Ámbito: Caral, Chavín, Aypate, Narihualá y cualquier ciudad futura.
+
+Este documento separa tres cosas que no son equivalentes:
+
+- **Validación automática:** `npm run validate` y `npm run build`.
+- **Benchmark técnico:** `npm run bench` con Chrome headless y SwiftShader. Sirve para comparar triángulos, draw calls, texturas, carga, fallback y consola. **No mide FPS reales.**
+- **QA de hardware:** pruebas en dispositivos físicos, PWA instalada, offline, memoria y sesión prolongada.
+
+## Estado actual
+
+| Ciudad | Android/Chrome | iPhone/Safari | GPU integrada | GPU dedicada | Kiosco | Evidencia |
+|---|---|---|---|---|---|---|
+| Caral v2 | Parcial: incidencia P2 de suelo | Pendiente | Pendiente | Pendiente | Congelado | Issue #10; sin vídeo ni `?debug=1` |
+| Chavín v0.6 | Pass de producto en v0.3; v0.6 pendiente | Pendiente | Pendiente | Pendiente | Congelado | Sin dispositivo, GPU ni métricas |
+| Aypate v0.4 | Pendiente | Pendiente | Pendiente | Pendiente | Congelado | Sin QA |
+| Narihualá v0.2 | Pendiente | Pendiente | Pendiente | Pendiente | Congelado | Sin QA |
+
+No se registra un “pass” de rendimiento sin dispositivo, navegador, GPU, resolución, LOD y métricas. Un pass de producto solo confirma que la escena se abre y se puede recorrer.
+
+## Matriz mínima
+
+| Dispositivo | Navegador | LOD esperado | Carga fría | 6 paradas | 4 luces | 4 capas | Offline/PWA | 10 min | Consola |
+|---|---|---|---|---|---|---|---|---|---|
+| Android medio | Chrome | LOD1 |  |  |  |  |  |  |  |
+| iPhone | Safari | LOD1 |  |  |  |  |  |  |  |
+| Desktop GPU integrada | Chrome/Edge | LOD0 |  |  |  |  |  |  |  |
+| Desktop GPU dedicada | Chrome/Edge | LOD0 |  |  |  |  |  |  |  |
+| Kiosco 1920×1080 | Chromium | LOD0 |  |  |  |  |  |  |  |
+
+## Protocolo reproducible
+
+1. Abrir `https://joseamaya.github.io/ciudades-sagradas/?debug=1#/ciudad/<id>`.
+2. Anotar dispositivo, modelo, SO, navegador, versión, GPU (`chrome://gpu` en Chromium) y resolución.
+3. Comprobar el LOD elegido y forzar `?lod=0` y `?lod=1`.
+4. Pulsar **Copiar métricas** y guardar el JSON completo.
+5. Recorrer las seis paradas, las cuatro luces y las cuatro capas.
+6. Abrir la ficha, comprobar scroll, fuentes y cierre del panel.
+7. Instalar la PWA, abrirla y repetir una carga.
+8. Tras una visita online, activar modo avión y recargar; verificar el LOD ya cargado.
+9. Dejar la escena 10 minutos con órbitas suaves y anotar errores o crecimiento anómalo de memoria.
+10. Guardar captura/vídeo y el JSON de métricas junto al resultado.
+
+## Aislamiento de incidencias
+
+Para Caral Android `CARAL-ANDROID-GROUND-001`, probar en este orden:
+
+1. `?debug=1`
+2. `?lod=0&debug=1`
+3. `?lod=1&debug=1`
+4. `?noground=1`
+5. `?noshadows=1`
+6. `?noground=1&noshadows=1`
+7. PWA instalada frente a navegador
+
+No declarar la incidencia resuelta hasta completar la matriz y registrar GPU, versión y vídeo.
+
+## Criterio de aceptación
+
+- LOD0 en escritorio y LOD1 en móvil, con fallback probado.
+- Sin errores de consola nuevos.
+- PWA y offline funcionando.
+- Seis paradas, cuatro luces y capas accesibles.
+- Sesión de 10 minutos sin regresión visible.
+- FPS objetivo: 60 en escritorio GPU media y al menos 30 en móvil; documentar lo medido aunque no se alcance.
+- Cualquier excepción P2 debe tener impacto, responsable y fecha de revisión.

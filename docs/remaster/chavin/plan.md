@@ -1,7 +1,7 @@
 # Plan de Chavín de Huántar — Fase 0
 
 Fecha: 27 de octubre de 2026.
-Estado: **Fase 0 cerrada; preview web v0.1 con LOD0/LOD1; blockout y Portada aceptados como base**.
+Estado: **Fase 0 cerrada; preview web v0.2 con LOD0/LOD1; blockout y Portada aceptados como base**.
 Estándar heredado de Caral: **ciudad representativa**, no inventario 1:1.
 
 ## Objetivo
@@ -107,7 +107,7 @@ Los textos deben distinguir documentado, inferido e interpretativo; no afirmar f
 | High-poly v0.3 | 249.266 tris / 1.960.828 B en LOD0 y 26.898 tris / 785.260 B en LOD1; 19/15 draw calls; Lanzón del escaneo CyArk (CC BY-NC-SA 4.0) |
 | High-poly v0.4 | 249.906 tris / 1.962.060 B en LOD0 y 27.539 tris / 786.136 B en LOD1; 19/15 draw calls; columnas acanaladas y parada 5 con fov 28 |
 | High-poly v0.5 | 249.930 tris / 1.962.280 B en LOD0 y 27.563 tris / 786.356 B en LOD1; 18/15 draw calls; remates A/B integrados en piedra (histórico) |
-| High-poly v0.6 | 249.990 tris / 1.962.740 B en LOD0 y 27.623 tris / 786.816 B en LOD1; 18/15 draw calls; apoyos visibles bajo Tier_04/Tier_02 |
+| High-poly v0.6 | 249.990 tris / 1.962.740 B en LOD0 y 27.622 tris / 786.816 B en LOD1 (accessors); 18/14 draw calls; apoyos visibles bajo Tier_04/Tier_02 |
 
 ## Decisión de gate
 

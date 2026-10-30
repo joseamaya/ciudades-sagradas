@@ -7,13 +7,13 @@ Fuente: `blender/aypate/aypate_highpoly_v0.4.blend`; los LOD se regeneran con `s
 
 ## Qué se integró
 
-- `city.json` con `status: "available"` y `stage: "preview"`.
+- `city.json` con `availability: "available"`, `maturity: "preview"`, `version: "v0.4"`, `evidence: "mixed"` y `qa: "pending"`.
 - LOD0 de 209.560 tris / 2.139.720 B; LOD1 de 30.663 tris / 443.372 B.
 - 18 y 16 draw calls en la vista inicial; 12/9 materiales y 15 imágenes 2K/1K px.
 - Seis paradas: Qhapaq Ñan, plaza, ushnu, kallanka, acllawasi y fuente ritual.
 - Capas: arquitectura inca, cerro y bosque de neblina, detalles y escala humana.
 - `scale: 0.08`, `minDistance: 0.1` y `maxDistance: 180`.
-- Caché `v27`.
+- Caché global `v36`.
 
 ## Vistas
 

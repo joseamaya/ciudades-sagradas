@@ -17,10 +17,10 @@ Derivados: LOD0/LOD1 regenerados con `scripts/build_chavin_lod.py` y `scripts/ex
 
 | Métrica | LOD0 | LOD1 |
 |---|---:|---:|
-| Triángulos | 249.990 | 27.623 |
+| Triángulos | 249.990 | 27.622 |
 | GLB | 1.962.740 B | 786.816 B |
 | Mallas exportadas | 4 | 4 |
-| Draw calls en la vista inicial | 18 | 15 |
+| Draw calls en la vista inicial | 18 | 14 |
 | Texturas decodificadas estimadas | 133,3 MB | 69,3 MB |
 
 - LOD0 queda 10 tris por debajo del techo nominal de 250.000.
@@ -36,7 +36,7 @@ Derivados: LOD0/LOD1 regenerados con `scripts/build_chavin_lod.py` y `scripts/ex
 
 - `npm run validate`: OK.
 - `npm run build`: OK.
-- `npm run bench -- --city chavin --qa`: OK; 18/15 draw calls; sin errores de consola.
+- `npm run bench -- --city chavin --qa`: OK; 18/14 draw calls; sin errores de consola.
 - Core, Plaza Circular y móvil revisados: los bloques ya muestran apoyo visible.
 
 ## Límites

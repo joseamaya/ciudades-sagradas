@@ -50,14 +50,15 @@ bpy.ops.export_scene.gltf(
 - Usar Draco para geometría (nivel 6; posición 14, normal 10, UV 12).
 - Activar `use_backface_culling` en superficies sólidas; dejar doble cara solo en vegetación, totora, algodón, agua y fuego.
 - Revisar que el material no dependa de nodos procedurales no exportables.
+- Exportar `extras.layer` en cada nodo con mesh (`city`, `terrain`, `props`, `reference` o capa adicional justificada). El visor prioriza ese dato; la clasificación por nombre es solo fallback legado.
 
 ## Integración en el atlas
 
 1. Copiar los GLB a `public/cities/<slug>/` (`model_lod0.glb`, `model_lod1.glb`, `model.glb` de fallback).
-2. Declarar `lod.levels`, `fallbackModel`, `scale` y `verticalScale` en `public/cities/<slug>/city.json`.
-3. Ajustar cámaras y recorrido; validar las capas.
+2. Declarar `availability`, `maturity`, `version`, `evidence`, `qa`, `lod.levels`, `fallbackModel`, `scale`, `verticalScale` y, si aplica, `ground`/`fog` en `public/cities/<slug>/city.json`.
+3. Ajustar cámaras y recorrido; validar las capas y la evidencia por parada.
 4. Añadir la portada `public/cities/<slug>/hero.jpg`.
-5. Registrar hashes/tamaños en `docs/fuentes/registro-assets.csv`.
+5. Registrar hashes/tamaños en `docs/fuentes/registro-assets.csv` y la cobertura en `docs/remaster/<slug>/cobertura.md`.
 6. Ejecutar `npm run validate`, `npm run build`, `npm run bench` y probar en navegador/kiosco.
 
 ## Presupuesto

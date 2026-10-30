@@ -1,7 +1,7 @@
 {
   "id": "narihuala",
   "name": "Narihualá",
-  "subtitle": "La huaca de barro",
+  "subtitle": "La huaca de los Tallanes",
   "culture": "Tallán · Chimú · Inca",
   "period": "Intermedio Tardío–Horizonte Tardío",
   "region": "Catacaos, Piura",
@@ -10,7 +10,11 @@
     "lon": -80.687059
   },
   "elevation": "22 m s. n. m.",
-  "status": "available",
+  "availability": "available",
+  "maturity": "preview",
+  "version": "v0.2",
+  "evidence": "interpretive",
+  "qa": "pending",
   "summary": "Centro político-ceremonial de barro en el valle bajo del Piura. Dos montículos, una plaza de 60 × 40 m, accesos y corredores organizan el conjunto tallán, después ocupado por chimúes e incas.",
   "model": "cities/narihuala/model_lod0.glb",
   "lighting": {
@@ -36,16 +40,17 @@
     {
       "title": "Llegada al valle",
       "text": "El conjunto aparece entre los campos del valle bajo del Piura. La vista inicial es aérea y muestra los dos montículos y la plaza central; el museo y el pueblo actual quedan fuera de la lectura prehispánica.",
+      "evidence": "interpretive",
       "camera": {
         "position": [
-          0,
-          1.2,
-          20
+          12.8,
+          6.4,
+          19.2
         ],
         "target": [
           0,
-          1.6,
-          13.6
+          2.8,
+          0
         ],
         "fov": 28
       }
@@ -53,6 +58,7 @@
     {
       "title": "El montículo oeste",
       "text": "El montículo oeste se modela como inferencia: la ortofoto libre de SIGRID lo muestra cubierto por el museo. Se leen dos plataformas y un frente de adobe, sin inventar recintos interiores.",
+      "evidence": "inferred",
       "camera": {
         "position": [
           -4.8,
@@ -70,6 +76,7 @@
     {
       "title": "La plaza central",
       "text": "La plaza de 60 × 40 m se reconstruye como espacio de encuentro entre los montículos. Los muros bajos y los accesos son inferencias a partir de Mincetur y la RVM; no hay un borde arqueológico legible en la ortofoto. Las rampas documentadas no se modelan por falta de cotas y se sustituyen por escalinatas apoyadas.",
+      "evidence": "inferred",
       "camera": {
         "position": [
           -1.2,
@@ -87,6 +94,7 @@
     {
       "title": "Accesos y corredores",
       "text": "El sector intermedio se representa con tres hileras de muros paralelos, patios, corredores y escalinatas. La compartimentación es interpretativa y no sustituye la planta arqueológica pendiente.",
+      "evidence": "interpretive",
       "camera": {
         "position": [
           1.2,
@@ -104,6 +112,7 @@
     {
       "title": "El montículo este",
       "text": "El montículo este y su cima se apoyan en la ortofoto y el DTM de SIGRID 2018. Se modelan tres plataformas y una terraza superior; la capilla republicana queda en una capa posterior, desactivada por defecto.",
+      "evidence": "inferred",
       "camera": {
         "position": [
           2.4,
@@ -121,6 +130,7 @@
     {
       "title": "Mirador del valle",
       "text": "El conjunto se relaciona con el río Piura, los campos y el bosque seco. La vegetación es una lectura ambiental, no un inventario botánico; el pueblo y el museo actuales no forman parte de la reconstrucción.",
+      "evidence": "interpretive",
       "camera": {
         "position": [
           12.8,
@@ -187,7 +197,6 @@
   ],
   "disclaimer": "Preview interpretativo v0.2. El montículo este y la capilla se apoyan en la ortofoto y el DTM libres de SIGRID 2018; el montículo oeste, la plaza de 60 × 40 m, los accesos y los recintos interiores son inferencias documentadas; las rampas documentadas no se modelan y se usan escalinatas apoyadas, no un levantamiento arqueológico. La sectorización I–III no se resuelve porque RVM y Mincetur no coinciden. La capilla republicana está en la capa later, desactivada por defecto. No es una reconstrucción histórica final.",
   "credits": "Geometría, materiales y renders propios; sin imágenes oficiales ni texturas de IA. Referencias: SIGRID/CENEPRED 2018, RVM 000084-2023-VMPCIC/MC, Mincetur 364 y Fernández Villegas 1990. Fuentes en docs/fuentes/narihuala.md.",
-  "stage": "preview",
   "lod": {
     "default": "auto",
     "levels": {
@@ -197,6 +206,11 @@
   },
   "fallbackModel": "cities/narihuala/model_lod1.glb",
   "verticalScale": 1,
+  "ground": {
+    "enabled": true,
+    "y": -0.36,
+    "texture": "sand"
+  },
   "minDistance": 0.1,
   "maxDistance": 180
 }

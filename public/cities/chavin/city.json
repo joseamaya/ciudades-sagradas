@@ -10,8 +10,11 @@
     "lon": -77.178
   },
   "elevation": "3180 m s. n. m.",
-  "status": "available",
-  "stage": "preview",
+  "availability": "available",
+  "maturity": "preview",
+  "version": "v0.2",
+  "evidence": "mixed",
+  "qa": "partial",
   "summary": "Chavín de Huántar fue uno de los grandes centros ceremoniales y oraculares de los Andes. En la confluencia de los ríos Mosna y Huachecsa, sus templos de piedra, galerías internas, plazas y esculturas —como el Lanzón— articularon una ideología que se expandió por buena parte del territorio andino.",
   "model": "cities/chavin/model_lod0.glb",
   "lod": {
@@ -24,6 +27,13 @@
   "fallbackModel": "cities/chavin/model_lod1.glb",
   "scale": 0.08,
   "verticalScale": 1,
+  "ground": {
+    "enabled": false
+  },
+  "fog": {
+    "near": 70,
+    "far": 240
+  },
   "minDistance": 0.1,
   "maxDistance": 180,
   "camera": {
@@ -43,6 +53,7 @@
     {
       "title": "El valle del Mosna",
       "text": "Chavín se levanta a unos 3.180 m, en la confluencia de los ríos Mosna y Huachecsa. El valle y las quebradas enmarcan un centro ceremonial que articuló peregrinación, intercambio y poder ritual.",
+      "evidence": "inferred",
       "camera": {
         "position": [
           16.8,
@@ -60,6 +71,7 @@
     {
       "title": "Plaza Circular y atrio",
       "text": "La Plaza Circular Hundida y el atrio del Lanzón forman el núcleo del conjunto tradicionalmente llamado Templo Antiguo. El pavimento, las gradas y las escalinatas organizan un acceso ritual en torno al Edificio B.",
+      "evidence": "documented",
       "camera": {
         "position": [
           7.6,
@@ -77,6 +89,7 @@
     {
       "title": "El Lanzón",
       "text": "El Edificio B alberga la Galería del Lanzón. El monolito ahusado de granito mide unos 4,5 m y su rostro ocupa el tercio superior. La malla es una adaptación del escaneo CyArk; el corredor permite leer el volumen y el relieve se aprecia al acercarse.",
+      "evidence": "documented",
       "camera": {
         "position": [
           -0.15,
@@ -94,6 +107,7 @@
     {
       "title": "Galería y ventilación",
       "text": "Una secuencia de la red interna: corredor, cámara, dinteles, portal, ducto y hornacina. El modelo no reconstruye las 22 galerías completas ni inventa techos no conservados.",
+      "evidence": "inferred",
       "camera": {
         "position": [
           10,
@@ -111,6 +125,7 @@
     {
       "title": "Portada de las Falcónidas",
       "text": "La portada se abre en el frontis este del Edificio A. Dos columnas circulares de 2,30 m, jambas trilíticas y un friso partido en dos enmarcan el acceso; las tallas de esta versión son una lectura geométrica, no una reproducción iconográfica.",
+      "evidence": "inferred",
       "camera": {
         "position": [
           3.376,
@@ -128,6 +143,7 @@
     {
       "title": "Mirador del conjunto",
       "text": "Desde el mirador se leen las terrazas del Edificio A, la Plaza Circular, la Plaza Cuadrada y el valle. El terreno es procedural y la planta general sigue siendo una base de revisión.",
+      "evidence": "interpretive",
       "camera": {
         "position": [
           20,

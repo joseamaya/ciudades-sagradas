@@ -1,7 +1,7 @@
 # Cobertura objetivo — Chavín de Huántar
 
 Fecha: 27 de octubre de 2026.
-Estado: **preview web v0.1 con Lanzón escaneado v0.3; LOD0/LOD1; blockout y Portada aceptados como base**.
+Estado: **preview web v0.2 con Lanzón escaneado v0.3; LOD0/LOD1; blockout y Portada aceptados como base**.
 Estándar: **ciudad representativa**.
 
 ## Definición

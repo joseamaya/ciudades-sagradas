@@ -1,26 +1,29 @@
+import { maturityLabel, statusBadges } from './status.js';
+
 export function renderCatalog(root, cities) {
-  const available = cities.filter((city) => city.status === 'available').length;
+  const withModel = cities.filter((city) => city.availability === 'available').length;
   const cards = cities
     .map((city) => {
-      const available = city.status === 'available';
-      const stage = city.stage === 'piloto' ? 'Piloto' : city.stage === 'v2' ? 'Remaster v2' : city.stage === 'preview' ? 'Remaster preview' : city.stage === 'v1' ? 'Remaster v1' : available ? 'Disponible' : 'En investigación';
+      const isAvailable = city.availability === 'available';
+      const maturity = maturityLabel(city);
       const media = city.thumb
         ? `<div class="city-card__media" style="background-image:url('${city.thumb}')"></div>`
         : `<div class="city-card__media city-card__media--empty" style="--accent:${city.accent}">
              <span>${city.monogram || city.name.slice(0, 1)}</span>
-             <small>En investigación</small>
+             <small>Ficha documental</small>
            </div>`;
       return `
-        <a class="city-card${available ? ' city-card--available' : ''}" href="#/ciudad/${city.id}" aria-label="${city.name}: ${city.subtitle}">
+        <a class="city-card${isAvailable ? ' city-card--available' : ''}" href="#/ciudad/${city.id}" aria-label="${city.name}: ${city.subtitle}">
           ${media}
           <div class="city-card__body">
             <div class="city-card__kicker">
               <span>${city.culture}</span>
-              <span class="badge ${available ? 'badge--live' : ''}">${stage}</span>
+              <span class="badge ${isAvailable ? 'badge--live' : ''}">${maturity}</span>
             </div>
             <h2>${city.name}</h2>
             <p class="city-card__subtitle">${city.subtitle}</p>
             <p class="city-card__summary">${city.summary}</p>
+            <div class="city-card__status">${statusBadges(city)}</div>
             <div class="city-card__meta">
               <span>${city.period}</span>
               <span>${city.region}</span>
@@ -42,9 +45,10 @@ export function renderCatalog(root, cities) {
           <p>Un atlas para mirar de cerca la arquitectura, el paisaje y la memoria de sociedades que transformaron los Andes. Cada ficha distingue lo documentado de lo interpretado.</p>
           <div class="catalog__stats">
             <span><strong>${cities.length}</strong> ciudades</span>
-            <span><strong>${available}</strong> disponible${available === 1 ? '' : 's'}</span>
+            <span><strong>${withModel}</strong> con modelo 3D</span>
             <span><strong>5000</strong> años</span>
           </div>
+          <p class="catalog__notice">Preview público. Caral v2 es la referencia; Chavín, Aypate y Narihualá siguen en revisión. La QA de hardware está en curso.</p>
         </div>
       </header>
 

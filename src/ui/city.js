@@ -1,3 +1,5 @@
+import { evidenceBadge, statusBadges } from './status.js';
+
 function facts(city) {
   const rows = [
     ['Cultura', city.culture],
@@ -24,11 +26,11 @@ function sources(city) {
 }
 
 export function renderCity(root, city) {
-  const available = city.status === 'available';
+  const isAvailable = city.availability === 'available';
   const tour = city.tour || [];
   const layers = city.layers || [];
 
-  if (!available) {
+  if (!isAvailable) {
     root.innerHTML = `
       <section class="city-view city-view--research" style="--accent:${city.accent || '#d9a441'}">
         <div class="research-hero">
@@ -37,7 +39,7 @@ export function renderCity(root, city) {
             <span class="eyebrow">${city.culture} · ${city.period}</span>
             <h1>${city.name}</h1>
             <p class="research-hero__subtitle">${city.subtitle}</p>
-            <span class="badge">En investigación</span>
+            <div class="research-status">${statusBadges(city, { includeMaturity: true })}</div>
           </div>
         </div>
         <div class="research-body">
@@ -70,7 +72,7 @@ export function renderCity(root, city) {
           <span class="eyebrow">${city.culture}</span>
           <h1>${city.name}</h1>
           <p>${city.subtitle}</p>
-          ${city.stage === 'piloto' ? '<span class="stage">Piloto · en remasterización</span>' : city.stage === 'v2' ? '<span class="stage">Remaster · v2</span>' : city.stage === 'v1' ? '<span class="stage">Remaster · v1</span>' : city.stage === 'preview' ? '<span class="stage">Remaster · preview</span>' : ''}
+          <div class="city-status">${statusBadges(city, { includeMaturity: true })}</div>
         </div>
         <div class="city-tools">
           <button id="sound" class="tool" type="button" aria-pressed="false">Sonido <span class="tool__dot"></span></button>
@@ -92,12 +94,20 @@ export function renderCity(root, city) {
                   (stop, index) => `
                     <li>
                       <button type="button" data-tour="${index}" class="${index === 0 ? 'is-active' : ''}">
-                        <span>${String(index + 1).padStart(2, '0')}</span>${stop.title}
+                        <span class="tour-list__index">${String(index + 1).padStart(2, '0')}</span>
+                        <span class="tour-list__title">${stop.title}</span>
+                        ${evidenceBadge(stop.evidence, true)}
                       </button>
                     </li>`,
                 )
                 .join('')}
             </ol>
+            <div class="evidence-legend">
+              <span>Nivel de evidencia</span>
+              ${evidenceBadge('documented', true)}
+              ${evidenceBadge('inferred', true)}
+              ${evidenceBadge('interpretive', true)}
+            </div>
           </section>
 
           <section>
@@ -137,9 +147,12 @@ export function renderCity(root, city) {
 
       <div class="tour-bar" id="tour-bar">
         <button id="tour-prev" class="tour-arrow" type="button" aria-label="Parada anterior">←</button>
-        <div class="tour-copy">
+        <div class="tour-copy" aria-live="polite">
           <span class="eyebrow" id="tour-count">01 / ${String(tour.length).padStart(2, '0')}</span>
-          <h2 id="tour-title">${tour[0]?.title || city.name}</h2>
+          <div class="tour-heading">
+            <h2 id="tour-title">${tour[0]?.title || city.name}</h2>
+            <span id="tour-evidence">${evidenceBadge(tour[0]?.evidence, true)}</span>
+          </div>
           <p id="tour-text">${tour[0]?.text || city.summary}</p>
         </div>
         <button id="tour-next" class="tour-arrow" type="button" aria-label="Parada siguiente">→</button>
@@ -161,6 +174,7 @@ export function renderCity(root, city) {
     tourCount: root.querySelector('#tour-count'),
     tourTitle: root.querySelector('#tour-title'),
     tourText: root.querySelector('#tour-text'),
+    tourEvidence: root.querySelector('#tour-evidence'),
     tourList: root.querySelector('#tour-list'),
     timeButtons: [...root.querySelectorAll('[data-time]')],
     layerInputs: [...root.querySelectorAll('[data-layer]')],

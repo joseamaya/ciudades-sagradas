@@ -1,4 +1,4 @@
-# Chavín — preview web v0.1
+# Chavín — preview web v0.2
 
 Fecha: 28 de octubre de 2026.
 Estado: **preview público controlado; no es un remaster final ni un LOD de producción**.
@@ -25,8 +25,8 @@ Fuente Blender: `chavin_highpoly_v0.6.blend`; los derivados `chavin_lod0.blend` 
 
 ## Qué se integró
 
-- `city.json` con `status: "available"` y `stage: "preview"`.
-- Dos niveles: LOD0 de 249.990 tris con mampostería, friso integrado, Lanzón escaneado y columnas acanaladas; LOD1 de 27.623 tris con una copia de 12.000 tris del Lanzón.
+- `city.json` con `availability: "available"`, `maturity: "preview"`, `version: "v0.2"`, `evidence: "mixed"` y `qa: "partial"`.
+- Dos niveles: LOD0 de 249.990 tris con mampostería, friso integrado, Lanzón escaneado y columnas acanaladas; LOD1 de 27.622 tris medidos por accessors con una copia de 12.000 tris del Lanzón.
 - `scale: 0.08`, cámara inicial, seis paradas de recorrido y `minDistance: 0.1` para el primer plano del Lanzón.
 - Capas `city`, `terrain`, `props` y `reference`, exportadas en los extras del GLB.
 - `hero.jpg` propio desde la Portada, sin imágenes oficiales.
@@ -38,9 +38,9 @@ Fuente Blender: `chavin_highpoly_v0.6.blend`; los derivados `chavin_lod0.blend` 
 
 | Métrica | LOD0 | LOD1 |
 |---|---:|---:|
-| Triángulos | 249.990 | 27.623 |
+| Triángulos | 249.990 | 27.622 |
 | Mallas exportadas | 4 | 4 |
-| Draw calls en la vista inicial | 19 | 15 |
+| Draw calls en la vista inicial | 18 | 14 |
 | GLB | 1.962.740 B | 786.816 B |
 | Texturas decodificadas estimadas | 133,3 MB | 69,3 MB |
 | Imágenes | 13 | 13, a 1024 px |

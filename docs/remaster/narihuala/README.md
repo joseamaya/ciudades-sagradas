@@ -2,8 +2,8 @@
 
 Estado: **preview web v0.2 interpretativo con apoyos corregidos; no reconstrucción final**.
 Fuente: `blender/narihuala/narihuala_highpoly_v0.2.blend` (6,2 MB).
-LOD0: **162.432 tris / 1.599.008 B**; LOD1: **29.682 tris / 441.800 B**; 13/13 draw calls.
-Caché `v34`.
+LOD0: **162.432 tris / 1.599.008 B**; LOD1: **29.682 tris / 441.800 B**; 14/13 draw calls.
+Caché global `v36`.
 
 Apoyos: plataformas macizas hasta terreno o plataforma inferior; plaza y montículo oeste con recorte local y transición. Luz de relleno específica para que las caras este no queden negras.
 

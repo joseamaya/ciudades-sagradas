@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-30T22:36:29.161Z",
+  "route": "#/ciudad/caral",
+  "city": "caral",
+  "cityName": "Caral",
+  "metrics": {
+    "ready": true,
+    "lod": "1",
+    "modelUrl": "cities/caral/model_lod1.glb",
+    "lowPower": true,
+    "profile": {
+      "lowPower": true,
+      "uaMobile": true,
+      "mobileUA": true,
+      "iPadDesktop": false,
+      "memory": 32,
+      "cores": 24,
+      "small": true,
+      "coarse": true
+    },
+    "viewport": {
+      "width": 515,
+      "height": 1048
+    },
+    "cssViewport": {
+      "width": 412,
+      "height": 839
+    },
+    "pixelRatio": 1.25,
+    "shadowMapSize": [
+      1024,
+      1024
+    ],
+    "shadowAutoUpdate": false,
+    "flags": {
+      "noGround": false,
+      "noShadows": false
+    },
+    "meshes": 38,
+    "materials": 23,
+    "textures": 39,
+    "textureMB": 208,
+    "modelTriangles": 56332,
+    "calls": 31,
+    "trianglesDrawn": 45746,
+    "fps": 10.6,
+    "frameMs": 94.43,
+    "loadMs": 2979,
+    "modelBytes": 1345092,
+    "timeOfDay": "morning",
+    "layers": {
+      "city": true,
+      "props": true,
+      "reference": true,
+      "terrain": true
+    }
+  },
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+    "platform": "Android",
+    "language": "en-US",
+    "screen": {
+      "width": 412,
+      "height": 915,
+      "availWidth": 412,
+      "availHeight": 915,
+      "colorDepth": 24
+    },
+    "viewport": {
+      "width": 412,
+      "height": 839,
+      "devicePixelRatio": 2.625
+    },
+    "touchPoints": 1,
+    "deviceMemory": 32,
+    "hardwareConcurrency": 24,
+    "standalone": false,
+    "serviceWorker": true,
+    "online": true,
+    "webgl": {
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "shadingLanguageVersion": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)",
+      "vendor": "Google Inc. (Google)",
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "unmaskedVendor": "Google Inc. (Google)",
+      "unmaskedRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "maxTextureSize": 8192,
+      "maxRenderbufferSize": 8192,
+      "contextAttributes": {
+        "alpha": true,
+        "antialias": true,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "high-performance",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      }
+    }
+  },
+  "issues": []
+}

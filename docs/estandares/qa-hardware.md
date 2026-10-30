@@ -3,6 +3,8 @@
 Actualizado: 30 de octubre de 2026.
 Ámbito: Caral, Chavín, Aypate, Narihualá y cualquier ciudad futura.
 
+Registro de resultados y secuencia de captura: [`../qa/README.md`](../qa/README.md). Revisión funcional Playwright: [`../qa/revision-playwright.md`](../qa/revision-playwright.md).
+
 Este documento separa tres cosas que no son equivalentes:
 
 - **Validación automática:** `npm run validate` y `npm run build`.

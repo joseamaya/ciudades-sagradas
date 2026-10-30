@@ -23,6 +23,7 @@ La UI muestra `availability`, `maturity`, `evidence` y `qa` en catálogo, ficha 
 - [x] Fichas de Chan Chan y Wari sin errores de consola.
 - [x] Bench de las cuatro ciudades sin errores de consola en cargas normales.
 - [x] Informe QA con GPU, WebGL, PWA, flags y captura de errores de ventana.
+- [x] Playwright: rutas, LOD0/LOD1, seis paradas, luces, capas, consola y offline en Chromium/Firefox. WebKit bloqueado por dependencias del host.
 
 ## Pendiente antes de llamarlo publicación final
 
@@ -33,7 +34,7 @@ La UI muestra `availability`, `maturity`, `evidence` y `qa` en catálogo, ficha 
 - [ ] Cerrar cotas finas de Aypate y Narihualá.
 - [ ] Resolver el plano arqueológico de sectores de Narihualá.
 
-Protocolo: [`../estandares/qa-hardware.md`](../estandares/qa-hardware.md).
+Protocolo: [`../estandares/qa-hardware.md`](../estandares/qa-hardware.md). Registro de resultados y secuencia de captura: [`../qa/README.md`](../qa/README.md).
 
 ## Publicación
 

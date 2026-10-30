@@ -3,7 +3,12 @@
   "mcp": {
     "blender": {
       "type": "local",
-      "command": ["uvx", "--python", "3.11", "mcp-for-blender"],
+      "command": [
+        "uvx",
+        "--python",
+        "3.11",
+        "mcp-for-blender"
+      ],
       "enabled": true,
       "environment": {
         "BLENDER_HOST": "localhost",
@@ -12,6 +17,16 @@
         "DISABLE_TELEMETRY": "true",
         "UV_PYTHON_PREFERENCE": "only-managed"
       }
+    },
+    "playwright": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@playwright/mcp@latest",
+        "--headless"
+      ],
+      "enabled": true
     }
   }
 }

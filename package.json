@@ -10,12 +10,17 @@
     "preview": "vite preview",
     "validate": "node scripts/validate.mjs",
     "serve": "vite preview --host 127.0.0.1 --port 4173",
-    "bench": "node scripts/bench.mjs"
+    "bench": "node scripts/bench.mjs",
+    "qa:playwright": "npm run build && playwright test",
+    "qa:playwright:chromium": "npm run build && playwright test --project=chromium-desktop-1600",
+    "qa:playwright:webkit": "npm run build && PLAYWRIGHT_WEBKIT=1 playwright test --project=webkit-desktop --project=webkit-mobile",
+    "qa:playwright:review": "npm run build && playwright test --project=chromium-desktop-1600 --project=firefox-desktop --project=chromium-mobile"
   },
   "dependencies": {
     "three": "^0.185.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.1",
     "vite": "^7.1.0"
   }
 }

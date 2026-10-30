@@ -8,7 +8,7 @@ QA: [`qa-hardware.md`](./qa-hardware.md).
 
 | Ciudad | Disponibilidad | Madurez | Evidencia | QA | LOD0 / LOD1 | Draw calls | Paradas | Cumple | Brecha y siguiente acción |
 |---|---|---|---|---|---|---:|---|---|---|
-| **Caral** | `available` | `released` · v2 | Mixta | `waived` (P2 Android) | 230.800 / 56.332 | 44 / 31 | 6 | **Técnico/visual sí; QA con excepción** | Cerrar o mantener `CARAL-ANDROID-GROUND-001`; QA iPhone/desktop. |
+| **Caral** | `available` | `released` · v2 | Mixta | `waived` (P2 Android) | 230.800 / 56.332 | 44 / 31 | 6 | **Técnico/visual sí; QA con excepción** | Desktop integrado 1600×900: pass parcial; faltan 1080p, PWA/offline, 10 min y móvil. Cerrar o mantener `CARAL-ANDROID-GROUND-001`. |
 | **Chavín** | `available` | `preview` · v0.2 | Mixta | `partial` | 249.990 / 27.622 | 18 / 14 | 6 | **Visual/técnico sí; QA pendiente** | Repetir QA v0.6; decidir dintel/escalera; licencia CC BY-NC-SA. |
 | **Aypate** | `available` | `preview` · v0.4 | Mixta | `pending` | 209.560 / 30.663 | 17 / 15 | 6 | **Visual/técnico sí; QA pendiente** | QA de hardware; cotas finas y recintos periféricos. |
 | **Narihualá** | `available` | `preview` · v0.2 | Interpretativa | `pending` | 162.432 / 29.682 | 14 / 13 | 6 | **Parcial; interpretativo** | Plano arqueológico de sectores; cotas finas; QA. |

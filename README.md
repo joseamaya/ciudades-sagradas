@@ -13,7 +13,7 @@ Atlas interactivo de los grandes centros ceremoniales y ciudades del Perú antig
 | Chan Chan | Chimú · siglos IX–XV | `research` | `research` | Ficha documental | No aplica |
 | Wari | Wari · 600–1100 d. C. | `research` | `research` | Ficha documental | No aplica |
 
-La matriz completa de QA y el protocolo reproducible están en [`docs/estandares/qa-hardware.md`](./docs/estandares/qa-hardware.md). La checklist de publicación y el smoke post-deploy están en [`docs/release/preview-publico.md`](./docs/release/preview-publico.md).
+La matriz completa de QA, el protocolo y el registro de resultados están en [`docs/estandares/qa-hardware.md`](./docs/estandares/qa-hardware.md) y [`docs/qa/README.md`](./docs/qa/README.md). La checklist de publicación y el smoke post-deploy están en [`docs/release/preview-publico.md`](./docs/release/preview-publico.md).
 
 ## Qué es
 
@@ -70,9 +70,12 @@ npm run build
 npm run serve
 # benchmark reproducible con Chrome headless (requiere Chrome + build)
 npm run bench -- --city caral --out /tmp/caral-bench
+
+# QA funcional automatizada (requiere navegadores Playwright)
+npm run qa:playwright:chromium
 ```
 
-El build queda en `dist/`. Vite usa rutas relativas, así que funciona en GitHub Pages, Cloudflare Pages o un servidor local. El benchmark usa SwiftShader: sirve para comparar draw calls, triángulos, texturas y carga, **no para declarar FPS de hardware real**.
+El build queda en `dist/`. Vite usa rutas relativas, así que funciona en GitHub Pages, Cloudflare Pages o un servidor local. El benchmark usa SwiftShader: sirve para comparar draw calls, triángulos, texturas y carga, **no para declarar FPS de hardware real**. La revisión Playwright cubre rutas, LOD, paradas, capas, consola y offline en Chromium/Firefox; su informe está en [`docs/qa/revision-playwright.md`](./docs/qa/revision-playwright.md).
 
 `npm run validate` comprueba datos, estados, evidencia, coherencia índice/ficha, GLB, capas `extras.layer`, rangos de LOD, hashes y assets.
 

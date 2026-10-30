@@ -688,6 +688,57 @@ export class CityViewer {
     return entry.encodedBodySize || entry.transferSize || null;
   }
 
+  getEnvironment() {
+    const gl = this.renderer.getContext();
+    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+    const parameter = (name) => {
+      try {
+        return gl.getParameter(name);
+      } catch {
+        return null;
+      }
+    };
+    const unmaskedVendor = debugInfo ? parameter(debugInfo.UNMASKED_VENDOR_WEBGL) : null;
+    const unmaskedRenderer = debugInfo ? parameter(debugInfo.UNMASKED_RENDERER_WEBGL) : null;
+    const standalone = Boolean(
+      window.matchMedia?.('(display-mode: standalone)')?.matches || navigator.standalone,
+    );
+    return {
+      userAgent: navigator.userAgent,
+      platform: navigator.userAgentData?.platform || navigator.platform || null,
+      language: navigator.language || null,
+      screen: {
+        width: window.screen?.width ?? null,
+        height: window.screen?.height ?? null,
+        availWidth: window.screen?.availWidth ?? null,
+        availHeight: window.screen?.availHeight ?? null,
+        colorDepth: window.screen?.colorDepth ?? null,
+      },
+      viewport: {
+        width: window.innerWidth,
+        height: window.innerHeight,
+        devicePixelRatio: window.devicePixelRatio || 1,
+      },
+      touchPoints: navigator.maxTouchPoints ?? 0,
+      deviceMemory: navigator.deviceMemory ?? null,
+      hardwareConcurrency: navigator.hardwareConcurrency ?? null,
+      standalone,
+      serviceWorker: 'serviceWorker' in navigator,
+      online: navigator.onLine,
+      webgl: {
+        version: parameter(gl.VERSION),
+        shadingLanguageVersion: parameter(gl.SHADING_LANGUAGE_VERSION),
+        vendor: unmaskedVendor || parameter(gl.VENDOR),
+        renderer: unmaskedRenderer || parameter(gl.RENDERER),
+        unmaskedVendor: unmaskedVendor || null,
+        unmaskedRenderer: unmaskedRenderer || null,
+        maxTextureSize: parameter(gl.MAX_TEXTURE_SIZE),
+        maxRenderbufferSize: parameter(gl.MAX_RENDERBUFFER_SIZE),
+        contextAttributes: this.renderer.getContextAttributes?.() ?? null,
+      },
+    };
+  }
+
   getMetrics() {
     return {
       ready: Boolean(this.model),

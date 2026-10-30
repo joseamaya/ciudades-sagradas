@@ -106,7 +106,8 @@ Los textos deben distinguir documentado, inferido e interpretativo; no afirmar f
 | High-poly v0.2 | 235.098 tris / 1.814.248 B en LOD0 y 14.902 tris / 713.952 B en LOD1; 19/14 draw calls; friso integrado y rostro inciso (histórico) |
 | High-poly v0.3 | 249.266 tris / 1.960.828 B en LOD0 y 26.898 tris / 785.260 B en LOD1; 19/15 draw calls; Lanzón del escaneo CyArk (CC BY-NC-SA 4.0) |
 | High-poly v0.4 | 249.906 tris / 1.962.060 B en LOD0 y 27.539 tris / 786.136 B en LOD1; 19/15 draw calls; columnas acanaladas y parada 5 con fov 28 |
-| High-poly v0.5 | 249.930 tris / 1.962.280 B en LOD0 y 27.563 tris / 786.356 B en LOD1; 18/15 draw calls; remates A/B integrados en piedra |
+| High-poly v0.5 | 249.930 tris / 1.962.280 B en LOD0 y 27.563 tris / 786.356 B en LOD1; 18/15 draw calls; remates A/B integrados en piedra (histórico) |
+| High-poly v0.6 | 249.990 tris / 1.962.740 B en LOD0 y 27.623 tris / 786.816 B en LOD1; 18/15 draw calls; apoyos visibles bajo Tier_04/Tier_02 |
 
 ## Decisión de gate
 
@@ -133,4 +134,4 @@ No se abre Blender hasta completar:
 
 ## Siguiente hito
 
-**High-poly y QA:** el pase high-poly v0.5 deja el LOD0 en 249.930 tris (dentro del techo nominal), con friso integrado, Lanzón derivado del escaneo CyArk, columnas acanaladas y remates A/B integrados en piedra. La parada 5 usa `fov 28` para que la Portada entre en cuadro. Falta QA en hardware real y decidir dintel/escalera; el bake normal/AO del Lanzón se descartó por artefactos. La licencia CC BY-NC-SA 4.0 limita el uso comercial del Lanzón. Ver `highpoly-v0.5.md`, `web-preview.md`, `portada-v0.1.md` y `terrain.md`.
+**High-poly y QA:** el pase high-poly v0.6 deja el LOD0 en 249.990 tris (dentro del techo nominal), con friso integrado, Lanzón derivado del escaneo CyArk, columnas acanaladas y apoyos visibles bajo Tier_04/Tier_02 y remates A/B en piedra. La parada 5 usa `fov 28` para que la Portada entre en cuadro. Falta QA en hardware real y decidir dintel/escalera; el bake normal/AO del Lanzón se descartó por artefactos. La licencia CC BY-NC-SA 4.0 limita el uso comercial del Lanzón. Ver `highpoly-v0.6.md`, `web-preview.md`, `portada-v0.1.md` y `terrain.md`.

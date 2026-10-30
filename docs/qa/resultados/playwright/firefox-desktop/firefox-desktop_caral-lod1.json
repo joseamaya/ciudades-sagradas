@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-30T22:35:41.375Z",
+  "route": "#/ciudad/caral",
+  "city": "caral",
+  "cityName": "Caral",
+  "metrics": {
+    "ready": true,
+    "lod": "1",
+    "modelUrl": "cities/caral/model_lod1.glb",
+    "lowPower": false,
+    "profile": {
+      "lowPower": false,
+      "uaMobile": false,
+      "mobileUA": false,
+      "iPadDesktop": false,
+      "memory": 8,
+      "cores": 24,
+      "small": false,
+      "coarse": false
+    },
+    "viewport": {
+      "width": 1600,
+      "height": 900
+    },
+    "cssViewport": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixelRatio": 1,
+    "shadowMapSize": [
+      2048,
+      2048
+    ],
+    "shadowAutoUpdate": false,
+    "flags": {
+      "noGround": false,
+      "noShadows": false
+    },
+    "meshes": 38,
+    "materials": 23,
+    "textures": 39,
+    "textureMB": 208,
+    "modelTriangles": 56332,
+    "calls": 31,
+    "trianglesDrawn": 45746,
+    "fps": 7.2,
+    "frameMs": 138.81,
+    "loadMs": 789,
+    "modelBytes": 1345092,
+    "timeOfDay": "morning",
+    "layers": {
+      "city": true,
+      "props": true,
+      "reference": true,
+      "terrain": true
+    }
+  },
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:157.0) Gecko/20100101 Firefox/157.0",
+    "platform": "Linux x86_64",
+    "language": "en-US",
+    "screen": {
+      "width": 1920,
+      "height": 1080,
+      "availWidth": 1920,
+      "availHeight": 1080,
+      "colorDepth": 24
+    },
+    "viewport": {
+      "width": 1600,
+      "height": 900,
+      "devicePixelRatio": 1
+    },
+    "touchPoints": 0,
+    "deviceMemory": null,
+    "hardwareConcurrency": 24,
+    "standalone": false,
+    "serviceWorker": true,
+    "online": true,
+    "webgl": {
+      "version": "WebGL 2.0",
+      "shadingLanguageVersion": "WebGL GLSL ES 3.00",
+      "vendor": "Intel",
+      "renderer": "Intel(R) HD Graphics, or similar",
+      "unmaskedVendor": "Intel",
+      "unmaskedRenderer": "Intel(R) HD Graphics, or similar",
+      "maxTextureSize": 8192,
+      "maxRenderbufferSize": 8192,
+      "contextAttributes": {
+        "alpha": true,
+        "antialias": true,
+        "depth": true,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "high-performance",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false
+      }
+    }
+  },
+  "issues": []
+}

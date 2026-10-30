@@ -11,6 +11,7 @@ npm run validate     # valida cities/index.json, city.json, GLB, hashes y assets
 npm run build        # build en dist/
 npm run serve        # preview de producción en 127.0.0.1:4173
 npm run bench        # benchmark/QA con Chrome headless (SwiftShader)
+npm run qa:playwright:chromium  # QA funcional Playwright (Chromium desktop)
 ```
 
 Kiosco: abrir `http://127.0.0.1:4173/?kiosk=1`.

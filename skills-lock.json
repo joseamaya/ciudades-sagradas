@@ -48,6 +48,12 @@
       "sourceType": "github",
       "skillPath": "plugin/skills/text-to-blender/SKILL.md",
       "computedHash": "7f08f2bf36426091ccad980b11bd1aa6a733271ac729fcae618bf43e4816b5ee"
+    },
+    "qa-playwright": {
+      "source": "ciudades-sagradas",
+      "sourceType": "local",
+      "skillPath": ".agents/skills/qa-playwright/SKILL.md",
+      "computedHash": "0d582dfb491474d9f2e4b92ad8ff37113b2e01126fe5b493b7f54c2133075b04"
     }
   }
 }

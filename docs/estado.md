@@ -48,6 +48,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - Manifiesto PWA `standalone`/`any`, iconos 192/512 y safe-area en móvil.
 - Modo kiosco `?kiosk=1` y `?debug=1` con métricas en vivo e informe QA copiable (GPU, WebGL, PWA, flags y errores).
 - Benchmark reproducible `scripts/bench.mjs` (Chrome/CDP + SwiftShader) para LOD0, LOD1, móvil, fallback y offline.
+- Revisión Playwright en Chromium desktop/mobile y Firefox desktop: rutas, LOD0/LOD1, paradas, luces, capas, consola, offline, kiosco y selección automática de LOD. Sin errores de consola. WebKit quedó bloqueado por dependencias del host. Informe en `docs/qa/revision-playwright.md`.
 - Validación ampliada: estados, evidencia, coherencia índice/ficha, cabecera y nodos GLB, capas `extras.layer`, rangos de LOD, hashes y tamaños del registro.
 - CI y GitHub Pages en verde; caché global **v36**.
 - Piloto histórico con texturas de IA retirado del repositorio.
@@ -66,6 +67,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - Caral: LOD1 usa atlas 1K; ~208 MB de VRAM estimada. LOD0 ~373 MB. El detalle de Caral está más abajo.
 - Chavín, Aypate y Narihualá usan 2K/1K según sus informes; no se declara una cifra de VRAM si no está medida.
 - Última ejecución de `npm run bench` (30 de octubre de 2026): Caral 44/31, Chavín 18/14, Aypate 17/15 y Narihualá 14/13 draw calls; sin errores de consola en cargas normales. Los únicos warnings son los fallos deliberados al bloquear LOD0 para probar el fallback. Siguen siendo datos de SwiftShader, no FPS de hardware real.
+- QA de hardware: Caral LOD0 en Intel RPL-S (Chrome 139/Linux, 1600×900) dio 60 fps / 16,67 ms, 44 draw calls y 957 ms de carga. Es un pass parcial de escritorio; faltan 1080p, LOD1, PWA/offline, 10 min y móvil. Registro en `docs/qa/`.
 
 ## Caral v2 — detalle
 

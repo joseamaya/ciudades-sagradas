@@ -67,13 +67,9 @@ const TIME_PRESETS = {
   },
 };
 
-const DOUBLE_SIDED_MATERIALS = new Set([
-  'MAT-Caral_Fire',
-  'MAT-Caral_Cotton',
-  'MAT-Caral_Remaster_Thatch',
-  'MAT-Caral_Remaster_Leaves',
-  'MAT-Caral_Remaster_Grass',
-]);
+const DOUBLE_SIDED_MATERIAL = /(?:^|_)(Leaf|Leaves|LeafDark|Vegetation|Grass|Thatch|Cotton|Cloth|Fabric|Fire)$/i;
+const SINGLE_SIDED_MATERIAL = /(?:^|_)(Water)$/i;
+const LOD1_MATERIAL = /(?:^|_)LOD1(?:_|$)/i;
 
 const SHADOW_MAP_SIZE = {
   desktop: 2048,
@@ -86,9 +82,9 @@ function materialKey(material) {
 
 function isDoubleSided(material) {
   const key = materialKey(material);
-  if (key === 'MAT-Caral_Water') return false;
-  if (key.startsWith('MAT-Caral_LOD1_')) return false;
-  return DOUBLE_SIDED_MATERIALS.has(key);
+  if (SINGLE_SIDED_MATERIAL.test(key)) return false;
+  if (LOD1_MATERIAL.test(key)) return false;
+  return DOUBLE_SIDED_MATERIAL.test(key);
 }
 
 function makeSkyTexture(topHex, horizonHex, groundHex) {
@@ -189,53 +185,27 @@ function buildModelCandidates(city, lowPower) {
   return candidates;
 }
 
+const TERRAIN_TOKEN = /(?:^|_)(Terrain|Field|Hill|Tree|Reed|Rock|Path|SiteApron)(?:_|$)/i;
+const PROPS_TOKEN = /(?:^|_)(Props|Shicra|StoneBlock|CottonPlant|Textile|Offering|Pebble)(?:_|$)/i;
+const REFERENCE_TOKEN = /(?:^|_)(Reference|HumanScale)(?:_|$)/i;
+
 function classify(name = '') {
-  if (name.includes('_Infra_Terrain')) return 'terrain';
-  if (name.includes('_Infra_Props')) return 'props';
-  if (name.includes('_Infra_Reference')) return 'reference';
-  if (
-    name.startsWith('GEO-Caral_HighPoly_') ||
-    name.startsWith('GEO-Caral_LOD0_') ||
-    name.startsWith('GEO-Caral_LOD1_') ||
-    name.startsWith('MESH-Caral_HighPoly_') ||
-    name.startsWith('MESH-Caral_LOD0_') ||
-    name.startsWith('MESH-Caral_LOD1_')
-  ) {
-    return 'city';
+  const rest = name.replace(/^(?:GEO|MESH)-[^_]+_/, '');
+  if (TERRAIN_TOKEN.test(rest)) return 'terrain';
+  if (PROPS_TOKEN.test(rest)) return 'props';
+  if (REFERENCE_TOKEN.test(rest)) return 'reference';
+  return 'city';
+}
+
+function layerFor(object) {
+  let current = object;
+  while (current) {
+    if (typeof current.userData?.layer === 'string' && current.userData.layer) {
+      return current.userData.layer;
+    }
+    current = current.parent;
   }
-  if (
-    name.startsWith('GEO-Caral_Terrain_') ||
-    name.startsWith('GEO-Caral_Field_') ||
-    name.startsWith('GEO-Caral_Hill_') ||
-    name.startsWith('GEO-Caral_Tree_') ||
-    name.startsWith('GEO-Caral_Reed_') ||
-    name.startsWith('GEO-Caral_Rock_') ||
-    name.startsWith('GEO-Caral_Path_') ||
-    name.startsWith('GEO-Caral_SiteApron')
-  ) {
-    return 'terrain';
-  }
-  if (name.startsWith('GEO-Caral_HumanScale')) return 'reference';
-  if (name.startsWith('GEO-Caral_Shicra') || name.startsWith('GEO-Caral_StoneBlock')) return 'props';
-  if (
-    name.startsWith('GEO-Caral_Pyramide') ||
-    name.startsWith('GEO-Caral_Piramide') ||
-    name.startsWith('GEO-Caral_Anfiteatro') ||
-    name.startsWith('GEO-Caral_AltarCircular') ||
-    name.startsWith('GEO-Caral_TemploBanqueta') ||
-    name.startsWith('GEO-Caral_EdificiosE2E3') ||
-    name.startsWith('GEO-Caral_PlazaMayor') ||
-    name.startsWith('GEO-Caral_PlazaCentral') ||
-    name.startsWith('GEO-Caral_PlazuelaHuanca') ||
-    name.startsWith('GEO-Caral_Residencial') ||
-    name.startsWith('GEO-Caral_Residencia') ||
-    name.startsWith('GEO-Caral_Elite') ||
-    name.startsWith('GEO-Caral_Taller') ||
-    name.startsWith('GEO-Caral_Periferia')
-  ) {
-    return 'city';
-  }
-  return 'props';
+  return null;
 }
 
 export class CityViewer {
@@ -251,7 +221,6 @@ export class CityViewer {
     this.flight = null;
     this.timeOfDay = 'morning';
     this.baseFov = 45;
-    this.flatSand = null;
     this.stars = null;
     this.sandTexture = makeSandTexture();
     this.profile = deviceProfile();
@@ -369,12 +338,24 @@ export class CityViewer {
     });
     this.ground = new THREE.Mesh(new THREE.PlaneGeometry(400, 400), material);
     this.ground.rotation.x = -Math.PI / 2;
-    // El terreno del GLB llega a ~-0.32 tras la escala 0.08. El plano queda
-    // debajo y con polygonOffset para evitar z-fighting con las capas de suelo.
     this.ground.position.y = -0.36;
     this.ground.receiveShadow = true;
     this.ground.visible = !this.flags.noGround;
     this.scene.add(this.ground);
+  }
+
+  _applyGround(city) {
+    const config = city.ground || {};
+    this.ground.visible = config.enabled !== false && !this.flags.noGround;
+    if (Number.isFinite(config.y)) this.ground.position.y = config.y;
+    if (typeof config.color === 'string') this.ground.material.color.set(config.color);
+  }
+
+  _applyFog(city) {
+    if (!this.scene.fog) return;
+    const config = city.fog || {};
+    if (Number.isFinite(config.near)) this.scene.fog.near = config.near;
+    if (Number.isFinite(config.far)) this.scene.fog.far = config.far;
   }
 
   _buildStars() {
@@ -515,6 +496,8 @@ export class CityViewer {
   async load(city) {
     this._clearCityLights();
     this.city = city;
+    this._applyGround(city);
+    this._applyFog(city);
     this._applyTime(this.timeOfDay);
     if (Number.isFinite(city.minDistance)) this.controls.minDistance = city.minDistance;
     if (Number.isFinite(city.maxDistance)) this.controls.maxDistance = city.maxDistance;
@@ -550,13 +533,11 @@ export class CityViewer {
     model.scale.set(scale, scale * verticalScale, scale);
     model.traverse((object) => {
       if (!object.isMesh) return;
-      const parentLayer = typeof object.parent?.userData?.layer === 'string' ? object.parent.userData.layer : '';
-      const declaredLayer = typeof object.userData.layer === 'string' ? object.userData.layer : parentLayer;
-      object.userData.layer = declaredLayer || classify(object.name);
+      object.userData.layer = layerFor(object) || classify(object.name);
       object.castShadow = object.userData.layer !== 'terrain';
       object.receiveShadow = true;
       const materials = Array.isArray(object.material) ? object.material : [object.material];
-      for (const material of materials) this._prepareMaterial(material, object);
+      for (const material of materials) this._prepareMaterial(material);
       this.meshes.push(object);
     });
     this.model = model;
@@ -597,33 +578,21 @@ export class CityViewer {
     }
   }
 
-  _prepareMaterial(material, mesh) {
+  _prepareMaterial(material) {
     if (!material) return;
     const key = materialKey(material);
 
-    if (key === 'MAT-Caral_Sand') {
-      this.flatSand ??= new THREE.MeshStandardMaterial({
-        color: 0xd4b184,
-        map: this.sandTexture,
-        roughness: 1,
-        metalness: 0,
-        side: THREE.FrontSide,
-      });
-      mesh.material = this.flatSand;
-      return;
-    }
+    if (material.userData.__cityPrepared) return;
+    material.userData.__cityPrepared = true;
 
-    if (material.userData.__caralPrepared) return;
-    material.userData.__caralPrepared = true;
-
-    if (key === 'MAT-Caral_Fire' && material.emissive) {
+    if (/(?:^|_)(Fire)$/i.test(key) && material.emissive) {
       material.emissive.setHex(0xff5a10);
       material.emissiveIntensity = 1.3;
       material.color.setHex(0x2a0a02);
       material.roughness = 0.6;
     }
 
-    if (key === 'MAT-Caral_Water') {
+    if (SINGLE_SIDED_MATERIAL.test(key)) {
       // La transmisión fuerza una pasada extra de toda la escena en Three.js.
       material.transmission = 0;
       material.transparent = true;

@@ -10,7 +10,11 @@
     "lon": -77.5214
   },
   "elevation": "350–400 m s. n. m.",
-  "status": "available",
+  "availability": "available",
+  "maturity": "released",
+  "version": "v2",
+  "evidence": "mixed",
+  "qa": "waived",
   "summary": "Caral es el centro urbano más antiguo de América. Durante el Arcaico Tardío, sus habitantes construyeron pirámides, plazas circulares hundidas y conjuntos residenciales con piedra, arcilla y shicras. La ciudad organizó el trabajo colectivo y el intercambio entre el valle y la costa sin cerámica, sin metales y sin evidencia de guerra.",
   "model": "cities/caral/model_lod0.glb",
   "lod": {
@@ -23,6 +27,11 @@
   "fallbackModel": "cities/caral/model.glb",
   "scale": 0.08,
   "verticalScale": 1.0,
+  "ground": {
+    "enabled": true,
+    "y": -0.36,
+    "texture": "sand"
+  },
   "camera": {
     "position": [
       16.8,
@@ -40,6 +49,7 @@
     {
       "title": "La Ciudad Sagrada",
       "text": "Caral se levanta sobre una terraza desértica que domina el valle del Supe. La ciudad combina arquitectura monumental, plazas y barrios residenciales.",
+      "evidence": "documented",
       "camera": {
         "position": [
           16.8,
@@ -57,6 +67,7 @@
     {
       "title": "La Pirámide Mayor",
       "text": "La Pirámide Mayor es el edificio más grande del conjunto. Sus plataformas escalonadas, escaleras y plazas interiores organizaban ceremonias y reuniones.",
+      "evidence": "documented",
       "camera": {
         "position": [
           8,
@@ -74,6 +85,7 @@
     {
       "title": "Plaza circular y fuego sagrado",
       "text": "Las plazas circulares hundidas, asociadas a las pirámides, son uno de los rasgos más distintivos de Caral. En su centro se encendía el fuego ritual.",
+      "evidence": "documented",
       "camera": {
         "position": [
           6,
@@ -91,6 +103,7 @@
     {
       "title": "El valle del Supe",
       "text": "El valle aportaba agua, algodón, alimentos y comunicación con la costa. Caral creció gracias a una red de intercambio que unía pesca, agricultura y trabajo colectivo.",
+      "evidence": "inferred",
       "camera": {
         "position": [
           30,
@@ -108,6 +121,7 @@
     {
       "title": "El conjunto del Anfiteatro",
       "text": "El Anfiteatro y el Altar Circular forman uno de los sectores ceremoniales más conocidos. La arquitectura combina graderíos, muros enlucidos y espacios de culto.",
+      "evidence": "documented",
       "camera": {
         "position": [
           8,
@@ -125,6 +139,7 @@
     {
       "title": "El Altar Circular",
       "text": "El Altar Circular conserva un anillo de 2,7 m de diámetro y paredes de 1,5 m. El fogón central y el recinto de cima forman uno de los espacios rituales más íntimos del conjunto.",
+      "evidence": "documented",
       "camera": {
         "position": [
           -12.4,
@@ -185,6 +200,5 @@
     }
   ],
   "disclaimer": "Reconstrucción artística basada en evidencia arqueológica. Formas, colores y actividades son interpretaciones, no registros históricos.",
-  "credits": "Remaster v2 con LOD0 high-poly y LOD1 horneado con atlas 1K, ambos con Draco. Fallback v1 sin Draco. Materiales procedurales en arquitectura, plazas, suelo, roca, vegetación, adobe, totora y madera. Sin texturas de IA.",
-  "stage": "v2"
+  "credits": "Remaster v2 con LOD0 high-poly y LOD1 horneado con atlas 1K, ambos con Draco. Fallback v1 sin Draco. Materiales procedurales en arquitectura, plazas, suelo, roca, vegetación, adobe, totora y madera. Sin texturas de IA."
 }

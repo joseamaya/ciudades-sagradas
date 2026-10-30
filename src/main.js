@@ -2,6 +2,7 @@ import { CityViewer } from './core/viewer.js';
 import { AmbientAudio } from './core/audio.js';
 import { renderCatalog } from './ui/catalog.js';
 import { renderCity } from './ui/city.js';
+import { evidenceBadge } from './ui/status.js';
 
 const app = document.getElementById('app');
 const loading = document.getElementById('loading');
@@ -140,6 +141,7 @@ function updateTour(refs, city, index, fly = false) {
   refs.tourCount.textContent = `${String(tourIndex + 1).padStart(2, '0')} / ${String(tour.length).padStart(2, '0')}`;
   refs.tourTitle.textContent = stop.title;
   refs.tourText.textContent = stop.text;
+  if (refs.tourEvidence) refs.tourEvidence.innerHTML = evidenceBadge(stop.evidence, true);
   refs.tourList.querySelectorAll('button').forEach((button, i) => {
     button.classList.toggle('is-active', i === tourIndex);
   });

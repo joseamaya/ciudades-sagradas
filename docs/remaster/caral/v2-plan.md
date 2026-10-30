@@ -1,3 +1,5 @@
+> **Documento histórico.** Las referencias a `stage` y a la caché `v7` corresponden al release de Caral v2. El esquema vigente usa `maturity`/`version` y la caché global `v36`.
+
 # Caral remaster v2 — plan y Fases A–D web
 
 Fecha: 26 de octubre de 2026. Rama de cierre: `release/caral-v2`, desde `a76fc8b`.

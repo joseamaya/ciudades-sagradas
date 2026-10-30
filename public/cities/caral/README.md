@@ -16,7 +16,7 @@
 - **LOD:** `city.json` declara `lod.levels` 0/1 y `fallbackModel`; escritorio usa LOD0 y móvil usa LOD1, con override `?lod=0/1`.
 - **Fallback:** LOD0 → LOD1 → v1 en escritorio; LOD1 → v1 → LOD0 en móvil.
 - **Portada:** `hero.jpg` generada desde el visor v2.
-- **Estado:** remaster v2 desplegado en GitHub Pages (`stage: "v2"`, caché `v7`); el GLB v1 se conserva como fallback y rollback.
+- **Estado:** remaster v2 desplegado en GitHub Pages (`maturity: "released"`, `version: "v2"`, caché global `v36`); el GLB v1 se conserva como fallback y rollback.
 - **Texturas:** LOD1 usa 39 imágenes a 1K; el AO no se incluye y la roughness es constante.
 
 ## v1 fallback

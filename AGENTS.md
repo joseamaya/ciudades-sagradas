@@ -56,8 +56,8 @@ scripts/validate.mjs      validación de datos y assets
 1. La fuente versionada es `blender/caral/caral_remaster.blend`; las escenas v2/LOD y atlas se regeneran con `scripts/` y no se versionan por tamaño.
 2. Modelar y guardar la escena.
 3. Exportar v1 con `blender/caral/export.py` (WebP 80). Exportar LOD0/LOD1 con `scripts/export_caral_lod.py` (WebP 80 + Draco).
-4. Actualizar `public/cities/caral/city.json` si cambian cámaras, escala o recorrido.
-5. Actualizar hashes/tamaños en `docs/fuentes/registro-assets.csv` y la caché de `public/sw.js` si cambian assets.
+4. Actualizar `public/cities/caral/city.json` si cambian cámaras, escala, recorrido, estado o evidencia; cada parada declara su `evidence`.
+5. Actualizar hashes/tamaños en `docs/fuentes/registro-assets.csv` y la caché global de `public/sw.js` si cambian assets.
 6. Ejecutar `npm run validate`, `npm run build` y `npm run bench`.
 7. Probar en navegador y kiosco.
 

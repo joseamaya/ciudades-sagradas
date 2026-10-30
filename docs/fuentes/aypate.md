@@ -81,7 +81,7 @@
 ## High-poly v0.4
 
 - Fuente: `blender/aypate/aypate_highpoly_v0.4.blend`.
-- LOD0 de 209.560 tris y LOD1 de 30.663 tris; seis paradas; 18/16 draw calls; texturas 160/80 MB.
+- LOD0 de 209.560 tris y LOD1 de 30.663 tris; seis paradas; 17/15 draw calls; texturas 160/80 MB.
 - Se modelaron plaza, ushnu, kallanka, acllawasi, palacio, colcas, fuente, andenes y Qhapaq Ñan.
 - La v0.4 conserva el layout macro del plano de 2013 y corrige escala: ushnu de 30 × 30 m con terraza superior de 20,7 × 23,7 m y 25 peldaños; kallanka de 115 × 12 m; acllawasi en cuatro canchas; meseta de ~500 × 300 m. Ver `docs/remaster/aypate/escala.md` y `docs/remaster/aypate/auditoria-plano-2013.md`.
 - Techos, alturas perdidas y recintos periféricos quedan fuera.

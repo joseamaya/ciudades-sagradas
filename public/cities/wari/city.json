@@ -10,7 +10,10 @@
     "lon": -74.205
   },
   "elevation": "2600–2900 m s. n. m.",
-  "status": "research",
+  "availability": "research",
+  "maturity": "research",
+  "evidence": "not-applicable",
+  "qa": "not-applicable",
   "summary": "Wari fue la capital del primer imperio andino y uno de los mayores centros urbanos del Perú prehispánico. Sus barrios, recintos de piedra, templos en forma de D, galerías y plazas se extendieron por miles de hectáreas. La ciudad articuló redes de producción, almacenamiento y poder que transformaron los Andes entre los siglos VII y XI.",
   "model": null,
   "scale": 1,

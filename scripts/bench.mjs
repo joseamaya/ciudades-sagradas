@@ -154,6 +154,7 @@ const METRICS_EXPRESSION = `(() => {
       modelScale: viewer.model?.scale?.toArray?.().map((value) => +value.toFixed(4)),
     },
     modelResponseEnd: modelEntry ? Math.round(modelEntry.responseEnd) : null,
+    environment: viewer.getEnvironment?.() ?? null,
     transferBytes: modelEntry ? modelEntry.transferSize : null,
     encodedBytes: modelEntry ? modelEntry.encodedBodySize : null,
     device: {

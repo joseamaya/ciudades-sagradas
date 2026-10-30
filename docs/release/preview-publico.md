@@ -22,6 +22,7 @@ La UI muestra `availability`, `maturity`, `evidence` y `qa` en catálogo, ficha 
 - [x] Navegación atlas → ciudad → atlas.
 - [x] Fichas de Chan Chan y Wari sin errores de consola.
 - [x] Bench de las cuatro ciudades sin errores de consola en cargas normales.
+- [x] Informe QA con GPU, WebGL, PWA, flags y captura de errores de ventana.
 
 ## Pendiente antes de llamarlo publicación final
 
@@ -56,7 +57,7 @@ Protocolo: [`../estandares/qa-hardware.md`](../estandares/qa-hardware.md).
 4. Aypate: seis paradas; revisar plaza, ushnu, kallanka y fuente.
 5. Narihualá: seis paradas; revisar montículos y plaza.
 6. Chan Chan y Wari: ficha documental sin canvas.
-7. `?debug=1`: LOD, draw calls y métricas disponibles.
+7. `?debug=1`: LOD, draw calls, GPU/WebGL, PWA y **Copiar informe QA** disponibles.
 8. `?lod=0` y `?lod=1`: forzado correcto.
 9. Offline: cargar una ciudad, recargar sin red y verificar el LOD cacheado.
 10. Consola: sin errores nuevos.

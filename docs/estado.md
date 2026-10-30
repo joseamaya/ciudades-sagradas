@@ -46,7 +46,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - Evidencia por parada y estado general visibles en catálogo y ficha.
 - PWA con caché offline del modelo cargado; sin precarga forzada de otros modelos.
 - Manifiesto PWA `standalone`/`any`, iconos 192/512 y safe-area en móvil.
-- Modo kiosco `?kiosk=1` y `?debug=1` con métricas en vivo.
+- Modo kiosco `?kiosk=1` y `?debug=1` con métricas en vivo e informe QA copiable (GPU, WebGL, PWA, flags y errores).
 - Benchmark reproducible `scripts/bench.mjs` (Chrome/CDP + SwiftShader) para LOD0, LOD1, móvil, fallback y offline.
 - Validación ampliada: estados, evidencia, coherencia índice/ficha, cabecera y nodos GLB, capas `extras.layer`, rangos de LOD, hashes y tamaños del registro.
 - CI y GitHub Pages en verde; caché global **v36**.

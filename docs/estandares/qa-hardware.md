@@ -35,13 +35,47 @@ No se registra un “pass” de rendimiento sin dispositivo, navegador, GPU, res
 1. Abrir `https://joseamaya.github.io/ciudades-sagradas/?debug=1#/ciudad/<id>`.
 2. Anotar dispositivo, modelo, SO, navegador, versión, GPU (`chrome://gpu` en Chromium) y resolución.
 3. Comprobar el LOD elegido y forzar `?lod=0` y `?lod=1`.
-4. Pulsar **Copiar métricas** y guardar el JSON completo.
+4. Pulsar **Copiar informe QA** y guardar el JSON completo.
 5. Recorrer las seis paradas, las cuatro luces y las cuatro capas.
 6. Abrir la ficha, comprobar scroll, fuentes y cierre del panel.
 7. Instalar la PWA, abrirla y repetir una carga.
 8. Tras una visita online, activar modo avión y recargar; verificar el LOD ya cargado.
 9. Dejar la escena 10 minutos con órbitas suaves y anotar errores o crecimiento anómalo de memoria.
-10. Guardar captura/vídeo y el JSON de métricas junto al resultado.
+10. Guardar captura/vídeo y el informe QA junto al resultado.
+
+## Informe QA
+
+El botón **Copiar informe QA** de `?debug=1` genera un JSON local con:
+
+- `route`, `city` y `cityName`.
+- `metrics`: LOD, triángulos, draw calls, texturas, VRAM estimada, carga, flags, capas y FPS de la sesión.
+- `environment`: user agent, plataforma, pantalla, densidad, memoria, núcleos, PWA/standalone, service worker, online y datos WebGL/GPU.
+- `issues`: últimos errores de ventana y promesas rechazadas, si los hubo.
+
+El informe no se envía a ningún servidor. Se copia al portapapeles y el tester decide dónde pegarlo. Si el navegador oculta la GPU por privacidad, `unmaskedRenderer` puede venir vacío; se conserva el `renderer` enmascarado.
+
+Esqueleto:
+
+```json
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-30T00:00:00.000Z",
+  "route": "#/ciudad/caral",
+  "city": "caral",
+  "cityName": "Caral",
+  "metrics": { "lod": "0", "calls": 44, "modelTriangles": 230800 },
+  "environment": {
+    "userAgent": "…",
+    "standalone": false,
+    "serviceWorker": true,
+    "online": true,
+    "webgl": { "vendor": "…", "renderer": "…", "version": "WebGL 2.0", "maxTextureSize": 8192 }
+  },
+  "issues": []
+}
+```
+
+Adjuntar el informe al issue de Caral Android o al PR de QA, junto con dispositivo, versión de SO/navegador, captura o vídeo.
 
 ## Aislamiento de incidencias
 

@@ -22,14 +22,52 @@ let tourIndex = 0;
 let toastTimer = null;
 let debugEl = null;
 let debugTimer = null;
+const qaIssues = [];
 
 const asset = (path) => new URL(path, document.baseURI).href;
+
+function recordQaIssue(type, details = {}) {
+  qaIssues.push({ type, time: new Date().toISOString(), ...details });
+  if (qaIssues.length > 20) qaIssues.shift();
+}
+
+window.addEventListener('error', (event) => {
+  recordQaIssue('error', {
+    message: event.message || 'Error de ventana',
+    source: event.filename || null,
+    line: event.lineno || null,
+    column: event.colno || null,
+    city: currentCity?.id ?? null,
+    route: window.location.hash || '#/',
+  });
+});
+
+window.addEventListener('unhandledrejection', (event) => {
+  recordQaIssue('unhandledrejection', {
+    message: String(event.reason?.message ?? event.reason ?? 'Promesa rechazada'),
+    city: currentCity?.id ?? null,
+    route: window.location.hash || '#/',
+  });
+});
+
+function buildQaReport() {
+  return {
+    schemaVersion: 1,
+    generatedAt: new Date().toISOString(),
+    route: window.location.hash || '#/',
+    city: currentCity?.id ?? null,
+    cityName: currentCity?.name ?? null,
+    metrics: viewer?.getMetrics?.() ?? null,
+    environment: viewer?.getEnvironment?.() ?? null,
+    issues: [...qaIssues],
+  };
+}
 
 function setupDebug() {
   if (!DEBUG) return;
   debugEl = document.createElement('div');
   debugEl.className = 'debug-panel';
-  debugEl.innerHTML = '<button type="button" class="debug-copy">Copiar métricas</button><pre class="debug-text" aria-live="polite"></pre>';
+  debugEl.innerHTML = '<button type="button" class="debug-copy" title="Incluye GPU, WebGL, PWA, flags y métricas">Copiar informe QA</button><pre class="debug-text" aria-live="polite"></pre>';
   document.body.appendChild(debugEl);
   const textEl = debugEl.querySelector('.debug-text');
   const copyButton = debugEl.querySelector('.debug-copy');
@@ -40,22 +78,26 @@ function setupDebug() {
       textEl.textContent = 'debug · esperando visor 3D';
       return;
     }
+    const environment = viewer?.getEnvironment?.();
     const mb = metrics.modelBytes ? `${(metrics.modelBytes / 1024 / 1024).toFixed(1)} MB` : '—';
+    const gpu = environment?.webgl?.renderer || environment?.webgl?.vendor || '—';
     textEl.textContent = [
       `LOD ${metrics.lod ?? '—'} · ${metrics.lowPower ? 'móvil' : 'escritorio'} · ${metrics.timeOfDay}`,
       `${metrics.modelTriangles.toLocaleString('es')} tris · ${metrics.calls} calls · ${metrics.fps || 0} fps · ${metrics.frameMs || 0} ms`,
       `${metrics.viewport.width}×${metrics.viewport.height} @${metrics.pixelRatio} · sombras ${metrics.shadowMapSize[0]} · texturas ${metrics.textures} (${metrics.textureMB} MB)`,
+      `GPU ${gpu} · WebGL ${environment?.webgl?.version ?? '—'} · máx. textura ${environment?.webgl?.maxTextureSize ?? '—'}`,
+      `PWA ${environment?.standalone ? 'instalada' : 'navegador'} · SW ${environment?.serviceWorker ? 'sí' : 'no'} · ${environment?.online ? 'online' : 'offline'}`,
       `carga ${metrics.loadMs ?? '—'} ms · ${mb} · ${metrics.modelUrl ?? ''}`,
     ].join('\n');
   };
 
   copyButton.addEventListener('click', async () => {
-    const metrics = viewer?.getMetrics?.();
-    if (!metrics) {
+    const report = buildQaReport();
+    if (!report.metrics) {
       toast('El visor aún no está listo');
       return;
     }
-    const text = JSON.stringify(metrics, null, 2);
+    const text = JSON.stringify(report, null, 2);
     try {
       await navigator.clipboard.writeText(text);
     } catch {
@@ -68,7 +110,7 @@ function setupDebug() {
       document.execCommand('copy');
       area.remove();
     }
-    toast('Métricas copiadas');
+    toast('Informe QA copiado');
   });
 
   render();
@@ -397,6 +439,7 @@ async function boot() {
       return currentCity;
     },
     metrics: () => viewer?.getMetrics?.() ?? null,
+    qaReport: buildQaReport,
     debug: DEBUG,
     openCity,
     goCatalog,

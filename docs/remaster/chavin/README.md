@@ -1,8 +1,8 @@
 # Chavín de Huántar — remaster
 
-Estado: **preview web v0.1 con pase high-poly v0.5; blockout v0.5, texturizado UV v0.2 y Portada v0.1 aceptados como base**. LOD0 de 249.930 tris y LOD1 de 27.563 tris, con fallback LOD1. El Lanzón es una adaptación del escaneo CyArk/Google Arts & Culture (CC BY-NC-SA 4.0), no una reconstrucción final. Fuentes UNESCO/Mincul, Plan de Manejo 2020 e ICOMOS 1999 verificados; ICOMOS 1985 y las secciones finas quedan como pendientes no bloqueantes.
+Estado: **preview web v0.1 con pase high-poly v0.6; blockout v0.5, texturizado UV v0.2 y Portada v0.1 aceptados como base**. LOD0 de 249.990 tris y LOD1 de 27.623 tris, con fallback LOD1. El Lanzón es una adaptación del escaneo CyArk/Google Arts & Culture (CC BY-NC-SA 4.0), no una reconstrucción final. Fuentes UNESCO/Mincul, Plan de Manejo 2020 e ICOMOS 1999 verificados; ICOMOS 1985 y las secciones finas quedan como pendientes no bloqueantes.
 
-Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 está aceptado como base de escala y `chavin_textured_v0.2.blend` añade UVs de proyección cúbica, texturas 2K repetidas, tinte cálido y una difusa oscura propia. El bake 2K se probó y se descartó por pérdida de detalle. La Portada v0.1 corrige el placeholder a escala documentada, añade relieves interpretativos y queda aceptada como base; el dintel se omite por evidencia y la escalera se reduce a un escalón inferido. El pase high-poly v0.3 conserva la mampostería de fachada, las lomas y el friso integrado, y sustituye el rostro inciso del Lanzón por una malla derivada del escaneo CyArk; el LOD1 conserva una copia de 12.000 tris con relieve. El uso comercial de esa geometría está restringido por CC BY-NC-SA 4.0. El pase v0.5 integra los remates de A y B en piedra; el pase v0.4 corrigió el encuadre de la Portada (`fov 28`) y sustituye las columnas lisas por fustes acanalados interpretativos; el LOD0 queda en 249.930 tris. El preview web usa esa geometría como LOD0/LOD1 y sirve para validar cámaras, capas, fallback y caché; el terreno sigue siendo procedural y el pase no es una reconstrucción final.
+Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 está aceptado como base de escala y `chavin_textured_v0.2.blend` añade UVs de proyección cúbica, texturas 2K repetidas, tinte cálido y una difusa oscura propia. El bake 2K se probó y se descartó por pérdida de detalle. La Portada v0.1 corrige el placeholder a escala documentada, añade relieves interpretativos y queda aceptada como base; el dintel se omite por evidencia y la escalera se reduce a un escalón inferido. El pase high-poly v0.3 conserva la mampostería de fachada, las lomas y el friso integrado, y sustituye el rostro inciso del Lanzón por una malla derivada del escaneo CyArk; el LOD1 conserva una copia de 12.000 tris con relieve. El uso comercial de esa geometría está restringido por CC BY-NC-SA 4.0. El pase v0.6 apoya las terrazas Tier_04/Tier_02 con relleno y muros visibles; el pase v0.5 integró los remates de A/B en piedra; el pase v0.4 corrigió el encuadre de la Portada (`fov 28`) y sustituye las columnas lisas por fustes acanalados interpretativos; el LOD0 queda en 249.990 tris. El preview web usa esa geometría como LOD0/LOD1 y sirve para validar cámaras, capas, fallback y caché; el terreno sigue siendo procedural y el pase no es una reconstrucción final.
 
 ## Documentos
 
@@ -22,8 +22,9 @@ Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 e
 - `portada-v0.1.md`: escala corregida, columnas, jambas, friso, vano y relieves interpretativos.
 - `highpoly-v0.1.md`: mampostería en relieve, talla del Lanzón, lomas, rocas, métricas y límites del pase anterior (superado).
 - `highpoly-v0.2.md`: friso integrado y rostro inciso del Lanzón (superado por v0.3).
-- `highpoly-v0.3.md`: Lanzón derivado del escaneo CyArk, licencia, métricas y límites (superado en Portada por v0.5).
-- `highpoly-v0.5.md`: remates de A y B integrados, métricas y límites del pase actual.
+- `highpoly-v0.3.md`: Lanzón derivado del escaneo CyArk, licencia, métricas y límites (superado en Portada por v0.6).
+- `highpoly-v0.6.md`: apoyos de Tier_04/Tier_02, métricas y límites del pase actual.
+- `highpoly-v0.5.md`: remates A/B integrados en piedra (histórico).
 - `highpoly-v0.4.md`: encuadre de la Portada y columnas acanaladas (histórico).
 - `web-preview.md`: assets, métricas, QA, límites y limitación de LOD0/LOD1.
 - `qa-hardware.md`: resultado Android y matriz de QA pendiente.

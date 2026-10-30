@@ -3,7 +3,7 @@
 Fecha: 28 de octubre de 2026.
 Estado: **preview público controlado; no es un remaster final ni un LOD de producción**.
 Modelo: `public/cities/chavin/model_lod0.glb` y `model_lod1.glb`.
-Fuente Blender: `chavin_highpoly_v0.5.blend`; los derivados `chavin_lod0.blend` / `chavin_lod1.blend` se regeneran con scripts y no se versionan. El Lanzón deriva del escaneo CyArk/Google Arts & Culture (CC BY-NC-SA 4.0).
+Fuente Blender: `chavin_highpoly_v0.6.blend`; los derivados `chavin_lod0.blend` / `chavin_lod1.blend` se regeneran con scripts y no se versionan. El Lanzón deriva del escaneo CyArk/Google Arts & Culture (CC BY-NC-SA 4.0).
 
 ## Vistas
 
@@ -13,7 +13,7 @@ Fuente Blender: `chavin_highpoly_v0.5.blend`; los derivados `chavin_lod0.blend` 
 
 ### Móvil, LOD1
 
-![Mirador v0.5](highpoly-v0.5-tour.png)
+![Mirador v0.6](highpoly-v0.6-tour.png)
 
 ### Parada de la Portada
 
@@ -26,22 +26,22 @@ Fuente Blender: `chavin_highpoly_v0.5.blend`; los derivados `chavin_lod0.blend` 
 ## Qué se integró
 
 - `city.json` con `status: "available"` y `stage: "preview"`.
-- Dos niveles: LOD0 de 249.930 tris con mampostería, friso integrado, Lanzón escaneado y columnas acanaladas; LOD1 de 27.563 tris con una copia de 12.000 tris del Lanzón.
+- Dos niveles: LOD0 de 249.990 tris con mampostería, friso integrado, Lanzón escaneado y columnas acanaladas; LOD1 de 27.623 tris con una copia de 12.000 tris del Lanzón.
 - `scale: 0.08`, cámara inicial, seis paradas de recorrido y `minDistance: 0.1` para el primer plano del Lanzón.
 - Capas `city`, `terrain`, `props` y `reference`, exportadas en los extras del GLB.
 - `hero.jpg` propio desde la Portada, sin imágenes oficiales.
 - Terreno con textura propia 1K en el GLB.
-- Caché del service worker `v35`.
+- Caché del service worker `v36`.
 - Parada 5 con `fov 28` para que las columnas y el friso de la Portada entren en el encuadre; las acanaladuras son una lectura geométrica interpretativa.
 
 ## Métricas del preview
 
 | Métrica | LOD0 | LOD1 |
 |---|---:|---:|
-| Triángulos | 249.930 | 27.563 |
+| Triángulos | 249.990 | 27.623 |
 | Mallas exportadas | 4 | 4 |
 | Draw calls en la vista inicial | 19 | 15 |
-| GLB | 1.962.280 B | 786.356 B |
+| GLB | 1.962.740 B | 786.816 B |
 | Texturas decodificadas estimadas | 133,3 MB | 69,3 MB |
 | Imágenes | 13 | 13, a 1024 px |
 
@@ -99,6 +99,10 @@ blender --background blender/chavin/chavin_highpoly_v0.4.blend \
   --out-blend blender/chavin/chavin_highpoly_v0.5.blend
 
 blender --background blender/chavin/chavin_highpoly_v0.5.blend \
+  --python scripts/add_chavin_tier_supports.py -- \
+  --out-blend blender/chavin/chavin_highpoly_v0.6.blend
+
+blender --background blender/chavin/chavin_highpoly_v0.6.blend \
   --python scripts/build_chavin_lod.py -- --lod 0 \
   --out-blend blender/chavin/chavin_lod0.blend
 

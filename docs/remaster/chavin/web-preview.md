@@ -96,6 +96,10 @@ blender --background blender/chavin/chavin_highpoly_v0.3.blend \
 
 blender --background blender/chavin/chavin_highpoly_v0.4.blend \
   --python scripts/fix_chavin_summit_blocks.py -- \
+  --out-blend blender/chavin/chavin_highpoly_v0.5.blend
+
+blender --background blender/chavin/chavin_highpoly_v0.5.blend \
+  --python scripts/add_chavin_tier_supports.py -- \
   --out-blend blender/chavin/chavin_highpoly_v0.6.blend
 
 blender --background blender/chavin/chavin_highpoly_v0.6.blend \

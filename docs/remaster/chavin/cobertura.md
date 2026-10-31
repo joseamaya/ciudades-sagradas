@@ -1,7 +1,7 @@
 # Cobertura objetivo — Chavín de Huántar
 
 Fecha: 27 de octubre de 2026.
-Estado: **preview web v0.2 con Lanzón escaneado v0.3; LOD0/LOD1; blockout y Portada aceptados como base**.
+Estado: **preview web v0.3 con valle v0.7 y Lanzón escaneado v0.3; LOD0/LOD1; blockout y Portada aceptados como base**.
 Estándar: **ciudad representativa**.
 
 ## Definición
@@ -28,10 +28,10 @@ La marca **Documentado** de la tabla se apoya en la ficha UNESCO 330 y/o en el M
 | Estela Raimondi | Documentado | Referencia | Pendiente | Museo; requiere licencia o réplica señalizada |
 | Obelisco Tello | Documentado | Referencia | Pendiente | Museo; opcional |
 | Cabezas clavas | Documentado | Props/referencia | Pendiente | No todas; selección con fuente |
-| Terrazas y plataformas | Documentado/inferido | Fondo | Pendiente | Blockout |
+| Terrazas y plataformas | Documentado/inferido | Fondo | Base v0.7 | Blockout; el valle ya tiene explanada y taludes |
 | Techos y cubiertas | Inferido | No reconstruir | Diferido | No conservados |
-| Ríos Mosna y Huachecsa | Documentado/inferido | Fondo | Pendiente | Paisaje y encuadre |
-| Vegetación de altura | Inferido | Props | Pendiente | Paleta de valle altoandino |
+| Ríos Mosna y Huachecsa | Documentado/inferido | Fondo | Base v0.7 | Mosna al este ~30 m abajo; Wacheqsa al norte; confluencia al noreste |
+| Vegetación de altura | Inferido | Props | Base v0.7 | 138 arbustos y 190 matas low-poly; sin árboles inventados |
 | Figuras humanas | Interpretativo | Referencia | Pendiente | Escala, no retratos |
 | Área UNESCO (14,79 ha) | Documentado | Contexto | Fuera de alta fidelidad | No se modela 1:1 |
 

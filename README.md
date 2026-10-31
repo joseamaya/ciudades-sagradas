@@ -7,7 +7,7 @@ Atlas interactivo de los grandes centros ceremoniales y ciudades del Perú antig
 | Ciudad | Cultura / período | Disponibilidad | Madurez | Evidencia | QA |
 |---|---|---|---|---|---|
 | Caral | Civilización Caral · 3000–1800 a. C. | `available` | `released` · v2 | Mixta | Excepción P2 aceptada |
-| Chavín de Huántar | Chavín · 1500–550 a. C. | `available` | `preview` · v0.2 | Mixta | Parcial |
+| Chavín de Huántar | Chavín · 1500–550 a. C. | `available` | `preview` · v0.3 | Mixta | Parcial |
 | Aypate | Inca · Qhapaq Ñan · siglo XV | `available` | `preview` · v0.4 | Mixta | Parcial |
 | Narihualá | Tallán · Chimú · Inca | `available` | `preview` · v0.2 | Interpretativa | Parcial |
 | Chan Chan | Chimú · siglos IX–XV | `research` | `research` | Ficha documental | No aplica |
@@ -99,7 +99,7 @@ Más detalles en [`docs/kiosco.md`](./docs/kiosco.md).
 ## Ciudades
 
 - **Caral:** remaster v2 cerrado como ciudad representativa; LOD0/LOD1 con Draco y fallback v1. Queda una incidencia Android P2 de suelo y QA de hardware pendiente.
-- **Chavín de Huántar:** preview web con pase high-poly v0.6, Lanzón derivado de CyArk (CC BY-NC-SA 4.0) y Portada de las Falcónidas. No es una reconstrucción final.
+- **Chavín de Huántar:** preview web v0.3 con pase de valle v0.7, Mosna ~30 m abajo, Wacheqsa al norte, Lanzón derivado de CyArk (CC BY-NC-SA 4.0) y Portada de las Falcónidas. El terreno es procedural y no es una reconstrucción final.
 - **Aypate:** preview v0.4 con layout y escala contrastados con el plano de 2013. No se reabren dimensiones; quedan cotas finas y QA móvil/1080p.
 - **Narihualá:** preview interpretativo v0.2. Montículo este y capilla desde SIGRID 2018; oeste, plaza y accesos inferidos. No es un plano arqueológico; quedan plano de sectores y QA móvil/1080p.
 - **Chan Chan y Wari:** fichas documentales; sin modelo 3D publicado.
@@ -158,7 +158,7 @@ El repo incluye un workflow de GitHub Pages en `.github/workflows/pages.yml`. Pa
 ## Hoja de ruta
 
 1. **Caral:** mantener v2 estable; cerrar o mantener la excepción Android P2 y completar QA en iPhone/Safari y GPU de escritorio.
-2. **Chavín:** repetir QA de la v0.6, decidir dintel/escalera y revisar la licencia CC BY-NC-SA del Lanzón antes de cualquier uso comercial.
+2. **Chavín:** QA móvil/1080p del valle v0.7, decidir dintel/escalera y revisar la licencia CC BY-NC-SA del Lanzón antes de cualquier uso comercial.
 3. **Aypate:** QA de hardware y cotas finas; no reabrir el layout de la v0.4.
 4. **Narihualá:** plano arqueológico de sectores y cotas finas; mantener el carácter interpretativo.
 5. **Chan Chan:** incorporarla como piloto solo-datos para validar que el atlas escala sin código específico.

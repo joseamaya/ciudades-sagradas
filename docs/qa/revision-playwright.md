@@ -1,5 +1,7 @@
 # Revisión Playwright — preview público
 
+> Nota: las métricas de Chavín de esta revisión corresponden a v0.6. El pase de valle v0.7 se midió aparte en `docs/qa/resultados/chavin-v07-desktop-2026-10-31/`.
+
 Fecha: 30 de octubre de 2026.
 Alcance: revisión funcional, visual y de consola del atlas publicado. No es una certificación de hardware.
 

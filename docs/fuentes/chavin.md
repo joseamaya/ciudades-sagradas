@@ -1,6 +1,6 @@
 # Chavín de Huántar — dossier de fuentes
 
-**Estado:** Fase 0 cerrada para blockout; preview web v0.2 con pase high-poly v0.6, LOD0/LOD1, seis paradas, capas y Lanzón derivado del escaneo CyArk (CC BY-NC-SA 4.0). Blockout v0.5, texturizado UV v0.2 y Portada v0.2 aceptados como base. Bake 2K y bake normal/AO del Lanzón descartados por pérdida de detalle/artefactos; permisos de piezas de museo y fotografías siguen pendientes. QA de hardware v0.6 pendiente.
+**Estado:** Fase 0 cerrada para blockout; preview web v0.3 con pase de valle v0.7, LOD0/LOD1, seis paradas, capas y Lanzón derivado del escaneo CyArk (CC BY-NC-SA 4.0). Blockout v0.5, texturizado UV v0.2 y Portada v0.2 aceptados como base. El terreno es procedural: Mosna ~30 m por debajo del sitio, Wacheqsa al norte. Bake 2K y bake normal/AO del Lanzón descartados por pérdida de detalle/artefactos; permisos de piezas de museo y fotografías siguen pendientes. Desktop 1600×900 aprobado; móvil/1080p pendientes.
 
 **Fecha de consulta:** 27 de octubre de 2026.
 
@@ -100,6 +100,7 @@
 - Stanford, investigación de John Rick: <https://news.stanford.edu/stories/2016/04/stanford-archaeologist-traces-origins-authority-andes-peru>
 - Wikipedia, *Portada de las Falcónidas* (medidas secundarias; texto CC BY-SA 4.0): <https://es.wikipedia.org/wiki/Portada_de_las_Falc%C3%B3nidas>
 - Wikimedia Commons, *Portada de las Falcónidas* (licencia por archivo; solo referencia): <https://commons.wikimedia.org/wiki/Category:Portada_de_las_Falc%C3%B3nidas>
+- OpenStreetMap, ríos Mosna y Wacheqsa: <https://www.openstreetmap.org/copyright>. Solo cotejo de orientación; no se incorpora cartografía.
 - CyArk / Google Arts & Culture, *Lanzón de Chavín* (escaneo 3D; CC BY-NC-SA 4.0): <https://storage.googleapis.com/culturalinstitute-3d-serving/manual-testing/000-PROD-DONT-DELETE/240391958/3QFU2nR_dVV9Lg/model.glb>. El GLB original no se versiona; solo se publica la malla derivada con atribución.
 
 ## Alcance de reconstrucción (Fase 0)

@@ -58,6 +58,10 @@ def main():
         ("CAM-Chavin_HP_LanzonFace", "lanzon-face.png"),
         ("CAM-Chavin_HP_Facade", "facade.png"),
         ("CAM-Chavin_Hero", "hero.png"),
+        ("CAM-Chavin_HP_Valley", "valley.png"),
+        ("CAM-Chavin_HP_Confluence", "confluence.png"),
+        ("CAM-Chavin_HP_River", "river.png"),
+        ("CAM-Chavin_Plan", "plan.png"),
     )
     for name, filename in views:
         camera = bpy.data.objects.get(name)

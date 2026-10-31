@@ -16,7 +16,7 @@ Este documento separa tres cosas que no son equivalentes:
 | Ciudad | Android/Chrome | iPhone/Safari | GPU integrada | GPU dedicada | Kiosco | Evidencia |
 |---|---|---|---|---|---|---|
 | Caral v2 | Parcial: incidencia P2 de suelo | Pendiente | **Pass 1600×900**: LOD0/LOD1, flags, offline, standalone y 10 min | Pendiente | Congelado | `docs/qa/resultados/desktop-2026-10-30/` |
-| Chavín v0.6 | Pass de producto en v0.3; v0.6 pendiente | Pendiente | **Pass 1600×900**: LOD0/LOD1 | Pendiente | Congelado | `docs/qa/resultados/desktop-2026-10-30/` |
+| Chavín v0.7 | Pass de producto en v0.3; v0.7 pendiente en móvil | Pendiente | **Pass 1600×900**: LOD0/LOD1, 60 fps | Pendiente | Congelado | `docs/qa/resultados/chavin-v07-desktop-2026-10-31/` |
 | Aypate v0.4 | Pendiente | Pendiente | **Pass 1600×900**: LOD0/LOD1 | Pendiente | Congelado | `docs/qa/resultados/desktop-2026-10-30/` |
 | Narihualá v0.2 | Pendiente | Pendiente | **Pass 1600×900**: LOD0/LOD1 | Pendiente | Congelado | `docs/qa/resultados/desktop-2026-10-30/` |
 

@@ -12,7 +12,7 @@
   "elevation": "3180 m s. n. m.",
   "availability": "available",
   "maturity": "preview",
-  "version": "v0.2",
+  "version": "v0.3",
   "evidence": "mixed",
   "qa": "partial",
   "summary": "Chavín de Huántar fue uno de los grandes centros ceremoniales y oraculares de los Andes. En la confluencia de los ríos Mosna y Huachecsa, sus templos de piedra, galerías internas, plazas y esculturas —como el Lanzón— articularon una ideología que se expandió por buena parte del territorio andino.",
@@ -31,41 +31,41 @@
     "enabled": false
   },
   "fog": {
-    "near": 70,
-    "far": 240
+    "near": 50,
+    "far": 190
   },
   "minDistance": 0.1,
   "maxDistance": 180,
   "camera": {
     "position": [
-      16.8,
-      10.4,
-      18.8
+      40,
+      27,
+      0
     ],
     "target": [
-      2.4,
-      0.72,
-      -2.4
+      7,
+      -1.5,
+      0
     ],
-    "fov": 35
+    "fov": 42
   },
   "tour": [
     {
       "title": "El valle del Mosna",
-      "text": "Chavín se levanta a unos 3.180 m, en la confluencia de los ríos Mosna y Huachecsa. El valle y las quebradas enmarcan un centro ceremonial que articuló peregrinación, intercambio y poder ritual.",
+      "text": "Chavín se levanta a unos 3.180 m, en la confluencia de los ríos Mosna y Huachecsa. El Mosna corre unos 30 m por debajo del conjunto; el valle y las quebradas enmarcan un centro ceremonial que articuló peregrinación, intercambio y poder ritual.",
       "evidence": "inferred",
       "camera": {
         "position": [
-          16.8,
-          10.4,
-          18.8
+          40,
+          27,
+          0
         ],
         "target": [
-          2.4,
-          0.72,
-          -2.4
+          7,
+          -1.5,
+          0
         ],
-        "fov": 35
+        "fov": 42
       }
     },
     {
@@ -254,5 +254,10 @@
         -4.95
       ]
     }
-  ]
+  ],
+  "lighting": {
+    "fill": 0.55,
+    "hemiIntensity": 0.22,
+    "envIntensity": 0.9
+  }
 }

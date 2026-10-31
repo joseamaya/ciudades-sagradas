@@ -6,7 +6,7 @@ Alcance: atlas completo, con Caral v2 como referencia y tres previews en revisi�
 ## Qué se publica
 
 - **Caral v2:** `released`, contenido cerrado como ciudad representativa. LOD0/LOD1 con Draco y fallback v1.
-- **Chavín v0.2:** preview con pase high-poly v0.6, Lanzón derivado de CyArk (CC BY-NC-SA 4.0) y Portada de las Falcónidas.
+- **Chavín v0.3:** preview con pase de valle v0.7, Mosna ~30 m abajo, Wacheqsa al norte, Lanzón derivado de CyArk (CC BY-NC-SA 4.0) y Portada de las Falcónidas. Terreno procedural.
 - **Aypate v0.4:** preview con layout y escala contrastados con el plano de 2013.
 - **Narihualá v0.2:** preview interpretativo; montículo este/capilla desde SIGRID 2018 y oeste/plaza inferidos.
 - **Chan Chan y Wari:** fichas documentales, sin modelo.
@@ -30,7 +30,8 @@ La UI muestra `availability`, `maturity`, `evidence` y `qa` en catálogo, ficha 
 
 - [ ] QA en Android/Chrome, iPhone/Safari y 1080p real. El desktop integrado 1600×900 ya está completo.
 - [ ] Cerrar o mantener la incidencia `CARAL-ANDROID-GROUND-001`.
-- [ ] Repetir QA de Chavín v0.6.
+- [x] QA desktop de Chavín v0.7 (1600×900, LOD0/LOD1, 60 fps).
+- [ ] QA móvil/1080p de Chavín v0.7.
 - [ ] Revisar la licencia CC BY-NC-SA 4.0 del Lanzón antes de uso comercial.
 - [ ] Cerrar cotas finas de Aypate y Narihualá.
 - [ ] Resolver el plano arqueológico de sectores de Narihualá.

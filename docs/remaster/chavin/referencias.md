@@ -22,6 +22,7 @@ Estado: **Fase 0 cerrada; tablero verificado; permisos de publicación pendiente
 | [Stanford — John Rick](https://news.stanford.edu/stories/2016/04/stanford-archaeologist-traces-origins-authority-andes-peru) | Divulgación académica | Galerías, ritual, investigación | Uso referencial | Consultada |
 | [Wikipedia — Portada de las Falcónidas](https://es.wikipedia.org/wiki/Portada_de_las_Falc%C3%B3nidas) | Enciclopedia | Medidas, componentes y dualidad | Texto CC BY-SA 4.0; no copiar | Consultada; medida secundaria |
 | [Wikimedia Commons — Portada de las Falcónidas](https://commons.wikimedia.org/wiki/Category:Portada_de_las_Falc%C3%B3nidas) | Fotografías | Proporciones y lectura visual | Licencia por archivo | Consultada; no incorporada |
+| [OpenStreetMap — ríos Mosna y Wacheqsa](https://www.openstreetmap.org/copyright) | Cartografía colaborativa | Cotejo de orientación y confluencia | No incorporada | Consultado; solo lectura, sin copiar cartografía |
 | [CyArk / Google Arts & Culture — Lanzón](https://storage.googleapis.com/culturalinstitute-3d-serving/manual-testing/000-PROD-DONT-DELETE/240391958/3QFU2nR_dVV9Lg/model.glb) | Escaneo 3D | Geometría y relieve del Lanzón | CC BY-NC-SA 4.0; sin uso comercial | Incorporado como malla derivada; textura fotográfica descartada |
 
 - Los PDFs oficiales se consultaron para verificar datos; no se copian al repositorio.

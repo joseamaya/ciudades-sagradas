@@ -14,7 +14,7 @@
   "maturity": "preview",
   "version": "v0.4",
   "evidence": "mixed",
-  "qa": "pending",
+  "qa": "partial",
   "summary": "Centro administrativo y ceremonial inca en la sierra de Piura, entre bosques de neblina. Su plaza trapezoidal, el ushnu, la kallanka y el acllawasi articulaban el Qhapaq Ñan entre el norte andino y el Cusco.",
   "model": "cities/aypate/model_lod0.glb",
   "scale": 0.08,

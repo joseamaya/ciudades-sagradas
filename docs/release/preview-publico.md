@@ -24,10 +24,11 @@ La UI muestra `availability`, `maturity`, `evidence` y `qa` en catálogo, ficha 
 - [x] Bench de las cuatro ciudades sin errores de consola en cargas normales.
 - [x] Informe QA con GPU, WebGL, PWA, flags y captura de errores de ventana.
 - [x] Playwright: rutas, LOD0/LOD1, seis paradas, luces, capas, consola y offline en Chromium/Firefox. WebKit bloqueado por dependencias del host.
+- [x] Desktop real Intel integrado 1600×900: LOD0/LOD1 en las 4 ciudades, flags, offline, standalone y 10 min sin errores.
 
 ## Pendiente antes de llamarlo publicación final
 
-- [ ] QA en Android/Chrome, iPhone/Safari y GPU de escritorio.
+- [ ] QA en Android/Chrome, iPhone/Safari y 1080p real. El desktop integrado 1600×900 ya está completo.
 - [ ] Cerrar o mantener la incidencia `CARAL-ANDROID-GROUND-001`.
 - [ ] Repetir QA de Chavín v0.6.
 - [ ] Revisar la licencia CC BY-NC-SA 4.0 del Lanzón antes de uso comercial.

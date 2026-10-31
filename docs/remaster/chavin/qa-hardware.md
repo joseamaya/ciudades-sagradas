@@ -1,7 +1,7 @@
 # QA en hardware real — Chavín preview v0.3
 
 Fecha: 28 de octubre de 2026.
-Estado: **Chavín aprobado en Android; iPhone/Safari y desktop GPU pendientes**.
+Estado: **Chavín aprobado en Android (v0.3); desktop integrado 1600×900 con LOD0/LOD1 OK; iPhone/Safari y 1080p pendientes**.
 Modelo probado: `model_lod0.glb` / `model_lod1.glb` v0.3, caché `v20`. La v0.6 (remates A/B integrados en piedra) está pendiente de repetir en el mismo dispositivo; la v0.4 (columnas acanaladas y `fov 28`) tampoco se repitió.
 
 ## Resultado Android
@@ -26,7 +26,7 @@ GPU, métricas y evidencia.
 |---|---|---|---|
 | Android | Chrome | LOD1 | **Pass parcial**; datos pendientes |
 | iPhone | Safari | LOD1 | Pendiente |
-| Desktop GPU integrada | Chrome/Edge | LOD0 | Pendiente |
+| Desktop GPU integrada | Chrome/Edge | LOD0/LOD1 | **Pass 1600×900**; 1080p y móvil pendientes |
 | Desktop GPU dedicada | Chrome/Edge | LOD0 | Pendiente |
 | Kiosco 1920×1080 | Chromium | LOD0 | Congelado |
 

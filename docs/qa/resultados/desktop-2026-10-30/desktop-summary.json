@@ -1,0 +1,242 @@
+{
+  "date": "2026-10-30T23:48:55.920Z",
+  "base": "http://127.0.0.1:4173",
+  "scenarios": [
+    {
+      "scenario": "caral-lod0",
+      "city": "caral",
+      "lod": "0",
+      "gpu": "ANGLE (Intel, Mesa Intel(R) Graphics (RPL-S), OpenGL 4.6)",
+      "fps": 58.1,
+      "frameMs": 17.21,
+      "calls": 44,
+      "loadMs": 1135,
+      "online": true,
+      "standalone": false,
+      "flags": {
+        "noGround": false,
+        "noShadows": false
+      },
+      "issues": 0,
+      "consoleErrors": [],
+      "file": "docs/qa/resultados/desktop-2026-10-30/caral-lod0.json"
+    },
+    {
+      "scenario": "caral-lod1",
+      "city": "caral",
+      "lod": "1",
+      "gpu": "ANGLE (Intel, Mesa Intel(R) Graphics (RPL-S), OpenGL 4.6)",
+      "fps": 57.9,
+      "frameMs": 17.27,
+      "calls": 31,
+      "loadMs": 743,
+      "online": true,
+      "standalone": false,
+      "flags": {
+        "noGround": false,
+        "noShadows": false
+      },
+      "issues": 0,
+      "consoleErrors": [],
+      "file": "docs/qa/resultados/desktop-2026-10-30/caral-lod1.json"
+    },
+    {
+      "scenario": "chavin-lod0",
+      "city": "chavin",
+      "lod": "0",
+      "gpu": "ANGLE (Intel, Mesa Intel(R) Graphics (RPL-S), OpenGL 4.6)",
+      "fps": 59.5,
+      "frameMs": 16.81,
+      "calls": 18,
+      "loadMs": 1433,
+      "online": true,
+      "standalone": false,
+      "flags": {
+        "noGround": false,
+        "noShadows": false
+      },
+      "issues": 0,
+      "consoleErrors": [],
+      "file": "docs/qa/resultados/desktop-2026-10-30/chavin-lod0.json"
+    },
+    {
+      "scenario": "chavin-lod1",
+      "city": "chavin",
+      "lod": "1",
+      "gpu": "ANGLE (Intel, Mesa Intel(R) Graphics (RPL-S), OpenGL 4.6)",
+      "fps": 60.2,
+      "frameMs": 16.61,
+      "calls": 14,
+      "loadMs": 270,
+      "online": true,
+      "standalone": false,
+      "flags": {
+        "noGround": false,
+        "noShadows": false
+      },
+      "issues": 0,
+      "consoleErrors": [],
+      "file": "docs/qa/resultados/desktop-2026-10-30/chavin-lod1.json"
+    },
+    {
+      "scenario": "aypate-lod0",
+      "city": "aypate",
+      "lod": "0",
+      "gpu": "ANGLE (Intel, Mesa Intel(R) Graphics (RPL-S), OpenGL 4.6)",
+      "fps": 60,
+      "frameMs": 16.68,
+      "calls": 17,
+      "loadMs": 521,
+      "online": true,
+      "standalone": false,
+      "flags": {
+        "noGround": false,
+        "noShadows": false
+      },
+      "issues": 0,
+      "consoleErrors": [],
+      "file": "docs/qa/resultados/desktop-2026-10-30/aypate-lod0.json"
+    },
+    {
+      "scenario": "aypate-lod1",
+      "city": "aypate",
+      "lod": "1",
+      "gpu": "ANGLE (Intel, Mesa Intel(R) Graphics (RPL-S), OpenGL 4.6)",
+      "fps": 58.2,
+      "frameMs": 17.2,
+      "calls": 15,
+      "loadMs": 301,
+      "online": true,
+      "standalone": false,
+      "flags": {
+        "noGround": false,
+        "noShadows": false
+      },
+      "issues": 0,
+      "consoleErrors": [],
+      "file": "docs/qa/resultados/desktop-2026-10-30/aypate-lod1.json"
+    },
+    {
+      "scenario": "narihuala-lod0",
+      "city": "narihuala",
+      "lod": "0",
+      "gpu": "ANGLE (Intel, Mesa Intel(R) Graphics (RPL-S), OpenGL 4.6)",
+      "fps": 58.4,
+      "frameMs": 17.12,
+      "calls": 14,
+      "loadMs": 387,
+      "online": true,
+      "standalone": false,
+      "flags": {
+        "noGround": false,
+        "noShadows": false
+      },
+      "issues": 0,
+      "consoleErrors": [],
+      "file": "docs/qa/resultados/desktop-2026-10-30/narihuala-lod0.json"
+    },
+    {
+      "scenario": "narihuala-lod1",
+      "city": "narihuala",
+      "lod": "1",
+      "gpu": "ANGLE (Intel, Mesa Intel(R) Graphics (RPL-S), OpenGL 4.6)",
+      "fps": 59.9,
+      "frameMs": 16.68,
+      "calls": 13,
+      "loadMs": 218,
+      "online": true,
+      "standalone": false,
+      "flags": {
+        "noGround": false,
+        "noShadows": false
+      },
+      "issues": 0,
+      "consoleErrors": [],
+      "file": "docs/qa/resultados/desktop-2026-10-30/narihuala-lod1.json"
+    },
+    {
+      "scenario": "caral-flags-noground",
+      "city": "caral",
+      "lod": "0",
+      "gpu": "ANGLE (Intel, Mesa Intel(R) Graphics (RPL-S), OpenGL 4.6)",
+      "fps": 60.1,
+      "frameMs": 16.65,
+      "calls": 43,
+      "loadMs": 1041,
+      "online": true,
+      "standalone": false,
+      "flags": {
+        "noGround": true,
+        "noShadows": false
+      },
+      "issues": 0,
+      "consoleErrors": [],
+      "file": "docs/qa/resultados/desktop-2026-10-30/caral-flags-noground.json"
+    },
+    {
+      "scenario": "caral-flags-noshadows",
+      "city": "caral",
+      "lod": "0",
+      "gpu": "ANGLE (Intel, Mesa Intel(R) Graphics (RPL-S), OpenGL 4.6)",
+      "fps": 58,
+      "frameMs": 17.26,
+      "calls": 44,
+      "loadMs": 1639,
+      "online": true,
+      "standalone": false,
+      "flags": {
+        "noGround": false,
+        "noShadows": true
+      },
+      "issues": 0,
+      "consoleErrors": [],
+      "file": "docs/qa/resultados/desktop-2026-10-30/caral-flags-noshadows.json"
+    },
+    {
+      "scenario": "caral-flags-noground-noshadows",
+      "city": "caral",
+      "lod": "0",
+      "gpu": "ANGLE (Intel, Mesa Intel(R) Graphics (RPL-S), OpenGL 4.6)",
+      "fps": 60,
+      "frameMs": 16.66,
+      "calls": 43,
+      "loadMs": 766,
+      "online": true,
+      "standalone": false,
+      "flags": {
+        "noGround": true,
+        "noShadows": true
+      },
+      "issues": 0,
+      "consoleErrors": [],
+      "file": "docs/qa/resultados/desktop-2026-10-30/caral-flags-noground-noshadows.json"
+    },
+    {
+      "scenario": "caral-offline-lod0",
+      "city": "caral",
+      "lod": "0",
+      "online": false,
+      "issues": 0,
+      "consoleErrors": [],
+      "file": "docs/qa/resultados/desktop-2026-10-30/caral-offline-lod0.json"
+    },
+    {
+      "scenario": "caral-standalone-lod0",
+      "city": "caral",
+      "lod": "0",
+      "standalone": true,
+      "issues": 0,
+      "file": "docs/qa/resultados/desktop-2026-10-30/caral-standalone-lod0.json"
+    },
+    {
+      "scenario": "caral-long-session-lod0",
+      "city": "caral",
+      "lod": "0",
+      "samples": 10,
+      "issues": 0,
+      "consoleErrors": [],
+      "file": "docs/qa/resultados/desktop-2026-10-30/caral-long-session-lod0.json"
+    }
+  ],
+  "errors": []
+}

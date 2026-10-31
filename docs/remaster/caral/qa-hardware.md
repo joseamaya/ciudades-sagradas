@@ -1,7 +1,7 @@
 # QA en hardware real — Caral v2
 
 Fecha de preparación: 27 de octubre de 2026.
-Estado: **QA Android con incidencia P2 abierta; desktop GPU integrada con pass parcial a 1600×900; resto pendiente.**
+Estado: **QA Android con incidencia P2 abierta; desktop GPU integrada 1600×900 completo (LOD0/LOD1, flags, offline, standalone y 10 min); faltan 1080p, GPU dedicada y móvil.**
 
 ## URLs
 
@@ -18,7 +18,7 @@ El overlay `?debug=1` muestra LOD, draw calls, triángulos, FPS, frame time, som
 |---|---|---|---|---|---|---|---:|---|
 | iPhone (Safari) | Safari | LOD1 |  |  |  |  |  |  | Pendiente |
 | Android medio (Chrome) | Chrome | LOD1 |  |  |  |  |  |  | **Fallido parcial: parpadeo de suelo P2** |
-| Desktop GPU integrada | Chrome/Edge | LOD0 |  |  |  |  |  |  | **Pass parcial 1600×900**; faltan 1080p, PWA/offline y 10 min |
+| Desktop GPU integrada | Chrome/Edge | LOD0/LOD1 | Sí | Sí | Sí | Sí | Sí | 0 | **Pass 1600×900**; faltan 1080p, GPU dedicada y móvil |
 | Desktop GPU dedicada | Chrome/Edge | LOD0 |  |  |  |  |  |  | Pendiente |
 | Kiosco 1920×1080 | Chromium | LOD0 |  |  |  |  |  |  | Congelado |
 
@@ -60,7 +60,9 @@ Safari no expone FPS al usuario. Usar el overlay, **Copiar informe QA** y una ca
 
 | Fecha | Dispositivo / GPU | Navegador | LOD | Viewport | FPS | Frame | Calls | Texturas | Carga | Estado | JSON |
 |---|---|---|---|---:|---:|---:|---:|---:|---:|---|---|
-| 2026-10-30 | Intel RPL-S (Mesa) | Chrome 139 / Linux | 0 | 1600×900 | 60 | 16,67 ms | 44 | 373,3 MB | 957 ms | Pass parcial 1600×900; faltan 1080p, LOD1, PWA/offline, 10 min y móvil | [`JSON`](../../qa/resultados/2026-10-30-caral-desktop-intel-lod0.json) |
+| 2026-10-30 | Intel RPL-S (Mesa) | Chrome 139 / Linux | 0 | 1600×900 | 58,1 | 17,21 ms | 44 | 373,3 MB | 1.135 ms | Pass 1600×900 | [`JSON`](../../qa/resultados/desktop-2026-10-30/caral-lod0.json) |
+| 2026-10-30 | Intel RPL-S (Mesa) | Chrome 139 / Linux | 1 | 1600×900 | 57,9 | 17,27 ms | 31 | 208 MB | 743 ms | Pass 1600×900 | [`JSON`](../../qa/resultados/desktop-2026-10-30/caral-lod1.json) |
+| 2026-10-30 | Intel RPL-S (Mesa) | Chrome 139 / Linux | 0 | 1600×900 | 59,9–60,4 | 16,6–16,7 ms | 43–67 | 373,3 MB | — | Sesión de 10 min; heap estable | [`JSON`](../../qa/resultados/desktop-2026-10-30/caral-long-session-lod0.json) |
 
 ## Resultados de emulación (referencia, no sustituyen hardware)
 

@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-30T23:49:12.937Z",
+  "route": "#/ciudad/caral",
+  "city": "caral",
+  "cityName": "Caral",
+  "metrics": {
+    "ready": true,
+    "lod": "0",
+    "modelUrl": "cities/caral/model_lod0.glb",
+    "lowPower": false,
+    "profile": {
+      "lowPower": false,
+      "uaMobile": false,
+      "mobileUA": false,
+      "iPadDesktop": false,
+      "memory": 8,
+      "cores": 24,
+      "small": false,
+      "coarse": false
+    },
+    "viewport": {
+      "width": 1600,
+      "height": 900
+    },
+    "cssViewport": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixelRatio": 1,
+    "shadowMapSize": [
+      2048,
+      2048
+    ],
+    "shadowAutoUpdate": false,
+    "flags": {
+      "noGround": true,
+      "noShadows": false
+    },
+    "meshes": 65,
+    "materials": 21,
+    "textures": 31,
+    "textureMB": 373.3,
+    "modelTriangles": 230800,
+    "calls": 43,
+    "trianglesDrawn": 165076,
+    "fps": 60.1,
+    "frameMs": 16.65,
+    "loadMs": 1041,
+    "modelBytes": 3277080,
+    "timeOfDay": "morning",
+    "layers": {
+      "city": true,
+      "props": true,
+      "reference": true,
+      "terrain": true
+    }
+  },
+  "environment": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+    "platform": "Linux",
+    "language": "en-US",
+    "screen": {
+      "width": 1600,
+      "height": 900,
+      "availWidth": 1600,
+      "availHeight": 900,
+      "colorDepth": 24
+    },
+    "viewport": {
+      "width": 1600,
+      "height": 900,
+      "devicePixelRatio": 1
+    },
+    "touchPoints": 0,
+    "deviceMemory": 8,
+    "hardwareConcurrency": 24,
+    "standalone": false,
+    "serviceWorker": true,
+    "online": true,
+    "webgl": {
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "shadingLanguageVersion": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)",
+      "vendor": "Google Inc. (Intel)",
+      "renderer": "ANGLE (Intel, Mesa Intel(R) Graphics (RPL-S), OpenGL 4.6)",
+      "unmaskedVendor": "Google Inc. (Intel)",
+      "unmaskedRenderer": "ANGLE (Intel, Mesa Intel(R) Graphics (RPL-S), OpenGL 4.6)",
+      "maxTextureSize": 16384,
+      "maxRenderbufferSize": 16384,
+      "contextAttributes": {
+        "alpha": true,
+        "antialias": true,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "high-performance",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      }
+    }
+  },
+  "issues": []
+}

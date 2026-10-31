@@ -1,0 +1,254 @@
+{
+  "scenario": "caral-long-session-lod0",
+  "startedAt": "2026-10-30T23:49:24.804Z",
+  "endedAt": "2026-10-30T23:59:29.149Z",
+  "durationMs": 604345,
+  "samples": [
+    {
+      "time": "2026-10-30T23:50:25.214Z",
+      "fps": 60.2,
+      "frameMs": 16.6,
+      "calls": 46,
+      "trianglesDrawn": 165822,
+      "textureMB": 373.3,
+      "issues": 0,
+      "memory": {
+        "usedJSHeapSize": 31619632,
+        "totalJSHeapSize": 32981868,
+        "jsHeapSizeLimit": 4294705152
+      }
+    },
+    {
+      "time": "2026-10-30T23:51:25.646Z",
+      "fps": 59.8,
+      "frameMs": 16.71,
+      "calls": 54,
+      "trianglesDrawn": 212054,
+      "textureMB": 373.3,
+      "issues": 0,
+      "memory": {
+        "usedJSHeapSize": 31924300,
+        "totalJSHeapSize": 34554732,
+        "jsHeapSizeLimit": 4294705152
+      }
+    },
+    {
+      "time": "2026-10-30T23:52:26.126Z",
+      "fps": 60,
+      "frameMs": 16.68,
+      "calls": 67,
+      "trianglesDrawn": 230814,
+      "textureMB": 373.3,
+      "issues": 0,
+      "memory": {
+        "usedJSHeapSize": 31398948,
+        "totalJSHeapSize": 32457580,
+        "jsHeapSizeLimit": 4294705152
+      }
+    },
+    {
+      "time": "2026-10-30T23:53:26.579Z",
+      "fps": 60,
+      "frameMs": 16.67,
+      "calls": 44,
+      "trianglesDrawn": 165078,
+      "textureMB": 373.3,
+      "issues": 0,
+      "memory": {
+        "usedJSHeapSize": 31277724,
+        "totalJSHeapSize": 34816828,
+        "jsHeapSizeLimit": 4294705152
+      }
+    },
+    {
+      "time": "2026-10-30T23:54:26.990Z",
+      "fps": 60.4,
+      "frameMs": 16.57,
+      "calls": 43,
+      "trianglesDrawn": 162958,
+      "textureMB": 373.3,
+      "issues": 0,
+      "memory": {
+        "usedJSHeapSize": 31352032,
+        "totalJSHeapSize": 34816828,
+        "jsHeapSizeLimit": 4294705152
+      }
+    },
+    {
+      "time": "2026-10-30T23:55:27.396Z",
+      "fps": 60,
+      "frameMs": 16.68,
+      "calls": 44,
+      "trianglesDrawn": 165078,
+      "textureMB": 373.3,
+      "issues": 0,
+      "memory": {
+        "usedJSHeapSize": 32996081,
+        "totalJSHeapSize": 34554689,
+        "jsHeapSizeLimit": 4294705152
+      }
+    },
+    {
+      "time": "2026-10-30T23:56:27.841Z",
+      "fps": 60,
+      "frameMs": 16.66,
+      "calls": 44,
+      "trianglesDrawn": 165078,
+      "textureMB": 373.3,
+      "issues": 0,
+      "memory": {
+        "usedJSHeapSize": 32374005,
+        "totalJSHeapSize": 34816833,
+        "jsHeapSizeLimit": 4294705152
+      }
+    },
+    {
+      "time": "2026-10-30T23:57:28.283Z",
+      "fps": 60,
+      "frameMs": 16.67,
+      "calls": 44,
+      "trianglesDrawn": 165078,
+      "textureMB": 373.3,
+      "issues": 0,
+      "memory": {
+        "usedJSHeapSize": 32458345,
+        "totalJSHeapSize": 35341121,
+        "jsHeapSizeLimit": 4294705152
+      }
+    },
+    {
+      "time": "2026-10-30T23:58:28.699Z",
+      "fps": 60,
+      "frameMs": 16.67,
+      "calls": 44,
+      "trianglesDrawn": 165078,
+      "textureMB": 373.3,
+      "issues": 0,
+      "memory": {
+        "usedJSHeapSize": 31989088,
+        "totalJSHeapSize": 35078972,
+        "jsHeapSizeLimit": 4294705152
+      }
+    },
+    {
+      "time": "2026-10-30T23:59:29.143Z",
+      "fps": 59.9,
+      "frameMs": 16.69,
+      "calls": 43,
+      "trianglesDrawn": 162958,
+      "textureMB": 373.3,
+      "issues": 0,
+      "memory": {
+        "usedJSHeapSize": 30890548,
+        "totalJSHeapSize": 34816828,
+        "jsHeapSizeLimit": 4294705152
+      }
+    }
+  ],
+  "finalReport": {
+    "schemaVersion": 1,
+    "generatedAt": "2026-10-30T23:59:29.146Z",
+    "route": "#/ciudad/caral",
+    "city": "caral",
+    "cityName": "Caral",
+    "metrics": {
+      "ready": true,
+      "lod": "0",
+      "modelUrl": "cities/caral/model_lod0.glb",
+      "lowPower": false,
+      "profile": {
+        "lowPower": false,
+        "uaMobile": false,
+        "mobileUA": false,
+        "iPadDesktop": false,
+        "memory": 8,
+        "cores": 24,
+        "small": false,
+        "coarse": false
+      },
+      "viewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "cssViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "pixelRatio": 1,
+      "shadowMapSize": [
+        2048,
+        2048
+      ],
+      "shadowAutoUpdate": false,
+      "flags": {
+        "noGround": false,
+        "noShadows": false
+      },
+      "meshes": 65,
+      "materials": 21,
+      "textures": 31,
+      "textureMB": 373.3,
+      "modelTriangles": 230800,
+      "calls": 43,
+      "trianglesDrawn": 162958,
+      "fps": 59.9,
+      "frameMs": 16.69,
+      "loadMs": 995,
+      "modelBytes": 3277080,
+      "timeOfDay": "morning",
+      "layers": {
+        "city": true,
+        "props": true,
+        "reference": true,
+        "terrain": true
+      }
+    },
+    "environment": {
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+      "platform": "Linux",
+      "language": "en-US",
+      "screen": {
+        "width": 1600,
+        "height": 900,
+        "availWidth": 1600,
+        "availHeight": 900,
+        "colorDepth": 24
+      },
+      "viewport": {
+        "width": 1600,
+        "height": 900,
+        "devicePixelRatio": 1
+      },
+      "touchPoints": 0,
+      "deviceMemory": 8,
+      "hardwareConcurrency": 24,
+      "standalone": false,
+      "serviceWorker": true,
+      "online": true,
+      "webgl": {
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "shadingLanguageVersion": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)",
+        "vendor": "Google Inc. (Intel)",
+        "renderer": "ANGLE (Intel, Mesa Intel(R) Graphics (RPL-S), OpenGL 4.6)",
+        "unmaskedVendor": "Google Inc. (Intel)",
+        "unmaskedRenderer": "ANGLE (Intel, Mesa Intel(R) Graphics (RPL-S), OpenGL 4.6)",
+        "maxTextureSize": 16384,
+        "maxRenderbufferSize": 16384,
+        "contextAttributes": {
+          "alpha": true,
+          "antialias": true,
+          "depth": true,
+          "desynchronized": false,
+          "failIfMajorPerformanceCaveat": false,
+          "powerPreference": "high-performance",
+          "premultipliedAlpha": true,
+          "preserveDrawingBuffer": false,
+          "stencil": false,
+          "xrCompatible": false
+        }
+      }
+    },
+    "issues": []
+  },
+  "consoleErrors": []
+}

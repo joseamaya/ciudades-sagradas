@@ -28,16 +28,16 @@ Cerrar deuda de calidad del atlas existente antes de abrir otra ciudad 3D: consi
 |---|---|---|
 | `npm run validate` | 6 ciudades, 4 modelos | **OK** |
 | `npm run build` | producción | **OK**; catálogo 25,18 kB (8,93 kB gzip); visor diferido 652,21 kB (167,98 kB gzip) |
-| Playwright Chromium desktop 1600×900 | 32 pruebas de la auditoría previa | **32/32 pass** (16,6 min) |
+| Playwright Chromium desktop 1600×900 | 36 pruebas con lazy-viewer | **36/36 pass** (15,8 min) |
 | Playwright Firefox desktop 1600×900 | atlas, ciudades y accesibilidad | **11/11 pass** (23,9 s) |
 | Playwright Chromium 1920×1080 emulado | atlas y accesibilidad | **7/7 pass** (1,3 min) |
 | Accesibilidad | panel, estados ARIA, movimiento reducido y fallo de GLB | **3/3 pass** en Chromium y Firefox |
-| `qa:playwright:chromium` | rutas, LOD0/LOD1, flags, kiosco, offline y capturas, antes de añadir lazy-viewer | **32/32 pass** |
+| `qa:playwright:chromium` | rutas, LOD0/LOD1, flags, kiosco, offline, capturas y lazy-viewer | **36/36 pass** |
 | `lazy-viewer.spec.js` | catálogo sin visor, ciudad con visor y fallo de chunk | **2/2 pass** en Chromium y Firefox |
 
 La prueba de fallo bloquea `**/cities/caral/*.glb` con `?nosw=1` y verifica el estado recuperable. La prueba de lazy-load comprueba que `/` no solicita el chunk `viewer-*.js`, que una ciudad sí lo carga y que un fallo del chunk muestra el estado recuperable.
 
-**Nota de regresión:** en la pasada posterior al lazy-load, 15/16 pruebas de ciudad/LOD/offline pasaron. Chavín LOD0 agotó 20 s en un clic de parada y pasó aislado en 4,6 min. Se registra como flake de SwiftShader; no se cambió código por ese evento.
+**Nota de regresión:** en una pasada intermedia, 15/16 pruebas de ciudad/LOD/offline pasaron; Chavín LOD0 agotó 20 s en un clic de parada y pasó aislado. La pasada final completa terminó **36/36**. Se registra el evento como flake de SwiftShader, no como fallo funcional.
 
 ## Límites
 

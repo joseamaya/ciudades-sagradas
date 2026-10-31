@@ -47,7 +47,7 @@ export function renderCity(root, city) {
             <p class="lede">${city.summary}</p>
             <div class="research-note">
               <h2>La reconstrucción 3D está en preparación</h2>
-              <p>Estamos reuniendo planos, levantamientos, fotografías y estudios arqueológicos para construir una escena coherente. La ficha se publicará cuando el modelo y la revisión de fuentes estén completos.</p>
+              <p>Esta ficha documental reúne el estado de las fuentes y la cobertura. El modelo 3D se publicará cuando haya evidencia, licencias y revisión suficientes.</p>
             </div>
             <dl class="facts">${facts(city)}</dl>
             <p class="disclaimer">${city.disclaimer || ''}</p>

@@ -12,8 +12,8 @@ QA: [`qa-hardware.md`](./qa-hardware.md).
 | **Chavín** | `available` | `preview` · v0.3 | Mixta | `partial` | 249.942 / 42.842 | 19 / 16 | 6 | **Visual/técnico sí; QA móvil pendiente** | Desktop integrado 1600×900 LOD0/LOD1 OK a 60 fps; faltan 1080p y móvil. Decidir dintel/escalera; licencia CC BY-NC-SA. |
 | **Aypate** | `available` | `preview` · v0.4 | Mixta | `partial` | 209.560 / 30.663 | 17 / 15 | 6 | **Visual/técnico sí; QA pendiente** | Desktop integrado 1600×900 LOD0/LOD1 OK; faltan 1080p y móvil. Cotas finas y recintos periféricos. |
 | **Narihualá** | `available` | `preview` · v0.2 | Interpretativa | `partial` | 162.432 / 29.682 | 14 / 13 | 6 | **Parcial; interpretativo** | Desktop integrado 1600×900 LOD0/LOD1 OK; faltan 1080p y móvil. Plano arqueológico de sectores y cotas finas. |
-| **Chan Chan** | `research` | `research` | No aplica | No aplica | — | — | — | **No** | Producir como piloto solo-datos; ciudadelas y relieves. |
-| **Wari** | `research` | `research` | No aplica | No aplica | — | — | — | **No** | Producir después de Chan Chan; barrios, templos en D y galerías. |
+| **Chan Chan** | `research` | `research` | No aplica | No aplica | — | — | — | **No** | Piloto solo-datos completado; ficha y cobertura cerradas sin modelo. |
+| **Wari** | `research` | `research` | No aplica | No aplica | — | — | — | **No** | Siguiente piloto solo-datos; barrios, templos en D y galerías. |
 
 ## Métricas y condiciones
 
@@ -35,7 +35,8 @@ QA: [`qa-hardware.md`](./qa-hardware.md).
 - **Chavín** cumple calidad visual y técnica para preview, pero su QA de hardware sigue abierta y el Lanzón tiene licencia CC BY-NC-SA.
 - **Aypate** cumple el gate visual/técnico con el layout y la escala de la v0.4; el desktop integrado 1600×900 ya pasó LOD0/LOD1. Faltan QA móvil/1080p y cotas finas. No se reabre geometría.
 - **Narihualá** es un preview interpretativo; el desktop integrado 1600×900 ya pasó LOD0/LOD1. No se eleva artificialmente al nivel de Caral ni se inventan sectores, rampas o alturas.
-- **Chan Chan y Wari** no tienen modelo; no se marcan `available` hasta completar el proceso.
+- **Chan Chan** tiene ficha documental y cobertura, pero no modelo; no se marca `available`.
+- **Wari** no tiene modelo; no se marca `available` hasta completar el proceso.
 
 ## Orden de trabajo
 
@@ -44,8 +45,8 @@ QA: [`qa-hardware.md`](./qa-hardware.md).
 3. **Chavín:** decidir dintel/escalera y revisar la licencia comercial.
 4. **Aypate:** cotas finas y recintos periféricos, sin rehacer el layout.
 5. **Narihualá:** plano arqueológico de sectores y cotas finas.
-6. **Chan Chan:** piloto solo-datos para validar la escalabilidad del atlas.
-7. **Wari:** después de Chan Chan.
+6. **Chan Chan:** piloto solo-datos completado; no se abre geometría.
+7. **Wari:** siguiente piloto solo-datos; después se decide si alguna ciudad pasa a 3D.
 
 ## Criterio de actualización
 

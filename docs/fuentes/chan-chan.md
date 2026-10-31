@@ -1,7 +1,12 @@
 # Chan Chan — dossier de fuentes
 
-**Estado:** en investigación; modelo 3D pendiente.  
-**Fecha de consulta:** 24 de octubre de 2026.
+**Estado:** piloto solo-datos; ficha documental en investigación, sin modelo 3D.
+**Fecha de consulta de fuentes:** 24 de octubre de 2026.
+**Actualizado:** 31 de octubre de 2026.
+
+## Alcance del piloto
+
+Chan Chan se publica como ficha documental `research`, no como ciudad navegable. El piloto valida el esquema de datos y la cobertura de evidencia sin añadir GLB, portada, recorrido, capas ni QA de hardware. Ver [`docs/remaster/chan-chan/`](../remaster/chan-chan/README.md).
 
 ## Ficha
 
@@ -41,6 +46,13 @@
 - Madera, caña, totora y fibras.
 - Textiles, metalurgia, talla en madera y producción artesanal.
 - Conservación frágil: la lluvia, el agua subterránea y El Niño erosionan el adobe.
+
+## Conservación
+
+- La propiedad está inscrita en la Lista del Patrimonio Mundial y en la Lista en Peligro desde 1986.
+- La lluvia, el agua subterránea, El Niño y la erosión del adobe son amenazas documentadas.
+- La fragilidad del material exige evitar reconstrucciones visuales cerradas donde no hay evidencia.
+- No se copian fotografías oficiales de UNESCO/Mincul/ICOMOS; se citan como referencia.
 
 ## Paisaje y economía
 
@@ -82,5 +94,6 @@
 
 ## Imágenes y licencias
 
-- No se incluyen fotografías oficiales de UNESCO/Mincul en el repositorio.
+- No se incluyen fotografías oficiales de UNESCO/Mincul/ICOMOS en el repositorio.
 - Las imágenes de referencia se consultan en línea y se citan; para publicar se requiere permiso o una alternativa CC0/CC BY.
+- La ficha no usa imágenes como textura ni como prueba de un estado reconstruido.

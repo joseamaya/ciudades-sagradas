@@ -54,6 +54,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - CI y GitHub Pages en verde; caché global **v38**.
 - Piloto histórico con texturas de IA retirado del repositorio.
 - **Chan Chan** tiene un piloto solo-datos: ficha documental ampliada, cobertura por elemento y plan; sigue en `research`, sin GLB, portada, recorrido, capas ni QA. Informe en [`remaster/chan-chan/`](./remaster/chan-chan/README.md).
+- **Wari** cierra el segundo piloto solo-datos: dossier, cobertura y ficha sin modelo 3D ni QA. Sigue en `research`; Wari no figura en la Lista del Patrimonio Mundial. Informe en [`remaster/wari/`](./remaster/wari/README.md).
 
 ## Métricas comparables
 
@@ -98,7 +99,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 4. **Aypate:** cotas finas y recintos periféricos; no reabrir el layout de la v0.4.
 5. **Narihualá:** plano arqueológico de sectores y cotas finas; mantener el preview interpretativo.
 6. **Chan Chan:** piloto solo-datos completado; no se abre geometría mientras no haya fuentes, licencias y QA suficientes.
-7. **Wari:** siguiente ficha solo-datos; después se decide si alguna ciudad pasa a 3D.
+7. **Wari:** piloto solo-datos completado; no se abre geometría sin fuentes, licencias y QA. Después se decide si alguna ciudad pasa a 3D.
 8. **Kiosco y narración:** congelados hasta cerrar QA de hardware.
 
 ## Limitaciones conocidas
@@ -119,4 +120,4 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 
 ## Próximo paso recomendado
 
-Mantener la calidad desktop ya auditada y no abrir otra ciudad 3D mientras móvil/1080p/kiosco sigan sin evidencia. El siguiente paso de producto es **Wari como piloto solo-datos**, reutilizando el esquema de Chan Chan sin añadir geometría. No abrir una nueva ronda de geometría en Caral, Aypate, Chavín ni Chan Chan.
+Mantener la calidad desktop ya auditada y no abrir otra ciudad 3D mientras móvil/1080p/kiosco sigan sin evidencia. Wari ya cerró el segundo piloto solo-datos. El siguiente paso es decidir entre una ciudad 3D con fuentes, licencias y QA, o una mejora técnica como el lazy-load del visor. No abrir una nueva ronda de geometría en Caral, Aypate, Chavín, Chan Chan ni Wari.

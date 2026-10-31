@@ -10,7 +10,7 @@ Alcance: atlas completo, con Caral v2 como referencia y tres previews en revisi�
 - **Aypate v0.4:** preview con layout y escala contrastados con el plano de 2013.
 - **Narihualá v0.2:** preview interpretativo; montículo este/capilla desde SIGRID 2018 y oeste/plaza inferidos.
 - **Chan Chan:** piloto solo-datos, ficha documental sin modelo.
-- **Wari:** ficha documental, sin modelo.
+- **Wari:** piloto solo-datos, ficha documental sin modelo.
 
 La UI muestra `availability`, `maturity`, `evidence` y `qa` en catálogo, ficha y recorrido. No se presenta ninguna ciudad como reconstrucción final.
 

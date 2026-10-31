@@ -2,7 +2,7 @@
 
 Atlas interactivo de los grandes centros ceremoniales y ciudades del Perú antiguo. Reconstrucciones 3D en tiempo real, fichas educativas y fuentes públicas.
 
-**Estado:** atlas en **preview público**. Caral Remaster v2 es la referencia técnica y su contenido está cerrado como ciudad representativa. Chavín, Aypate y Narihualá son previews navegables con distinto nivel de cierre; Chan Chan es un piloto documental y Wari sigue en investigación. Ninguna ciudad se presenta como reconstrucción arqueológica final.
+**Estado:** atlas en **preview público**. Caral Remaster v2 es la referencia técnica y su contenido está cerrado como ciudad representativa. Chavín, Aypate y Narihualá son previews navegables con distinto nivel de cierre; Chan Chan y Wari son pilotos documentales. Ninguna ciudad se presenta como reconstrucción arqueológica final.
 
 | Ciudad | Cultura / período | Disponibilidad | Madurez | Evidencia | QA |
 |---|---|---|---|---|---|
@@ -103,7 +103,7 @@ Más detalles en [`docs/kiosco.md`](./docs/kiosco.md).
 - **Aypate:** preview v0.4 con layout y escala contrastados con el plano de 2013. No se reabren dimensiones; quedan cotas finas y QA móvil/1080p.
 - **Narihualá:** preview interpretativo v0.2. Montículo este y capilla desde SIGRID 2018; oeste, plaza y accesos inferidos. No es un plano arqueológico; quedan plano de sectores y QA móvil/1080p.
 - **Chan Chan:** piloto solo-datos; ficha documental ampliada, sin modelo 3D ni QA de hardware.
-- **Wari:** ficha documental en investigación; sin modelo 3D publicado.
+- **Wari:** piloto solo-datos; ficha documental ampliada, sin modelo 3D ni QA de hardware.
 
 Los dossieres de fuentes están en [`docs/fuentes/`](./docs/fuentes/). El estado detallado, el setup y el pipeline Blender están en [`docs/estado.md`](./docs/estado.md), [`docs/setup.md`](./docs/setup.md) y [`docs/pipeline-blender.md`](./docs/pipeline-blender.md).
 
@@ -163,6 +163,7 @@ El repo incluye un workflow de GitHub Pages en `.github/workflows/pages.yml`. Pa
 3. **Aypate:** QA de hardware y cotas finas; no reabrir el layout de la v0.4.
 4. **Narihualá:** plano arqueológico de sectores y cotas finas; mantener el carácter interpretativo.
 5. **Chan Chan:** piloto solo-datos completado; ficha documental y cobertura cerradas sin modelo 3D.
-6. **Wari:** siguiente piloto solo-datos para validar la misma vía, sin abrir geometría hasta cerrar fuentes y licencias.
+6. **Wari:** piloto solo-datos completado; no se abre geometría sin fuentes, licencias y QA.
+7. **Siguiente decisión:** elegir entre una ciudad 3D con fuentes/licencias/QA o una mejora técnica como el lazy-load del visor.
 
 Release web de Caral: [`docs/remaster/caral/release-v2.md`](./docs/remaster/caral/release-v2.md).

@@ -75,7 +75,7 @@ npm run bench -- --city caral --out /tmp/caral-bench
 npm run qa:playwright:chromium
 ```
 
-El build queda en `dist/`. Vite usa rutas relativas, así que funciona en GitHub Pages, Cloudflare Pages o un servidor local. El benchmark usa SwiftShader: sirve para comparar draw calls, triángulos, texturas y carga, **no para declarar FPS de hardware real**. La revisión Playwright cubre rutas, LOD, paradas, capas, consola y offline en Chromium/Firefox; su informe está en [`docs/qa/revision-playwright.md`](./docs/qa/revision-playwright.md).
+El build queda en `dist/`. Vite usa rutas relativas, así que funciona en GitHub Pages, Cloudflare Pages o un servidor local. El catálogo carga la aplicación base; Three.js y el visor se descargan bajo demanda al abrir una ciudad. El benchmark usa SwiftShader: sirve para comparar draw calls, triángulos, texturas y carga, **no para declarar FPS de hardware real**. La revisión Playwright cubre rutas, LOD, paradas, capas, consola y offline en Chromium/Firefox; su informe está en [`docs/qa/revision-playwright.md`](./docs/qa/revision-playwright.md).
 
 `npm run validate` comprueba datos, estados, evidencia, coherencia índice/ficha, GLB, capas `extras.layer`, rangos de LOD, hashes y assets.
 

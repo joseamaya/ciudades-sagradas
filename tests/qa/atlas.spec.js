@@ -22,6 +22,9 @@ for (const city of RESEARCH_CITIES) {
     await expect(page.locator('#city-canvas')).toHaveCount(0);
     await expect(page.locator('.research-status .status-badge')).toHaveCount(2);
     await expect(page.locator('.research-note h2')).toContainText('reconstrucción 3D');
+    await expect(page.locator('.research-sources a').first()).toBeVisible();
+    await expect(page.locator('.disclaimer')).not.toBeEmpty();
+    await expect(page.locator('.credits')).not.toBeEmpty();
     expectNoConsoleErrors(errors);
   });
 }

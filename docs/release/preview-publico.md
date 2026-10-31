@@ -9,7 +9,8 @@ Alcance: atlas completo, con Caral v2 como referencia y tres previews en revisi�
 - **Chavín v0.3:** preview con pase de valle v0.7, Mosna ~30 m abajo, Wacheqsa al norte, Lanzón derivado de CyArk (CC BY-NC-SA 4.0) y Portada de las Falcónidas. Terreno procedural.
 - **Aypate v0.4:** preview con layout y escala contrastados con el plano de 2013.
 - **Narihualá v0.2:** preview interpretativo; montículo este/capilla desde SIGRID 2018 y oeste/plaza inferidos.
-- **Chan Chan y Wari:** fichas documentales, sin modelo.
+- **Chan Chan:** piloto solo-datos, ficha documental sin modelo.
+- **Wari:** ficha documental, sin modelo.
 
 La UI muestra `availability`, `maturity`, `evidence` y `qa` en catálogo, ficha y recorrido. No se presenta ninguna ciudad como reconstrucción final.
 

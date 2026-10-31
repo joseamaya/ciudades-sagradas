@@ -53,6 +53,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - Auditoría de calidad desktop del 31 de octubre de 2026: consistencia de caché `v38`, accesibilidad del panel/canvas, movimiento reducido, estado recuperable ante fallo de GLB y regresión Chromium/Firefox. Informe en [`qa/auditoria-calidad-desktop-2026-10-31.md`](./qa/auditoria-calidad-desktop-2026-10-31.md).
 - CI y GitHub Pages en verde; caché global **v38**.
 - Piloto histórico con texturas de IA retirado del repositorio.
+- **Chan Chan** tiene un piloto solo-datos: ficha documental ampliada, cobertura por elemento y plan; sigue en `research`, sin GLB, portada, recorrido, capas ni QA. Informe en [`remaster/chan-chan/`](./remaster/chan-chan/README.md).
 
 ## Métricas comparables
 
@@ -96,8 +97,8 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 3. **Chavín:** QA móvil/1080p del valle v0.7, decidir dintel/escalera y revisar la licencia CC BY-NC-SA 4.0 del Lanzón antes de uso comercial.
 4. **Aypate:** cotas finas y recintos periféricos; no reabrir el layout de la v0.4.
 5. **Narihualá:** plano arqueológico de sectores y cotas finas; mantener el preview interpretativo.
-6. **Chan Chan:** incorporarla como piloto solo-datos para probar la escalabilidad del atlas.
-7. **Wari:** después de Chan Chan.
+6. **Chan Chan:** piloto solo-datos completado; no se abre geometría mientras no haya fuentes, licencias y QA suficientes.
+7. **Wari:** siguiente ficha solo-datos; después se decide si alguna ciudad pasa a 3D.
 8. **Kiosco y narración:** congelados hasta cerrar QA de hardware.
 
 ## Limitaciones conocidas
@@ -118,4 +119,4 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 
 ## Próximo paso recomendado
 
-Mantener la calidad desktop ya auditada y no abrir otra ciudad 3D mientras móvil/1080p/kiosco sigan sin evidencia. El siguiente paso de producto es Chan Chan como **piloto solo-datos**, para validar el esquema `availability/maturity/evidence/qa` y `validate` sin añadir geometría. No abrir una nueva ronda de geometría en Caral, Aypate o Chavín.
+Mantener la calidad desktop ya auditada y no abrir otra ciudad 3D mientras móvil/1080p/kiosco sigan sin evidencia. El siguiente paso de producto es **Wari como piloto solo-datos**, reutilizando el esquema de Chan Chan sin añadir geometría. No abrir una nueva ronda de geometría en Caral, Aypate, Chavín ni Chan Chan.

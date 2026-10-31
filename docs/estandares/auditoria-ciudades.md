@@ -13,7 +13,7 @@ QA: [`qa-hardware.md`](./qa-hardware.md).
 | **Aypate** | `available` | `preview` · v0.4 | Mixta | `partial` | 209.560 / 30.663 | 17 / 15 | 6 | **Visual/técnico sí; QA pendiente** | Desktop integrado 1600×900 LOD0/LOD1 OK; faltan 1080p y móvil. Cotas finas y recintos periféricos. |
 | **Narihualá** | `available` | `preview` · v0.2 | Interpretativa | `partial` | 162.432 / 29.682 | 14 / 13 | 6 | **Parcial; interpretativo** | Desktop integrado 1600×900 LOD0/LOD1 OK; faltan 1080p y móvil. Plano arqueológico de sectores y cotas finas. |
 | **Chan Chan** | `research` | `research` | No aplica | No aplica | — | — | — | **No** | Piloto solo-datos completado; ficha y cobertura cerradas sin modelo. |
-| **Wari** | `research` | `research` | No aplica | No aplica | — | — | — | **No** | Siguiente piloto solo-datos; barrios, templos en D y galerías. |
+| **Wari** | `research` | `research` | No aplica | No aplica | — | — | — | **No** | Piloto solo-datos completado; ficha y cobertura cerradas sin modelo. |
 
 ## Métricas y condiciones
 
@@ -36,7 +36,7 @@ QA: [`qa-hardware.md`](./qa-hardware.md).
 - **Aypate** cumple el gate visual/técnico con el layout y la escala de la v0.4; el desktop integrado 1600×900 ya pasó LOD0/LOD1. Faltan QA móvil/1080p y cotas finas. No se reabre geometría.
 - **Narihualá** es un preview interpretativo; el desktop integrado 1600×900 ya pasó LOD0/LOD1. No se eleva artificialmente al nivel de Caral ni se inventan sectores, rampas o alturas.
 - **Chan Chan** tiene ficha documental y cobertura, pero no modelo; no se marca `available`.
-- **Wari** no tiene modelo; no se marca `available` hasta completar el proceso.
+- **Wari** tiene ficha documental y cobertura, pero no modelo; no se marca `available`.
 
 ## Orden de trabajo
 
@@ -46,7 +46,7 @@ QA: [`qa-hardware.md`](./qa-hardware.md).
 4. **Aypate:** cotas finas y recintos periféricos, sin rehacer el layout.
 5. **Narihualá:** plano arqueológico de sectores y cotas finas.
 6. **Chan Chan:** piloto solo-datos completado; no se abre geometría.
-7. **Wari:** siguiente piloto solo-datos; después se decide si alguna ciudad pasa a 3D.
+7. **Wari:** piloto solo-datos completado; no se abre geometría. Después se decide si alguna ciudad pasa a 3D.
 
 ## Criterio de actualización
 

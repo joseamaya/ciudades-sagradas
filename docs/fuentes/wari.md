@@ -1,7 +1,12 @@
 # Wari — dossier de fuentes
 
-**Estado:** en investigación; modelo 3D pendiente.  
-**Fecha de consulta:** 24 de octubre de 2026.
+**Estado:** piloto solo-datos; ficha documental en investigación, sin modelo 3D.
+**Fecha de consulta de fuentes:** 24 de octubre de 2026.
+**Actualizado:** 31 de octubre de 2026.
+
+## Alcance del piloto
+
+Wari se publica como ficha documental `research`, no como ciudad navegable. El piloto reutiliza el esquema de Chan Chan y valida que el atlas puede cerrar fuentes, cobertura y ficha sin añadir GLB, portada, recorrido, capas ni QA de hardware. Ver [`docs/remaster/wari/`](../remaster/wari/README.md).
 
 ## Ficha
 
@@ -40,6 +45,13 @@
 - Pintura mural y policromía.
 - Cerámica polícroma, textiles, metalurgia y talla.
 - Arquitectura de élite y barrios de producción.
+
+## Conservación y protección
+
+- Wari es Patrimonio Cultural de la Nación; **no figura en la Lista del Patrimonio Mundial**.
+- El Ministerio de Cultura reporta acciones de conservación y recuperación del complejo (2022 y 2025).
+- Las tumbas y galerías subterráneas fueron saqueadas en distintos momentos; muchos contextos se perdieron.
+- No se reconstruyen vacíos, alturas o trazados como hechos cerrados.
 
 ## Paisaje y economía
 
@@ -82,5 +94,6 @@
 
 ## Imágenes y licencias
 
-- No se incluyen fotografías oficiales de UNESCO/Mincul en el repositorio.
+- No se incluyen fotografías oficiales de Ministerio de Cultura, museos o academia en el repositorio.
 - Las imágenes de referencia se consultan en línea y se citan; para publicar se requiere permiso o una alternativa CC0/CC BY.
+- La ficha no usa imágenes como textura ni como prueba de un estado reconstruido.

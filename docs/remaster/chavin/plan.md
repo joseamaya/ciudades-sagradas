@@ -108,7 +108,7 @@ Los textos deben distinguir documentado, inferido e interpretativo; no afirmar f
 | High-poly v0.4 | 249.906 tris / 1.962.060 B en LOD0 y 27.539 tris / 786.136 B en LOD1; 19/15 draw calls; columnas acanaladas y parada 5 con fov 28 |
 | High-poly v0.5 | 249.930 tris / 1.962.280 B en LOD0 y 27.563 tris / 786.356 B en LOD1; 18/15 draw calls; remates A/B integrados en piedra (histórico) |
 | High-poly v0.6 | 249.990 tris / 1.962.740 B en LOD0 y 27.622 tris / 786.816 B en LOD1 (accessors); 18/14 draw calls; apoyos visibles bajo Tier_04/Tier_02 (histórico) |
-| High-poly v0.7 | 249.830 tris / 1.736.128 B en LOD0 y 42.951 tris / 744.652 B en LOD1 (accessors); 19/16 draw calls; valle procedural, Mosna ~30 m abajo y Wacheqsa al norte |
+| High-poly v0.7 | 249.942 tris / 1.741.708 B en LOD0 y 42.842 tris / 746.544 B en LOD1 (accessors); 19/16 draw calls; valle procedural, Mosna ~30 m abajo y Wacheqsa al norte |
 
 ## Decisión de gate
 
@@ -135,4 +135,4 @@ No se abre Blender hasta completar:
 
 ## Siguiente hito
 
-**Valle y QA:** el pase v0.7 deja el LOD0 en 249.830 tris, con el Mosna ~30 m por debajo del sitio, el Wacheqsa al norte, confluencia al noreste, crestas, vegetación baja y agua opaca en el visor. La parada 1 y el hero se reencuadraron para leer el valle; la parada 5 conserva `fov 28` para la Portada. Desktop real 1600×900 aprobado a 60 fps; faltan móvil, 1080p y kiosco. Sigue pendiente decidir dintel/escalera; el bake normal/AO del Lanzón se descartó por artefactos. La licencia CC BY-NC-SA 4.0 limita el uso comercial del Lanzón. Ver `highpoly-v0.7.md`, `web-preview.md`, `terrain.md` y `qa-hardware.md`.
+**Valle y QA:** el pase v0.7 deja el LOD0 en 249.942 tris, con el Mosna ~30 m por debajo del sitio, el Wacheqsa al norte, confluencia al noreste, crestas, vegetación baja y agua opaca en el visor. La parada 1 y el hero se reencuadraron para leer el valle; la parada 5 conserva `fov 28` para la Portada. Desktop real 1600×900 aprobado a 60 fps; faltan móvil, 1080p y kiosco. Sigue pendiente decidir dintel/escalera; el bake normal/AO del Lanzón se descartó por artefactos. La licencia CC BY-NC-SA 4.0 limita el uso comercial del Lanzón. Ver `highpoly-v0.7.md`, `web-preview.md`, `terrain.md` y `qa-hardware.md`.

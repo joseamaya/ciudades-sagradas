@@ -8,6 +8,7 @@ Salida:
     blender/textures/chavin/chavin_terrain_v2_roughness.jpg
     blender/textures/chavin/chavin_terrain_v2_normal.png
     blender/textures/chavin/chavin_water_v1_normal.png
+    blender/textures/chavin/chavin_water_v1_diffuse.jpg
 """
 
 from pathlib import Path
@@ -89,6 +90,19 @@ def water_normal():
     height += 0.18 * noise(size, 907, 1.1)
     normal = normal_from_height(height, 1.7)
     Image.fromarray(normal).save(OUT / "chavin_water_v1_normal.png")
+
+    v = np.linspace(0.0, 1.0, size, endpoint=False, dtype=np.float32)[:, None]
+    edge = np.abs(v - 0.5) * 2.0
+    shallow = np.clip(edge ** 1.6, 0.0, 1.0)
+    ripple = 0.5 + 0.5 * np.sin((xx * 0.35 + yy * 1.8))
+    color = np.zeros((size, size, 3), dtype=np.float32)
+    color[:, :, 0] = 34 + 34 * shallow + 8 * ripple
+    color[:, :, 1] = 104 + 92 * shallow + 10 * ripple
+    color[:, :, 2] = 118 + 86 * shallow + 8 * ripple
+    color = np.clip(color, 0, 255)
+    Image.fromarray(color.astype(np.uint8), "RGB").save(
+        OUT / "chavin_water_v1_diffuse.jpg", quality=90, optimize=True
+    )
 
 
 if __name__ == "__main__":

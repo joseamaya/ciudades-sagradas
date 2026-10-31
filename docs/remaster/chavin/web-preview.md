@@ -30,25 +30,25 @@ Fuente Blender: `chavin_highpoly_v0.7.blend`; los derivados `chavin_lod0.blend` 
 ## Qué se integró
 
 - `city.json` con `availability: "available"`, `maturity: "preview"`, `version: "v0.3"`, `evidence: "mixed"` y `qa: "partial"`.
-- Dos niveles: LOD0 de 249.830 tris con mampostería, friso integrado, Lanzón escaneado y valle procedural; LOD1 de 42.951 tris medidos por accessors con una copia de 12.000 tris del Lanzón.
+- Dos niveles: LOD0 de 249.942 tris con mampostería, friso integrado, Lanzón escaneado y valle procedural; LOD1 de 42.842 tris medidos por accessors con una copia de 12.000 tris del Lanzón.
 - `scale: 0.08`, cámara inicial, seis paradas de recorrido y `minDistance: 0.1` para el primer plano del Lanzón.
 - Capas `city`, `terrain`, `props` y `reference`, exportadas en los extras del GLB.
 - `hero.jpg` propio desde la Portada, sin imágenes oficiales.
 - Valle procedural v0.7: Mosna ~30 m abajo, Wacheqsa al norte, confluencia al noreste, crestas y vegetación baja.
-- Terreno con textura propia 1K, vertex colors y normal de agua; 14 imágenes en el GLB.
-- Caché del service worker `v37`.
+- Terreno con textura propia 1K, vertex colors y normal de agua; 15 imágenes en el GLB.
+- Caché del service worker `v38`.
 - Parada 5 con `fov 28` para que las columnas y el friso de la Portada entren en el encuadre; las acanaladuras son una lectura geométrica interpretativa.
 
 ## Métricas del preview
 
 | Métrica | LOD0 | LOD1 |
 |---|---:|---:|
-| Triángulos | 249.830 | 42.951 |
+| Triángulos | 249.942 | 42.842 |
 | Mallas exportadas | 4 | 4 |
 | Draw calls en la vista inicial | 19 | 16 |
-| GLB | 1.736.128 B | 744.652 B |
-| Texturas decodificadas estimadas | 134,7 MB | 70,7 MB |
-| Imágenes | 14 | 14, a 1024 px |
+| GLB | 1.741.708 B | 746.544 B |
+| Texturas decodificadas estimadas | 136,0 MB | 72,0 MB |
+| Imágenes | 15 | 15, a 1024 px |
 
 - `?lod=0` fuerza LOD0; `?lod=1` fuerza LOD1.
 - Móvil emulado selecciona LOD1, que omite bloques de fachada, conserva una copia de 12.000 tris del Lanzón y reduce vegetación.

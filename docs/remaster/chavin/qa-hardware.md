@@ -2,7 +2,7 @@
 
 Fecha: 31 de octubre de 2026.
 Estado: **desktop integrado 1600×900 aprobado para v0.7; Android/iPhone y 1080p pendientes**.
-Modelo probado: `model_lod0.glb` / `model_lod1.glb` v0.7, caché `v37`. La aprobación Android anterior corresponde a v0.3 y no cubre el valle v0.7; hay que repetirla en dispositivo.
+Modelo probado: `model_lod0.glb` / `model_lod1.glb` v0.7, caché `v38`. La aprobación Android anterior corresponde a v0.3 y no cubre el valle v0.7; hay que repetirla en dispositivo.
 
 ## Resultado Android
 
@@ -47,8 +47,8 @@ GPU, métricas y evidencia.
 |---|---|
 | Equipo | Intel RPL-S, Chrome 139/Linux |
 | Resolución | 1600×900 |
-| LOD0 | 60,0 fps; 19 calls; 249.830 tris; carga 1,69 s |
-| LOD1 | 60,0 fps; 16 calls; 42.950 tris; carga 0,39 s |
+| LOD0 | 60,0 fps; 19 calls; 249.942 tris; carga 1,01 s |
+| LOD1 | 60,0 fps; 16 calls; 42.842 tris; carga 0,44 s |
 | Consola | 0 errores |
 | Evidencia | `docs/qa/resultados/chavin-v07-desktop-2026-10-31/` |
 

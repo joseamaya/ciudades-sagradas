@@ -154,6 +154,34 @@ def apply_earth_texture():
     earth["chavin:source"] = "scripts/make_chavin_terrain_materials_v2.py"
 
 
+def apply_water_texture():
+    root = bpy.path.abspath("//../textures/chavin/")
+    water = bpy.data.materials.get("MAT-Chavin_Water")
+    if water is None or not water.use_nodes:
+        return
+    path = root + "chavin_water_v1_diffuse.jpg"
+    image = bpy.data.images.get("chavin_water_v1_diffuse")
+    if image is None:
+        image = bpy.data.images.load(path, check_existing=True)
+        image.name = "chavin_water_v1_diffuse"
+    image.colorspace_settings.name = "sRGB"
+    if image.packed_file is None:
+        image.pack()
+    nodes = water.node_tree.nodes
+    links = water.node_tree.links
+    bsdf = next((node for node in nodes if node.type == "BSDF_PRINCIPLED"), None)
+    if bsdf is None:
+        return
+    for link in list(bsdf.inputs["Base Color"].links):
+        links.remove(link)
+    texture = nodes.new("ShaderNodeTexImage")
+    texture.name = "WaterDiffuse"
+    texture.image = image
+    texture.location = (-620, 160)
+    links.new(texture.outputs["Color"], bsdf.inputs["Base Color"])
+    water["chavin:source"] = "scripts/make_chavin_terrain_materials_v2.py"
+
+
 def scale_earth_uvs(obj, scale):
     mesh = obj.data
     if not mesh.uv_layers:
@@ -247,6 +275,7 @@ def main():
     bpy.context.scene.camera = bpy.data.objects.get("CAM-Chavin_Hero")
     apply_material_fallbacks()
     apply_earth_texture()
+    apply_water_texture()
     for obj in bpy.data.objects:
         if obj.type == "MESH":
             obj["layer"] = layer_for(obj)

@@ -1,4 +1,3 @@
-import { CityViewer } from './core/viewer.js';
 import { AmbientAudio } from './core/audio.js';
 import { renderCatalog } from './ui/catalog.js';
 import { renderCity } from './ui/city.js';
@@ -25,6 +24,19 @@ let debugTimer = null;
 const qaIssues = [];
 
 const asset = (path) => new URL(path, document.baseURI).href;
+
+let cityViewerPromise = null;
+function loadCityViewer() {
+  if (!cityViewerPromise) {
+    cityViewerPromise = import('./core/viewer.js')
+      .then(({ CityViewer }) => CityViewer)
+      .catch((error) => {
+        cityViewerPromise = null;
+        throw error;
+      });
+  }
+  return cityViewerPromise;
+}
 
 function recordQaIssue(type, details = {}) {
   qaIssues.push({ type, time: new Date().toISOString(), ...details });
@@ -370,6 +382,8 @@ async function openCity(id) {
 
   let instance = null;
   try {
+    const CityViewer = await loadCityViewer();
+    if (token !== routeToken) return;
     instance = new CityViewer(refs.canvas, {
       onProgress: (progress) => {
         if (token !== routeToken) return;

@@ -1,4 +1,4 @@
-> **Documento histórico.** Las referencias a `stage` y a la caché `v7` corresponden al release de Caral v2. El esquema vigente usa `maturity`/`version` y la caché global `v36`.
+> **Documento histórico.** Las referencias a `stage` y a la caché `v7` corresponden al release de Caral v2. El esquema vigente usa `maturity`/`version` y la caché global `v38`.
 
 # Plan de remaster de Caral
 

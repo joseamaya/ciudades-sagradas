@@ -1,6 +1,6 @@
 # Auditoría de ciudades frente al estándar
 
-Fecha: 30 de octubre de 2026.
+Fecha: 31 de octubre de 2026.
 Estándar: [`ciudad.md`](./ciudad.md).
 QA: [`qa-hardware.md`](./qa-hardware.md).
 
@@ -19,15 +19,15 @@ QA: [`qa-hardware.md`](./qa-hardware.md).
 
 | Ciudad | LOD0 tris / bytes | LOD1 tris / bytes | Texturas | Caché | Fuente |
 |---|---|---|---|---|---|
-| Caral | 230.800 / 3.277.080 B | 56.332 / 1.345.092 B | 2K/1K; 373/208 MB VRAM estimada | v36 | `npm run validate` + release v2 |
+| Caral | 230.800 / 3.277.080 B | 56.332 / 1.345.092 B | 2K/1K; 373/208 MB VRAM estimada | v38 | `npm run validate` + release v2 |
 | Chavín | 249.942 / 1.741.708 B | 42.842 / 746.544 B | 2K/1K | v38 | `npm run validate` + informe high-poly v0.7 |
-| Aypate | 209.560 / 2.139.720 B | 30.663 / 443.372 B | 1K/1K; 160/80 MB | v36 | `npm run validate` + preview v0.4 |
-| Narihualá | 162.432 / 1.599.008 B | 29.682 / 441.800 B | 1K/1K; 96/48 MB | v36 | `npm run validate` + preview v0.2 |
+| Aypate | 209.560 / 2.139.720 B | 30.663 / 443.372 B | 1K/1K; 160/80 MB | v38 | `npm run validate` + preview v0.4 |
+| Narihualá | 162.432 / 1.599.008 B | 29.682 / 441.800 B | 1K/1K; 96/48 MB | v38 | `npm run validate` + preview v0.2 |
 
 - Triángulos y bytes se miden de los accessors del GLB en `npm run validate`. Los informes de Blender pueden diferir en ±1 triángulo por degenerados o triangulación; no mezclar ambas fuentes en una misma tabla.
 - Draw calls: cámara inicial, 1600×900, Chrome headless/SwiftShader. No son FPS de hardware real.
 - Caral usa atlas horneado en LOD1; las demás no. No generalizar esa cifra de VRAM.
-- La caché es global (`ciudades-sagradas-v36`), no por ciudad.
+- La caché es global (`ciudades-sagradas-v38`), no por ciudad.
 
 ## Lectura
 
@@ -39,7 +39,7 @@ QA: [`qa-hardware.md`](./qa-hardware.md).
 
 ## Orden de trabajo
 
-1. **QA de hardware:** Caral Android/iPhone/desktop, Chavín v0.7 móvil/1080p, Aypate y Narihualá.
+1. **QA de hardware:** desktop 1600×900 ya auditado; móvil/1080p/kiosco siguen pendientes. No hay dispositivo móvil disponible, así que no se certifican por emulación.
 2. **Caral:** cerrar o mantener la excepción Android con evidencia.
 3. **Chavín:** decidir dintel/escalera y revisar la licencia comercial.
 4. **Aypate:** cotas finas y recintos periféricos, sin rehacer el layout.

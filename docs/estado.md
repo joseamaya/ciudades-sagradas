@@ -1,6 +1,6 @@
 # Estado del proyecto
 
-Actualizado: 30 de octubre de 2026.
+Actualizado: 31 de octubre de 2026.
 
 El estándar de ciudad publicada está en [`docs/estandares/ciudad.md`](./estandares/ciudad.md); la auditoría en [`docs/estandares/auditoria-ciudades.md`](./estandares/auditoria-ciudades.md); el protocolo de QA en [`docs/estandares/qa-hardware.md`](./estandares/qa-hardware.md).
 
@@ -50,17 +50,18 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - Benchmark reproducible `scripts/bench.mjs` (Chrome/CDP + SwiftShader) para LOD0, LOD1, móvil, fallback y offline.
 - Revisión Playwright en Chromium desktop/mobile y Firefox desktop: rutas, LOD0/LOD1, paradas, luces, capas, consola, offline, kiosco y selección automática de LOD. Sin errores de consola. WebKit quedó bloqueado por dependencias del host. Informe en `docs/qa/revision-playwright.md`.
 - Validación ampliada: estados, evidencia, coherencia índice/ficha, cabecera y nodos GLB, capas `extras.layer`, rangos de LOD, hashes y tamaños del registro.
-- CI y GitHub Pages en verde; caché global **v36**.
+- Auditoría de calidad desktop del 31 de octubre de 2026: consistencia de caché `v38`, accesibilidad del panel/canvas, movimiento reducido, estado recuperable ante fallo de GLB y regresión Chromium/Firefox. Informe en [`qa/auditoria-calidad-desktop-2026-10-31.md`](./qa/auditoria-calidad-desktop-2026-10-31.md).
+- CI y GitHub Pages en verde; caché global **v38**.
 - Piloto histórico con texturas de IA retirado del repositorio.
 
 ## Métricas comparables
 
 | Ciudad | LOD0 tris / bytes | LOD1 tris / bytes | Draw calls LOD0/LOD1 | Paradas | Caché |
 |---|---|---|---:|---:|---|
-| Caral | 230.800 / 3.277.080 B | 56.332 / 1.345.092 B | 44 / 31 | 6 | v36 |
+| Caral | 230.800 / 3.277.080 B | 56.332 / 1.345.092 B | 44 / 31 | 6 | v38 |
 | Chavín | 249.942 / 1.741.708 B | 42.842 / 746.544 B | 19 / 16 | 6 | v38 |
-| Aypate | 209.560 / 2.139.720 B | 30.663 / 443.372 B | 17 / 15 | 6 | v36 |
-| Narihualá | 162.432 / 1.599.008 B | 29.682 / 441.800 B | 14 / 13 | 6 | v36 |
+| Aypate | 209.560 / 2.139.720 B | 30.663 / 443.372 B | 17 / 15 | 6 | v38 |
+| Narihualá | 162.432 / 1.599.008 B | 29.682 / 441.800 B | 14 / 13 | 6 | v38 |
 
 - Triángulos y bytes: medición de accessors GLB en `npm run validate`. Los informes de exportación pueden variar en ±1 triángulo por triangulación/degenerados; la tabla usa el conteo reproducible del validador.
 - Draw calls: cámara inicial, 1600×900, Chrome headless/SwiftShader, según los informes de cada preview. No mezclar con FPS de hardware.
@@ -86,11 +87,11 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 
 - La carga local terminó en ~1,2–1,7 s de respuesta de red y ~6–7 s hasta el primer render en SwiftShader; en GPU real el primer render baja de forma importante. El dato de FPS de SwiftShader no representa hardware real.
 - Fallback verificado: LOD0 → LOD1 → v1 en escritorio; LOD1 → v1 → LOD0 en móvil.
-- Offline verificado con caché global `v36` y `?nosw=1` como escape de QA.
+- Offline verificado con caché global `v38` y `?nosw=1` como escape de QA.
 
 ## Pendiente
 
-1. **QA de hardware real:** desktop integrado 1600×900 completado para las cuatro ciudades; faltan 1080p, Android/iPhone, GPU dedicada y kiosco. Ver [`qa-hardware.md`](./estandares/qa-hardware.md) y [`qa/README.md`](./qa/README.md).
+1. **QA de hardware real:** desktop integrado 1600×900 completado para las cuatro ciudades; 1080p, Android/iPhone, GPU dedicada y kiosco siguen pendientes. **No hay dispositivo móvil disponible**, así que móvil/1080p real quedan bloqueados por hardware y no se certifican con emulación. Ver [`qa-hardware.md`](./estandares/qa-hardware.md) y [`qa/README.md`](./qa/README.md).
 2. **Caral Android P2:** `CARAL-ANDROID-GROUND-001`; falta aislar con `?noground=1`/`?noshadows=1` y datos del dispositivo. No bloquea el resto del atlas.
 3. **Chavín:** QA móvil/1080p del valle v0.7, decidir dintel/escalera y revisar la licencia CC BY-NC-SA 4.0 del Lanzón antes de uso comercial.
 4. **Aypate:** cotas finas y recintos periféricos; no reabrir el layout de la v0.4.
@@ -117,4 +118,4 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 
 ## Próximo paso recomendado
 
-Ejecutar la matriz de QA de hardware y cerrar la excepción Android de Caral. En paralelo, incorporar Chan Chan como piloto solo-datos después de validar que el esquema `availability/maturity/evidence/qa` y `validate` permiten añadir una ciudad sin tocar `src/`. No abrir una nueva ronda de geometría en Caral, Aypate o Chavín.
+Mantener la calidad desktop ya auditada y no abrir otra ciudad 3D mientras móvil/1080p/kiosco sigan sin evidencia. El siguiente paso de producto es Chan Chan como **piloto solo-datos**, para validar el esquema `availability/maturity/evidence/qa` y `validate` sin añadir geometría. No abrir una nueva ronda de geometría en Caral, Aypate o Chavín.

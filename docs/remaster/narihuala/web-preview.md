@@ -11,7 +11,7 @@ Fuente: `blender/narihuala/narihuala_highpoly_v0.2.blend`.
 - 14/13 draw calls; 96/48 MB de texturas; 2K/1K.
 - Seis paradas: valle, montículo oeste, plaza, accesos, montículo este y mirador.
 - Capas: arquitectura tallán, valle y bosque seco, detalles, escala humana y capilla republicana (`later`, apagada).
-- `scale: 0.08`; caché global `v36`.
+- `scale: 0.08`; caché global `v38`.
 - `lighting` es un override opcional de `fill`, `hemiIntensity` y `envIntensity`; solo se aplica a esta ciudad y no cambia el preset global.
 
 ## Vistas

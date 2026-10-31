@@ -15,12 +15,12 @@
   </head>
   <body>
     <div id="app"></div>
-    <div id="loading" class="loading" hidden>
+    <div id="loading" class="loading" role="status" aria-live="polite" hidden>
       <div class="loading__mark" aria-hidden="true"></div>
       <p id="loading-text">Cargando la ciudad…</p>
       <div class="loading__bar"><span id="loading-bar"></span></div>
     </div>
-    <div id="toast" class="toast" hidden></div>
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
     <noscript>Este atlas necesita JavaScript para mostrar las reconstrucciones 3D.</noscript>
     <script type="module" src="/src/main.js"></script>
   </body>

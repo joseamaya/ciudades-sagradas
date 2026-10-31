@@ -169,6 +169,8 @@ function goCatalog() {
     window.removeEventListener('keydown', window.__cityKeyHandler);
     window.__cityKeyHandler = null;
   }
+  window.__cityPanelCleanup?.();
+  window.__cityPanelCleanup = null;
   document.title = 'Ciudades Sagradas';
   renderCatalog(app, cities);
   hideLoading();
@@ -185,30 +187,54 @@ function updateTour(refs, city, index, fly = false) {
   refs.tourText.textContent = stop.text;
   if (refs.tourEvidence) refs.tourEvidence.innerHTML = evidenceBadge(stop.evidence, true);
   refs.tourList.querySelectorAll('button').forEach((button, i) => {
-    button.classList.toggle('is-active', i === tourIndex);
+    const active = i === tourIndex;
+    button.classList.toggle('is-active', active);
+    button.setAttribute('aria-current', String(active));
   });
   if (fly && stop.camera) viewer?.setCamera(stop.camera, false);
 }
 
 function bindCity(refs, city) {
   const panel = refs.panel;
-  const openPanel = () => panel.classList.add('is-open');
-  const closePanel = () => panel.classList.remove('is-open');
+  const infoToggle = refs.infoToggle;
+  const mobileQuery = window.matchMedia('(max-width: 980px)');
+  const isMobile = () => mobileQuery.matches;
+  const isPanelOpen = () =>
+    isMobile() ? panel.classList.contains('is-open') : !panel.classList.contains('is-collapsed');
 
-  refs.infoToggle?.addEventListener('click', () => {
-    if (window.matchMedia('(max-width: 980px)').matches) {
-      panel.classList.toggle('is-open');
-    } else {
-      panel.classList.toggle('is-collapsed');
-    }
+  const syncPanel = () => {
+    const open = isPanelOpen();
+    infoToggle?.setAttribute('aria-expanded', String(open));
+    panel.setAttribute('aria-hidden', String(!open));
+    panel.inert = !open;
+  };
+
+  const openPanel = ({ focus = false } = {}) => {
+    if (isMobile()) panel.classList.add('is-open');
+    else panel.classList.remove('is-collapsed');
+    syncPanel();
+    if (focus && isMobile()) refs.panelClose?.focus();
+  };
+
+  const closePanel = ({ focus = false } = {}) => {
+    if (isMobile()) panel.classList.remove('is-open');
+    else panel.classList.add('is-collapsed');
+    syncPanel();
+    if (focus) infoToggle?.focus();
+  };
+
+  infoToggle?.addEventListener('click', () => {
+    if (isPanelOpen()) closePanel();
+    else openPanel({ focus: true });
   });
-  refs.panelClose?.addEventListener('click', () => {
-    closePanel();
-    if (window.matchMedia('(min-width: 981px)').matches) panel.classList.add('is-collapsed');
-  });
+  refs.panelClose?.addEventListener('click', () => closePanel({ focus: true }));
   refs.canvas?.addEventListener('pointerdown', () => {
-    if (window.matchMedia('(max-width: 980px)').matches) closePanel();
+    if (isMobile() && isPanelOpen()) closePanel();
   });
+
+  mobileQuery.addEventListener('change', syncPanel);
+  window.__cityPanelCleanup = () => mobileQuery.removeEventListener('change', syncPanel);
+  syncPanel();
 
   refs.sound?.addEventListener('click', async () => {
     try {
@@ -224,7 +250,11 @@ function bindCity(refs, city) {
   refs.timeButtons?.forEach((button) => {
     button.addEventListener('click', () => {
       viewer?.setTimeOfDay(button.dataset.time);
-      refs.timeButtons.forEach((item) => item.classList.toggle('is-active', item === button));
+      refs.timeButtons.forEach((item) => {
+        const active = item === button;
+        item.classList.toggle('is-active', active);
+        item.setAttribute('aria-pressed', String(active));
+      });
     });
   });
 
@@ -248,6 +278,10 @@ function bindCity(refs, city) {
   }
   const keyHandler = (event) => {
     if (event.key === 'Escape') {
+      if (isMobile() && isPanelOpen()) {
+        closePanel({ focus: true });
+        return;
+      }
       window.location.hash = '#/';
     }
     if (event.key === 'ArrowRight') updateTour(refs, city, tourIndex + 1, true);
@@ -266,8 +300,43 @@ function bindCity(refs, city) {
   }
 }
 
+function showViewerError(refs, city) {
+  const host = refs.canvas?.closest('.city-view');
+  if (!host) return;
+  host.querySelector('.city-error')?.remove();
+
+  const box = document.createElement('div');
+  box.className = 'city-error';
+  box.setAttribute('role', 'alert');
+
+  const title = document.createElement('p');
+  title.className = 'city-error__title';
+  title.textContent = `No se pudo cargar ${city.name}`;
+
+  const detail = document.createElement('p');
+  detail.textContent = 'El modelo 3D no está disponible. Puedes reintentar o volver al atlas.';
+
+  const actions = document.createElement('div');
+  actions.className = 'city-error__actions';
+
+  const retry = document.createElement('button');
+  retry.type = 'button';
+  retry.textContent = 'Reintentar';
+  retry.addEventListener('click', () => window.location.reload());
+
+  const back = document.createElement('a');
+  back.href = '#/';
+  back.textContent = 'Volver al atlas';
+
+  actions.append(retry, back);
+  box.append(title, detail, actions);
+  host.appendChild(box);
+}
+
 async function openCity(id) {
   const token = ++routeToken;
+  window.__cityPanelCleanup?.();
+  window.__cityPanelCleanup = null;
   const meta = cities.find((city) => city.id === id);
   if (!meta) {
     goCatalog();
@@ -319,6 +388,7 @@ async function openCity(id) {
         console.error(error);
         hideLoading();
         toast('No se pudo cargar el modelo 3D.');
+        showViewerError(refs, city);
       },
     });
     viewer = instance;
@@ -332,6 +402,7 @@ async function openCity(id) {
     console.error(error);
     hideLoading();
     toast('No se pudo iniciar el visor 3D.');
+    showViewerError(refs, city);
     if (instance) {
       instance.dispose();
       if (viewer === instance) viewer = null;

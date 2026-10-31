@@ -6,8 +6,8 @@ Equipo: Intel RPL-S, Mesa Intel Graphics (RPL-S), OpenGL 4.6; Chrome 139/Linux; 
 
 | Escenario | FPS | Calls | Tris | Carga | Errores |
 |---|---:|---:|---:|---:|---:|
-| LOD0 | 60,0 | 19 | 249.830 | 1,69 s | 0 |
-| LOD1 | 60,0 | 16 | 42.950 | 0,39 s | 0 |
+| LOD0 | 60,0 | 19 | 249.942 | 1,01 s | 0 |
+| LOD1 | 60,0 | 16 | 42.842 | 0,44 s | 0 |
 
 - Modelo: `public/cities/chavin/model_lod0.glb` / `model_lod1.glb` v0.7.
 - Capturas: `lod0.png`, `lod1.png`.

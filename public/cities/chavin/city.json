@@ -31,20 +31,20 @@
     "enabled": false
   },
   "fog": {
-    "near": 50,
-    "far": 190
+    "near": 40,
+    "far": 170
   },
   "minDistance": 0.1,
   "maxDistance": 180,
   "camera": {
     "position": [
-      40,
-      27,
+      32,
+      22,
       0
     ],
     "target": [
       7,
-      -1.5,
+      -1.2,
       0
     ],
     "fov": 42
@@ -56,13 +56,13 @@
       "evidence": "inferred",
       "camera": {
         "position": [
-          40,
-          27,
+          32,
+          22,
           0
         ],
         "target": [
           7,
-          -1.5,
+          -1.2,
           0
         ],
         "fov": 42
@@ -256,8 +256,8 @@
     }
   ],
   "lighting": {
-    "fill": 0.55,
-    "hemiIntensity": 0.22,
-    "envIntensity": 0.9
+    "fill": 0.5,
+    "hemiIntensity": 0.2,
+    "envIntensity": 0.85
   }
 }

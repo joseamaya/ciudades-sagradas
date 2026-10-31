@@ -1,7 +1,7 @@
 # Chavín — pase de valle v0.7
 
 Fecha: 31 de octubre de 2026.
-Estado: **preview controlado; no es reconstrucción final ni topografía levantada**.
+Estado: **preview controlado; incluye revisión visual de agua y materiales; no es reconstrucción final ni topografía levantada**.
 Fuente: `blender/chavin/chavin_highpoly_v0.7.blend`, derivada de v0.6.
 Generadores: `scripts/build_chavin_valley_v0_7.py`, `scripts/make_chavin_terrain_materials_v2.py`.
 Derivados: LOD0/LOD1 regenerados con `scripts/build_chavin_lod.py` y `scripts/export_chavin_lod.py`.
@@ -16,6 +16,8 @@ Derivados: LOD0/LOD1 regenerados con `scripts/build_chavin_lod.py` y `scripts/ex
 - Se añadieron 138 arbustos y 190 matas de pasto altoandino; no hay árboles inventados.
 - Se añadió una capa de superficie del sitio con variación de tierra, sin convertir la explanada en césped.
 - Se corrigieron las cámaras de la parada 1 y del hero para leer el río y el desnivel.
+- Revisión visual: agua más estrecha y texturizada, materiales con más contraste, vegetación agrupada y niebla más cerrada.
+- El GLB incluye una textura de agua con degradado de orilla a centro.
 - No se modificaron arquitectura, galerías, Portada ni Lanzón.
 
 ## Evidencia
@@ -38,14 +40,14 @@ No se usó DEM. El terreno no debe citarse como topografía levantada.
 
 | Métrica | LOD0 | LOD1 |
 |---|---:|---:|
-| Triángulos | 249.830 | 42.951 |
-| GLB | 1.736.128 B | 744.652 B |
+| Triángulos | 249.942 | 42.842 |
+| GLB | 1.741.708 B | 746.544 B |
 | Mallas exportadas | 4 | 4 |
 | Draw calls en la vista inicial | 19 | 16 |
-| Texturas decodificadas estimadas | 134,7 MB | 70,7 MB |
-| Imágenes | 14 | 14 |
+| Texturas decodificadas estimadas | 136,0 MB | 72,0 MB |
+| Imágenes | 15 | 15 |
 
-- LOD0 queda 170 tris por debajo del techo nominal de 250.000.
+- LOD0 queda 58 tris por debajo del techo nominal de 250.000.
 - LOD1 queda por debajo del objetivo de 45.000.
 - El agua usa material opaco en el visor para evitar el coste de transparencia.
 
@@ -65,7 +67,7 @@ No se usó DEM. El terreno no debe citarse como topografía levantada.
 
 - `npm run validate`: OK.
 - `npm run build`: OK.
-- `npm run bench -- --city chavin --qa`: LOD0 19 calls / 249.830 tris; LOD1 16 calls / 42.950 tris; sin errores de consola.
+- `npm run bench -- --city chavin --qa`: LOD0 19 calls / 249.942 tris; LOD1 16 calls / 42.842 tris; sin errores de consola.
 - Desktop real Intel RPL-S, Chrome 139/Linux, 1600×900:
   - LOD0: 60,0 fps, 19 calls, carga 1,69 s.
   - LOD1: 60,0 fps, 16 calls, carga 0,39 s.

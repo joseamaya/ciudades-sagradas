@@ -33,7 +33,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - Repositorio independiente con Vite + Three.js.
 - OpenCode configurado con MCP de Blender y skills MIT en `.agents/skills/`.
 - **Caral Remaster v2** es la referencia técnica. Contenido cerrado como ciudad representativa: volúmenes y sectores principales, high-poly en Pirámide Mayor, Plaza Mayor, Anfiteatro y Altar Circular. No es un inventario 1:1 de los 32 edificios públicos.
-- **Chavín** tiene preview web v0.3 con pase de valle v0.7: LOD0 de 249.830 tris y LOD1 de 42.951 tris medidos por accessors; 19/16 draw calls; seis paradas; Mosna ~30 m abajo, Wacheqsa al norte y confluencia al noreste; Lanzón derivado del escaneo CyArk/Google Arts & Culture (CC BY-NC-SA 4.0). El blockout v0.5, el texturizado UV v0.2 y la Portada v0.2 quedan como base de revisión; el terreno es procedural.
+- **Chavín** tiene preview web v0.3 con pase de valle v0.7: LOD0 de 249.942 tris y LOD1 de 42.842 tris medidos por accessors; 19/16 draw calls; seis paradas; Mosna ~30 m abajo, Wacheqsa al norte y confluencia al noreste; Lanzón derivado del escaneo CyArk/Google Arts & Culture (CC BY-NC-SA 4.0). El blockout v0.5, el texturizado UV v0.2 y la Portada v0.2 quedan como base de revisión; el terreno es procedural.
 - **Aypate** tiene preview web v0.4: LOD0 de 209.560 tris y LOD1 de 30.663 tris; 17/15 draw calls; seis paradas; layout macro y escala contrastados con el plano de 2013. Cierre de cotas de conjunto documentado; cotas finas pendientes. Desktop integrado 1600×900 con LOD0/LOD1 a ~58–60 fps; QA móvil/1080p pendiente.
 - **Narihualá** tiene preview interpretativo v0.2: LOD0 de 162.432 tris y LOD1 de 29.682 tris; 14/13 draw calls; seis paradas. Montículo este y capilla desde SIGRID 2018; montículo oeste, plaza y accesos inferidos; rampas documentadas no modeladas. No se asigna la sectorización I–III. Desktop integrado 1600×900 con LOD0/LOD1 a ~58–60 fps; QA móvil/1080p y plano de sectores pendientes.
 - LOD0/LOD1 con Draco, override `?lod=0/1` y fallback por dispositivo. Caral conserva el fallback v1.
@@ -58,7 +58,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 | Ciudad | LOD0 tris / bytes | LOD1 tris / bytes | Draw calls LOD0/LOD1 | Paradas | Caché |
 |---|---|---|---:|---:|---|
 | Caral | 230.800 / 3.277.080 B | 56.332 / 1.345.092 B | 44 / 31 | 6 | v36 |
-| Chavín | 249.830 / 1.736.128 B | 42.951 / 744.652 B | 19 / 16 | 6 | v37 |
+| Chavín | 249.942 / 1.741.708 B | 42.842 / 746.544 B | 19 / 16 | 6 | v38 |
 | Aypate | 209.560 / 2.139.720 B | 30.663 / 443.372 B | 17 / 15 | 6 | v36 |
 | Narihualá | 162.432 / 1.599.008 B | 29.682 / 441.800 B | 14 / 13 | 6 | v36 |
 

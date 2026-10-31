@@ -51,7 +51,7 @@ def smoothstep(edge0, edge1, value):
     return t * t * (3.0 - 2.0 * t)
 
 
-def brighten(color, factor=1.12):
+def brighten(color, factor=1.02):
     return (min(1.0, color[0] * factor), min(1.0, color[1] * factor), min(1.0, color[2] * factor))
 
 
@@ -99,38 +99,39 @@ def terrain_color(x, y, z):
     wd = abs(y - wacheqsa_center(x))
     river = min(md, wd)
     n = 0.5 + 0.5 * surface_noise(x * 0.8, y * 0.8)
+    n2 = 0.5 + 0.5 * surface_noise(x * 3.4 + 11.0, y * 3.4 - 7.0)
     slope = abs(terrain_height(x + 7.0, y) - z) + abs(terrain_height(x, y + 7.0) - z)
     if z < -25.8:
-        return (0.50 + 0.08 * n, 0.46 + 0.06 * n, 0.38 + 0.04 * n)
+        return (0.40 + 0.08 * n, 0.38 + 0.06 * n, 0.32 + 0.04 * n)
     if river < 30.0:
-        return (0.70 + 0.08 * n, 0.64 + 0.06 * n, 0.50 + 0.04 * n)
+        return (0.74 + 0.08 * n, 0.66 + 0.06 * n, 0.51 + 0.04 * n)
     if abs(x) < SITE_HALF_X + 32.0 and abs(y) < SITE_HALF_Y + 32.0:
         if slope > 1.1:
-            return (0.66 + 0.06 * n, 0.60 + 0.05 * n, 0.48 + 0.04 * n)
-        return (0.74 + 0.05 * n, 0.67 + 0.04 * n, 0.52 + 0.03 * n)
+            return (0.58 + 0.05 * n, 0.53 + 0.05 * n, 0.43 + 0.04 * n)
+        return (0.70 + 0.05 * n, 0.63 + 0.04 * n, 0.48 + 0.03 * n)
     if slope > 2.0 or z > 65.0:
-        return (0.62 + 0.06 * n, 0.61 + 0.05 * n, 0.55 + 0.04 * n)
+        return (0.56 + 0.06 * n, 0.55 + 0.05 * n, 0.49 + 0.04 * n)
     if z > -19.0:
-        if n > 0.62:
-            return (0.46 + 0.06 * n, 0.58 + 0.06 * n, 0.31 + 0.04 * n)
-        return (0.62 + 0.06 * n, 0.56 + 0.05 * n, 0.41 + 0.04 * n)
-    return (0.64 + 0.06 * n, 0.56 + 0.05 * n, 0.42 + 0.04 * n)
+        if n2 > 0.58:
+            return (0.38 + 0.06 * n, 0.50 + 0.06 * n, 0.24 + 0.04 * n)
+        return (0.56 + 0.06 * n, 0.51 + 0.05 * n, 0.36 + 0.04 * n)
+    return (0.60 + 0.06 * n, 0.53 + 0.05 * n, 0.40 + 0.04 * n)
 
 
 def site_surface_color(x, y, z):
     n = 0.5 + 0.5 * surface_noise(x * 1.3, y * 1.3)
     if z > 2.55:
-        return (0.66 + 0.05 * n, 0.61 + 0.04 * n, 0.49 + 0.03 * n)
-    return (0.72 + 0.05 * n, 0.66 + 0.04 * n, 0.52 + 0.03 * n)
+        return (0.64 + 0.05 * n, 0.59 + 0.04 * n, 0.47 + 0.03 * n)
+    return (0.70 + 0.04 * n, 0.64 + 0.04 * n, 0.50 + 0.03 * n)
 
 
 def ridge_color(height, max_height):
     t = max(0.0, min(1.0, height / max(1.0, max_height)))
     if t > 0.62:
-        return (0.68, 0.67, 0.62)
+        return (0.62, 0.61, 0.56)
     if t > 0.25:
-        return (0.55, 0.55, 0.46)
-    return (0.42, 0.52, 0.34)
+        return (0.50, 0.50, 0.42)
+    return (0.38, 0.45, 0.32)
 
 
 def collection(name):
@@ -268,8 +269,13 @@ def material_water():
     bsdf.location = (80, 0)
     bsdf.inputs["Base Color"].default_value = (0.075, 0.210, 0.230, 1.0)
     bsdf.inputs["Metallic"].default_value = 0.0
-    bsdf.inputs["Roughness"].default_value = 0.22
+    bsdf.inputs["Roughness"].default_value = 0.28
     bsdf.inputs["IOR"].default_value = 1.333
+    diffuse = nodes.new("ShaderNodeTexImage")
+    diffuse.name = "WaterDiffuse"
+    diffuse.image = load_texture("chavin_water_v1_diffuse", "chavin_water_v1_diffuse.jpg")
+    diffuse.location = (-420, 160)
+    links.new(diffuse.outputs["Color"], bsdf.inputs["Base Color"])
     normal = nodes.new("ShaderNodeTexImage")
     normal.name = "WaterNormal"
     normal.image = load_texture("chavin_water_v1_normal", "chavin_water_v1_normal.png", non_color=True)
@@ -355,7 +361,11 @@ def build_site_ground(material):
             x = -SITE_HALF_X + 2.0 * SITE_HALF_X * i / cols
             verts.append((x, y, 0.03))
             n = 0.5 + 0.5 * surface_noise(x * 1.7, y * 1.7)
-            colors.append(brighten((0.72 + 0.05 * n, 0.66 + 0.04 * n, 0.52 + 0.03 * n)))
+            n2 = 0.5 + 0.5 * surface_noise(x * 4.1, y * 4.1)
+            if n2 > 0.63:
+                colors.append(brighten((0.60 + 0.05 * n, 0.55 + 0.04 * n, 0.42 + 0.03 * n)))
+            else:
+                colors.append(brighten((0.70 + 0.05 * n, 0.64 + 0.04 * n, 0.50 + 0.03 * n)))
     faces = []
     for j in range(rows):
         for i in range(cols):
@@ -366,11 +376,21 @@ def build_site_ground(material):
     return obj
 
 
+def set_water_uvs(obj, steps):
+    uv_layer = obj.data.uv_layers.active
+    for polygon in obj.data.polygons:
+        for loop_index in polygon.loop_indices:
+            vertex = obj.data.loops[loop_index].vertex_index
+            step = vertex // 2
+            side = vertex % 2
+            uv_layer.data[loop_index].uv = (step / steps * 40.0, side)
+
+
 def build_water(material):
     objects = []
     for name, axis, start, end, center_fn, width, level in (
-        ("Mosna", "y", -625.0, 625.0, mosna_center, 20.0, WATER_Z),
-        ("Wacheqsa", "x", -625.0, 204.0, wacheqsa_center, 16.0, WATER_Z + 0.02),
+        ("Mosna", "y", -625.0, 625.0, mosna_center, 14.0, WATER_Z),
+        ("Wacheqsa", "x", -625.0, 204.0, wacheqsa_center, 12.0, WATER_Z + 0.02),
     ):
         verts = []
         faces = []
@@ -390,6 +410,7 @@ def build_water(material):
                 a = (index - 1) * 2
                 faces.append((a, a + 1, a + 3, a + 2))
         obj = mesh_object(f"GEO-Chavin_River_{name}", verts, faces, material, smooth=False)
+        set_water_uvs(obj, steps)
         objects.append(obj)
     return objects
 
@@ -565,8 +586,16 @@ def add_vegetation(light, dark):
     attempts = 0
     while placed < 138 and attempts < 3000:
         attempts += 1
-        x = rng.uniform(-610.0, 610.0)
-        y = rng.uniform(-610.0, 610.0)
+        if rng.random() < 0.62:
+            if rng.random() < 0.55:
+                y = rng.uniform(-560.0, 560.0)
+                x = mosna_center(y) + rng.choice((-1.0, 1.0)) * rng.uniform(28.0, 78.0)
+            else:
+                x = rng.uniform(-560.0, 180.0)
+                y = wacheqsa_center(x) + rng.choice((-1.0, 1.0)) * rng.uniform(24.0, 64.0)
+        else:
+            x = rng.uniform(-610.0, 610.0)
+            y = rng.uniform(-610.0, 610.0)
         if abs(x) < SITE_HALF_X + 16.0 and abs(y) < SITE_HALF_Y + 16.0:
             continue
         z = terrain_height(x, y)
@@ -577,7 +606,7 @@ def add_vegetation(light, dark):
         slope = abs(terrain_height(x + 6.0, y) - z) + abs(terrain_height(x, y + 6.0) - z)
         if slope > 2.4:
             continue
-        size = rng.uniform(0.45, 1.35)
+        size = rng.uniform(0.7, 2.0)
         bpy.ops.mesh.primitive_ico_sphere_add(
             subdivisions=1, radius=1.0, location=(x, y, z + size * 0.55)
         )
@@ -608,7 +637,7 @@ def add_vegetation(light, dark):
             vertices=5,
             radius1=rng.uniform(0.18, 0.42),
             radius2=0.02,
-            depth=rng.uniform(0.45, 0.95),
+            depth=rng.uniform(0.6, 1.3),
             location=(x, y, z + 0.35),
         )
         obj = bpy.context.object
@@ -642,8 +671,8 @@ def main():
     remove_old_terrain()
     earth = material_earth()
     water = material_water()
-    light = material_vegetation("MAT-Chavin_Vegetation", (0.28, 0.42, 0.16))
-    dark = material_vegetation("MAT-Chavin_Vegetation_Dark", (0.18, 0.30, 0.11))
+    light = material_vegetation("MAT-Chavin_Vegetation", (0.30, 0.45, 0.17))
+    dark = material_vegetation("MAT-Chavin_Vegetation_Dark", (0.20, 0.32, 0.12))
     stone = bpy.data.materials.get("MAT-Chavin_Stone_Tiled")
     if stone is None:
         raise RuntimeError("Falta MAT-Chavin_Stone_Tiled")
@@ -663,7 +692,7 @@ def main():
     add_edge_boulders(stone)
     add_boulders(stone)
     add_vegetation(light, dark)
-    update_camera("CAM-Chavin_Hero", (500.0, 0.0, 337.5), (87.5, 0.0, -18.75), 45.0)
+    update_camera("CAM-Chavin_Hero", (400.0, 0.0, 275.0), (87.5, 0.0, -15.0), 45.0)
     update_camera("CAM-Chavin_Plan", (0.0, 0.0, 760.0), (0.0, 0.0, 0.0), 50.0)
     update_camera("CAM-Chavin_HP_Valley", (320.0, -320.0, 130.0), (10.0, 20.0, -2.0), 38.0)
     update_camera("CAM-Chavin_HP_Confluence", (390.0, 430.0, 145.0), (150.0, 250.0, -18.0), 42.0)

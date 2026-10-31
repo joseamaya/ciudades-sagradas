@@ -9,7 +9,7 @@ QA: [`qa-hardware.md`](./qa-hardware.md).
 | Ciudad | Disponibilidad | Madurez | Evidencia | QA | LOD0 / LOD1 | Draw calls | Paradas | Cumple | Brecha y siguiente acción |
 |---|---|---|---|---|---|---:|---|---|---|
 | **Caral** | `available` | `released` · v2 | Mixta | `waived` (P2 Android) | 230.800 / 56.332 | 44 / 31 | 6 | **Técnico/visual sí; QA con excepción** | Desktop integrado 1600×900 completo: LOD0/LOD1, flags, offline, standalone y 10 min. Faltan 1080p y móvil. Cerrar o mantener `CARAL-ANDROID-GROUND-001`. |
-| **Chavín** | `available` | `preview` · v0.3 | Mixta | `partial` | 249.830 / 42.951 | 19 / 16 | 6 | **Visual/técnico sí; QA móvil pendiente** | Desktop integrado 1600×900 LOD0/LOD1 OK a 60 fps; faltan 1080p y móvil. Decidir dintel/escalera; licencia CC BY-NC-SA. |
+| **Chavín** | `available` | `preview` · v0.3 | Mixta | `partial` | 249.942 / 42.842 | 19 / 16 | 6 | **Visual/técnico sí; QA móvil pendiente** | Desktop integrado 1600×900 LOD0/LOD1 OK a 60 fps; faltan 1080p y móvil. Decidir dintel/escalera; licencia CC BY-NC-SA. |
 | **Aypate** | `available` | `preview` · v0.4 | Mixta | `partial` | 209.560 / 30.663 | 17 / 15 | 6 | **Visual/técnico sí; QA pendiente** | Desktop integrado 1600×900 LOD0/LOD1 OK; faltan 1080p y móvil. Cotas finas y recintos periféricos. |
 | **Narihualá** | `available` | `preview` · v0.2 | Interpretativa | `partial` | 162.432 / 29.682 | 14 / 13 | 6 | **Parcial; interpretativo** | Desktop integrado 1600×900 LOD0/LOD1 OK; faltan 1080p y móvil. Plano arqueológico de sectores y cotas finas. |
 | **Chan Chan** | `research` | `research` | No aplica | No aplica | — | — | — | **No** | Producir como piloto solo-datos; ciudadelas y relieves. |
@@ -20,7 +20,7 @@ QA: [`qa-hardware.md`](./qa-hardware.md).
 | Ciudad | LOD0 tris / bytes | LOD1 tris / bytes | Texturas | Caché | Fuente |
 |---|---|---|---|---|---|
 | Caral | 230.800 / 3.277.080 B | 56.332 / 1.345.092 B | 2K/1K; 373/208 MB VRAM estimada | v36 | `npm run validate` + release v2 |
-| Chavín | 249.830 / 1.736.128 B | 42.951 / 744.652 B | 2K/1K | v37 | `npm run validate` + informe high-poly v0.7 |
+| Chavín | 249.942 / 1.741.708 B | 42.842 / 746.544 B | 2K/1K | v38 | `npm run validate` + informe high-poly v0.7 |
 | Aypate | 209.560 / 2.139.720 B | 30.663 / 443.372 B | 1K/1K; 160/80 MB | v36 | `npm run validate` + preview v0.4 |
 | Narihualá | 162.432 / 1.599.008 B | 29.682 / 441.800 B | 1K/1K; 96/48 MB | v36 | `npm run validate` + preview v0.2 |
 

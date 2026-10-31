@@ -31,7 +31,7 @@ for (const city of RESEARCH_CITIES) {
 
 test('navegación: atlas a Caral y regreso', async ({ page }) => {
   const errors = trackConsole(page);
-  await page.goto('/');
+  await page.goto('/?lod=1');
   await page.locator('a[href="#/ciudad/caral"]').click();
   await expect(page).toHaveURL(/#\/ciudad\/caral$/);
   await expect(page.locator('.city-heading h1')).toHaveText('Caral');

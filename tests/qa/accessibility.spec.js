@@ -4,7 +4,7 @@ import { expectNoConsoleErrors, hasWebgl, openCity, trackConsole, waitForViewer 
 test('ficha: semántica del panel y controles con estado', async ({ page }) => {
   test.skip(!(await hasWebgl(page)), 'WebGL no disponible en este navegador headless');
   const errors = trackConsole(page);
-  await openCity(page, 'caral', { lod: 0 });
+  await openCity(page, 'caral', { lod: 1 });
   await waitForViewer(page);
 
   const canvas = page.locator('#city-canvas');

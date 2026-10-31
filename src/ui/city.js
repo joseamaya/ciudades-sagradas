@@ -64,7 +64,16 @@ export function renderCity(root, city) {
 
   root.innerHTML = `
     <section class="city-view" style="--accent:${city.accent || '#d9a441'}">
-      <div id="city-canvas" class="city-canvas" aria-label="Reconstrucción 3D de ${city.name}"></div>
+      <div
+        id="city-canvas"
+        class="city-canvas"
+        role="img"
+        aria-label="Vista 3D de ${city.name}"
+        aria-describedby="city-canvas-help"
+      ></div>
+      <p id="city-canvas-help" class="sr-only">
+        Escena 3D de ${city.name}. El recorrido, las capas y la hora del día se controlan con los botones de la ficha.
+      </p>
 
       <header class="city-topbar">
         <a class="back-link" href="#/">← Atlas</a>
@@ -76,11 +85,20 @@ export function renderCity(root, city) {
         </div>
         <div class="city-tools">
           <button id="sound" class="tool" type="button" aria-pressed="false">Sonido <span class="tool__dot"></span></button>
-          <button id="info-toggle" class="tool tool--icon" type="button" aria-label="Abrir ficha">Ficha</button>
+          <button
+            id="info-toggle"
+            class="tool tool--icon"
+            type="button"
+            aria-label="Mostrar u ocultar la ficha"
+            aria-controls="city-panel"
+            aria-expanded="true"
+          >
+            Ficha
+          </button>
         </div>
       </header>
 
-      <aside id="city-panel" class="city-panel">
+      <aside id="city-panel" class="city-panel" aria-label="Ficha de la ciudad">
         <button id="panel-close" class="panel-close" type="button" aria-label="Cerrar ficha">×</button>
         <div class="panel-scroll">
           <p class="lede">${city.summary}</p>
@@ -93,7 +111,12 @@ export function renderCity(root, city) {
                 .map(
                   (stop, index) => `
                     <li>
-                      <button type="button" data-tour="${index}" class="${index === 0 ? 'is-active' : ''}">
+                      <button
+                        type="button"
+                        data-tour="${index}"
+                        class="${index === 0 ? 'is-active' : ''}"
+                        aria-current="${index === 0 ? 'true' : 'false'}"
+                      >
                         <span class="tour-list__index">${String(index + 1).padStart(2, '0')}</span>
                         <span class="tour-list__title">${stop.title}</span>
                         ${evidenceBadge(stop.evidence, true)}
@@ -128,10 +151,10 @@ export function renderCity(root, city) {
           <section>
             <h2>Luz</h2>
             <div class="time-list" role="group" aria-label="Hora del día">
-              <button type="button" data-time="morning" class="is-active">Amanecer</button>
-              <button type="button" data-time="noon">Mediodía</button>
-              <button type="button" data-time="dusk">Atardecer</button>
-              <button type="button" data-time="night">Noche</button>
+              <button type="button" data-time="morning" class="is-active" aria-pressed="true">Amanecer</button>
+              <button type="button" data-time="noon" aria-pressed="false">Mediodía</button>
+              <button type="button" data-time="dusk" aria-pressed="false">Atardecer</button>
+              <button type="button" data-time="night" aria-pressed="false">Noche</button>
             </div>
           </section>
 

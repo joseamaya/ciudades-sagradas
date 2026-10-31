@@ -273,9 +273,11 @@ export class CityViewer {
     this.camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.05, 500);
     this.camera.position.set(24, 17, -26);
 
+    this.reducedMotion =
+      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches === true;
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.target.set(2, 4, -5);
-    this.controls.enableDamping = true;
+    this.controls.enableDamping = !this.reducedMotion;
     this.controls.dampingFactor = 0.07;
     this.controls.screenSpacePanning = false;
     this.controls.minDistance = 5;
@@ -453,6 +455,10 @@ export class CityViewer {
 
   flyTo(data, duration = 1600) {
     if (!data) return;
+    if (this.reducedMotion) {
+      this.setCamera(data, true);
+      return;
+    }
     if (data.fov) {
       this.baseFov = data.fov;
       this._applyFov();

@@ -13,7 +13,7 @@ Fuente: `blender/aypate/aypate_highpoly_v0.4.blend`; los LOD se regeneran con `s
 - Seis paradas: Qhapaq Ñan, plaza, ushnu, kallanka, acllawasi y fuente ritual.
 - Capas: arquitectura inca, cerro y bosque de neblina, detalles y escala humana.
 - `scale: 0.08`, `minDistance: 0.1` y `maxDistance: 180`.
-- Caché global `v36`.
+- Caché global `v38`.
 
 ## Vistas
 

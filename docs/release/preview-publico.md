@@ -68,5 +68,5 @@ Protocolo: [`../estandares/qa-hardware.md`](../estandares/qa-hardware.md). Regis
 ## Rollback
 
 - El código y los datos son reversibles con `git revert` del commit de release.
-- No se modificaron GLB ni `public/sw.js`; la caché global sigue en `v36`.
+- Este release no modificó GLB ni `public/sw.js`; la caché global vigente es `v38`.
 - Caral conserva `model.glb` v1 como fallback y rollback.

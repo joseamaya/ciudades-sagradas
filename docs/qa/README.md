@@ -1,8 +1,9 @@
 # Registro de QA del atlas
 
-Actualizado: 30 de octubre de 2026.
+Actualizado: 31 de octubre de 2026.
 Protocolo: [`../estandares/qa-hardware.md`](../estandares/qa-hardware.md). Base de producción: `https://joseamaya.github.io/ciudades-sagradas/`.
 Revisión funcional automatizada: [`revision-playwright.md`](./revision-playwright.md).
+Auditoría de calidad desktop: [`auditoria-calidad-desktop-2026-10-31.md`](./auditoria-calidad-desktop-2026-10-31.md).
 
 Este registro guarda los informes reales de `?debug=1`. No se marca un resultado como aprobado sin dispositivo, navegador, GPU, LOD, viewport y JSON completo.
 
@@ -37,8 +38,9 @@ WebKit no está activo por defecto: en este host faltan dependencias del sistema
 |---|---|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|---|---|---|
 | 2026-10-30 | Caral | Desktop GPU integrada | Intel RPL-S (Mesa) | Chrome 139 / Linux | 0/1 | 1600×900 | 58–60 | 16,6–17,3 ms | 31–44 | 56.332–230.800 | 208–373,3 MB | Offline y standalone probados | 0 | **Desktop 1600×900 completo**; faltan 1080p y móvil | [`JSON`](./resultados/2026-10-30-caral-desktop-intel-lod0.json) |
 | 2026-10-31 | Chavín v0.7 | Desktop GPU integrada | Intel RPL-S (Mesa) | Chrome 139 / Linux | 0/1 | 1600×900 | 60,0 | 16,7 ms | 19/16 | 42.842–249.942 | 72,0–136,0 MB | No probado en esta pasada | 0 | **Desktop 1600×900 v0.7 completo**; móvil/1080p pendientes | [`JSON`](./resultados/chavin-v07-desktop-2026-10-31/desktop.json) |
+| 2026-10-31 | Atlas | Calidad desktop | Intel RPL-S (Mesa) | Chromium + Firefox / Linux | — | 1600×900 y 1920×1080 emulado | — | — | — | — | — | — | 0 | **Auditoría desktop completa**; móvil/kiosco/1080p real pendientes | [`Informe`](./auditoria-calidad-desktop-2026-10-31.md) |
 
-Lectura: el equipo es una GPU integrada Intel, no dedicada. A 1600×900 las cuatro ciudades sostienen ~58–60 fps en LOD0/LOD1. Caral pasó flags, offline, standalone y 10 minutos con heap estable. Chavín v0.7 se repitió tras el pase de valle y la revisión visual: 59,8/60,0 fps, 19/16 calls y 0 errores. No certifica 1080p ni móvil. Detalle: [`resultados/desktop-2026-10-30/`](./resultados/desktop-2026-10-30/) y [`resultados/chavin-v07-desktop-2026-10-31/`](./resultados/chavin-v07-desktop-2026-10-31/).
+Lectura: el equipo es una GPU integrada Intel, no dedicada. A 1600×900 las cuatro ciudades sostienen ~58–60 fps en LOD0/LOD1. Caral pasó flags, offline, standalone y 10 minutos con heap estable. Chavín v0.7 se repitió tras el pase de valle y la revisión visual: 59,8/60,0 fps, 19/16 calls y 0 errores. No certifica 1080p ni móvil. La auditoría desktop añade regresión Chromium/Firefox, accesibilidad, movimiento reducido y fallo recuperable de GLB; 1080p es emulación, no hardware. Detalle: [`resultados/desktop-2026-10-30/`](./resultados/desktop-2026-10-30/) y [`resultados/chavin-v07-desktop-2026-10-31/`](./resultados/chavin-v07-desktop-2026-10-31/).
 
 ## Matriz pendiente
 

@@ -60,4 +60,4 @@ GPU, métricas y evidencia.
 - La parada 3 del Lanzón recorta la cresta por el ancho de la galería; el relieve se
   lee con la luz de relleno.
 - La aprobación Android no cubre la v0.4: hay que repetir al menos la parada 5 y el
-  recorrido completo con la caché `v36`.
+  recorrido completo con la caché `v38`.

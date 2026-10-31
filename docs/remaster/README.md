@@ -1,6 +1,6 @@
 # Remasterizaciones
 
-El estándar de calidad es [`../estandares/ciudad.md`](../estandares/ciudad.md). Toda ciudad publicada debe cumplirlo; la auditoría está en [`../estandares/auditoria-ciudades.md`](../estandares/auditoria-ciudades.md). La caché vigente es la global `ciudades-sagradas-v36`; las menciones a `v7`, `v22`, `v27` o `v34` en documentos de release son históricas.
+El estándar de calidad es [`../estandares/ciudad.md`](../estandares/ciudad.md). Toda ciudad publicada debe cumplirlo; la auditoría está en [`../estandares/auditoria-ciudades.md`](../estandares/auditoria-ciudades.md). La caché vigente es la global `ciudades-sagradas-v38`; las menciones a `v7`, `v22`, `v27` o `v34` en documentos de release son históricas.
 
 - [Caral](./caral/README.md): remaster v2 desplegado y contenido cerrado como ciudad representativa; LOD0/LOD1 con Draco y fallback v1. Es la plantilla técnica del proyecto. Incidencia Android P2 documentada.
 - Chavín de Huántar: preview web v0.3 con pase de valle v0.7; LOD0 de 249.942 tris y LOD1 de 42.842 tris medidos por accessors; Mosna ~30 m abajo, Wacheqsa al norte, Lanzón derivado del escaneo CyArk (CC BY-NC-SA 4.0) y Portada con fustes acanalados. Dintel, escalera completa y QA móvil/1080p pendientes.

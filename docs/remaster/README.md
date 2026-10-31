@@ -7,4 +7,4 @@ El estándar de calidad es [`../estandares/ciudad.md`](../estandares/ciudad.md).
 - [Aypate](./aypate/README.md): preview web v0.4 con high-poly navegable; LOD0 de 209.560 tris y LOD1 de 30.663 tris. Núcleo inca, Qhapaq Ñan y bosque de neblina, con layout macro y escala contrastados con el plano de 2013. Cierre de cotas de conjunto en `aypate/cotas.md`; QA de hardware y cotas finas pendientes.
 - [Narihualá](./narihuala/README.md): preview web v0.2 interpretativo; LOD0 de 162.432 tris y LOD1 de 29.682 tris. Montículo este y capilla desde SIGRID 2018; montículo oeste, plaza y accesos inferidos; rampas documentadas no modeladas. Capilla en capa `later`; cotas finas pendientes.
 - [Chan Chan](./chan-chan/README.md): piloto solo-datos; ficha documental ampliada, sin modelo 3D ni QA de hardware.
-- Wari: siguiente ficha solo-datos, sin modelo.
+- [Wari](./wari/README.md): piloto solo-datos; ficha documental ampliada, sin modelo 3D ni QA de hardware.

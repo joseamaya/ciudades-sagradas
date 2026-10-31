@@ -29,3 +29,5 @@ blender/narihuala/narihuala_lod1.blend
 playwright-report/
 test-results/
 qa-output/
+
+.playwright-mcp/

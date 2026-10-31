@@ -2,7 +2,7 @@
 
 Versión: **1.1**, 30 de octubre de 2026.
 Ámbito: **todas las ciudades del atlas**, desde su publicación como `available` y durante cualquier preview público.
-Referencia visual: **Chavín de Huántar high-poly v0.6**. Referencia técnica y de cierre: **Caral Remaster v2**.
+Referencia visual: **Chavín de Huántar high-poly v0.7**. Referencia técnica y de cierre: **Caral Remaster v2**.
 
 ## 1. Principio
 
@@ -138,5 +138,5 @@ La ciudad nueva debe entrar principalmente por datos y assets. Si obliga a añad
 - [Plantilla técnica de Caral](../remaster/caral/plantilla.md)
 - [Auditoría de ciudades](./auditoria-ciudades.md)
 - [QA de hardware](./qa-hardware.md)
-- [Chavín v0.6](../remaster/chavin/highpoly-v0.6.md)
+- [Chavín v0.7](../remaster/chavin/highpoly-v0.7.md)
 - [Caral v2](../remaster/caral/release-v2.md)

@@ -44,6 +44,7 @@ MATERIAL_FALLBACK = {
     "MAT-Chavin_Plaster": ((0.62, 0.57, 0.48, 1.0), 0.78),
     "MAT-Chavin_Water": ((0.06, 0.18, 0.24, 1.0), 0.30),
     "MAT-Chavin_Vegetation": ((0.14, 0.23, 0.10, 1.0), 0.88),
+    "MAT-Chavin_Vegetation_Dark": ((0.10, 0.18, 0.075, 1.0), 0.90),
     "MAT-Chavin_Lanzon": ((0.50, 0.46, 0.38, 1.0), 0.80),
     "MAT-Chavin_GalleryDark": ((0.008, 0.010, 0.008, 1.0), 0.92),
     "MAT-Chavin_Lanzon_Shadow": ((0.060, 0.052, 0.045, 1.0), 0.90),
@@ -97,16 +98,16 @@ def apply_earth_texture():
     if earth is None or not earth.use_nodes:
         return
     paths = {
-        "diffuse": root + "chavin_terrain_v1_diffuse.jpg",
-        "roughness": root + "chavin_terrain_v1_roughness.jpg",
-        "normal": root + "chavin_terrain_v1_normal.png",
+        "diffuse": root + "chavin_terrain_v2_diffuse.jpg",
+        "roughness": root + "chavin_terrain_v2_roughness.jpg",
+        "normal": root + "chavin_terrain_v2_normal.png",
     }
     images = {}
     for key, path in paths.items():
-        image = bpy.data.images.get("chavin_terrain_v1_" + key)
+        image = bpy.data.images.get("chavin_terrain_v2_" + key)
         if image is None:
             image = bpy.data.images.load(path, check_existing=True)
-            image.name = "chavin_terrain_v1_" + key
+            image.name = "chavin_terrain_v2_" + key
         if key != "diffuse":
             image.colorspace_settings.name = "Non-Color"
         if image.packed_file is None:
@@ -124,6 +125,16 @@ def apply_earth_texture():
     diffuse.name = "TerrainDiffuse"
     diffuse.image = images["diffuse"]
     diffuse.location = (-620, 240)
+    vertex = nodes.new("ShaderNodeVertexColor")
+    vertex.name = "TerrainVertexColor"
+    vertex.layer_name = "Col"
+    vertex.location = (-620, 470)
+    mix = nodes.new("ShaderNodeMixRGB")
+    mix.blend_type = "MULTIPLY"
+    mix.inputs["Fac"].default_value = 1.0
+    mix.location = (-300, 300)
+    links.new(diffuse.outputs["Color"], mix.inputs[1])
+    links.new(vertex.outputs["Color"], mix.inputs[2])
     roughness = nodes.new("ShaderNodeTexImage")
     roughness.name = "TerrainRoughness"
     roughness.image = images["roughness"]
@@ -136,11 +147,11 @@ def apply_earth_texture():
     normal_map.name = "TerrainNormalMap"
     normal_map.location = (-300, -240)
     normal_map.inputs["Strength"].default_value = 0.8
-    links.new(diffuse.outputs["Color"], bsdf.inputs["Base Color"])
+    links.new(mix.outputs["Color"], bsdf.inputs["Base Color"])
     links.new(roughness.outputs["Color"], bsdf.inputs["Roughness"])
     links.new(normal.outputs["Color"], normal_map.inputs["Color"])
     links.new(normal_map.outputs["Normal"], bsdf.inputs["Normal"])
-    earth["chavin:source"] = "scripts/make_chavin_terrain_materials.py"
+    earth["chavin:source"] = "scripts/make_chavin_terrain_materials_v2.py"
 
 
 def scale_earth_uvs(obj, scale):
@@ -218,7 +229,7 @@ def merge_layer(objects, layer, collection, lod):
     joined["layer"] = layer
     joined["lod"] = int(lod)
     joined["units"] = "meters"
-    joined["source"] = "chavin_highpoly_v0.6"
+    joined["source"] = "chavin_highpoly_v0.7"
     joined["evidence"] = "documentado + inferido"
     joined.hide_set(False)
     joined.hide_render = False

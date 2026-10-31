@@ -36,8 +36,9 @@ WebKit no está activo por defecto: en este host faltan dependencias del sistema
 | Fecha | Ciudad | Escenario | Dispositivo / GPU | Navegador | LOD | Viewport | FPS | Frame | Calls | Tris | Texturas | Carga | PWA / offline | Issues | Estado | JSON |
 |---|---|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|---|---|---|
 | 2026-10-30 | Caral | Desktop GPU integrada | Intel RPL-S (Mesa) | Chrome 139 / Linux | 0/1 | 1600×900 | 58–60 | 16,6–17,3 ms | 31–44 | 56.332–230.800 | 208–373,3 MB | Offline y standalone probados | 0 | **Desktop 1600×900 completo**; faltan 1080p y móvil | [`JSON`](./resultados/2026-10-30-caral-desktop-intel-lod0.json) |
+| 2026-10-31 | Chavín v0.7 | Desktop GPU integrada | Intel RPL-S (Mesa) | Chrome 139 / Linux | 0/1 | 1600×900 | 60,0 | 16,7 ms | 19/16 | 42.950–249.830 | 70,7–134,7 MB | No probado en esta pasada | 0 | **Desktop 1600×900 v0.7 completo**; móvil/1080p pendientes | [`JSON`](./resultados/chavin-v07-desktop-2026-10-31/desktop.json) |
 
-Lectura: el equipo es una GPU integrada Intel, no dedicada. A 1600×900 las cuatro ciudades sostienen ~58–60 fps en LOD0/LOD1. Caral pasó flags, offline, standalone y 10 minutos con heap estable. No certifica 1080p ni móvil. Detalle: [`resultados/desktop-2026-10-30/`](./resultados/desktop-2026-10-30/).
+Lectura: el equipo es una GPU integrada Intel, no dedicada. A 1600×900 las cuatro ciudades sostienen ~58–60 fps en LOD0/LOD1. Caral pasó flags, offline, standalone y 10 minutos con heap estable. Chavín v0.7 se repitió tras el pase de valle: 60,0/60,0 fps, 19/16 calls y 0 errores. No certifica 1080p ni móvil. Detalle: [`resultados/desktop-2026-10-30/`](./resultados/desktop-2026-10-30/) y [`resultados/chavin-v07-desktop-2026-10-31/`](./resultados/chavin-v07-desktop-2026-10-31/).
 
 ## Matriz pendiente
 
@@ -53,8 +54,8 @@ Lectura: el equipo es una GPU integrada Intel, no dedicada. A 1600×900 las cuat
 | Caral standalone/app | Abrir en modo app | Hecho | [`JSON`](./resultados/desktop-2026-10-30/caral-standalone-lod0.json) |
 | Caral offline | Cargar online, esperar caché, modo avión y recargar | Hecho | [`JSON`](./resultados/desktop-2026-10-30/caral-offline-lod0.json) |
 | Caral 10 minutos | Escena quieta con órbitas suaves; informe final | Hecho | [`JSON`](./resultados/desktop-2026-10-30/caral-long-session-lod0.json) |
-| Chavín LOD0 | `?debug=1&lod=0#/ciudad/chavin` | Hecho | [`JSON`](./resultados/desktop-2026-10-30/chavin-lod0.json) |
-| Chavín LOD1 | `?debug=1&lod=1#/ciudad/chavin` | Hecho | [`JSON`](./resultados/desktop-2026-10-30/chavin-lod1.json) |
+| Chavín LOD0 v0.7 | `?debug=1&lod=0#/ciudad/chavin` | Hecho | [`JSON`](./resultados/chavin-v07-desktop-2026-10-31/desktop.json) |
+| Chavín LOD1 v0.7 | `?debug=1&lod=1#/ciudad/chavin` | Hecho | [`JSON`](./resultados/chavin-v07-desktop-2026-10-31/desktop.json) |
 | Aypate LOD0 | `?debug=1&lod=0#/ciudad/aypate` | Hecho | [`JSON`](./resultados/desktop-2026-10-30/aypate-lod0.json) |
 | Aypate LOD1 | `?debug=1&lod=1#/ciudad/aypate` | Hecho | [`JSON`](./resultados/desktop-2026-10-30/aypate-lod1.json) |
 | Narihualá LOD0 | `?debug=1&lod=0#/ciudad/narihuala` | Hecho | [`JSON`](./resultados/desktop-2026-10-30/narihuala-lod0.json) |

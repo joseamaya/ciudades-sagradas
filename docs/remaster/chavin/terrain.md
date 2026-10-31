@@ -1,19 +1,19 @@
 # Chavín — decisión de terreno
 
-Fecha: 27 de octubre de 2026.
-Estado: **terreno procedural aceptado para blockout y look-dev; DEM diferido a la fase de detalle**.
-Escena base: `blender/chavin/chavin_blockout_v0.5.blend`; look-dev: `blender/chavin/chavin_lookdev_v0.2.blend`.
+Fecha: 31 de octubre de 2026.
+Estado: **valle procedural v0.7 aceptado para preview; DEM sigue diferido**.
+Escena base: `blender/chavin/chavin_highpoly_v0.7.blend`.
 
 ## Decisión
 
-Para el blockout, el look-dev v0.2 y el texturizado UV v0.2 se mantiene el terreno procedural de v0.2. No se incorpora un DEM todavía.
+Se mantiene un terreno procedural, ahora con un valle encajado y los ríos corregidos. No se incorpora un DEM.
 
 Motivos:
 
 - No hay DEM descargado ni pipeline geodata instalado (`gdal`, `rasterio` y `pyproj` no están disponibles).
-- Un DEM público de 30 m sirve para valle y montañas, no para la explanada arqueológica ni para las galerías.
-- El terreno actual ya permite leer el conjunto y no bloquea galería, Lanzón ni materiales.
-- Meter un DEM ahora añadiría licencia, descarga, reproyección, alineación y tiempo antes de resolver el núcleo hero.
+- Un DEM público de 30 m sirve para montañas y valle, no para la explanada arqueológica.
+- La corrección principal era de lectura: el Mosna debe correr ~30 m por debajo del sitio y el Wacheqsa debe estar al norte, no al sur.
+- El terreno actual permite leer el conjunto, el desnivel y la confluencia sin añadir dependencias ni licencias nuevas.
 
 ## Qué es documentado y qué es inferido
 
@@ -21,28 +21,32 @@ Motivos:
 
 - Huella del sitio y puntos del plano PE-330.
 - Posición relativa de Edificios A/B, Plaza Circular, Plataforma Norte y Plaza Cuadrada.
-- Presencia de los ríos Mosna y Huachecsa en el valle.
+- Presencia y posición relativa de los ríos Mosna y Huachecsa.
+- El Mosna corre unos **30 m por debajo** del Edificio A (Plan de Manejo 2020).
 
 **Inferido/procedural:**
 
-- Talud perimetral de 40 m y tapa de 0,3 m.
-- Bancos de río, laderas y Cerro Cochas.
-- Rampa norte de 60 m y aterrizaje en la terraza 2.
-- Pendientes, alturas y espesores del terreno.
+- Trazado fino, meandros, anchos y pendientes de los cauces.
+- Bancos, terrazas aluviales, laderas, crestas y plano lejano.
+- Alturas y pendientes del terreno.
+- Cobertura vegetal y materiales.
 
 Nada de esto se presenta como topografía levantada.
 
-## Estado geométrico
+## Estado geométrico v0.7
 
-- Explanada: huella PE-330 de **295,9 × 313,7 m**.
-- Talud: baja de `z=0` a `z=-2,8` en 40 m.
-- Rampa norte: sube de `z≈0,1` a `z≈3,0` y aterriza en la terraza 2.
-- Cerro Cochas: volumen de fondo; sombra desactivada solo para legibilidad del blockout.
-- Ríos: bancos y cauce esquemáticos, sin hidrología simulada.
+- Dominio: **1300 × 1300 m**, malla de 96 × 96.
+- Explanada: huella PE-330 de **295,9 × 313,7 m**, conservada.
+- Mosna: al este, agua a **-26,45 m**; superficie del sitio en `z=0` y arquitectura desde `z=3`.
+- Wacheqsa: al norte/noroeste, confluencia al noreste.
+- Crestas: seis masas inferidas entre ~900 y ~1450 m del centro.
+- Plano lejano: anillo a `z=-25,5` para cerrar el horizonte bajo niebla.
+- Vegetación: 138 arbustos y 190 matas; sin árboles inventados.
+- Sin DEM; el terreno no reemplaza la huella PE-330 ni las plataformas.
 
 ## Si se incorpora un DEM
 
-La opción preferida sería **híbrida**:
+La opción preferida seguiría siendo **híbrida**:
 
 1. DEM de 30 m (Copernicus GLO-30 o ALOS AW3D30) solo para valle y montañas.
 2. Explanada, terrazas y núcleo arqueológico modelados aparte.
@@ -50,10 +54,12 @@ La opción preferida sería **híbrida**:
 4. Documentar fuente, licencia, resolución, fecha de descarga y transformación.
 5. Evaluar el resultado antes de materiales finales.
 
-Criterio para cambiar: que el valle procedural no sostenga el encuadre hero o que el cliente pida contexto topográfico verificable. No se cambia por defecto en el look-dev.
+Criterio para cambiar: que el valle procedural no sostenga el encuadre hero o que el cliente pida contexto topográfico verificable. No se cambia por defecto en el preview.
 
 ## Límites
 
 - No hay curvas de nivel locales ni levantamiento propio.
+- Los ríos y las crestas son una lectura de escala y posición, no hidrología ni topografía.
 - El terreno no debe citarse como reconstrucción topográfica.
-- La decisión DEM queda abierta para la fase de detalle; no bloquea el texturizado UV v0.2. Si se incorpora, debe documentarse con fuente, licencia, resolución y transformación, y no reemplaza la huella PE-330 ni las plataformas.
+- La explanada sigue siendo una base de blockout; no se inventaron muros perimetrales ni terrazas agrícolas.
+- Cualquier DEM futuro debe documentarse con fuente, licencia, resolución y transformación.

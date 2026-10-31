@@ -8,8 +8,8 @@ Atlas interactivo de los grandes centros ceremoniales y ciudades del Perú antig
 |---|---|---|---|---|---|
 | Caral | Civilización Caral · 3000–1800 a. C. | `available` | `released` · v2 | Mixta | Excepción P2 aceptada |
 | Chavín de Huántar | Chavín · 1500–550 a. C. | `available` | `preview` · v0.2 | Mixta | Parcial |
-| Aypate | Inca · Qhapaq Ñan · siglo XV | `available` | `preview` · v0.4 | Mixta | Pendiente |
-| Narihualá | Tallán · Chimú · Inca | `available` | `preview` · v0.2 | Interpretativa | Pendiente |
+| Aypate | Inca · Qhapaq Ñan · siglo XV | `available` | `preview` · v0.4 | Mixta | Parcial |
+| Narihualá | Tallán · Chimú · Inca | `available` | `preview` · v0.2 | Interpretativa | Parcial |
 | Chan Chan | Chimú · siglos IX–XV | `research` | `research` | Ficha documental | No aplica |
 | Wari | Wari · 600–1100 d. C. | `research` | `research` | Ficha documental | No aplica |
 
@@ -100,8 +100,8 @@ Más detalles en [`docs/kiosco.md`](./docs/kiosco.md).
 
 - **Caral:** remaster v2 cerrado como ciudad representativa; LOD0/LOD1 con Draco y fallback v1. Queda una incidencia Android P2 de suelo y QA de hardware pendiente.
 - **Chavín de Huántar:** preview web con pase high-poly v0.6, Lanzón derivado de CyArk (CC BY-NC-SA 4.0) y Portada de las Falcónidas. No es una reconstrucción final.
-- **Aypate:** preview v0.4 con layout y escala contrastados con el plano de 2013. No se reabren dimensiones; quedan cotas finas y QA.
-- **Narihualá:** preview interpretativo v0.2. Montículo este y capilla desde SIGRID 2018; oeste, plaza y accesos inferidos. No es un plano arqueológico.
+- **Aypate:** preview v0.4 con layout y escala contrastados con el plano de 2013. No se reabren dimensiones; quedan cotas finas y QA móvil/1080p.
+- **Narihualá:** preview interpretativo v0.2. Montículo este y capilla desde SIGRID 2018; oeste, plaza y accesos inferidos. No es un plano arqueológico; quedan plano de sectores y QA móvil/1080p.
 - **Chan Chan y Wari:** fichas documentales; sin modelo 3D publicado.
 
 Los dossieres de fuentes están en [`docs/fuentes/`](./docs/fuentes/). El estado detallado, el setup y el pipeline Blender están en [`docs/estado.md`](./docs/estado.md), [`docs/setup.md`](./docs/setup.md) y [`docs/pipeline-blender.md`](./docs/pipeline-blender.md).

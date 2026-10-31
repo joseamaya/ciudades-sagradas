@@ -43,4 +43,4 @@ Narihualá es el principal conjunto monumental de adobe de la cultura Tallán, e
 - No hay plano arqueológico de sectores; la numeración I–III no se asigna.
 - No se reconstruyen techos, alturas originales ni recintos interiores.
 - La capilla va en `later`, apagada por defecto.
-- No hay QA en hardware real.
+- Desktop integrado 1600×900: LOD0/LOD1 OK. Quedan QA móvil/1080p y el plano arqueológico de sectores.

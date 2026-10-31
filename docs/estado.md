@@ -23,8 +23,8 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 |---|---|---|---|---|
 | Caral | `available` | `released` · v2 | Mixta | `waived` (P2 Android) |
 | Chavín | `available` | `preview` · v0.2 | Mixta | `partial` |
-| Aypate | `available` | `preview` · v0.4 | Mixta | `pending` |
-| Narihualá | `available` | `preview` · v0.2 | Interpretativa | `pending` |
+| Aypate | `available` | `preview` · v0.4 | Mixta | `partial` |
+| Narihualá | `available` | `preview` · v0.2 | Interpretativa | `partial` |
 | Chan Chan | `research` | `research` | No aplica | No aplica |
 | Wari | `research` | `research` | No aplica | No aplica |
 
@@ -34,8 +34,8 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - OpenCode configurado con MCP de Blender y skills MIT en `.agents/skills/`.
 - **Caral Remaster v2** es la referencia técnica. Contenido cerrado como ciudad representativa: volúmenes y sectores principales, high-poly en Pirámide Mayor, Plaza Mayor, Anfiteatro y Altar Circular. No es un inventario 1:1 de los 32 edificios públicos.
 - **Chavín** tiene preview web con pase high-poly v0.6: LOD0 de 249.990 tris y LOD1 de 27.622 tris medidos por accessors; 18/14 draw calls; seis paradas; Lanzón derivado del escaneo CyArk/Google Arts & Culture (CC BY-NC-SA 4.0); Portada con fustes acanalados interpretativos. El blockout v0.5, el texturizado UV v0.2 y la Portada v0.2 quedan como base de revisión.
-- **Aypate** tiene preview web v0.4: LOD0 de 209.560 tris y LOD1 de 30.663 tris; 17/15 draw calls; seis paradas; layout macro y escala contrastados con el plano de 2013. Cierre de cotas de conjunto documentado; cotas finas y QA pendientes.
-- **Narihualá** tiene preview interpretativo v0.2: LOD0 de 162.432 tris y LOD1 de 29.682 tris; 14/13 draw calls; seis paradas. Montículo este y capilla desde SIGRID 2018; montículo oeste, plaza y accesos inferidos; rampas documentadas no modeladas. No se asigna la sectorización I–III.
+- **Aypate** tiene preview web v0.4: LOD0 de 209.560 tris y LOD1 de 30.663 tris; 17/15 draw calls; seis paradas; layout macro y escala contrastados con el plano de 2013. Cierre de cotas de conjunto documentado; cotas finas pendientes. Desktop integrado 1600×900 con LOD0/LOD1 a ~58–60 fps; QA móvil/1080p pendiente.
+- **Narihualá** tiene preview interpretativo v0.2: LOD0 de 162.432 tris y LOD1 de 29.682 tris; 14/13 draw calls; seis paradas. Montículo este y capilla desde SIGRID 2018; montículo oeste, plaza y accesos inferidos; rampas documentadas no modeladas. No se asigna la sectorización I–III. Desktop integrado 1600×900 con LOD0/LOD1 a ~58–60 fps; QA móvil/1080p y plano de sectores pendientes.
 - LOD0/LOD1 con Draco, override `?lod=0/1` y fallback por dispositivo. Caral conserva el fallback v1.
 - Ciclo de sombras estático: la shadow map se actualiza al cargar, cambiar hora o capas, no en cada frame.
 - Materiales: culling en superficies sólidas; doble cara genérica para vegetación, textiles, fuego y agua; agua sin `KHR_materials_transmission`.
@@ -67,7 +67,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - Caral: LOD1 usa atlas 1K; ~208 MB de VRAM estimada. LOD0 ~373 MB. El detalle de Caral está más abajo.
 - Chavín, Aypate y Narihualá usan 2K/1K según sus informes; no se declara una cifra de VRAM si no está medida.
 - Última ejecución de `npm run bench` (30 de octubre de 2026): Caral 44/31, Chavín 18/14, Aypate 17/15 y Narihualá 14/13 draw calls; sin errores de consola en cargas normales. Los únicos warnings son los fallos deliberados al bloquear LOD0 para probar el fallback. Siguen siendo datos de SwiftShader, no FPS de hardware real.
-- QA de hardware: Caral LOD0 en Intel RPL-S (Chrome 139/Linux, 1600×900) dio 60 fps / 16,67 ms, 44 draw calls y 957 ms de carga. Es un pass parcial de escritorio; faltan 1080p, LOD1, PWA/offline, 10 min y móvil. Registro en `docs/qa/`.
+- QA de hardware: desktop Intel RPL-S (Chrome 139/Linux, 1600×900) completado para Caral, Chavín, Aypate y Narihualá en LOD0/LOD1, a ~58–60 fps. Caral pasó flags, offline, standalone y sesión de 10 min con heap estable. Faltan 1080p real, Android/iPhone y kiosco. Registro en `docs/qa/resultados/desktop-2026-10-30/`.
 
 ## Caral v2 — detalle
 
@@ -90,7 +90,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 
 ## Pendiente
 
-1. **QA de hardware real:** Caral (Android, iPhone/Safari, GPU integrada y dedicada), Chavín v0.6, Aypate y Narihualá. Ver [`qa-hardware.md`](./estandares/qa-hardware.md).
+1. **QA de hardware real:** desktop integrado 1600×900 completado para las cuatro ciudades; faltan 1080p, Android/iPhone, GPU dedicada y kiosco. Ver [`qa-hardware.md`](./estandares/qa-hardware.md) y [`qa/README.md`](./qa/README.md).
 2. **Caral Android P2:** `CARAL-ANDROID-GROUND-001`; falta aislar con `?noground=1`/`?noshadows=1` y datos del dispositivo. No bloquea el resto del atlas.
 3. **Chavín:** decidir dintel/escalera, revisar la licencia CC BY-NC-SA 4.0 del Lanzón antes de uso comercial y repetir QA v0.6.
 4. **Aypate:** cotas finas y recintos periféricos; no reabrir el layout de la v0.4.

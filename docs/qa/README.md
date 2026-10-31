@@ -35,9 +35,9 @@ WebKit no está activo por defecto: en este host faltan dependencias del sistema
 
 | Fecha | Ciudad | Escenario | Dispositivo / GPU | Navegador | LOD | Viewport | FPS | Frame | Calls | Tris | Texturas | Carga | PWA / offline | Issues | Estado | JSON |
 |---|---|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|---|---|---|
-| 2026-10-30 | Caral | Desktop GPU integrada | Intel RPL-S (Mesa) | Chrome 139 / Linux | 0 | 1600×900 | 60 | 16,67 ms | 44 | 230.800 | 373,3 MB | Navegador, SW activo, online | 0 | **Pass parcial 1600×900**; faltan 1080p, LOD1, offline, 10 min y móvil | [`JSON`](./resultados/2026-10-30-caral-desktop-intel-lod0.json) |
+| 2026-10-30 | Caral | Desktop GPU integrada | Intel RPL-S (Mesa) | Chrome 139 / Linux | 0/1 | 1600×900 | 58–60 | 16,6–17,3 ms | 31–44 | 56.332–230.800 | 208–373,3 MB | Offline y standalone probados | 0 | **Desktop 1600×900 completo**; faltan 1080p y móvil | [`JSON`](./resultados/2026-10-30-caral-desktop-intel-lod0.json) |
 
-Lectura: el equipo es una GPU integrada Intel, no dedicada. A 1600×900 Caral LOD0 sostiene 60 fps con 44 draw calls y carga subjetivamente rápida (957 ms). No certifica 1080p ni móvil.
+Lectura: el equipo es una GPU integrada Intel, no dedicada. A 1600×900 las cuatro ciudades sostienen ~58–60 fps en LOD0/LOD1. Caral pasó flags, offline, standalone y 10 minutos con heap estable. No certifica 1080p ni móvil. Detalle: [`resultados/desktop-2026-10-30/`](./resultados/desktop-2026-10-30/).
 
 ## Matriz pendiente
 
@@ -45,20 +45,20 @@ Lectura: el equipo es una GPU integrada Intel, no dedicada. A 1600×900 Caral LO
 
 | Escenario | URL | Estado | JSON |
 |---|---|---|---|
-| Caral LOD0 | `?debug=1&lod=0#/ciudad/caral` | Hecho | [`2026-10-30...`](./resultados/2026-10-30-caral-desktop-intel-lod0.json) |
-| Caral LOD1 | `?debug=1&lod=1#/ciudad/caral` | Pendiente | — |
-| Caral sin suelo | `?debug=1&lod=0&noground=1#/ciudad/caral` | Pendiente | — |
-| Caral sin sombras | `?debug=1&lod=0&noshadows=1#/ciudad/caral` | Pendiente | — |
-| Caral sin suelo ni sombras | `?debug=1&lod=0&noground=1&noshadows=1#/ciudad/caral` | Pendiente | — |
-| Caral PWA instalada | Instalar y abrir `?debug=1&lod=0#/ciudad/caral` | Pendiente | — |
-| Caral offline | Cargar online, esperar caché, modo avión y recargar | Pendiente | — |
-| Caral 10 minutos | Escena quieta con órbitas suaves; informe final | Pendiente | — |
-| Chavín LOD0 | `?debug=1&lod=0#/ciudad/chavin` | Pendiente | — |
-| Chavín LOD1 | `?debug=1&lod=1#/ciudad/chavin` | Pendiente | — |
-| Aypate LOD0 | `?debug=1&lod=0#/ciudad/aypate` | Pendiente | — |
-| Aypate LOD1 | `?debug=1&lod=1#/ciudad/aypate` | Pendiente | — |
-| Narihualá LOD0 | `?debug=1&lod=0#/ciudad/narihuala` | Pendiente | — |
-| Narihualá LOD1 | `?debug=1&lod=1#/ciudad/narihuala` | Pendiente | — |
+| Caral LOD0 | `?debug=1&lod=0#/ciudad/caral` | Hecho | [`JSON`](./resultados/desktop-2026-10-30/caral-lod0.json) |
+| Caral LOD1 | `?debug=1&lod=1#/ciudad/caral` | Hecho | [`JSON`](./resultados/desktop-2026-10-30/caral-lod1.json) |
+| Caral sin suelo | `?debug=1&lod=0&noground=1#/ciudad/caral` | Hecho | [`JSON`](./resultados/desktop-2026-10-30/caral-flags-noground.json) |
+| Caral sin sombras | `?debug=1&lod=0&noshadows=1#/ciudad/caral` | Hecho | [`JSON`](./resultados/desktop-2026-10-30/caral-flags-noshadows.json) |
+| Caral sin suelo ni sombras | `?debug=1&lod=0&noground=1&noshadows=1#/ciudad/caral` | Hecho | [`JSON`](./resultados/desktop-2026-10-30/caral-flags-noground-noshadows.json) |
+| Caral standalone/app | Abrir en modo app | Hecho | [`JSON`](./resultados/desktop-2026-10-30/caral-standalone-lod0.json) |
+| Caral offline | Cargar online, esperar caché, modo avión y recargar | Hecho | [`JSON`](./resultados/desktop-2026-10-30/caral-offline-lod0.json) |
+| Caral 10 minutos | Escena quieta con órbitas suaves; informe final | Hecho | [`JSON`](./resultados/desktop-2026-10-30/caral-long-session-lod0.json) |
+| Chavín LOD0 | `?debug=1&lod=0#/ciudad/chavin` | Hecho | [`JSON`](./resultados/desktop-2026-10-30/chavin-lod0.json) |
+| Chavín LOD1 | `?debug=1&lod=1#/ciudad/chavin` | Hecho | [`JSON`](./resultados/desktop-2026-10-30/chavin-lod1.json) |
+| Aypate LOD0 | `?debug=1&lod=0#/ciudad/aypate` | Hecho | [`JSON`](./resultados/desktop-2026-10-30/aypate-lod0.json) |
+| Aypate LOD1 | `?debug=1&lod=1#/ciudad/aypate` | Hecho | [`JSON`](./resultados/desktop-2026-10-30/aypate-lod1.json) |
+| Narihualá LOD0 | `?debug=1&lod=0#/ciudad/narihuala` | Hecho | [`JSON`](./resultados/desktop-2026-10-30/narihuala-lod0.json) |
+| Narihualá LOD1 | `?debug=1&lod=1#/ciudad/narihuala` | Hecho | [`JSON`](./resultados/desktop-2026-10-30/narihuala-lod1.json) |
 
 ### Móvil real
 

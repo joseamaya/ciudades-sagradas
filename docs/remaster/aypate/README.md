@@ -36,7 +36,7 @@ Aypate es un centro administrativo y ceremonial inca del siglo XV, en el bosque 
 
 - El plano general de 2013 está publicado como figura en Campos 2017; la memoria de 36 sectores y el original de alta resolución no son públicos.
 - La v0.4 conserva el layout macro y corrige escala; ver `escala.md` y `auditoria-plano-2013.md`.
-- Quedan pendientes las cotas finas y la QA de hardware.
+- Quedan pendientes las cotas finas y la QA móvil/1080p; el desktop integrado 1600×900 pasó LOD0/LOD1.
 - No se reconstruyen techos, alturas perdidas ni todos los recintos periféricos.
 - La vegetación y la niebla son una lectura de ambiente, no un inventario botánico.
 - No hay QA v0.4 en hardware real.

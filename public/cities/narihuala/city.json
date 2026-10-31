@@ -14,7 +14,7 @@
   "maturity": "preview",
   "version": "v0.2",
   "evidence": "interpretive",
-  "qa": "pending",
+  "qa": "partial",
   "summary": "Centro político-ceremonial de barro en el valle bajo del Piura. Dos montículos, una plaza de 60 × 40 m, accesos y corredores organizan el conjunto tallán, después ocupado por chimúes e incas.",
   "model": "cities/narihuala/model_lod0.glb",
   "lighting": {

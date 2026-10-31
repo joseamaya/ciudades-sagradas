@@ -72,7 +72,8 @@ npm run serve
 npm run bench -- --city caral --out /tmp/caral-bench
 
 # QA funcional automatizada (requiere navegadores Playwright)
-npm run qa:playwright:chromium
+npm run qa:playwright:smoke      # gate de CI: atlas, lazy-viewer y accesibilidad
+npm run qa:playwright:chromium   # suite Chromium desktop completa
 ```
 
 El build queda en `dist/`. Vite usa rutas relativas, así que funciona en GitHub Pages, Cloudflare Pages o un servidor local. El catálogo carga la aplicación base; Three.js y el visor se descargan bajo demanda al abrir una ciudad. El benchmark usa SwiftShader: sirve para comparar draw calls, triángulos, texturas y carga, **no para declarar FPS de hardware real**. La revisión Playwright cubre rutas, LOD, paradas, capas, consola y offline en Chromium/Firefox; su informe está en [`docs/qa/revision-playwright.md`](./docs/qa/revision-playwright.md).

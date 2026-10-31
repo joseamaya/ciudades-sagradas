@@ -56,6 +56,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - **Chan Chan** tiene un piloto solo-datos: ficha documental ampliada, cobertura por elemento y plan; sigue en `research`, sin GLB, portada, recorrido, capas ni QA. Informe en [`remaster/chan-chan/`](./remaster/chan-chan/README.md).
 - **Wari** cierra el segundo piloto solo-datos: dossier, cobertura y ficha sin modelo 3D ni QA. Sigue en `research`; Wari no figura en la Lista del Patrimonio Mundial. Informe en [`remaster/wari/`](./remaster/wari/README.md).
 - El visor 3D se carga bajo demanda: el catálogo no descarga Three.js/CityViewer. Bundle inicial de 25,18 kB (8,93 kB gzip) y chunk diferido de 652,21 kB (167,98 kB gzip).
+- CI ejecuta un smoke de Playwright en cada PR y push a `main` (atlas, lazy-viewer y accesibilidad en Chromium), además de `validate` y `build`.
 
 ## Métricas comparables
 

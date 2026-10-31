@@ -595,13 +595,13 @@ export class CityViewer {
     if (SINGLE_SIDED_MATERIAL.test(key)) {
       // La transmisión fuerza una pasada extra de toda la escena en Three.js.
       material.transmission = 0;
-      material.transparent = true;
-      material.opacity = 0.84;
-      material.roughness = 0.1;
-      material.metalness = 0.08;
+      material.transparent = false;
+      material.opacity = 1.0;
+      material.roughness = 0.2;
+      material.metalness = 0.05;
       material.side = THREE.FrontSide;
       material.forceSinglePass = true;
-      material.depthWrite = false;
+      material.depthWrite = true;
     } else {
       material.side = isDoubleSided(material) ? THREE.DoubleSide : THREE.FrontSide;
     }

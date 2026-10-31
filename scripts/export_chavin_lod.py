@@ -66,6 +66,8 @@ def main():
         export_image_quality=80,
         export_normals=True,
         export_texcoords=True,
+        export_vertex_color="ACTIVE",
+        export_all_vertex_colors=True,
         export_extras=True,
         export_draco_mesh_compression_enable=True,
         export_draco_mesh_compression_level=6,

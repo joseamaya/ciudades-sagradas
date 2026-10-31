@@ -6,4 +6,4 @@
 
 El estándar es normativo: una ciudad no se marca `available` solo porque tenga un GLB. Debe declarar `availability`, `maturity`, `evidence` y `qa`, y cumplir los gates de modelo, evidencia, rendimiento y QA descritos en `ciudad.md`.
 
-La referencia visual es **Chavín high-poly v0.6**; la referencia técnica y de cierre de contenido es **Caral v2**. No se copian arquitectura, paleta ni materiales de una ciudad a otra.
+La referencia visual es **Chavín high-poly v0.7**; la referencia técnica y de cierre de contenido es **Caral v2**. No se copian arquitectura, paleta ni materiales de una ciudad a otra.

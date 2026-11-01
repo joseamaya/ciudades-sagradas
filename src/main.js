@@ -172,17 +172,21 @@ function disposeViewer() {
   viewer = null;
 }
 
-function goCatalog() {
-  routeToken += 1;
-  disposeViewer();
-  audio.disable();
-  currentCity = null;
+function cleanupCityBindings() {
   if (window.__cityKeyHandler) {
     window.removeEventListener('keydown', window.__cityKeyHandler);
     window.__cityKeyHandler = null;
   }
   window.__cityPanelCleanup?.();
   window.__cityPanelCleanup = null;
+}
+
+function goCatalog() {
+  routeToken += 1;
+  disposeViewer();
+  audio.disable();
+  currentCity = null;
+  cleanupCityBindings();
   document.title = 'Ciudades Sagradas';
   renderCatalog(app, cities);
   hideLoading();
@@ -206,6 +210,13 @@ function updateTour(refs, city, index, fly = false) {
   if (fly && stop.camera) viewer?.setCamera(stop.camera, false);
 }
 
+function handlesKeyboardShortcuts(target) {
+  if (!(target instanceof Element)) return true;
+  return !target.closest(
+    'input, textarea, select, button, a[href], [contenteditable], [role="textbox"]',
+  );
+}
+
 function bindCity(refs, city) {
   const panel = refs.panel;
   const infoToggle = refs.infoToggle;
@@ -214,7 +225,22 @@ function bindCity(refs, city) {
   const isPanelOpen = () =>
     isMobile() ? panel.classList.contains('is-open') : !panel.classList.contains('is-collapsed');
 
+  const syncTourBarSpace = () => {
+    const height = refs.tourBar?.offsetHeight;
+    if (height) {
+      document.documentElement.style.setProperty('--tour-bar-space', `${height + 16}px`);
+    }
+  };
+  const tourBarObserver =
+    refs.tourBar && 'ResizeObserver' in window
+      ? new ResizeObserver(syncTourBarSpace)
+      : null;
+  tourBarObserver?.observe(refs.tourBar);
+  syncTourBarSpace();
+
   const syncPanel = () => {
+    if (isMobile()) panel.classList.remove('is-collapsed');
+    else panel.classList.remove('is-open');
     const open = isPanelOpen();
     infoToggle?.setAttribute('aria-expanded', String(open));
     panel.setAttribute('aria-hidden', String(!open));
@@ -222,15 +248,15 @@ function bindCity(refs, city) {
   };
 
   const openPanel = ({ focus = false } = {}) => {
+    panel.classList.remove('is-collapsed');
     if (isMobile()) panel.classList.add('is-open');
-    else panel.classList.remove('is-collapsed');
     syncPanel();
     if (focus && isMobile()) refs.panelClose?.focus();
   };
 
   const closePanel = ({ focus = false } = {}) => {
-    if (isMobile()) panel.classList.remove('is-open');
-    else panel.classList.add('is-collapsed');
+    panel.classList.remove('is-open');
+    if (!isMobile()) panel.classList.add('is-collapsed');
     syncPanel();
     if (focus) infoToggle?.focus();
   };
@@ -244,9 +270,18 @@ function bindCity(refs, city) {
     if (isMobile() && isPanelOpen()) closePanel();
   });
 
-  mobileQuery.addEventListener('change', syncPanel);
-  window.__cityPanelCleanup = () => mobileQuery.removeEventListener('change', syncPanel);
+  const handleViewportChange = () => {
+    syncPanel();
+    syncTourBarSpace();
+  };
+  mobileQuery.addEventListener('change', handleViewportChange);
+  window.__cityPanelCleanup = () => {
+    mobileQuery.removeEventListener('change', handleViewportChange);
+    tourBarObserver?.disconnect();
+    document.documentElement.style.removeProperty('--tour-bar-space');
+  };
   syncPanel();
+  syncTourBarSpace();
 
   refs.sound?.addEventListener('click', async () => {
     try {
@@ -289,19 +324,30 @@ function bindCity(refs, city) {
     window.removeEventListener('keydown', window.__cityKeyHandler);
   }
   const keyHandler = (event) => {
+    if (event.altKey || event.ctrlKey || event.metaKey) return;
     if (event.key === 'Escape') {
-      if (isMobile() && isPanelOpen()) {
+      if (isPanelOpen()) {
         closePanel({ focus: true });
         return;
       }
       window.location.hash = '#/';
+      return;
     }
-    if (event.key === 'ArrowRight') updateTour(refs, city, tourIndex + 1, true);
-    if (event.key === 'ArrowLeft') updateTour(refs, city, tourIndex - 1, true);
+    if (!handlesKeyboardShortcuts(event.target)) return;
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      updateTour(refs, city, tourIndex + 1, true);
+      return;
+    }
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      updateTour(refs, city, tourIndex - 1, true);
+      return;
+    }
     if (event.key.toLowerCase() === 'h') document.body.classList.toggle('ui-hidden');
   };
   window.__cityKeyHandler = keyHandler;
-  window.addEventListener('keydown', keyHandler, { passive: true });
+  window.addEventListener('keydown', keyHandler);
 
   if (document.body.classList.contains('kiosk')) {
     const startAudio = async () => {
@@ -347,8 +393,7 @@ function showViewerError(refs, city) {
 
 async function openCity(id) {
   const token = ++routeToken;
-  window.__cityPanelCleanup?.();
-  window.__cityPanelCleanup = null;
+  cleanupCityBindings();
   const meta = cities.find((city) => city.id === id);
   if (!meta) {
     goCatalog();

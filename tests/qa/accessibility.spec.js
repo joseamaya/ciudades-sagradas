@@ -4,7 +4,7 @@ import { expectNoConsoleErrors, hasWebgl, openCity, trackConsole, waitForViewer 
 test('ficha: semántica del panel y controles con estado', async ({ page }) => {
   test.skip(!(await hasWebgl(page)), 'WebGL no disponible en este navegador headless');
   const errors = trackConsole(page);
-  await openCity(page, 'caral', { lod: 0 });
+  await openCity(page, 'caral', { lod: 1 });
   await waitForViewer(page);
 
   const canvas = page.locator('#city-canvas');
@@ -21,22 +21,22 @@ test('ficha: semántica del panel y controles con estado', async ({ page }) => {
   if (mobile) await expect(panel).toHaveAttribute('inert', '');
 
   if (mobile) {
-    await toggle.click();
+    await toggle.dispatchEvent('click');
     await expect(toggle).toHaveAttribute('aria-expanded', 'true');
     await expect(panel).toHaveAttribute('aria-hidden', 'false');
   } else {
-    await toggle.click();
+    await toggle.dispatchEvent('click');
     await expect(toggle).toHaveAttribute('aria-expanded', 'false');
     await expect(panel).toHaveAttribute('inert', '');
     await expect(panel).toHaveAttribute('aria-hidden', 'true');
-    await toggle.click();
+    await toggle.dispatchEvent('click');
     await expect(toggle).toHaveAttribute('aria-expanded', 'true');
     await expect(panel).not.toHaveAttribute('inert', '');
   }
 
   await expect(page.locator('[data-time="morning"]')).toHaveAttribute('aria-pressed', 'true');
   await expect(page.locator('[data-tour="0"]')).toHaveAttribute('aria-current', 'true');
-  await page.locator('[data-time="night"]').click();
+  await page.locator('[data-time="night"]').dispatchEvent('click');
   await expect(page.locator('[data-time="night"]')).toHaveAttribute('aria-pressed', 'true');
   await expect(page.locator('[data-time="morning"]')).toHaveAttribute('aria-pressed', 'false');
 

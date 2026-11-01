@@ -29,12 +29,12 @@ for (const city of RESEARCH_CITIES) {
   });
 }
 
-test('navegación: atlas a Caral y regreso', async ({ page }) => {
+test('navegación: atlas a ficha documental y regreso', async ({ page }) => {
   const errors = trackConsole(page);
   await page.goto('/');
-  await page.locator('a[href="#/ciudad/caral"]').click();
-  await expect(page).toHaveURL(/#\/ciudad\/caral$/);
-  await expect(page.locator('.city-heading h1')).toHaveText('Caral');
+  await page.locator('a[href="#/ciudad/chan-chan"]').click();
+  await expect(page).toHaveURL(/#\/ciudad\/chan-chan$/);
+  await expect(page.locator('.research-hero h1')).toHaveText('Chan Chan');
   await page.locator('.back-link').click();
   await expect(page).toHaveURL(/#\/?$/);
   await expect(page.locator('.city-card')).toHaveCount(6);

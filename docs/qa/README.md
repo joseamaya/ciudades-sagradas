@@ -23,12 +23,15 @@ Este registro guarda los informes reales de `?debug=1`. No se marca un resultado
 npm run qa:playwright          # todos los proyectos por defecto (incluye 1080p emulado)
 npm run qa:playwright:review   # Chromium desktop + Firefox + Chromium mobile
 npm run qa:playwright:chromium # solo Chromium desktop 1600×900
+npm run qa:playwright:smoke    # atlas + lazy-viewer + accesibilidad en Chromium
 npm run qa:playwright:webkit   # opcional; requiere dependencias del host
 ```
 
 Los artefactos quedan en `qa-output/` (ignorado por git) y el informe HTML en `playwright-report/`. Los JSON seleccionados se copian a `docs/qa/resultados/playwright/`.
 
 La suite incluye `lazy-viewer.spec.js`: verifica que el catálogo no descarga el visor, que una ciudad sí lo carga y que un fallo del chunk muestra el estado recuperable.
+
+CI ejecuta `qa:playwright:smoke` en cada PR y push a `main`: atlas, lazy-viewer y accesibilidad en Chromium desktop. Tarda ~6 min con instalación de navegador (5m52 en la primera ejecución); la suite completa de 36 pruebas queda como revisión manual.
 
 El workflow manual `.github/workflows/qa-playwright.yml` ejecuta Chromium desktop en CI y sube los artefactos.
 

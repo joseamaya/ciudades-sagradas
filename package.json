@@ -13,6 +13,7 @@
     "bench": "node scripts/bench.mjs",
     "qa:playwright": "npm run build && playwright test",
     "qa:playwright:chromium": "npm run build && playwright test --project=chromium-desktop-1600",
+    "qa:playwright:smoke": "npm run build && playwright test tests/qa/atlas.spec.js tests/qa/lazy-viewer.spec.js tests/qa/accessibility.spec.js --project=chromium-desktop-1600",
     "qa:playwright:webkit": "npm run build && PLAYWRIGHT_WEBKIT=1 playwright test --project=webkit-desktop --project=webkit-mobile",
     "qa:playwright:review": "npm run build && playwright test --project=chromium-desktop-1600 --project=firefox-desktop --project=chromium-mobile"
   },

@@ -1,4 +1,4 @@
-import { escapeAttr, escapeHtml } from './escape.js';
+import { escapeAttr, escapeHtml, safeAccent, safeHttpsUrl } from './escape.js';
 import { evidenceBadge, statusBadges } from './status.js';
 
 function facts(city) {
@@ -23,7 +23,7 @@ function sources(city) {
   return (city.sources || [])
     .map(
       (source) =>
-        `<li><a href="${escapeAttr(source.url)}" target="_blank" rel="noreferrer">${escapeHtml(source.label)}<span aria-hidden="true">↗</span></a></li>`,
+        `<li><a href="${escapeAttr(safeHttpsUrl(source.url) || '#')}" target="_blank" rel="noreferrer">${escapeHtml(source.label)}<span aria-hidden="true">↗</span></a></li>`,
     )
     .join('');
 }
@@ -32,7 +32,7 @@ export function renderCity(root, city) {
   const isAvailable = city.availability === 'available';
   const tour = city.tour || [];
   const layers = city.layers || [];
-  const accent = escapeAttr(city.accent || '#d9a441');
+  const accent = escapeAttr(safeAccent(city.accent));
 
   if (!isAvailable) {
     root.innerHTML = `

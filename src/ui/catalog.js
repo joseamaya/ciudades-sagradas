@@ -1,4 +1,4 @@
-import { escapeAttr, escapeHtml } from './escape.js';
+import { escapeAttr, escapeHtml, safeAccent, safeHeroPath } from './escape.js';
 import { maturityLabel, statusBadges } from './status.js';
 
 function joinNames(names) {
@@ -8,7 +8,7 @@ function joinNames(names) {
 
 function catalogNotice(cities) {
   const released = cities.filter((city) => city.maturity === 'released');
-  const preview = cities.filter((city) => city.maturity === 'preview');
+  const preview = cities.filter((city) => ['preview', 'blockout'].includes(city.maturity));
   const research = cities.filter((city) => city.maturity === 'research');
   const parts = ['Preview público.'];
 
@@ -28,7 +28,11 @@ function catalogNotice(cities) {
       `${joinNames(research.map((city) => city.name))} ${research.length === 1 ? 'es ficha documental' : 'son fichas documentales'}.`,
     );
   }
-  parts.push('La QA de hardware está en curso.');
+  parts.push(
+    cities.some((city) => ['partial', 'pending'].includes(city.qa))
+      ? 'La QA de hardware está en curso.'
+      : 'La QA de hardware está documentada.',
+  );
   return parts.join(' ');
 }
 
@@ -42,10 +46,11 @@ export function renderCatalog(root, cities) {
     .map((city) => {
       const isAvailable = city.availability === 'available';
       const maturity = escapeHtml(maturityLabel(city));
-      const accent = escapeAttr(city.accent || '#d9a441');
-      const monogram = escapeHtml(city.monogram || city.name.slice(0, 1));
-      const media = city.thumb
-        ? `<div class="city-card__media" style="background-image:url('${escapeAttr(city.thumb)}')"></div>`
+      const accent = escapeAttr(safeAccent(city.accent));
+      const thumb = safeHeroPath(city.thumb);
+      const monogram = escapeHtml(city.monogram || String(city.name).slice(0, 1));
+      const media = thumb
+        ? `<div class="city-card__media" style="background-image:url('${escapeAttr(thumb)}')"></div>`
         : `<div class="city-card__media city-card__media--empty" style="--accent:${accent}">
              <span>${monogram}</span>
              <small>Ficha documental</small>

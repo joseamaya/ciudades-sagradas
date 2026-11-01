@@ -121,14 +121,15 @@ for (const entry of index) {
     check(Boolean(entry[field]), `${entry.id || 'ciudad'}: falta el campo "${field}"`);
   }
   check(CITY_ID.test(entry.id || ''), `${entry.id || 'ciudad'}: id inválido; usa minúsculas, números y guiones`);
-  if (entry.yearsAgo != null) {
-    check(Number.isInteger(entry.yearsAgo) && entry.yearsAgo > 0, `${entry.id}: yearsAgo debe ser un entero positivo`);
-  }
+  check(Number.isInteger(entry.yearsAgo) && entry.yearsAgo > 0, `${entry.id}: yearsAgo debe ser un entero positivo`);
   if (entry.accent != null) {
     check(HEX_COLOR.test(entry.accent), `${entry.id}: accent debe ser un color hexadecimal de seis dígitos`);
   }
   if (entry.thumb != null) {
-    check(HERO_PATH.test(entry.thumb), `${entry.id}: thumb debe apuntar a cities/<id>/hero.(jpg|jpeg|png|webp)`);
+    check(
+      HERO_PATH.test(entry.thumb) && entry.thumb.startsWith(`cities/${entry.id}/hero.`),
+      `${entry.id}: thumb debe apuntar a cities/${entry.id}/hero.(jpg|jpeg|png|webp)`,
+    );
   }
   check(!ids.has(entry.id), `id duplicado: ${entry.id}`);
   ids.add(entry.id);
@@ -138,6 +139,9 @@ for (const entry of index) {
   const cityPath = `public/cities/${entry.id}/city.json`;
   const city = await readJson(cityPath);
   check(city.id === entry.id, `${entry.id}: city.json tiene id "${city.id}"`);
+  if (city.accent != null) {
+    check(HEX_COLOR.test(city.accent), `${entry.id}: accent de city.json debe ser un color hexadecimal de seis dígitos`);
+  }
   check(Array.isArray(city.sources) && city.sources.length > 0, `${entry.id}: faltan fuentes públicas`);
   for (const source of city.sources || []) {
     check(Boolean(source?.label), `${entry.id}: fuente sin etiqueta`);

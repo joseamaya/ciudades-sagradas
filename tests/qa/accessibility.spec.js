@@ -127,6 +127,49 @@ test('recorrido: texto completo legible a 375 px', async ({ page }) => {
   expect(state.text).toBe(expected);
   expect(state.text.length).toBeGreaterThan(140);
   expect(state.scrollHeight).toBeLessThanOrEqual(state.clientHeight + 1);
+
+  await page.locator('#info-toggle').click();
+  await expect(page.locator('#info-toggle')).toHaveAttribute('aria-expanded', 'true');
+  const overlap = await page.evaluate(() => {
+    const panel = document.getElementById('city-panel').getBoundingClientRect();
+    const bar = document.getElementById('tour-bar').getBoundingClientRect();
+    return panel.bottom - bar.top;
+  });
+  expect(overlap).toBeLessThanOrEqual(1);
+});
+
+test('panel: sigue visible tras cerrar en escritorio y pasar a móvil', async ({ page }) => {
+  test.skip(!(await hasWebgl(page)), 'WebGL no disponible en este navegador headless');
+  await page.setViewportSize({ width: 1600, height: 900 });
+  await openCity(page, 'caral', { lod: 1 });
+  await waitForViewer(page);
+
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#info-toggle')).toHaveAttribute('aria-expanded', 'false');
+
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.locator('#info-toggle').click();
+  await expect(page.locator('#info-toggle')).toHaveAttribute('aria-expanded', 'true');
+  await expect(page.locator('#city-panel')).toHaveAttribute('aria-hidden', 'false');
+  await expect
+    .poll(async () =>
+      page.locator('#city-panel').evaluate((element) => getComputedStyle(element).opacity),
+    )
+    .toBe('1');
+});
+
+test('navegación: ciudad disponible a ficha documental limpia el teclado', async ({ page }) => {
+  test.skip(!(await hasWebgl(page)), 'WebGL no disponible en este navegador headless');
+  await openCity(page, 'caral', { lod: 1 });
+  await waitForViewer(page);
+
+  await page.evaluate(() => {
+    window.location.hash = '#/ciudad/chan-chan';
+  });
+  await expect(page.locator('.research-hero h1')).toHaveText('Chan Chan');
+  await page.keyboard.press('Escape');
+  await page.keyboard.press('Escape');
+  await expect(page).toHaveURL(/#\/ciudad\/chan-chan$/);
 });
 
 test('fallo de modelo: muestra estado recuperable', async ({ page }) => {

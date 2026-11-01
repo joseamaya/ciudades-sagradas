@@ -1170,7 +1170,7 @@ body.kiosk .tour-copy p {
     top: auto;
     left: 12px;
     right: 12px;
-    bottom: calc(env(safe-area-inset-bottom) + 140px);
+    bottom: calc(env(safe-area-inset-bottom) + var(--tour-bar-space, 140px));
     width: auto;
     max-height: 58vh;
     transform: translateY(calc(100% + 18px));

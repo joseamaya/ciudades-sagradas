@@ -40,6 +40,8 @@ test('catálogo: escapa datos de index.json', async ({ page }) => {
     ...index[0],
     name: 'Caral <b>demo</b>',
     summary: 'Resumen <script>window.__xss = true</script>',
+    accent: 'red; background: url(javascript:window.__xss = true)',
+    thumb: "x') ; background: url(javascript:window.__xss = true) ; ('",
   };
   await page.route('**/cities/index.json', (route) =>
     route.fulfill({ json: [payload, ...index.slice(1)] }),
@@ -49,6 +51,8 @@ test('catálogo: escapa datos de index.json', async ({ page }) => {
   await expect(page.locator('.city-card h2').first()).toHaveText('Caral <b>demo</b>');
   await expect(page.locator('.city-card b')).toHaveCount(0);
   await expect(page.locator('.city-card script')).toHaveCount(0);
+  const mediaStyle = await page.locator('.city-card__media').first().getAttribute('style');
+  expect(mediaStyle).not.toContain('javascript');
   expect(await page.evaluate(() => window.__xss)).toBeUndefined();
 });
 
@@ -56,7 +60,8 @@ test('ficha documental: escapa datos de city.json', async ({ page }) => {
   const city = JSON.parse(await readFile('public/cities/chan-chan/city.json', 'utf8'));
   city.name = 'Chan <b>Chan</b>';
   city.summary = 'Resumen <script>window.__xss = true</script>';
-  city.sources = [{ label: '<em>Fuente</em>', url: 'https://example.com/' }];
+  city.accent = 'red; background: url(javascript:window.__xss = true)';
+  city.sources = [{ label: '<em>Fuente</em>', url: 'javascript:window.__xss = true' }];
   await page.route('**/cities/chan-chan/city.json', (route) =>
     route.fulfill({ json: city }),
   );
@@ -67,6 +72,9 @@ test('ficha documental: escapa datos de city.json', async ({ page }) => {
   await expect(page.locator('.research-main script')).toHaveCount(0);
   await expect(page.locator('.source-list em')).toHaveCount(0);
   await expect(page.locator('.source-list a').first()).toContainText('<em>Fuente</em>');
+  await expect(page.locator('.source-list a').first()).toHaveAttribute('href', '#');
+  const cityStyle = await page.locator('.city-view').first().getAttribute('style');
+  expect(cityStyle).not.toContain('javascript');
   expect(await page.evaluate(() => window.__xss)).toBeUndefined();
 });
 

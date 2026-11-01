@@ -31,7 +31,7 @@ Los artefactos quedan en `qa-output/` (ignorado por git) y el informe HTML en `p
 
 La suite incluye `lazy-viewer.spec.js`: verifica que el catálogo no descarga el visor, que una ciudad sí lo carga y que un fallo del chunk muestra el estado recuperable.
 
-CI ejecuta `qa:playwright:smoke` en cada PR y push a `main`: atlas, lazy-viewer y accesibilidad en Chromium desktop. Tarda ~3–4 min con instalación de navegador; la suite completa de 36 pruebas queda como revisión manual.
+CI ejecuta `qa:playwright:smoke` en cada PR y push a `main`: atlas, lazy-viewer y accesibilidad en Chromium desktop. Tarda ~6 min con instalación de navegador (5m52 en la primera ejecución); la suite completa de 36 pruebas queda como revisión manual.
 
 El workflow manual `.github/workflows/qa-playwright.yml` ejecuta Chromium desktop en CI y sube los artefactos.
 

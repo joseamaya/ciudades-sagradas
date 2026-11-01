@@ -14,6 +14,9 @@ const EVIDENCE = ['documented', 'mixed', 'interpretive', 'not-applicable'];
 const QA = ['passed', 'partial', 'pending', 'waived', 'not-applicable'];
 const STOP_EVIDENCE = ['documented', 'inferred', 'interpretive'];
 const REQUIRED_LAYERS = ['city', 'terrain', 'props', 'reference'];
+const CITY_ID = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const HEX_COLOR = /^#[0-9a-f]{6}$/i;
+const HERO_PATH = /^cities\/[a-z0-9-]+\/hero\.(?:jpe?g|png|webp)$/;
 
 async function readJson(file) {
   const full = path.join(root, file);
@@ -117,6 +120,16 @@ for (const entry of index) {
   for (const field of ['id', 'name', 'subtitle', 'culture', 'period', 'region', 'availability', 'maturity', 'evidence', 'qa', 'summary']) {
     check(Boolean(entry[field]), `${entry.id || 'ciudad'}: falta el campo "${field}"`);
   }
+  check(CITY_ID.test(entry.id || ''), `${entry.id || 'ciudad'}: id inválido; usa minúsculas, números y guiones`);
+  if (entry.yearsAgo != null) {
+    check(Number.isInteger(entry.yearsAgo) && entry.yearsAgo > 0, `${entry.id}: yearsAgo debe ser un entero positivo`);
+  }
+  if (entry.accent != null) {
+    check(HEX_COLOR.test(entry.accent), `${entry.id}: accent debe ser un color hexadecimal de seis dígitos`);
+  }
+  if (entry.thumb != null) {
+    check(HERO_PATH.test(entry.thumb), `${entry.id}: thumb debe apuntar a cities/<id>/hero.(jpg|jpeg|png|webp)`);
+  }
   check(!ids.has(entry.id), `id duplicado: ${entry.id}`);
   ids.add(entry.id);
   check(!('status' in entry), `${entry.id}: index.json usa "status"; migra a "availability"`);
@@ -126,6 +139,13 @@ for (const entry of index) {
   const city = await readJson(cityPath);
   check(city.id === entry.id, `${entry.id}: city.json tiene id "${city.id}"`);
   check(Array.isArray(city.sources) && city.sources.length > 0, `${entry.id}: faltan fuentes públicas`);
+  for (const source of city.sources || []) {
+    check(Boolean(source?.label), `${entry.id}: fuente sin etiqueta`);
+    check(
+      typeof source?.url === 'string' && /^https:\/\//i.test(source.url),
+      `${entry.id}: la fuente "${source?.label || 'sin etiqueta'}" debe usar una URL https`,
+    );
+  }
   check(!('status' in city), `${entry.id}: city.json usa "status"; migra a "availability"`);
   check(!('stage' in city), `${entry.id}: city.json usa "stage"; migra a "maturity" y "version"`);
 

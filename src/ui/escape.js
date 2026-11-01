@@ -1,0 +1,13 @@
+const ENTITIES = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;',
+};
+
+export function escapeHtml(value = '') {
+  return String(value).replace(/[&<>"']/g, (character) => ENTITIES[character]);
+}
+
+export const escapeAttr = escapeHtml;

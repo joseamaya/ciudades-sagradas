@@ -59,6 +59,76 @@ test('movimiento reducido: sin amortiguación ni vuelo animado', async ({ page }
   expect(state.damping).toBe(false);
 });
 
+test('teclado: modificadores y controles no cambian de parada', async ({ page }) => {
+  test.skip(!(await hasWebgl(page)), 'WebGL no disponible en este navegador headless');
+  await openCity(page, 'caral', { lod: 1 });
+  await waitForViewer(page);
+
+  const mobile = await page.evaluate(() => window.matchMedia('(max-width: 980px)').matches);
+  if (mobile) await page.locator('#info-toggle').click();
+
+  const title = page.locator('#tour-title');
+  const before = await title.textContent();
+
+  await page.evaluate(() => {
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', altKey: true }));
+  });
+  await expect(title).toHaveText(before);
+
+  await page.locator('[data-layer]').first().focus();
+  await page.keyboard.press('ArrowRight');
+  await page.keyboard.press('ArrowLeft');
+  await expect(title).toHaveText(before);
+
+  await page.keyboard.press('Control+h');
+  await expect(page.locator('body')).not.toHaveClass(/ui-hidden/);
+
+  await page.evaluate(() => document.activeElement?.blur());
+  await page.keyboard.press('h');
+  await expect(page.locator('body')).toHaveClass(/ui-hidden/);
+});
+
+test('teclado: Escape cierra la ficha antes de salir', async ({ page }) => {
+  test.skip(!(await hasWebgl(page)), 'WebGL no disponible en este navegador headless');
+  await openCity(page, 'caral', { lod: 1 });
+  await waitForViewer(page);
+
+  if (await page.evaluate(() => window.matchMedia('(max-width: 980px)').matches)) {
+    await page.locator('#info-toggle').click();
+  }
+  await expect(page.locator('#info-toggle')).toHaveAttribute('aria-expanded', 'true');
+
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#info-toggle')).toHaveAttribute('aria-expanded', 'false');
+  await page.keyboard.press('Escape');
+  await expect(page).toHaveURL(/#\/?$/);
+});
+
+test('recorrido: texto completo legible a 375 px', async ({ page }) => {
+  test.skip(!(await hasWebgl(page)), 'WebGL no disponible en este navegador headless');
+  await page.setViewportSize({ width: 375, height: 812 });
+  await openCity(page, 'caral', { lod: 1 });
+  await waitForViewer(page);
+
+  const state = await page.locator('#tour-text').evaluate((element) => {
+    const style = getComputedStyle(element);
+    return {
+      clamp: style.webkitLineClamp,
+      scrollHeight: element.scrollHeight,
+      clientHeight: element.clientHeight,
+      text: element.textContent,
+    };
+  });
+  const expected = await page.evaluate(
+    () => window.__ciudadesSagradas?.city?.tour?.[0]?.text ?? '',
+  );
+
+  expect(state.clamp === 'none' || state.clamp === '').toBe(true);
+  expect(state.text).toBe(expected);
+  expect(state.text.length).toBeGreaterThan(140);
+  expect(state.scrollHeight).toBeLessThanOrEqual(state.clientHeight + 1);
+});
+
 test('fallo de modelo: muestra estado recuperable', async ({ page }) => {
   await page.route('**/cities/caral/*.glb', (route) => route.abort());
   await openCity(page, 'caral', { lod: 0, flags: ['nosw'] });

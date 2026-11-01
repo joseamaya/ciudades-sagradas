@@ -1,3 +1,4 @@
+import { escapeAttr, escapeHtml } from './escape.js';
 import { evidenceBadge, statusBadges } from './status.js';
 
 function facts(city) {
@@ -13,14 +14,16 @@ function facts(city) {
       `${city.coordinates.lat.toFixed(3)}°, ${city.coordinates.lon.toFixed(3)}°`,
     ]);
   }
-  return rows.map(([label, value]) => `<div><dt>${label}</dt><dd>${value}</dd></div>`).join('');
+  return rows
+    .map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`)
+    .join('');
 }
 
 function sources(city) {
   return (city.sources || [])
     .map(
       (source) =>
-        `<li><a href="${source.url}" target="_blank" rel="noreferrer">${source.label}<span aria-hidden="true">↗</span></a></li>`,
+        `<li><a href="${escapeAttr(source.url)}" target="_blank" rel="noreferrer">${escapeHtml(source.label)}<span aria-hidden="true">↗</span></a></li>`,
     )
     .join('');
 }
@@ -29,33 +32,34 @@ export function renderCity(root, city) {
   const isAvailable = city.availability === 'available';
   const tour = city.tour || [];
   const layers = city.layers || [];
+  const accent = escapeAttr(city.accent || '#d9a441');
 
   if (!isAvailable) {
     root.innerHTML = `
-      <section class="city-view city-view--research" style="--accent:${city.accent || '#d9a441'}">
+      <section class="city-view city-view--research" style="--accent:${accent}">
         <div class="research-hero">
           <a class="back-link" href="#/">← Volver al atlas</a>
           <div class="research-hero__content">
-            <span class="eyebrow">${city.culture} · ${city.period}</span>
-            <h1>${city.name}</h1>
-            <p class="research-hero__subtitle">${city.subtitle}</p>
+            <span class="eyebrow">${escapeHtml(city.culture)} · ${escapeHtml(city.period)}</span>
+            <h1>${escapeHtml(city.name)}</h1>
+            <p class="research-hero__subtitle">${escapeHtml(city.subtitle)}</p>
             <div class="research-status">${statusBadges(city, { includeMaturity: true })}</div>
           </div>
         </div>
         <div class="research-body">
           <div class="research-main">
-            <p class="lede">${city.summary}</p>
+            <p class="lede">${escapeHtml(city.summary)}</p>
             <div class="research-note">
               <h2>La reconstrucción 3D está en preparación</h2>
               <p>Esta ficha documental reúne el estado de las fuentes y la cobertura. El modelo 3D se publicará cuando haya evidencia, licencias y revisión suficientes.</p>
             </div>
             <dl class="facts">${facts(city)}</dl>
-            <p class="disclaimer">${city.disclaimer || ''}</p>
+            <p class="disclaimer">${escapeHtml(city.disclaimer || '')}</p>
           </div>
           <aside class="research-sources">
             <h2>Fuentes públicas</h2>
             <ul class="source-list">${sources(city)}</ul>
-            <p class="credits">${city.credits || ''}</p>
+            <p class="credits">${escapeHtml(city.credits || '')}</p>
           </aside>
         </div>
       </section>`;
@@ -63,24 +67,24 @@ export function renderCity(root, city) {
   }
 
   root.innerHTML = `
-    <section class="city-view" style="--accent:${city.accent || '#d9a441'}">
+    <section class="city-view" style="--accent:${accent}">
       <div
         id="city-canvas"
         class="city-canvas"
         role="img"
-        aria-label="Vista 3D de ${city.name}"
+        aria-label="${escapeAttr(`Vista 3D de ${city.name}`)}"
         aria-describedby="city-canvas-help"
       ></div>
       <p id="city-canvas-help" class="sr-only">
-        Escena 3D de ${city.name}. El recorrido, las capas y la hora del día se controlan con los botones de la ficha.
+        Escena 3D de ${escapeHtml(city.name)}. El recorrido, las capas y la hora del día se controlan con los botones de la ficha.
       </p>
 
       <header class="city-topbar">
         <a class="back-link" href="#/">← Atlas</a>
         <div class="city-heading">
-          <span class="eyebrow">${city.culture}</span>
-          <h1>${city.name}</h1>
-          <p>${city.subtitle}</p>
+          <span class="eyebrow">${escapeHtml(city.culture)}</span>
+          <h1>${escapeHtml(city.name)}</h1>
+          <p>${escapeHtml(city.subtitle)}</p>
           <div class="city-status">${statusBadges(city, { includeMaturity: true })}</div>
         </div>
         <div class="city-tools">
@@ -101,7 +105,7 @@ export function renderCity(root, city) {
       <aside id="city-panel" class="city-panel" aria-label="Ficha de la ciudad">
         <button id="panel-close" class="panel-close" type="button" aria-label="Cerrar ficha">×</button>
         <div class="panel-scroll">
-          <p class="lede">${city.summary}</p>
+          <p class="lede">${escapeHtml(city.summary)}</p>
           <dl class="facts">${facts(city)}</dl>
 
           <section>
@@ -118,7 +122,7 @@ export function renderCity(root, city) {
                         aria-current="${index === 0 ? 'true' : 'false'}"
                       >
                         <span class="tour-list__index">${String(index + 1).padStart(2, '0')}</span>
-                        <span class="tour-list__title">${stop.title}</span>
+                        <span class="tour-list__title">${escapeHtml(stop.title)}</span>
                         ${evidenceBadge(stop.evidence, true)}
                       </button>
                     </li>`,
@@ -140,8 +144,8 @@ export function renderCity(root, city) {
                 .map(
                   (layer) => `
                     <label class="layer">
-                      <input type="checkbox" data-layer="${layer.id}" ${layer.default !== false ? 'checked' : ''} />
-                      <span>${layer.label}</span>
+                      <input type="checkbox" data-layer="${escapeAttr(layer.id)}" ${layer.default !== false ? 'checked' : ''} />
+                      <span>${escapeHtml(layer.label)}</span>
                     </label>`,
                 )
                 .join('')}
@@ -163,8 +167,8 @@ export function renderCity(root, city) {
             <ul class="source-list">${sources(city)}</ul>
           </section>
 
-          <p class="disclaimer">${city.disclaimer || ''}</p>
-          <p class="credits">${city.credits || ''}</p>
+          <p class="disclaimer">${escapeHtml(city.disclaimer || '')}</p>
+          <p class="credits">${escapeHtml(city.credits || '')}</p>
         </div>
       </aside>
 
@@ -173,10 +177,10 @@ export function renderCity(root, city) {
         <div class="tour-copy" aria-live="polite">
           <span class="eyebrow" id="tour-count">01 / ${String(tour.length).padStart(2, '0')}</span>
           <div class="tour-heading">
-            <h2 id="tour-title">${tour[0]?.title || city.name}</h2>
+            <h2 id="tour-title">${escapeHtml(tour[0]?.title || city.name)}</h2>
             <span id="tour-evidence">${evidenceBadge(tour[0]?.evidence, true)}</span>
           </div>
-          <p id="tour-text">${tour[0]?.text || city.summary}</p>
+          <p id="tour-text">${escapeHtml(tour[0]?.text || city.summary)}</p>
         </div>
         <button id="tour-next" class="tour-arrow" type="button" aria-label="Parada siguiente">→</button>
       </div>

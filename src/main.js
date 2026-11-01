@@ -206,6 +206,13 @@ function updateTour(refs, city, index, fly = false) {
   if (fly && stop.camera) viewer?.setCamera(stop.camera, false);
 }
 
+function handlesKeyboardShortcuts(target) {
+  if (!(target instanceof Element)) return true;
+  return !target.closest(
+    'input, textarea, select, button, a[href], [contenteditable], [role="textbox"]',
+  );
+}
+
 function bindCity(refs, city) {
   const panel = refs.panel;
   const infoToggle = refs.infoToggle;
@@ -289,19 +296,30 @@ function bindCity(refs, city) {
     window.removeEventListener('keydown', window.__cityKeyHandler);
   }
   const keyHandler = (event) => {
+    if (event.altKey || event.ctrlKey || event.metaKey) return;
     if (event.key === 'Escape') {
-      if (isMobile() && isPanelOpen()) {
+      if (isPanelOpen()) {
         closePanel({ focus: true });
         return;
       }
       window.location.hash = '#/';
+      return;
     }
-    if (event.key === 'ArrowRight') updateTour(refs, city, tourIndex + 1, true);
-    if (event.key === 'ArrowLeft') updateTour(refs, city, tourIndex - 1, true);
+    if (!handlesKeyboardShortcuts(event.target)) return;
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      updateTour(refs, city, tourIndex + 1, true);
+      return;
+    }
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      updateTour(refs, city, tourIndex - 1, true);
+      return;
+    }
     if (event.key.toLowerCase() === 'h') document.body.classList.toggle('ui-hidden');
   };
   window.__cityKeyHandler = keyHandler;
-  window.addEventListener('keydown', keyHandler, { passive: true });
+  window.addEventListener('keydown', keyHandler);
 
   if (document.body.classList.contains('kiosk')) {
     const startAudio = async () => {

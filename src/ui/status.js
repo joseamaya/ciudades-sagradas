@@ -1,3 +1,5 @@
+import { escapeHtml } from './escape.js';
+
 const MATURITY_LABELS = {
   research: 'Investigación',
   blockout: 'Blockout',
@@ -54,18 +56,18 @@ export function evidenceBadge(value, stop = false) {
   const labels = stop ? STOP_EVIDENCE_LABELS : EVIDENCE_LABELS;
   const hints = stop ? STOP_EVIDENCE_HINTS : EVIDENCE_HINTS;
   const label = labels[value] || 'Sin clasificar';
-  return `<span class="status-badge status-badge--${value}" title="${hints[value] || ''}">${label}</span>`;
+  return `<span class="status-badge status-badge--${escapeHtml(value)}" title="${escapeHtml(hints[value] || '')}">${escapeHtml(label)}</span>`;
 }
 
 export function qaBadge(value) {
   if (!value || value === 'not-applicable') return '';
-  return `<span class="status-badge status-badge--qa-${value}" title="${QA_HINTS[value] || ''}">${QA_LABELS[value] || value}</span>`;
+  return `<span class="status-badge status-badge--qa-${escapeHtml(value)}" title="${escapeHtml(QA_HINTS[value] || '')}">${escapeHtml(QA_LABELS[value] || value)}</span>`;
 }
 
 export function statusBadges(city, { includeMaturity = false } = {}) {
   const badges = [];
   if (includeMaturity) {
-    badges.push(`<span class="status-badge status-badge--maturity">${maturityLabel(city)}</span>`);
+    badges.push(`<span class="status-badge status-badge--maturity">${escapeHtml(maturityLabel(city))}</span>`);
   }
   badges.push(evidenceBadge(city.evidence));
   const qa = qaBadge(city.qa);

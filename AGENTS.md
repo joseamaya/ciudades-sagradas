@@ -49,6 +49,8 @@ blender/caral/            escena editable y export.py
 blender/textures/         texturas de la escena Caral
 docs/fuentes/             dossier por ciudad
 docs/capturas/            capturas de referencia
+scripts/<ciudad>/         scripts Blender por ciudad (caral, chavin, aypate, narihuala)
+scripts/tools/            utilidades Blender transversales
 scripts/validate.mjs      validación de datos y assets
 ```
 
@@ -56,7 +58,7 @@ scripts/validate.mjs      validación de datos y assets
 
 1. La fuente versionada es `blender/caral/caral_remaster.blend`; las escenas v2/LOD y atlas se regeneran con `scripts/` y no se versionan por tamaño.
 2. Modelar y guardar la escena.
-3. Exportar v1 con `blender/caral/export.py` (WebP 80). Exportar LOD0/LOD1 con `scripts/export_caral_lod.py` (WebP 80 + Draco).
+3. Exportar v1 con `blender/caral/export.py` (WebP 80). Exportar LOD0/LOD1 con `scripts/caral/export_caral_lod.py` (WebP 80 + Draco).
 4. Actualizar `public/cities/caral/city.json` si cambian cámaras, escala, recorrido, estado o evidencia; cada parada declara su `evidence`.
 5. Actualizar hashes/tamaños en `docs/fuentes/registro-assets.csv` si cambian assets; la versión de caché del service worker se genera en build.
 6. Ejecutar `npm run validate`, `npm run build` y `npm run bench`.

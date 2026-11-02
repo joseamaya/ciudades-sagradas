@@ -3,8 +3,8 @@
 Fecha: 31 de octubre de 2026.
 Estado: **preview controlado; incluye revisión visual de agua y materiales; no es reconstrucción final ni topografía levantada**.
 Fuente: `blender/chavin/chavin_highpoly_v0.7.blend`, derivada de v0.6.
-Generadores: `scripts/build_chavin_valley_v0_7.py`, `scripts/make_chavin_terrain_materials_v2.py`.
-Derivados: LOD0/LOD1 regenerados con `scripts/build_chavin_lod.py` y `scripts/export_chavin_lod.py`.
+Generadores: `scripts/chavin/build_chavin_valley_v0_7.py`, `scripts/chavin/make_chavin_terrain_materials_v2.py`.
+Derivados: LOD0/LOD1 regenerados con `scripts/chavin/build_chavin_lod.py` y `scripts/chavin/export_chavin_lod.py`.
 
 ## Qué cambió
 

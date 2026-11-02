@@ -77,6 +77,20 @@ bpy.ops.export_scene.gltf(
 - Revisar la ficha de fuentes y el estado de evidencia.
 - Comprobar que la licencia del asset derivado permite el uso previsto (el Lanzón CyArk es CC BY-NC-SA 4.0, sin uso comercial).
 
+## Scripts reproducibles
+
+```text
+scripts/caral/       remaster, LOD, materiales y renders de Caral
+scripts/chavin/      high-poly, valle, materiales y export de Chavín
+scripts/aypate/      blockout, high-poly, LOD y export de Aypate
+scripts/narihuala/   blockout, high-poly, LOD y export de Narihualá
+scripts/tools/       utilidades Blender transversales
+scripts/archive/     renders históricos sin referencias vigentes
+```
+
+Los scripts de Aypate y Narihualá se importan entre sí y resuelven la raíz del repo desde `__file__`; se ejecutan desde la raíz del repositorio.
+Los scripts de build, validación, benchmark y kiosco siguen en la raíz de `scripts/`. Los renders históricos sin referencias vigentes se archivan en `scripts/archive/`.
+
 ## Fuentes actuales
 
 La fuente v1 versionada es `blender/caral/caral_remaster.blend`. Las escenas v2 y LOD se regeneran con los scripts y se mantienen como artefactos locales por tamaño; no se versionan. Documentar sus hashes en `blender/caral/README.md` y `docs/remaster/caral/`.

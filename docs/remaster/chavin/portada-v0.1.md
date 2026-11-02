@@ -77,7 +77,7 @@ No se modeló el **dintel de tres piezas** porque la fuente indica que no forma 
 - `MAT-Chavin_Portada_Light`: caliza/granito claro cálido, con vetas suaves.
 - `MAT-Chavin_Portada_Dark`: piedra oscura, con grano y poros.
 - Texturas propias de 1024², sin IA: difusa, rugosidad y normal para cada familia.
-- Generador: `scripts/make_chavin_portal_materials.py`.
+- Generador: `scripts/chavin/make_chavin_portal_materials.py`.
 - Las texturas están empaquetadas en el `.blend`; no se copiaron fotografías.
 
 ## Métricas

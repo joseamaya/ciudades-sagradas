@@ -44,12 +44,12 @@ Estado: **remaster v2 desplegado y contenido cerrado** en GitHub Pages bajo el e
 - `lod1-general.png`, `lod1-plaza.png`, `lod1-anfiteatro.png`, `lod1-altar.png`: capturas históricas del preview LOD1.
 - `web-lod0.png`, `web-lod1.png`, `web-altar.png`: capturas del visor real en `public/`.
 - `lod1-512.png`: captura de verificación del LOD1 reexportado a 512 px (#41).
-- `../../../scripts/build_caral_highpoly_mayor.py` y `build_caral_highpoly_hero.py`: generadores reproducibles del high-poly.
-- `../../../scripts/render_caral_v2_phase_b.py`: renders comparativos de la Fase B.
-- `../../../scripts/bake_caral_lod1.py`: bake del LOD1 por región; el GLB se exporta con texturas 512 y roughness constante.
-- `../../../scripts/assemble_caral_lod0.py`: ensamblado del LOD0 por región high-poly + infraestructura.
-- `../../../scripts/optimize_caral_lod1.py`: fusión de la infraestructura LOD1 en seis mallas y capas.
-- `../../../scripts/export_caral_lod.py`: exportador común LOD0/LOD1 con WebP 80, Draco, `extras` y `--max-texture-size 512` para LOD1 y roughness constante.
+- `../../../scripts/caral/build_caral_highpoly_mayor.py` y `build_caral_highpoly_hero.py`: generadores reproducibles del high-poly.
+- `../../../scripts/caral/render_caral_v2_phase_b.py`: renders comparativos de la Fase B.
+- `../../../scripts/caral/bake_caral_lod1.py`: bake del LOD1 por región; el GLB se exporta con texturas 512 y roughness constante.
+- `../../../scripts/caral/assemble_caral_lod0.py`: ensamblado del LOD0 por región high-poly + infraestructura.
+- `../../../scripts/caral/optimize_caral_lod1.py`: fusión de la infraestructura LOD1 en seis mallas y capas.
+- `../../../scripts/caral/export_caral_lod.py`: exportador común LOD0/LOD1 con WebP 80, Draco, `extras` y `--max-texture-size 512` para LOD1 y roughness constante.
 
 ## Criterios de aceptación
 

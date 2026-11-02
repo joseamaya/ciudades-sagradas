@@ -10,7 +10,7 @@ Empezar a romper la silueta de blockout sin tocar todavía la arquitectura ni la
 
 - Subdivisión simple nivel 3 y desplazamiento procedural suave en las **6 colinas** de `COL-Caral_Terrain`.
 - Textura `CLOUDS`, escala 38, fuerza 7 m.
-- Script reproducible: `scripts/remaster_caral_terrain.py`.
+- Script reproducible: `scripts/caral/remaster_caral_terrain.py`.
 - Escena de trabajo: `blender/caral/caral_remaster.blend`.
 - El piloto `caral_art.blend` fue retirado del repositorio; no se modifica.
 

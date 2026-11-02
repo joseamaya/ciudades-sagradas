@@ -76,10 +76,10 @@ Escalas UV: terreno `SiteApron` 0,05; `Terrain_Base`/`Terrain_Shore` 0,02; `Terr
 ## Scripts
 
 ```bash
-python3 scripts/make_caral_materials.py
+python3 scripts/caral/make_caral_materials.py
 
 blender --background blender/caral/caral_remaster.blend \
-  --python scripts/remaster_caral_materials.py -- \
+  --python scripts/caral/remaster_caral_materials.py -- \
   --out blender/caral/caral_remaster.blend \
   --hero /tmp/caral_materials_hero.png \
   --close /tmp/caral_materials_close.png \

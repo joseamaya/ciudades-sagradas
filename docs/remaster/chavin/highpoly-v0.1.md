@@ -3,8 +3,8 @@
 Fecha: 27 de octubre de 2026.
 Estado: **superado por `highpoly-v0.2.md`; se conserva como registro del pase anterior**.
 Fuente: `blender/chavin/chavin_highpoly_v0.1.blend` (10,0 MB), generada desde `chavin_portada_v0.1.blend`.
-Generador: `scripts/build_chavin_highpoly.py`.
-Derivados: `chavin_lod0.blend` y `chavin_lod1.blend`, regenerados con `scripts/build_chavin_lod.py` y exportados con `scripts/export_chavin_lod.py`.
+Generador: `scripts/chavin/build_chavin_highpoly.py`.
+Derivados: `chavin_lod0.blend` y `chavin_lod1.blend`, regenerados con `scripts/chavin/build_chavin_lod.py` y exportados con `scripts/chavin/export_chavin_lod.py`.
 
 ## Vistas
 

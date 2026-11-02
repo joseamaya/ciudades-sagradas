@@ -27,7 +27,7 @@ blender/
     --image-format WEBP --image-quality 80
   ```
 
-- Los LOD0/LOD1 se exportan con `scripts/export_caral_lod.py` (WebP 80 + Draco).
+- Los LOD0/LOD1 se exportan con `scripts/caral/export_caral_lod.py` (WebP 80 + Draco).
 - El piloto histórico con texturas de IA fue retirado del repositorio.
 
 ## Convenciones

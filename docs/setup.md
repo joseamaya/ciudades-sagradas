@@ -11,6 +11,8 @@
 ## Web
 
 ```bash
+git lfs install
+git lfs pull
 npm install
 npm run dev
 ```

@@ -39,7 +39,11 @@ Una ciudad `available` no es automáticamente una ciudad terminada. El estándar
 
 ## Abrir en local
 
+Los `.blend` se distribuyen con **Git LFS**. En un clon nuevo:
+
 ```bash
+git lfs install
+git lfs pull
 npm install
 npm run dev
 ```

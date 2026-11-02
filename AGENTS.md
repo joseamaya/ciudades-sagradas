@@ -74,6 +74,8 @@ scripts/validate.mjs      validación de datos y assets
 
 ## Convenciones
 
+- Los `.blend` versionados usan Git LFS (`git lfs install` / `git lfs pull`); CI y build web no descargan LFS.
+
 - Toda ciudad publicada debe cumplir `docs/estandares/ciudad.md`; el estado real está en `docs/estandares/auditoria-ciudades.md`.
 
 - Nombres: `GEO-` geometría, `MAT-` materiales, `LGT-` luces, `CAM-` cámaras, `COL-` colecciones.

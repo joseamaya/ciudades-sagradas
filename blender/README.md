@@ -2,6 +2,15 @@
 
 Escenas editables y scripts de exportación del atlas.
 
+Los `.blend` versionados usan **Git LFS**. Tras clonar:
+
+```bash
+git lfs install
+git lfs pull
+```
+
+CI y el build web no descargan LFS porque no necesitan escenas Blender.
+
 ```text
 blender/
   caral/

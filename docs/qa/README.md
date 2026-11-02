@@ -29,7 +29,7 @@ npm run qa:playwright:webkit   # opcional; requiere dependencias del host
 
 Los artefactos quedan en `qa-output/` (ignorado por git) y el informe HTML en `playwright-report/`. Los JSON seleccionados se copian a `docs/qa/resultados/playwright/`.
 
-La suite incluye `lazy-viewer.spec.js`: verifica que el catálogo no descarga el visor, que una ciudad sí lo carga y que un fallo del chunk muestra el estado recuperable.
+La suite incluye `lazy-viewer.spec.js`: verifica que el catálogo no descarga el visor, que una ciudad sí lo carga y que un fallo del chunk muestra el estado recuperable. Los tests acceden a `window.__ciudadesSagradas` con `?qa=1`; sin `?debug` ni `?qa` la API no se expone en producción.
 
 CI ejecuta `qa:playwright:smoke` en cada PR y push a `main`: atlas, lazy-viewer y accesibilidad en Chromium desktop. Tarda ~6 min con instalación de navegador (5m52 en la primera ejecución); la suite completa de 36 pruebas queda como revisión manual.
 

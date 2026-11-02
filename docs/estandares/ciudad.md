@@ -39,8 +39,8 @@ Cada parada del recorrido declara `evidence`: `documented`, `inferred` o `interp
 
 ### Texturas y materiales
 
-- Hero: hasta **2K**; móvil: **1K**.
-- PBR con difusa, rugosidad y normal; WebP 80.
+- Hero: hasta **2K**; móvil: **512–1K** según presupuesto de VRAM.
+- PBR con difusa, rugosidad y normal; WebP 80. En LOD1 la roughness puede ser constante si se documenta y se mide la VRAM.
 - Sin texturas de IA. Materiales propios, procedurales o CC0 con registro.
 - Sin `KHR_materials_transmission` salvo justificación medida.
 - Culling en superficies sólidas; doble cara solo en vegetación, textiles, agua y fuego.
@@ -61,7 +61,7 @@ Cada parada del recorrido declara `evidence`: `documented`, `inferred` o `interp
 | GLB LOD0/LOD1 | <25 MB cada uno |
 | Draw calls | <100 en régimen estable |
 | Compresión | Draco en LOD0/LOD1 |
-| Texturas móviles | 1K |
+| Texturas móviles | 512–1K, con presupuesto de VRAM documentado |
 | Fallback | LOD1 o fallback explícito |
 | Sombreado | Sombras estáticas cacheadas |
 | Caché | Versión global actualizada si cambian assets |

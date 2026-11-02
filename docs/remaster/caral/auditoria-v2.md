@@ -11,6 +11,8 @@
 
 ## Performance
 
+> Cifras de la medición original de v2 (26 oct 2026). El LOD1 se reexportó después a 512 px: ver el ajuste de #41 al final de las mejoras P1.
+
 | Métrica | LOD0 | LOD1 | v1 fallback |
 |---|---:|---:|---:|
 | Triángulos del modelo | 230.800 | 56.332 | 55.944 |

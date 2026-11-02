@@ -4,7 +4,7 @@ import { expectNoConsoleErrors, hasWebgl, openCity, trackConsole, waitForViewer 
 test('ficha: semántica del panel y controles con estado', async ({ page }) => {
   test.skip(!(await hasWebgl(page)), 'WebGL no disponible en este navegador headless');
   const errors = trackConsole(page);
-  await openCity(page, 'caral', { lod: 1 });
+  await openCity(page, 'caral', { lod: 1, debug: false });
   await waitForViewer(page);
 
   const canvas = page.locator('#city-canvas');
@@ -46,7 +46,7 @@ test('ficha: semántica del panel y controles con estado', async ({ page }) => {
 test('movimiento reducido: sin amortiguación ni vuelo animado', async ({ page }) => {
   test.skip(!(await hasWebgl(page)), 'WebGL no disponible en este navegador headless');
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await openCity(page, 'caral', { lod: 1 });
+  await openCity(page, 'caral', { lod: 1, debug: false });
   await waitForViewer(page);
   const state = await page.evaluate(() => {
     const viewer = window.__ciudadesSagradas?.viewer;
@@ -61,7 +61,7 @@ test('movimiento reducido: sin amortiguación ni vuelo animado', async ({ page }
 
 test('teclado: modificadores y controles no cambian de parada', async ({ page }) => {
   test.skip(!(await hasWebgl(page)), 'WebGL no disponible en este navegador headless');
-  await openCity(page, 'caral', { lod: 1 });
+  await openCity(page, 'caral', { lod: 1, debug: false });
   await waitForViewer(page);
 
   const mobile = await page.evaluate(() => window.matchMedia('(max-width: 980px)').matches);
@@ -90,7 +90,7 @@ test('teclado: modificadores y controles no cambian de parada', async ({ page })
 
 test('teclado: Escape cierra la ficha antes de salir', async ({ page }) => {
   test.skip(!(await hasWebgl(page)), 'WebGL no disponible en este navegador headless');
-  await openCity(page, 'caral', { lod: 1 });
+  await openCity(page, 'caral', { lod: 1, debug: false });
   await waitForViewer(page);
 
   if (await page.evaluate(() => window.matchMedia('(max-width: 980px)').matches)) {
@@ -107,7 +107,7 @@ test('teclado: Escape cierra la ficha antes de salir', async ({ page }) => {
 test('recorrido: texto completo legible a 375 px', async ({ page }) => {
   test.skip(!(await hasWebgl(page)), 'WebGL no disponible en este navegador headless');
   await page.setViewportSize({ width: 375, height: 812 });
-  await openCity(page, 'caral', { lod: 1 });
+  await openCity(page, 'caral', { lod: 1, debug: false });
   await waitForViewer(page);
 
   const state = await page.locator('#tour-text').evaluate((element) => {
@@ -141,7 +141,7 @@ test('recorrido: texto completo legible a 375 px', async ({ page }) => {
 test('panel: sigue visible tras cerrar en escritorio y pasar a móvil', async ({ page }) => {
   test.skip(!(await hasWebgl(page)), 'WebGL no disponible en este navegador headless');
   await page.setViewportSize({ width: 1600, height: 900 });
-  await openCity(page, 'caral', { lod: 1 });
+  await openCity(page, 'caral', { lod: 1, debug: false });
   await waitForViewer(page);
 
   await page.keyboard.press('Escape');
@@ -160,7 +160,7 @@ test('panel: sigue visible tras cerrar en escritorio y pasar a móvil', async ({
 
 test('navegación: ciudad disponible a ficha documental limpia el teclado', async ({ page }) => {
   test.skip(!(await hasWebgl(page)), 'WebGL no disponible en este navegador headless');
-  await openCity(page, 'caral', { lod: 1 });
+  await openCity(page, 'caral', { lod: 1, debug: false });
   await waitForViewer(page);
 
   await page.evaluate(() => {
@@ -174,7 +174,7 @@ test('navegación: ciudad disponible a ficha documental limpia el teclado', asyn
 
 test('fallo de modelo: muestra estado recuperable', async ({ page }) => {
   await page.route('**/cities/caral/*.glb', (route) => route.abort());
-  await openCity(page, 'caral', { lod: 0, flags: ['nosw'] });
+  await openCity(page, 'caral', { lod: 0, flags: ['nosw'], debug: false });
   await expect(page.locator('.city-error')).toBeVisible({ timeout: 60_000 });
   await expect(page.locator('.city-error__title')).toContainText('Caral');
   await expect(page.locator('.city-error button')).toHaveText('Reintentar');

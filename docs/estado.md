@@ -51,7 +51,8 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - Revisión Playwright en Chromium desktop/mobile y Firefox desktop: rutas, LOD0/LOD1, paradas, luces, capas, consola, offline, kiosco y selección automática de LOD. Sin errores de consola. WebKit quedó bloqueado por dependencias del host. Informe en `docs/qa/revision-playwright.md`.
 - Validación ampliada: estados, evidencia, coherencia índice/ficha, cabecera y nodos GLB, capas `extras.layer`, rangos de LOD, hashes y tamaños del registro.
 - Auditoría de calidad desktop del 31 de octubre de 2026: consistencia de caché `v38`, accesibilidad del panel/canvas, movimiento reducido, estado recuperable ante fallo de GLB y regresión Chromium/Firefox. Informe en [`qa/auditoria-calidad-desktop-2026-10-31.md`](./qa/auditoria-calidad-desktop-2026-10-31.md).
-- CI y GitHub Pages en verde; caché global **v39**.
+- CI y GitHub Pages en verde; caché del service worker generada por hash en build.
+- Build con un único decoder Draco en `public/draco/`; `check-dist` verifica que no se emita la copia duplicada de three.
 - Piloto histórico con texturas de IA retirado del repositorio.
 - **Chan Chan** tiene un piloto solo-datos: ficha documental ampliada, cobertura por elemento y plan; sigue en `research`, sin GLB, portada, recorrido, capas ni QA. Informe en [`remaster/chan-chan/`](./remaster/chan-chan/README.md).
 - **Wari** cierra el segundo piloto solo-datos: dossier, cobertura y ficha sin modelo 3D ni QA. Sigue en `research`; Wari no figura en la Lista del Patrimonio Mundial. Informe en [`remaster/wari/`](./remaster/wari/README.md).
@@ -62,10 +63,10 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 
 | Ciudad | LOD0 tris / bytes | LOD1 tris / bytes | Draw calls LOD0/LOD1 | Paradas | Caché |
 |---|---|---|---:|---:|---|
-| Caral | 230.800 / 3.277.080 B | 56.332 / 799.260 B | 44 / 31 | 6 | v39 |
-| Chavín | 249.942 / 1.741.708 B | 42.842 / 746.544 B | 19 / 16 | 6 | v39 |
-| Aypate | 209.560 / 2.139.720 B | 30.663 / 443.372 B | 17 / 15 | 6 | v39 |
-| Narihualá | 162.432 / 1.599.008 B | 29.682 / 441.800 B | 14 / 13 | 6 | v39 |
+| Caral | 230.800 / 3.277.080 B | 56.332 / 799.260 B | 44 / 31 | 6 | hash |
+| Chavín | 249.942 / 1.741.708 B | 42.842 / 746.544 B | 19 / 16 | 6 | hash |
+| Aypate | 209.560 / 2.139.720 B | 30.663 / 443.372 B | 17 / 15 | 6 | hash |
+| Narihualá | 162.432 / 1.599.008 B | 29.682 / 441.800 B | 14 / 13 | 6 | hash |
 
 - Triángulos y bytes: medición de accessors GLB en `npm run validate`. Los informes de exportación pueden variar en ±1 triángulo por triangulación/degenerados; la tabla usa el conteo reproducible del validador.
 - Draw calls: cámara inicial, 1600×900, Chrome headless/SwiftShader, según los informes de cada preview. No mezclar con FPS de hardware.
@@ -91,7 +92,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 
 - La carga local terminó en ~1,2–1,7 s de respuesta de red y ~6–7 s hasta el primer render en SwiftShader; en GPU real el primer render baja de forma importante. El dato de FPS de SwiftShader no representa hardware real.
 - Fallback verificado: LOD0 → LOD1 → v1 en escritorio; LOD1 → v1 → LOD0 en móvil.
-- Offline verificado con caché global `v39` y `?nosw=1` como escape de QA.
+- Offline verificado con la caché por hash del build y `?nosw=1` como escape de QA.
 
 ## Pendiente
 

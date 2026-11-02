@@ -7,7 +7,7 @@
 - Fuente Blender: `blender/chavin/chavin_highpoly_v0.6.blend`; la Portada parte de `chavin_portada_v0.2.blend`.
 - LODs: `blender/chavin/chavin_lod0.blend` y `chavin_lod1.blend` (no versionados).
 - Sin imágenes oficiales ni texturas de IA.
-- Terreno procedural; dintel y escalera completa pendientes. La parada 5 usa `fov 28` y fustes acanalados interpretativos; caché global `v36`.
+- Terreno procedural; dintel y escalera completa pendientes. La parada 5 usa `fov 28` y fustes acanalados interpretativos; caché por hash generada en build.
 - Licencia: el Lanzón derivado del escaneo CyArk es CC BY-NC-SA 4.0; el resto es geometría y texturas propias.
 - QA: pass de producto en Android v0.3; la v0.6 sigue pendiente. Ver `docs/remaster/chavin/qa-hardware.md`.
 - Documentación: `docs/remaster/chavin/web-preview.md`.

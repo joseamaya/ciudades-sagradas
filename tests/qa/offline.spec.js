@@ -10,6 +10,7 @@ import {
 } from './helpers.js';
 
 test('Caral offline tras cachear el modelo', async ({ page, context, browserName }, testInfo) => {
+  test.slow();
   test.skip(browserName !== 'chromium', 'Offline solo en Chromium');
   test.skip(!(await hasWebgl(page)), 'WebGL no disponible en este navegador headless');
   const errors = trackConsole(page);

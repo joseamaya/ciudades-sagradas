@@ -282,12 +282,14 @@ for (const entry of index) {
 
 check(existsSync(path.join(root, 'docs/fuentes/registro-assets.csv')), 'Falta docs/fuentes/registro-assets.csv');
 
-const swPath = path.join(root, 'public/sw.js');
-check(existsSync(swPath), 'Falta public/sw.js');
-if (existsSync(swPath)) {
-  const sw = await readFile(swPath, 'utf8');
-  check(/const CACHE = 'ciudades-sagradas-v\d+';/.test(sw), 'public/sw.js: falta una versión de caché válida');
+const swTemplatePath = path.join(root, 'scripts/sw.template.js');
+check(existsSync(swTemplatePath), 'Falta scripts/sw.template.js');
+if (existsSync(swTemplatePath)) {
+  const sw = await readFile(swTemplatePath, 'utf8');
+  check(sw.includes("const CACHE = '__CACHE_VERSION__';"), 'scripts/sw.template.js: falta el marcador __CACHE_VERSION__');
+  check(sw.includes('self.addEventListener'), 'scripts/sw.template.js: no parece un service worker');
 }
+check(!existsSync(path.join(root, 'public/sw.js')), 'public/sw.js debe generarse en build; elimina la copia manual');
 
 const registryPath = path.join(root, 'docs/fuentes/registro-assets.csv');
 if (existsSync(registryPath)) {

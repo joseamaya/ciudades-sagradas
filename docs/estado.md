@@ -53,6 +53,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - Auditoría de calidad desktop del 31 de octubre de 2026: consistencia de caché `v38`, accesibilidad del panel/canvas, movimiento reducido, estado recuperable ante fallo de GLB y regresión Chromium/Firefox. Informe en [`qa/auditoria-calidad-desktop-2026-10-31.md`](./qa/auditoria-calidad-desktop-2026-10-31.md).
 - CI y GitHub Pages en verde; caché del service worker generada por hash en build.
 - Build con un único decoder Draco en `public/draco/`; `check-dist` verifica que no se emita la copia duplicada de three.
+- Listeners de ciudad y audio de kiosco ligados a un `AbortController`; al cambiar de ruta se limpian. “Reintentar” reabre la ciudad sin recargar la página.
 - Piloto histórico con texturas de IA retirado del repositorio.
 - **Chan Chan** tiene un piloto solo-datos: ficha documental ampliada, cobertura por elemento y plan; sigue en `research`, sin GLB, portada, recorrido, capas ni QA. Informe en [`remaster/chan-chan/`](./remaster/chan-chan/README.md).
 - **Wari** cierra el segundo piloto solo-datos: dossier, cobertura y ficha sin modelo 3D ni QA. Sigue en `research`; Wari no figura en la Lista del Patrimonio Mundial. Informe en [`remaster/wari/`](./remaster/wari/README.md).

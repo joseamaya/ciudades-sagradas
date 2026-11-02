@@ -16,6 +16,7 @@ const audio = new AmbientAudio();
 let cities = [];
 let viewer = null;
 let currentCity = null;
+let cityBindings = null;
 let routeToken = 0;
 let tourIndex = 0;
 let toastTimer = null;
@@ -173,15 +174,14 @@ function disposeViewer() {
 }
 
 function cleanupCityBindings() {
-  if (window.__cityKeyHandler) {
-    window.removeEventListener('keydown', window.__cityKeyHandler);
-    window.__cityKeyHandler = null;
-  }
-  window.__cityPanelCleanup?.();
-  window.__cityPanelCleanup = null;
+  cityBindings?.();
+  cityBindings = null;
 }
 
 function goCatalog() {
+  if (window.location.hash && window.location.hash !== '#/') {
+    window.history.replaceState(null, '', '#/');
+  }
   routeToken += 1;
   disposeViewer();
   audio.disable();
@@ -218,6 +218,8 @@ function handlesKeyboardShortcuts(target) {
 }
 
 function bindCity(refs, city) {
+  const controller = new AbortController();
+  const { signal } = controller;
   const panel = refs.panel;
   const infoToggle = refs.infoToggle;
   const mobileQuery = window.matchMedia('(max-width: 980px)');
@@ -237,6 +239,11 @@ function bindCity(refs, city) {
       : null;
   tourBarObserver?.observe(refs.tourBar);
   syncTourBarSpace();
+  cityBindings = () => {
+    controller.abort();
+    tourBarObserver?.disconnect();
+    document.documentElement.style.removeProperty('--tour-bar-space');
+  };
 
   const syncPanel = () => {
     if (isMobile()) panel.classList.remove('is-collapsed');
@@ -264,22 +271,17 @@ function bindCity(refs, city) {
   infoToggle?.addEventListener('click', () => {
     if (isPanelOpen()) closePanel();
     else openPanel({ focus: true });
-  });
-  refs.panelClose?.addEventListener('click', () => closePanel({ focus: true }));
+  }, { signal });
+  refs.panelClose?.addEventListener('click', () => closePanel({ focus: true }), { signal });
   refs.canvas?.addEventListener('pointerdown', () => {
     if (isMobile() && isPanelOpen()) closePanel();
-  });
+  }, { signal });
 
   const handleViewportChange = () => {
     syncPanel();
     syncTourBarSpace();
   };
-  mobileQuery.addEventListener('change', handleViewportChange);
-  window.__cityPanelCleanup = () => {
-    mobileQuery.removeEventListener('change', handleViewportChange);
-    tourBarObserver?.disconnect();
-    document.documentElement.style.removeProperty('--tour-bar-space');
-  };
+  mobileQuery.addEventListener('change', handleViewportChange, { signal });
   syncPanel();
   syncTourBarSpace();
 
@@ -292,7 +294,7 @@ function bindCity(refs, city) {
       console.warn('Audio no disponible', error);
       toast('El audio no está disponible en este navegador');
     }
-  });
+  }, { signal });
 
   refs.timeButtons?.forEach((button) => {
     button.addEventListener('click', () => {
@@ -302,27 +304,24 @@ function bindCity(refs, city) {
         item.classList.toggle('is-active', active);
         item.setAttribute('aria-pressed', String(active));
       });
-    });
+    }, { signal });
   });
 
   refs.layerInputs?.forEach((input) => {
-    input.addEventListener('change', () => viewer?.setLayer(input.dataset.layer, input.checked));
+    input.addEventListener('change', () => viewer?.setLayer(input.dataset.layer, input.checked), { signal });
   });
 
   refs.tourList?.addEventListener('click', (event) => {
     const button = event.target.closest('[data-tour]');
     if (!button) return;
     updateTour(refs, city, Number(button.dataset.tour), true);
-  });
+  }, { signal });
 
-  refs.tourNext?.addEventListener('click', () => updateTour(refs, city, tourIndex + 1, true));
-  refs.tourPrev?.addEventListener('click', () => updateTour(refs, city, tourIndex - 1, true));
+  refs.tourNext?.addEventListener('click', () => updateTour(refs, city, tourIndex + 1, true), { signal });
+  refs.tourPrev?.addEventListener('click', () => updateTour(refs, city, tourIndex - 1, true), { signal });
 
   updateTour(refs, city, 0, false);
 
-  if (window.__cityKeyHandler) {
-    window.removeEventListener('keydown', window.__cityKeyHandler);
-  }
   const keyHandler = (event) => {
     if (event.altKey || event.ctrlKey || event.metaKey) return;
     if (event.key === 'Escape') {
@@ -346,15 +345,14 @@ function bindCity(refs, city) {
     }
     if (event.key.toLowerCase() === 'h') document.body.classList.toggle('ui-hidden');
   };
-  window.__cityKeyHandler = keyHandler;
-  window.addEventListener('keydown', keyHandler);
+  window.addEventListener('keydown', keyHandler, { signal });
 
   if (document.body.classList.contains('kiosk')) {
     const startAudio = async () => {
       const enabled = await audio.enable();
       refs.sound?.setAttribute('aria-pressed', String(enabled));
     };
-    window.addEventListener('pointerdown', startAudio, { once: true });
+    window.addEventListener('pointerdown', startAudio, { once: true, signal });
   }
 }
 
@@ -380,7 +378,10 @@ function showViewerError(refs, city) {
   const retry = document.createElement('button');
   retry.type = 'button';
   retry.textContent = 'Reintentar';
-  retry.addEventListener('click', () => window.location.reload());
+  retry.addEventListener('click', () => {
+    retry.disabled = true;
+    openCity(city.id);
+  });
 
   const back = document.createElement('a');
   back.href = '#/';
@@ -458,6 +459,11 @@ async function openCity(id) {
       if (viewer === instance) viewer = null;
     }
   } catch (error) {
+    if (token !== routeToken) {
+      instance?.dispose();
+      if (viewer === instance) viewer = null;
+      return;
+    }
     console.error(error);
     hideLoading();
     toast('No se pudo iniciar el visor 3D.');

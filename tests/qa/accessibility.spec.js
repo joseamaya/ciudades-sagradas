@@ -172,11 +172,47 @@ test('navegación: ciudad disponible a ficha documental limpia el teclado', asyn
   await expect(page).toHaveURL(/#\/ciudad\/chan-chan$/);
 });
 
-test('fallo de modelo: muestra estado recuperable', async ({ page }) => {
-  await page.route('**/cities/caral/*.glb', (route) => route.abort());
+test('navegación: volver y reabrir no duplica el teclado', async ({ page }) => {
+  test.skip(!(await hasWebgl(page)), 'WebGL no disponible en este navegador headless');
+  await openCity(page, 'caral', { lod: 1, debug: false });
+  await waitForViewer(page);
+
+  const cityCount = await page.evaluate(() => window.__ciudadesSagradas.cities.length);
+  const tourCount = await page.evaluate(() => window.__ciudadesSagradas.city.tour.length);
+  const paddedTourCount = String(tourCount).padStart(2, '0');
+
+  for (let i = 0; i < 2; i += 1) {
+    await page.locator('.back-link').click();
+    await expect(page.locator('.city-card')).toHaveCount(cityCount);
+    await page.locator('a[href="#/ciudad/caral"]').click();
+    await waitForViewer(page);
+  }
+
+  await expect(page.locator('#tour-count')).toHaveText(`01 / ${paddedTourCount}`);
+  await page.evaluate(() => document.activeElement?.blur());
+  await page.keyboard.press('ArrowRight');
+  await expect(page.locator('#tour-count')).toHaveText(`02 / ${paddedTourCount}`);
+});
+
+test('fallo de ficha: vuelve al atlas con URL limpia', async ({ page }) => {
+  await page.route('**/cities/caral/city.json', (route) => route.abort());
+  await openCity(page, 'caral', { lod: 1, debug: false });
+  await expect(page.locator('.city-card')).toHaveCount(6);
+  await expect(page).toHaveURL(/#\/$/);
+});
+
+test('fallo de modelo: muestra estado recuperable y reintenta', async ({ page }) => {
+  test.slow();
+  let fail = true;
+  await page.route('**/cities/caral/*.glb', (route) => (fail ? route.abort() : route.continue()));
   await openCity(page, 'caral', { lod: 0, flags: ['nosw'], debug: false });
   await expect(page.locator('.city-error')).toBeVisible({ timeout: 60_000 });
   await expect(page.locator('.city-error__title')).toContainText('Caral');
   await expect(page.locator('.city-error button')).toHaveText('Reintentar');
   await expect(page.locator('.city-error a')).toHaveAttribute('href', '#/');
+
+  fail = false;
+  await page.locator('.city-error button').click();
+  await waitForViewer(page);
+  await expect(page.locator('.city-error')).toHaveCount(0);
 });

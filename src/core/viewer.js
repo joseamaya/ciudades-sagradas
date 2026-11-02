@@ -553,6 +553,7 @@ export class CityViewer {
         url,
         resolve,
         (event) => {
+          if (this._destroyed) return;
           if (event.total && this.onProgress) this.onProgress(event.loaded / event.total);
         },
         reject,
@@ -561,6 +562,7 @@ export class CityViewer {
   }
 
   async load(city) {
+    if (this._destroyed) return;
     this._clearCityLights();
     this.city = city;
     this._applyGround(city);
@@ -579,15 +581,26 @@ export class CityViewer {
     let loadedLevel = null;
     let lastError = null;
     for (const candidate of candidates) {
+      if (this._destroyed) break;
       try {
-        gltf = await this._loadGltf(loader, new URL(candidate.url, document.baseURI).href);
+        const loaded = await this._loadGltf(loader, new URL(candidate.url, document.baseURI).href);
+        if (this._destroyed) {
+          this._disposeObject(loaded.scene);
+          return;
+        }
+        gltf = loaded;
         loadedLevel = candidate.level;
         this.modelUrl = candidate.url;
         break;
       } catch (error) {
         lastError = error;
+        if (this._destroyed) return;
         console.warn(`No se pudo cargar ${candidate.url}`, error);
       }
+    }
+    if (this._destroyed) {
+      if (gltf) this._disposeObject(gltf.scene);
+      return;
     }
     if (!gltf) {
       if (this.onError) this.onError(lastError);

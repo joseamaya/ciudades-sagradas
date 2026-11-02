@@ -7,6 +7,7 @@ Todas las capturas de esta carpeta corresponden a **Caral Remaster v2** (LOD0/LO
 - `caral-ficha.png`: Caral v2 con la ficha abierta.
 - `caral-limpio.png`: Caral v2 sin interfaz (tecla H).
 - `caral-atardecer.png` y `caral-noche.png`: presets de luz de v2.
+- `chavin-noche.png`: preset Noche en Chavín de Huántar.
 - `kiosco.png`: modo museo a 1920 × 1080.
 - `chavin-investigacion.png`: ficha en investigación.
 

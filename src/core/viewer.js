@@ -47,23 +47,24 @@ const TIME_PRESETS = {
     skyHorizon: 0xd98e66,
     skyGround: 0x6a4630,
     fog: 0xc98f6a,
-    exposure: 0.95,
+    exposure: 0.9,
     envIntensity: 0.65,
   },
   night: {
     offset: [25, 90, -65],
-    sun: 0x8fb0ff,
-    sunIntensity: 0.45,
-    hemiSky: 0x2a3a5a,
-    hemiGround: 0x1a1410,
-    hemiIntensity: 0.1,
-    fill: 0.05,
-    skyTop: 0x080e1a,
-    skyHorizon: 0x18243a,
-    skyGround: 0x0d0c0a,
-    fog: 0x101827,
-    exposure: 0.7,
-    envIntensity: 0.35,
+    sun: 0xa8c0ff,
+    sunIntensity: 1.0,
+    hemiSky: 0x4a5f85,
+    hemiGround: 0x2a2420,
+    hemiIntensity: 0.3,
+    fill: 0.2,
+    skyTop: 0x0b1424,
+    skyHorizon: 0x243552,
+    skyGround: 0x161a22,
+    fog: 0x1a2438,
+    exposure: 0.9,
+    envIntensity: 0.52,
+    backgroundIntensity: 1.1,
   },
 };
 
@@ -430,7 +431,7 @@ export class CityViewer {
     this.sun.intensity = preset.sunIntensity;
     this.hemi.color.setHex(preset.hemiSky);
     this.hemi.groundColor.setHex(preset.hemiGround);
-    const overrides = this.city?.lighting || {};
+    const overrides = this.city?.lighting?.[key] ?? this.city?.lighting ?? {};
     this.hemi.intensity = overrides.hemiIntensity ?? preset.hemiIntensity;
     this.fill.intensity = overrides.fill ?? preset.fill;
     const { sky, envTarget } = this._skyFor(key);

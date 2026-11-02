@@ -258,6 +258,11 @@
   "lighting": {
     "fill": 0.5,
     "hemiIntensity": 0.2,
-    "envIntensity": 0.85
+    "envIntensity": 0.85,
+    "night": {
+      "fill": 0.18,
+      "hemiIntensity": 0.3,
+      "envIntensity": 0.5
+    }
   }
 }

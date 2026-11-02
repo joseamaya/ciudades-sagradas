@@ -5,7 +5,7 @@
 Incluido como dependencia de la aplicación web.
 
 - Proyecto: <https://threejs.org/>
-- Versión: 0.185.x
+- Versión: 0.187.x
 - Licencia: MIT
 - Copyright © 2010-2026 three.js authors
 

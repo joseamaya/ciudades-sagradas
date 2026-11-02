@@ -46,7 +46,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - Evidencia por parada y estado general visibles en catálogo y ficha.
 - PWA con caché offline del modelo cargado; sin precarga forzada de otros modelos.
 - Manifiesto PWA `standalone`/`any`, iconos 192/512 y safe-area en móvil.
-- Modo kiosco `?kiosk=1` y `?debug=1` con métricas en vivo e informe QA copiable (GPU, WebGL, PWA, flags y errores).
+- Modo kiosco `?kiosk=1` y `?debug=1` con métricas en vivo e informe QA copiable (GPU, WebGL, PWA, flags y errores). `window.__ciudadesSagradas` solo se expone con `?debug=1`, `?qa=1` o en desarrollo.
 - Benchmark reproducible `scripts/bench.mjs` (Chrome/CDP + SwiftShader) para LOD0, LOD1, móvil, fallback y offline.
 - Revisión Playwright en Chromium desktop/mobile y Firefox desktop: rutas, LOD0/LOD1, paradas, luces, capas, consola, offline, kiosco y selección automática de LOD. Sin errores de consola. WebKit quedó bloqueado por dependencias del host. Informe en `docs/qa/revision-playwright.md`.
 - Validación ampliada: estados, evidencia, coherencia índice/ficha, cabecera y nodos GLB, capas `extras.layer`, rangos de LOD, hashes y tamaños del registro.

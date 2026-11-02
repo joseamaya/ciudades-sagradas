@@ -10,7 +10,7 @@ Estado: **QA Android con incidencia P2 abierta; desktop GPU integrada 1600×900 
 - Forzar LOD1: `?lod=1&debug=1#/ciudad/caral`
 - Kiosco: `?kiosk=1#/ciudad/caral`
 
-El overlay `?debug=1` muestra LOD, draw calls, triángulos, FPS, frame time, sombras, texturas, carga, GPU y WebGL. El botón **Copiar informe QA** copia métricas, entorno y errores recientes. También está disponible `window.__ciudadesSagradas.qaReport()`. Para aislar render: `?noground=1` y `?noshadows=1`.
+El overlay `?debug=1` muestra LOD, draw calls, triángulos, FPS, frame time, sombras, texturas, carga, GPU y WebGL. El botón **Copiar informe QA** copia métricas, entorno y errores recientes. `window.__ciudadesSagradas` solo se expone con `?debug=1`, `?qa=1` o en desarrollo; `?qa=1` activa la API sin el overlay para automatización. Para aislar render: `?noground=1` y `?noshadows=1`.
 
 ## Matriz mínima
 

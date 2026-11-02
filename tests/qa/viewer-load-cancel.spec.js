@@ -19,7 +19,7 @@ test('visor: salir durante la carga no añade el modelo ni renderiza tras dispos
   });
 
   const modelRequest = page.waitForRequest(/model_lod1\.glb/);
-  await page.goto('/?nosw=1&lod=1#/ciudad/caral');
+  await page.goto('/?nosw=1&lod=1&qa=1#/ciudad/caral');
   await modelRequest;
   await page.waitForFunction(() => Boolean(window.__ciudadesSagradas?.viewer));
   const viewer = await page.evaluateHandle(() => window.__ciudadesSagradas.viewer);

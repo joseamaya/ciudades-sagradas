@@ -96,7 +96,7 @@ function setupDebug() {
     const gpu = environment?.webgl?.renderer || environment?.webgl?.vendor || '—';
     textEl.textContent = [
       `LOD ${metrics.lod ?? '—'} · ${metrics.lowPower ? 'móvil' : 'escritorio'} · ${metrics.timeOfDay}`,
-      `${metrics.modelTriangles.toLocaleString('es')} tris · ${metrics.calls} calls · ${metrics.fps || 0} fps · ${metrics.frameMs || 0} ms`,
+      `${metrics.modelTriangles.toLocaleString('es')} tris · ${metrics.calls} calls · ${metrics.rendering ? `${metrics.fps || 0} fps · ${metrics.frameMs || 0} ms` : `reposo · ${metrics.fps || 0} fps`} · ${metrics.framesRendered ?? 0} frames`,
       `${metrics.viewport.width}×${metrics.viewport.height} @${metrics.pixelRatio} · sombras ${metrics.shadowMapSize[0]} · texturas ${metrics.textures} (${metrics.textureMB} MB)`,
       `GPU ${gpu} · WebGL ${environment?.webgl?.version ?? '—'} · máx. textura ${environment?.webgl?.maxTextureSize ?? '—'}`,
       `PWA ${environment?.standalone ? 'instalada' : 'navegador'} · SW ${environment?.serviceWorker ? 'sí' : 'no'} · ${environment?.online ? 'online' : 'offline'}`,

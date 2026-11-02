@@ -54,6 +54,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - CI y GitHub Pages en verde; caché del service worker generada por hash en build.
 - Build con un único decoder Draco en `public/draco/`; `check-dist` verifica que no se emita la copia duplicada de three.
 - Listeners de ciudad y audio de kiosco ligados a un `AbortController`; al cambiar de ruta se limpian. “Reintentar” reabre la ciudad sin recargar la página.
+- El visor dibuja bajo demanda: cámara, vuelo, hora, capas, resize, carga y cambios de controles invalidan; la escena quieta no renderiza. `?debug` muestra “reposo” y el último FPS; el benchmark fuerza render continuo.
 - Piloto histórico con texturas de IA retirado del repositorio.
 - **Chan Chan** tiene un piloto solo-datos: ficha documental ampliada, cobertura por elemento y plan; sigue en `research`, sin GLB, portada, recorrido, capas ni QA. Informe en [`remaster/chan-chan/`](./remaster/chan-chan/README.md).
 - **Wari** cierra el segundo piloto solo-datos: dossier, cobertura y ficha sin modelo 3D ni QA. Sigue en `research`; Wari no figura en la Lista del Patrimonio Mundial. Informe en [`remaster/wari/`](./remaster/wari/README.md).

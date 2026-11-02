@@ -76,7 +76,7 @@ npm run serve
 npm run bench -- --city caral --out /tmp/caral-bench
 
 # QA funcional automatizada (requiere navegadores Playwright)
-npm run qa:playwright:smoke      # gate de CI: atlas, lazy-viewer y accesibilidad
+npm run qa:playwright:smoke      # gate de CI/Pages: atlas, LOD1, lazy-viewer, accesibilidad, render bajo demanda, offline, API QA, SW y ciclo de vida
 npm run qa:playwright:chromium   # suite Chromium desktop completa
 ```
 

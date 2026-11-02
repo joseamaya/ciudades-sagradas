@@ -23,7 +23,7 @@ Este registro guarda los informes reales de `?debug=1`. No se marca un resultado
 npm run qa:playwright          # todos los proyectos por defecto (incluye 1080p emulado)
 npm run qa:playwright:review   # Chromium desktop + Firefox + Chromium mobile
 npm run qa:playwright:chromium # solo Chromium desktop 1600×900
-npm run qa:playwright:smoke    # atlas + lazy-viewer + accesibilidad en Chromium
+npm run qa:playwright:smoke    # gate de PR/Pages: 39 pruebas en Chromium desktop
 npm run qa:playwright:webkit   # opcional; requiere dependencias del host
 ```
 
@@ -31,9 +31,9 @@ Los artefactos quedan en `qa-output/` (ignorado por git) y el informe HTML en `p
 
 La suite incluye `lazy-viewer.spec.js`: verifica que el catálogo no descarga el visor, que una ciudad sí lo carga y que un fallo del chunk muestra el estado recuperable. Los tests acceden a `window.__ciudadesSagradas` con `?qa=1`; sin `?debug` ni `?qa` la API no se expone en producción.
 
-CI ejecuta `qa:playwright:smoke` en cada PR y push a `main`: atlas, lazy-viewer y accesibilidad en Chromium desktop. Tarda ~6 min con instalación de navegador (5m52 en la primera ejecución); la suite completa de 36 pruebas queda como revisión manual.
+CI ejecuta `qa:playwright:smoke` en cada PR. El workflow de Pages vuelve a ejecutar `validate` + smoke en `main` y solo despliega si pasan. El smoke cubre atlas, LOD1, lazy-viewer, accesibilidad, render bajo demanda, offline, API QA, service worker, cámara y ciclo de vida del visor (39 pruebas); tarda ~10-15 min con instalación de navegador. La suite completa de Chromium desktop (61 pruebas) queda como revisión manual.
 
-El workflow manual `.github/workflows/qa-playwright.yml` ejecuta Chromium desktop en CI y sube los artefactos.
+El workflow manual `.github/workflows/qa-playwright.yml` ejecuta la suite completa de Chromium desktop (61 pruebas) y sube los artefactos.
 
 WebKit no está activo por defecto: en este host faltan dependencias del sistema. Requiere `sudo npx playwright install-deps` o las librerías `libavif16`, `libgav1-1`, `libyuv0` y `libjxl0.8`. Playwright headless no certifica FPS ni GPU reales.
 

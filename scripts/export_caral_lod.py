@@ -4,9 +4,9 @@ Uso:
   blender --background blender/caral/caral_lod0.blend \
     --python scripts/export_caral_lod.py -- --lod 0 --out public/cities/caral/model_lod0.glb
 
-  # LOD1 móvil: texturas 1K
+  # LOD1 móvil: texturas 512 y roughness constante
   blender --background blender/caral/caral_lod1.blend \
-    --python scripts/export_caral_lod.py -- --lod 1 --max-texture-size 1024 \
+    --python scripts/export_caral_lod.py -- --lod 1 --max-texture-size 512 \
     --out public/cities/caral/model_lod1.glb
 
 No modifica la escena ni public/ salvo el archivo de salida indicado.
@@ -45,6 +45,31 @@ def optimize_materials():
                         node.inputs[socket_name].default_value = 0.0
 
 
+def simplify_lod1_roughness():
+    """LOD1 usa rugosidad constante; evita exportar mapas de roughness redundantes."""
+    removed = 0
+    for material in bpy.data.materials:
+        if material.users == 0 or not material.use_nodes:
+            continue
+        bsdf = next((node for node in material.node_tree.nodes if node.type == "BSDF_PRINCIPLED"), None)
+        if not bsdf:
+            continue
+        socket = bsdf.inputs.get("Roughness")
+        if not socket:
+            continue
+        removed_here = 0
+        for link in list(socket.links):
+            node = link.from_node
+            material.node_tree.links.remove(link)
+            removed += 1
+            removed_here += 1
+            if node.type == "TEX_IMAGE" and not any(output.links for output in node.outputs):
+                material.node_tree.nodes.remove(node)
+        if removed_here:
+            socket.default_value = 0.85
+    print(f"LOD1_ROUGHNESS_CONSTANT links={removed} value=0.85")
+
+
 def limit_textures(max_size):
     """Escala en memoria las texturas por encima de max_size, sin tocar el .blend."""
     if not max_size:
@@ -71,6 +96,7 @@ def parse_args():
     parser.add_argument("--out", required=True)
     parser.add_argument("--no-draco", dest="draco", action="store_false", default=True)
     parser.add_argument("--keep-materials", action="store_true")
+    parser.add_argument("--keep-roughness", action="store_true")
     parser.add_argument("--max-texture-size", type=int, default=0)
     return parser.parse_args(argv)
 
@@ -86,6 +112,8 @@ def main():
     os.makedirs(os.path.dirname(out), exist_ok=True)
     if not args.keep_materials:
         optimize_materials()
+    if args.lod == "1" and not args.keep_roughness:
+        simplify_lod1_roughness()
     if args.lod == "1" and not args.max_texture_size:
         print("WARN LOD1 sin --max-texture-size; se exportarán las texturas originales")
     limit_textures(args.max_texture_size)

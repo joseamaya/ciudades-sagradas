@@ -86,4 +86,4 @@ La fuente v1 versionada es `blender/caral/caral_remaster.blend`. Las escenas v2 
 - Preferir CC0 (Poly Haven, ambientCG) o texturas propias.
 - No se añaden texturas de IA. El piloto histórico fue retirado del repositorio por licencia pendiente.
 - Si no se puede publicar una textura, sustituirla por una procedural o por un color PBR.
-- WebP es el formato publicado; LOD1 se exporta con `--max-texture-size 1024`. Evaluar KTX2 solo si se reduce la VRAM de forma medible.
+- WebP es el formato publicado; LOD1 se exporta con `--max-texture-size 512` y roughness constante. Evaluar KTX2 solo si se reduce la VRAM de forma medible.

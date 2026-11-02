@@ -21,6 +21,10 @@ for (const city of CITIES) {
     expect(report?.metrics?.lod).toBe('1');
     expect(report?.metrics?.modelTriangles).toBeGreaterThan(0);
     expect(report?.environment?.webgl?.renderer).toBeTruthy();
+    if (city.id === 'caral') {
+      expect(report?.metrics?.textureMB).toBeLessThanOrEqual(80);
+      expect(report?.metrics?.textures).toBeLessThanOrEqual(31);
+    }
 
     await saveQaReport(testInfo, `${city.id}-lod1`, report);
     expectNoConsoleErrors(errors);

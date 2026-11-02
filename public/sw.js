@@ -1,4 +1,4 @@
-const CACHE = 'ciudades-sagradas-v38';
+const CACHE = 'ciudades-sagradas-v39';
 const CORE = ['./', './index.html', './manifest.webmanifest', './icons/icon.svg', './icons/icon-192.png', './icons/icon-512.png'];
 const ASSET = /\.(?:glb|gltf|jpg|jpeg|png|webp|svg|woff2?|wasm)$/i;
 

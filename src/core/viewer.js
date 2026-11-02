@@ -239,7 +239,11 @@ export class CityViewer {
     this.stats = { fps: 0, frameMs: 0, calls: 0, trianglesDrawn: 0 };
     this._frameCount = 0;
     this._frameAccum = 0;
-    this._lastFrame = 0;
+    this._lastRender = 0;
+    this._framesRendered = 0;
+    this._needsRender = true;
+    this._continuousRender = false;
+    this._rendering = false;
     this.skyCache = new Map();
     this.envCache = new Map();
     this._destroyed = false;
@@ -258,6 +262,7 @@ export class CityViewer {
 
     this._onContextRestored = () => {
       this.renderer.shadowMap.needsUpdate = true;
+      this._needsRender = true;
     };
     this.renderer.domElement.addEventListener('webglcontextrestored', this._onContextRestored);
 
@@ -284,6 +289,7 @@ export class CityViewer {
     this.controls.maxDistance = 180;
     this.controls.maxPolarAngle = Math.PI * 0.495;
     this.controls.update();
+    this.controls.addEventListener('change', () => this._invalidate());
 
     this._buildLights();
     this._buildGround();
@@ -402,6 +408,19 @@ export class CityViewer {
     );
   }
 
+  _invalidate() {
+    this._needsRender = true;
+  }
+
+  setContinuousRender(enabled) {
+    this._continuousRender = Boolean(enabled);
+    if (!this._continuousRender) return;
+    this._needsRender = true;
+    this._lastRender = 0;
+    this._frameAccum = 0;
+    this._frameCount = 0;
+  }
+
   _applyTime(name) {
     const key = TIME_PRESETS[name] ? name : 'morning';
     const preset = TIME_PRESETS[key];
@@ -423,6 +442,7 @@ export class CityViewer {
     this.renderer.toneMappingExposure = preset.exposure;
     this.renderer.shadowMap.needsUpdate = true;
     this.stars.visible = key === 'night';
+    this._invalidate();
   }
 
   setTimeOfDay(name) {
@@ -434,6 +454,7 @@ export class CityViewer {
       if (mesh.userData.layer === id) mesh.visible = visible;
     }
     this.renderer.shadowMap.needsUpdate = true;
+    this._invalidate();
   }
 
   setCamera(data, immediate = true) {
@@ -448,6 +469,7 @@ export class CityViewer {
       this.camera.position.copy(position);
       this.controls.target.copy(target);
       this.controls.update();
+      this._invalidate();
       return;
     }
     this.flyTo(data);
@@ -472,6 +494,7 @@ export class CityViewer {
       toTarget: new THREE.Vector3(...data.target),
     };
     this.controls.enabled = false;
+    this._invalidate();
   }
 
   _updateFlight(now) {
@@ -557,6 +580,7 @@ export class CityViewer {
     this._fitShadowsToModel();
     this.renderer.shadowMap.needsUpdate = true;
     this.renderer.render(this.scene, this.camera);
+    this._invalidate();
     this.loadMs = performance.now() - this.loadStartedAt;
     this.modelBytes = this._resourceBytes(this.modelUrl);
     if (this.onReady) this.onReady();
@@ -773,6 +797,8 @@ export class CityViewer {
       trianglesDrawn: this.stats.trianglesDrawn,
       fps: this.stats.fps,
       frameMs: this.stats.frameMs,
+      framesRendered: this._framesRendered,
+      rendering: this._rendering,
       loadMs: this.loadMs == null ? null : Math.round(this.loadMs),
       modelBytes: this.modelBytes,
       timeOfDay: this.timeOfDay,
@@ -801,19 +827,39 @@ export class CityViewer {
     this._applyFov();
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(width, height, false);
+    this._invalidate();
   }
 
   _animate(now) {
     this._updateFlight(now);
-    this.controls.update();
+    const controlsChanged = this.controls.update();
+    const shouldRender =
+      this._continuousRender ||
+      this._needsRender ||
+      Boolean(this.flight) ||
+      controlsChanged;
+
+    if (!shouldRender) {
+      this._rendering = false;
+      if (this._lastRender) {
+        this._lastRender = 0;
+        this._frameAccum = 0;
+        this._frameCount = 0;
+      }
+      return;
+    }
+
+    this._rendering = true;
+    this._needsRender = false;
+    this._framesRendered += 1;
     this.renderer.render(this.scene, this.camera);
 
     const render = this.renderer.info.render;
     this.stats.calls = render.calls;
     this.stats.trianglesDrawn = render.triangles;
 
-    if (this._lastFrame) {
-      const delta = now - this._lastFrame;
+    if (this._lastRender) {
+      const delta = now - this._lastRender;
       if (delta > 0 && delta < 1000) {
         this._frameAccum += delta;
         this._frameCount += 1;
@@ -825,7 +871,7 @@ export class CityViewer {
         }
       }
     }
-    this._lastFrame = now;
+    this._lastRender = now;
   }
 
   dispose() {

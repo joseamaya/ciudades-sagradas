@@ -213,6 +213,13 @@ async function capture(cdp, file) {
 }
 
 async function measure(cdp) {
+  await evaluate(
+    cdp,
+    `(() => {
+      window.__ciudadesSagradas?.viewer?.setContinuousRender?.(true);
+      return true;
+    })()`,
+  );
   const metrics = await evaluate(cdp, METRICS_EXPRESSION);
   const fps = await evaluate(cdp, FPS_EXPRESSION);
   const shadow = await evaluate(

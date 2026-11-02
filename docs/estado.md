@@ -51,7 +51,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - Revisión Playwright en Chromium desktop/mobile y Firefox desktop: rutas, LOD0/LOD1, paradas, luces, capas, consola, offline, kiosco y selección automática de LOD. Sin errores de consola. WebKit quedó bloqueado por dependencias del host. Informe en `docs/qa/revision-playwright.md`.
 - Validación ampliada: estados, evidencia, coherencia índice/ficha, cabecera y nodos GLB, capas `extras.layer`, rangos de LOD, hashes y tamaños del registro.
 - Auditoría de calidad desktop del 31 de octubre de 2026: consistencia de caché `v38`, accesibilidad del panel/canvas, movimiento reducido, estado recuperable ante fallo de GLB y regresión Chromium/Firefox. Informe en [`qa/auditoria-calidad-desktop-2026-10-31.md`](./qa/auditoria-calidad-desktop-2026-10-31.md).
-- CI y GitHub Pages en verde; caché global **v38**.
+- CI y GitHub Pages en verde; caché global **v39**.
 - Piloto histórico con texturas de IA retirado del repositorio.
 - **Chan Chan** tiene un piloto solo-datos: ficha documental ampliada, cobertura por elemento y plan; sigue en `research`, sin GLB, portada, recorrido, capas ni QA. Informe en [`remaster/chan-chan/`](./remaster/chan-chan/README.md).
 - **Wari** cierra el segundo piloto solo-datos: dossier, cobertura y ficha sin modelo 3D ni QA. Sigue en `research`; Wari no figura en la Lista del Patrimonio Mundial. Informe en [`remaster/wari/`](./remaster/wari/README.md).
@@ -62,14 +62,14 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 
 | Ciudad | LOD0 tris / bytes | LOD1 tris / bytes | Draw calls LOD0/LOD1 | Paradas | Caché |
 |---|---|---|---:|---:|---|
-| Caral | 230.800 / 3.277.080 B | 56.332 / 1.345.092 B | 44 / 31 | 6 | v38 |
-| Chavín | 249.942 / 1.741.708 B | 42.842 / 746.544 B | 19 / 16 | 6 | v38 |
-| Aypate | 209.560 / 2.139.720 B | 30.663 / 443.372 B | 17 / 15 | 6 | v38 |
-| Narihualá | 162.432 / 1.599.008 B | 29.682 / 441.800 B | 14 / 13 | 6 | v38 |
+| Caral | 230.800 / 3.277.080 B | 56.332 / 799.260 B | 44 / 31 | 6 | v39 |
+| Chavín | 249.942 / 1.741.708 B | 42.842 / 746.544 B | 19 / 16 | 6 | v39 |
+| Aypate | 209.560 / 2.139.720 B | 30.663 / 443.372 B | 17 / 15 | 6 | v39 |
+| Narihualá | 162.432 / 1.599.008 B | 29.682 / 441.800 B | 14 / 13 | 6 | v39 |
 
 - Triángulos y bytes: medición de accessors GLB en `npm run validate`. Los informes de exportación pueden variar en ±1 triángulo por triangulación/degenerados; la tabla usa el conteo reproducible del validador.
 - Draw calls: cámara inicial, 1600×900, Chrome headless/SwiftShader, según los informes de cada preview. No mezclar con FPS de hardware.
-- Caral: LOD1 usa atlas 1K; ~208 MB de VRAM estimada. LOD0 ~373 MB. El detalle de Caral está más abajo.
+- Caral: LOD1 usa atlas 512 y ~40 MB de VRAM estimada. LOD0 ~373 MB. El detalle de Caral está más abajo.
 - Chavín, Aypate y Narihualá usan 2K/1K según sus informes; no se declara una cifra de VRAM si no está medida.
 - Última ejecución de `npm run bench` (31 de octubre de 2026): Caral 44/31, Chavín 19/16, Aypate 17/15 y Narihualá 14/13 draw calls; sin errores de consola en cargas normales. Los únicos warnings son los fallos deliberados al bloquear LOD0 para probar el fallback. Siguen siendo datos de SwiftShader, no FPS de hardware real.
 - QA de hardware: desktop Intel RPL-S (Chrome 139/Linux, 1600×900) completado para Caral, Chavín, Aypate y Narihualá en LOD0/LOD1, a ~58–60 fps. Caral pasó flags, offline, standalone y sesión de 10 min con heap estable. Faltan 1080p real, Android/iPhone y kiosco. Registro en `docs/qa/resultados/desktop-2026-10-30/` y `docs/qa/resultados/chavin-v07-desktop-2026-10-31/`.
@@ -81,9 +81,9 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 | Triángulos | 230.800 | 56.332 | 55.944 |
 | Primitivas Three.js | 65 | 38 | 554 |
 | Draw calls en régimen estable* | 44 | 31 | 342 |
-| GLB con Draco | 3.277.080 B | 1.345.092 B | 4.778.308 B (sin Draco) |
-| Materiales / imágenes | 21 / 31 | 23 / 39 | 20 / 31 |
-| Texturas decodificadas estimadas** | 373 MB | 208 MB | 373 MB |
+| GLB con Draco | 3.277.080 B | 799.260 B | 4.778.308 B (sin Draco) |
+| Materiales / imágenes | 21 / 31 | 23 / 30 | 20 / 31 |
+| Texturas decodificadas estimadas** | 373 MB | 40 MB | 373 MB |
 | Shadow map | 2048² escritorio | 1024² móvil | 2048² escritorio |
 
 \* Cámara inicial, 1600×900, Chrome headless/SwiftShader; sombras cacheadas. Al refrescar sombras se suman los casters: **100 draw calls** en LOD0 y **60** en LOD1, solo en el frame de actualización.
@@ -91,7 +91,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 
 - La carga local terminó en ~1,2–1,7 s de respuesta de red y ~6–7 s hasta el primer render en SwiftShader; en GPU real el primer render baja de forma importante. El dato de FPS de SwiftShader no representa hardware real.
 - Fallback verificado: LOD0 → LOD1 → v1 en escritorio; LOD1 → v1 → LOD0 en móvil.
-- Offline verificado con caché global `v38` y `?nosw=1` como escape de QA.
+- Offline verificado con caché global `v39` y `?nosw=1` como escape de QA.
 
 ## Pendiente
 
@@ -108,7 +108,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 
 - Caral v2 está publicado; `model.glb` v1 se conserva como fallback y rollback, pero tiene 342 draw calls en la vista inicial y ~782 al refrescar sombras.
 - LOD1 de Caral no conecta AO ni mapa de roughness: usa base color, normal, roughness constante 0,85 y normal 0,35. El AO no está incluido en los GLB.
-- LOD1 de Caral usa texturas 1K y ~208 MB estimados de VRAM; sigue por encima de un LOD ideal.
+- LOD1 de Caral usa texturas 512 y ~40 MB estimados de VRAM. El AO sigue fuera del GLB y la roughness es constante.
 - La escala **0,08** está validada como diorama web; la escala métrica 1.0 queda fuera de esta entrega.
 - No se implementó LOD dinámico por distancia: la selección es por dispositivo/capacidad. No se justifica todavía.
 - No se modelaron los 20 cubículos del Anfiteatro de Caral por falta de una planta publicada suficiente.

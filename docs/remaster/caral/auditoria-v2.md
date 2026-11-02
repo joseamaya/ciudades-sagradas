@@ -11,6 +11,8 @@
 
 ## Performance
 
+> Cifras de la medición original de v2 (26 oct 2026). El LOD1 se reexportó después a 512 px: ver el ajuste de #41 al final de las mejoras P1.
+
 | Métrica | LOD0 | LOD1 | v1 fallback |
 |---|---:|---:|---:|
 | Triángulos del modelo | 230.800 | 56.332 | 55.944 |
@@ -62,6 +64,8 @@ Ninguno.
 1. **QA en hardware real**: no se midió 60 fps en iPhone/Safari, Android/Chrome ni GPU media. SwiftShader solo sirve para comparar. El kiosco sigue congelado.
 
 > **Ajuste posterior (VRAM):** LOD1 se reexportó con texturas 1K. Pasó de 3.206.848 B / ~544 MB estimados a **1.345.092 B / ~208 MB**, sin cambios de geometría, materiales ni draw calls. La comparación visual en Altar, Anfiteatro y vista general es aceptable para LOD móvil. KTX2/BasisU queda como mejora futura, no como bloqueo.
+
+> **Ajuste posterior (1 nov 2026, #41):** LOD1 se reexportó a **512 px**, sin mapas de roughness (rugosidad constante 0,85). Queda en **799.260 B, 30 imágenes y ~40 MB** estimados, dentro del objetivo y sin superar las 31 imágenes de LOD0. La geometría, materiales y draw calls no cambian.
 
 ### P2 — mejoras (corregidas)
 

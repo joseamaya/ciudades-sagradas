@@ -31,7 +31,7 @@ Checklist derivado de Caral Remaster v2.
 - [ ] WebP 80 y Draco en LOD0/LOD1.
 - [ ] Culling en sólidos; doble cara solo en vegetación, textiles, agua y fuego.
 - [ ] Sin `KHR_materials_transmission` salvo justificación medida.
-- [ ] Texturas móviles a 1K; 2K solo si la QA visual lo exige.
+- [ ] Texturas móviles a 512–1K según VRAM; 2K solo si la QA visual lo exige.
 - [ ] Sin texturas de IA; licencias registradas.
 
 ## Visor

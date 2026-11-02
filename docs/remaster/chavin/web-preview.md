@@ -36,7 +36,7 @@ Fuente Blender: `chavin_highpoly_v0.7.blend`; los derivados `chavin_lod0.blend` 
 - `hero.jpg` propio desde la Portada, sin imágenes oficiales.
 - Valle procedural v0.7: Mosna ~30 m abajo, Wacheqsa al norte, confluencia al noreste, crestas y vegetación baja.
 - Terreno con textura propia 1K, vertex colors y normal de agua; 15 imágenes en el GLB.
-- Caché del service worker `v38`.
+- Caché del service worker `v39`.
 - Parada 5 con `fov 28` para que las columnas y el friso de la Portada entren en el encuadre; las acanaladuras son una lectura geométrica interpretativa.
 
 ## Métricas del preview

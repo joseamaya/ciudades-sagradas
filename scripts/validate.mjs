@@ -261,6 +261,17 @@ for (const entry of index) {
         warnings.push(`${entry.id}: fallback legado ${model} sin extras.layer; usa la clasificación por nombre`);
       }
     }
+    const levelImages = Object.fromEntries(
+      modelMetrics
+        .filter((metric) => metric.id === entry.id && metric.level != null)
+        .map((metric) => [metric.level, metric.images]),
+    );
+    if (levelImages['0'] != null && levelImages['1'] != null) {
+      check(
+        levelImages['1'] <= levelImages['0'],
+        `${entry.id}: LOD1 tiene ${levelImages['1']} imágenes y LOD0 ${levelImages['0']}; LOD1 no debe superar a LOD0`,
+      );
+    }
   } else {
     check(!city.model, `${entry.id}: una ficha en investigación no debe declarar modelo`);
     check(city.maturity === 'research', `${entry.id}: una ficha sin modelo debe tener maturity "research"`);

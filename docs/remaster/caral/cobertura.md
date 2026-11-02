@@ -51,7 +51,7 @@ Queda fuera de este estándar:
 ## Lectura de los LOD
 
 - **LOD0:** 230.800 tris; high-poly fusionado de Mayor, Plaza Mayor, Anfiteatro y Altar Circular + infraestructura v1.
-- **LOD1:** 56.332 tris; las mismas cuatro zonas con atlas horneado 1K + infraestructura v1.
+- **LOD1:** 56.332 tris; las mismas cuatro zonas con atlas horneado 512 + infraestructura v1.
 - **Fallback v1:** 55.944 tris; modelo completo simplificado, sin Draco.
 
 El high-poly no reemplaza a los otros cinco edificios piramidales: estos siguen en la geometría v1. En el visor se leen como parte del conjunto, pero no tienen el detalle de fachada, escaleras y shicras del hero.

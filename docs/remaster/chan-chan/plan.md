@@ -10,7 +10,7 @@ Probar que una ciudad `research` puede mejorar su ficha, sus fuentes y su cobert
 
 - No crear modelo 3D, portada, LOD, recorrido ni capas.
 - No cambiar `availability`, `maturity`, `evidence` ni `qa`.
-- No modificar `public/sw.js` ni el registro de assets.
+- No modificar el service worker generado ni el registro de assets.
 - No presentar la ficha como reconstrucción final.
 
 ## Entregables

@@ -33,7 +33,7 @@ Una estación táctil de 1080p que funcione sin internet, con una experiencia de
 ## Actualización
 
 1. Copiar el nuevo `dist/` al equipo.
-2. Si reemplazaste un modelo en la misma ruta, sube `CACHE` en `public/sw.js` y actualiza `docs/fuentes/registro-assets.csv` para invalidar la copia offline.
+2. Si reemplazaste un modelo en la misma ruta, reconstruye y actualiza `docs/fuentes/registro-assets.csv`; el build cambia la caché del service worker a partir del hash de assets.
 3. Limpiar la caché del service worker si cambió la versión.
 4. Probar en el equipo antes de abrir al público.
 

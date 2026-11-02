@@ -10,7 +10,7 @@ Cerrar Wari como ficha documental `research` y validar que el esquema de Chan Ch
 
 - No crear modelo 3D, portada, LOD, recorrido ni capas.
 - No cambiar `availability`, `maturity`, `evidence` ni `qa`.
-- No modificar `public/sw.js` ni el registro de assets.
+- No modificar el service worker generado ni el registro de assets.
 - No presentar la ficha como reconstrucción final ni como ciudad inca.
 
 ## Entregables

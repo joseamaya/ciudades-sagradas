@@ -1,7 +1,22 @@
 import { defineConfig } from 'vite';
 
+function dropUnusedDracoAssets() {
+  return {
+    name: 'drop-unused-draco-assets',
+    apply: 'build',
+    generateBundle(_options, bundle) {
+      for (const file of Object.keys(bundle)) {
+        if (/^assets\/draco_(?:decoder|wasm_wrapper)-.*\.(?:js|wasm)$/.test(file)) {
+          delete bundle[file];
+        }
+      }
+    },
+  };
+}
+
 export default defineConfig({
   base: './',
+  plugins: [dropUnusedDracoAssets()],
   server: {
     host: '127.0.0.1',
     port: 5173,

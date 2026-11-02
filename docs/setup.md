@@ -71,7 +71,7 @@ npm run validate
 npm run build
 ```
 
-El GLB v1 se reproduce con `export.py` (excluye las colecciones de juego). Los LOD0/LOD1 se exportan con `scripts/export_caral_lod.py` (WebP 80 + Draco). Valida el resultado antes de reemplazarlo. Si cambia un modelo, actualiza su hash/tamaño en `public/cities/caral/README.md`, `docs/fuentes/registro-assets.csv` y la versión de caché de `public/sw.js`.
+El GLB v1 se reproduce con `export.py` (excluye las colecciones de juego). Los LOD0/LOD1 se exportan con `scripts/export_caral_lod.py` (WebP 80 + Draco). Valida el resultado antes de reemplazarlo. Si cambia un modelo, actualiza su hash/tamaño en `public/cities/caral/README.md` y `docs/fuentes/registro-assets.csv`; la caché del service worker se regenera en build.
 
 ## Kiosco
 
@@ -110,5 +110,5 @@ npm run bench -- --out /tmp/caral-bench
 | MCP no responde | Inicia el servidor del add-on en Blender, puerto 9876. |
 | `uvx` no encontrado | Instala `uv` y asegúrate de que `~/.local/bin` esté en PATH. |
 | Texturas rosas/faltantes | Abre la escena desde `blender/caral/` y verifica `blender/textures/`. |
-| El GLB no cambia en kiosco | Sube `CACHE` en `public/sw.js` o limpia la caché del navegador. |
+| El GLB no cambia en kiosco | Reconstruye para regenerar la caché por hash o limpia la caché del navegador. |
 | Pages no actualiza | Revisa el workflow **Deploy GitHub Pages** en Actions. |

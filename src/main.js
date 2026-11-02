@@ -11,6 +11,7 @@ const toastEl = document.getElementById('toast');
 
 const PARAMS = new URLSearchParams(window.location.search);
 const DEBUG = PARAMS.has('debug');
+const QA = DEBUG || PARAMS.has('qa') || import.meta.env.DEV;
 const NO_SW = PARAMS.has('nosw');
 const audio = new AmbientAudio();
 let cities = [];
@@ -563,22 +564,24 @@ async function boot() {
     return;
   }
   window.addEventListener('hashchange', route);
-  window.__ciudadesSagradas = {
-    get cities() {
-      return cities;
-    },
-    get viewer() {
-      return viewer;
-    },
-    get city() {
-      return currentCity;
-    },
-    metrics: () => viewer?.getMetrics?.() ?? null,
-    qaReport: buildQaReport,
-    debug: DEBUG,
-    openCity,
-    goCatalog,
-  };
+  if (QA) {
+    window.__ciudadesSagradas = {
+      get cities() {
+        return cities;
+      },
+      get viewer() {
+        return viewer;
+      },
+      get city() {
+        return currentCity;
+      },
+      metrics: () => viewer?.getMetrics?.() ?? null,
+      qaReport: buildQaReport,
+      debug: DEBUG,
+      openCity,
+      goCatalog,
+    };
+  }
   await route();
 }
 

@@ -340,15 +340,15 @@ async function main() {
         'Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
     };
 
-    await run('desktop-lod0', `${BASE}?lod=0${CITY_ROUTE}`, desktop);
-    await run('desktop-lod1', `${BASE}?lod=1${CITY_ROUTE}`, desktop);
-    await run('desktop-debug', `${BASE}?debug=1${CITY_ROUTE}`, desktop);
-    await run('desktop-noground', `${BASE}?lod=0&noground=1${CITY_ROUTE}`, desktop);
-    await run('mobile-auto', `${BASE}${CITY_ROUTE}`, mobile);
+    await run('desktop-lod0', `${BASE}?lod=0&qa=1${CITY_ROUTE}`, desktop);
+    await run('desktop-lod1', `${BASE}?lod=1&qa=1${CITY_ROUTE}`, desktop);
+    await run('desktop-debug', `${BASE}?debug=1&qa=1${CITY_ROUTE}`, desktop);
+    await run('desktop-noground', `${BASE}?lod=0&noground=1&qa=1${CITY_ROUTE}`, desktop);
+    await run('mobile-auto', `${BASE}?qa=1${CITY_ROUTE}`, mobile);
 
     if (!ONLY || ONLY === 'fallback') {
       await resetDevice(cdp);
-      await navigate(cdp, `${BASE}?nosw=1${CITY_ROUTE}`);
+      await navigate(cdp, `${BASE}?nosw=1&qa=1${CITY_ROUTE}`);
       const clearCaches = async () => {
         await cdp.send('Storage.clearDataForOrigin', {
           origin: BASE.replace(/\/$/, ''),
@@ -368,7 +368,7 @@ async function main() {
       await cdp.send('Network.setCacheDisabled', { cacheDisabled: true });
       await cdp.send('Network.setBlockedURLs', { urls: ['*model_lod0.glb*'] });
       consoleMessages.length = 0;
-      await navigate(cdp, `${BASE}?nosw=1&lod=0&_=${Date.now()}${CITY_ROUTE}`);
+      await navigate(cdp, `${BASE}?nosw=1&lod=0&qa=1&_=${Date.now()}${CITY_ROUTE}`);
       results['fallback-without-lod0'] = {
         ...(await measure(cdp)),
         console: [...consoleMessages],
@@ -379,7 +379,7 @@ async function main() {
         await clearCaches();
         await cdp.send('Network.setBlockedURLs', { urls: ['*model_lod*.glb*'] });
         consoleMessages.length = 0;
-        await navigate(cdp, `${BASE}?nosw=1&lod=0&_=${Date.now()}${CITY_ROUTE}`);
+        await navigate(cdp, `${BASE}?nosw=1&lod=0&qa=1&_=${Date.now()}${CITY_ROUTE}`);
         results['fallback-v1'] = { ...(await measure(cdp)), console: [...consoleMessages] };
         console.log(`fallback-v1: ${results['fallback-v1'].lod}`);
 
@@ -396,7 +396,7 @@ async function main() {
         await clearCaches();
         await cdp.send('Network.setBlockedURLs', { urls: ['*model_lod1.glb*'] });
         consoleMessages.length = 0;
-        await navigate(cdp, `${BASE}?nosw=1&_=${Date.now()}${CITY_ROUTE}`);
+        await navigate(cdp, `${BASE}?nosw=1&qa=1&_=${Date.now()}${CITY_ROUTE}`);
         results['fallback-mobile-v1'] = { ...(await measure(cdp)), console: [...consoleMessages] };
         console.log(`fallback-mobile-v1: ${results['fallback-mobile-v1'].lod}`);
       } else {
@@ -408,7 +408,7 @@ async function main() {
 
     if (!ONLY || ONLY === 'offline') {
       await resetDevice(cdp);
-      await navigate(cdp, `${BASE}${CITY_ROUTE}`);
+      await navigate(cdp, `${BASE}?qa=1${CITY_ROUTE}`);
       await evaluate(
         cdp,
         `navigator.serviceWorker.ready.then(() => new Promise((resolve) => {
@@ -454,7 +454,7 @@ async function main() {
         deviceScaleFactor: 1,
         mobile: false,
       });
-      await navigate(cdp, `${BASE}?lod=0&_=${Date.now()}${CITY_ROUTE}`);
+      await navigate(cdp, `${BASE}?lod=0&qa=1&_=${Date.now()}${CITY_ROUTE}`);
       const tourCount = await evaluate(cdp, 'window.__ciudadesSagradas.city.tour.length');
       for (let index = 0; index < tourCount; index += 1) {
         await evaluate(cdp, `document.querySelector('[data-tour="${index}"]')?.click()`);
@@ -483,7 +483,7 @@ async function main() {
       await capture(cdp, path.join(OUT_DIR, 'qa-lod0-clean.png'));
       await evaluate(cdp, `document.body.classList.remove('ui-hidden')`);
 
-      await navigate(cdp, `${BASE}?lod=1&_=${Date.now()}${CITY_ROUTE}`);
+      await navigate(cdp, `${BASE}?lod=1&qa=1&_=${Date.now()}${CITY_ROUTE}`);
       await evaluate(cdp, `document.querySelector('[data-tour="5"]')?.click()`);
       await sleep(2200);
       await capture(cdp, path.join(OUT_DIR, 'qa-lod1-altar.png'));
@@ -521,7 +521,7 @@ async function main() {
       await capture(cdp, path.join(OUT_DIR, 'qa-mobile-clean.png'));
       await evaluate(cdp, `document.body.classList.remove('ui-hidden')`);
 
-      await navigate(cdp, `${BASE}?lod=1&_=${Date.now()}${CITY_ROUTE}`);
+      await navigate(cdp, `${BASE}?lod=1&qa=1&_=${Date.now()}${CITY_ROUTE}`);
       await evaluate(cdp, `document.querySelector('[data-tour="2"]')?.click()`);
       await sleep(2200);
       await evaluate(cdp, `document.body.classList.add('ui-hidden')`);

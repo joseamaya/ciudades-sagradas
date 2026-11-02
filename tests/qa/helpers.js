@@ -30,9 +30,10 @@ export function expectNoConsoleErrors(errors) {
   expect(errors, 'Errores de consola o excepciones de página').toEqual([]);
 }
 
-export async function openCity(page, id, { lod, flags = [], debug = true } = {}) {
+export async function openCity(page, id, { lod, flags = [], debug = true, qa = true } = {}) {
   const params = new URLSearchParams();
   if (debug) params.set('debug', '1');
+  if (qa) params.set('qa', '1');
   if (lod !== undefined) params.set('lod', String(lod));
   for (const flag of flags) params.set(flag, '1');
   const query = params.toString();

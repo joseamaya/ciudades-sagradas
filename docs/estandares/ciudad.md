@@ -64,7 +64,7 @@ Cada parada del recorrido declara `evidence`: `documented`, `inferred` o `interp
 | Texturas móviles | 512–1K, con presupuesto de VRAM documentado |
 | Fallback | LOD1 o fallback explícito |
 | Sombreado | Sombras estáticas cacheadas |
-| Caché | Versión global actualizada si cambian assets |
+| Caché | Generada por hash en build |
 | Validación | `npm run validate`, `npm run build`, `npm run bench` |
 | Consola | Sin errores ni warnings nuevos en las cargas medidas |
 

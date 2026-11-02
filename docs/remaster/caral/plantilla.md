@@ -54,7 +54,7 @@ Checklist derivado de Caral Remaster v2.
 - [ ] 6 paradas, 4 luces, capas, móvil y kiosco.
 - [ ] Sin errores de consola.
 - [ ] Hashes/tamaños en `docs/fuentes/registro-assets.csv`.
-- [ ] `CACHE` de `public/sw.js` actualizada si cambian assets.
+- [ ] Rebuild para regenerar la caché por hash si cambian assets.
 
 ## Cierre
 

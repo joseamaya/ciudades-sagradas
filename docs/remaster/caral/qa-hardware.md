@@ -58,6 +58,8 @@ Safari no expone FPS al usuario. Usar el overlay, **Copiar informe QA** y una ca
 
 ## Resultados de hardware
 
+> Medición del 30 oct 2026, anterior al reexport de LOD1 a 512 px (#41). Las cifras de 208 MB son históricas.
+
 | Fecha | Dispositivo / GPU | Navegador | LOD | Viewport | FPS | Frame | Calls | Texturas | Carga | Estado | JSON |
 |---|---|---|---|---:|---:|---:|---:|---:|---:|---|---|
 | 2026-10-30 | Intel RPL-S (Mesa) | Chrome 139 / Linux | 0 | 1600×900 | 58,1 | 17,21 ms | 44 | 373,3 MB | 1.135 ms | Pass 1600×900 | [`JSON`](../../qa/resultados/desktop-2026-10-30/caral-lod0.json) |

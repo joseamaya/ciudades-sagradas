@@ -2,7 +2,7 @@
 
 Rama de cierre: `release/caral-v2`. Remaster v1: `release/caral-remaster-final`.
 
-Estado: **remaster v2 desplegado y contenido cerrado** en GitHub Pages bajo el estándar de ciudad representativa; LOD0 de 230.800 tris y LOD1 de 56.332 tris, ambos con Draco y WebP. Los GLB LOD0/LOD1 y `city.json` están integrados en `public/`, con v1 como fallback. PR #5 mergeado en `a76fc8b`; `maturity: "released"`, `version: "v2"` y caché global `v38`. Queda una incidencia Android P2 de parpadeo de suelo. Kiosco, hardware y escala métrica 1.0 quedan congelados.
+Estado: **remaster v2 desplegado y contenido cerrado** en GitHub Pages bajo el estándar de ciudad representativa; LOD0 de 230.800 tris y LOD1 de 56.332 tris, ambos con Draco y WebP. Los GLB LOD0/LOD1 y `city.json` están integrados en `public/`, con v1 como fallback. PR #5 mergeado en `a76fc8b`; `maturity: "released"`, `version: "v2"` y caché global `v39`. Queda una incidencia Android P2 de parpadeo de suelo. Kiosco, hardware y escala métrica 1.0 quedan congelados.
 
 ## Decisiones fijadas
 
@@ -43,12 +43,13 @@ Estado: **remaster v2 desplegado y contenido cerrado** en GitHub Pages bajo el e
 - `v2-before-*.jpg` / `v2-after-*.jpg`: comparativas del Mayor, Plaza Mayor, Anfiteatro y Altar Circular.
 - `lod1-general.png`, `lod1-plaza.png`, `lod1-anfiteatro.png`, `lod1-altar.png`: capturas históricas del preview LOD1.
 - `web-lod0.png`, `web-lod1.png`, `web-altar.png`: capturas del visor real en `public/`.
+- `lod1-512.png`: captura de verificación del LOD1 reexportado a 512 px (#41).
 - `../../../scripts/build_caral_highpoly_mayor.py` y `build_caral_highpoly_hero.py`: generadores reproducibles del high-poly.
 - `../../../scripts/render_caral_v2_phase_b.py`: renders comparativos de la Fase B.
-- `../../../scripts/bake_caral_lod1.py`: bake del LOD1 por región; el GLB se exporta con texturas 1K.
+- `../../../scripts/bake_caral_lod1.py`: bake del LOD1 por región; el GLB se exporta con texturas 512 y roughness constante.
 - `../../../scripts/assemble_caral_lod0.py`: ensamblado del LOD0 por región high-poly + infraestructura.
 - `../../../scripts/optimize_caral_lod1.py`: fusión de la infraestructura LOD1 en seis mallas y capas.
-- `../../../scripts/export_caral_lod.py`: exportador común LOD0/LOD1 con WebP 80, Draco, `extras` y `--max-texture-size 1024` para LOD1.
+- `../../../scripts/export_caral_lod.py`: exportador común LOD0/LOD1 con WebP 80, Draco, `extras` y `--max-texture-size 512` para LOD1 y roughness constante.
 
 ## Criterios de aceptación
 
@@ -59,6 +60,6 @@ Estado: **remaster v2 desplegado y contenido cerrado** en GitHub Pages bajo el e
 - GLB <25 MB, LOD0 150k–250k tris, LOD1 50k–80k. Con sombras estáticas y sin transmisión: **44 draw calls** LOD0 y **31** LOD1 en la cámara inicial; al refrescar sombras se suman los casters.
 - 60 fps a 1080p en GPU media: pendiente de hardware real. Offline web verificado; kiosco congelado.
 - Escala **0,08** confirmada como diorama; 1.0 métrico fuera de esta entrega.
-- Manifiesto, créditos, capturas y portada actualizados; la caché global vigente es `v38`.
+- Manifiesto, créditos, capturas y portada actualizados; la caché global vigente es `v39`.
 - Cobertura de ciudad representativa documentada; 32/32 individual, 20 cubículos, perfil N/S y high-poly secundario quedan fuera de alcance o diferidos.
 - Incidencia Android P2 aceptada; no se presenta v2.0.1 como suelo resuelto.

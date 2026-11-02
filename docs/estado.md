@@ -45,6 +45,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - Capas resueltas por `extras.layer`; clasificador genérico por tokens para el fallback v1 legado. Sin nombres de ciudad en el código del visor.
 - Evidencia por parada y estado general visibles en catálogo y ficha.
 - PWA con caché offline del modelo cargado; sin precarga forzada de otros modelos.
+- Service worker: network-first con timeout de 3,5 s, caída a caché y solo respuestas `200`; las peticiones `Range`/`206` no se cachean.
 - Manifiesto PWA `standalone`/`any`, iconos 192/512 y safe-area en móvil.
 - Modo kiosco `?kiosk=1` y `?debug=1` con métricas en vivo e informe QA copiable (GPU, WebGL, PWA, flags y errores). `window.__ciudadesSagradas` solo se expone con `?debug=1`, `?qa=1` o en desarrollo.
 - Benchmark reproducible `scripts/bench.mjs` (Chrome/CDP + SwiftShader) para LOD0, LOD1, móvil, fallback y offline.
@@ -124,6 +125,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - Aypate no reconstruye techos, alturas perdidas ni todos los recintos periféricos.
 - Narihualá no tiene plano arqueológico de sectores; su sectorización I–III no se asigna.
 - Wari no está en la Lista del Patrimonio Mundial; su ficha se basa en Ministerio de Cultura y academia.
+- La caché del service worker no usa LRU: el catálogo actual acota los GLB a cuatro ciudades × LOD0/LOD1 más el fallback v1 (≈9 modelos). Se añadirá poda si crece el catálogo.
 
 ## Próximo paso recomendado
 

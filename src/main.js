@@ -563,7 +563,6 @@ async function boot() {
     return;
   }
   window.addEventListener('hashchange', route);
-  await route();
   window.__ciudadesSagradas = {
     get cities() {
       return cities;
@@ -580,6 +579,7 @@ async function boot() {
     openCity,
     goCatalog,
   };
+  await route();
 }
 
 boot();

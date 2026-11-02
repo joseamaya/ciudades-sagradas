@@ -12,7 +12,7 @@ Acercar el aspecto del visor web al render de Blender del remaster y corregir la
 - **Sombras:** `PCFShadowMap` (2048 escritorio, 1024 móvil), con shadow map estático que se refresca al cargar, cambiar hora o capas.
 - **Cámara inicial:** equivalente a `CAM-Caral_RTS_Hero` de Blender, desde el sur, con `fov` vertical 25,4°.
 - **Rango de cámara:** `near`/`far` se ajustan por ciudad al cargar (0,3 y ≈299 en Caral), reduciendo la relación de profundidad de 1:10.000 a ≈1:1.000; pendiente de verificación Android (#60).
-- **Ciclo de vida:** `dispose()` libera el contexto WebGL con `forceContextLoss()` y protege los callbacks tardíos (#61).
+- **Ciclo de vida:** `dispose()` libera el contexto WebGL con `forceContextLoss()`, `load()` aborta si el visor se destruyó durante la carga y ambos protegen los callbacks tardíos (#61, #62).
 - **Encuadre:** objetivo desplazado para que la Pirámide Mayor quede a la izquierda del panel de ficha.
 - **Recorrido:** stops 2–5 recentrados desde el sur; Plaza Circular y Anfiteatro reencuadrados.
 - **Móvil:** FOV responsivo en vertical (hasta 60°) y pixel ratio 1,25 para que la ciudad no quede recortada sin castigar de más la GPU.

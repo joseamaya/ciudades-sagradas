@@ -3,7 +3,7 @@
 Fecha: 29 de octubre de 2026.
 Estado: **preview público controlado; high-poly con layout y escala contrastados, no reconstrucción final**.
 Modelo: `public/cities/aypate/model_lod0.glb` y `model_lod1.glb`.
-Fuente: `blender/aypate/aypate_highpoly_v0.4.blend`; los LOD se regeneran con `scripts/build_aypate_lod.py` y no se versionan.
+Fuente: `blender/aypate/aypate_highpoly_v0.4.blend`; los LOD se regeneran con `scripts/aypate/build_aypate_lod.py` y no se versionan.
 
 ## Qué se integró
 

@@ -112,11 +112,11 @@ La comparación visual en Altar, Anfiteatro y vista general no muestra pérdida 
 - `src/styles.css`: panel móvil sobre la barra de recorrido, safe-area, foco visible y panel de diagnóstico.
 - `public/manifest.webmanifest` y `public/icons/icon-192.png`/`icon-512.png`: PWA instalable.
 - `public/sw.js` y `public/draco/`: caché `v7`, iconos en CORE, decoder Draco local y `.wasm` como asset.
-- `scripts/export_caral_lod.py`: Draco, WebP 80, culling, agua sin transmisión y `--max-texture-size` para exportar LOD1 a 1K.
+- `scripts/caral/export_caral_lod.py`: Draco, WebP 80, culling, agua sin transmisión y `--max-texture-size` para exportar LOD1 a 1K.
 - `scripts/bench.mjs` y `package.json`: benchmark/QA reproducible.
 - `scripts/validate.mjs`: validación de GLB, LOD, tour, capas, caché y registro de assets.
 - `public/cities/caral/model_lod0.glb` y `model_lod1.glb`: reexportados con Draco (230.800 / 56.332 tris).
-- `scripts/remaster_caral_materials.py`, `scripts/bake_caral_lod1.py` y `blender/caral/export.py`: pipeline alineado (culling, WebP 80).
+- `scripts/caral/remaster_caral_materials.py`, `scripts/caral/bake_caral_lod1.py` y `blender/caral/export.py`: pipeline alineado (culling, WebP 80).
 - Piloto retirado: `blender/caral/caral_art.blend`, texturas pilot-only y capturas antiguas.
 - Documentación y capturas actualizadas; nuevo `docs/remaster/caral/auditoria-v2.md`.
 

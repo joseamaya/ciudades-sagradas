@@ -54,7 +54,7 @@ Archivo de trabajo: `blender/caral/caral_remaster_v2.blend`.
 - Tamaño: **6.755.204 bytes**.
 - SHA-256: `386cc18bb141d167801157b4fa05bc16dd79ab86c4ac6ce24b19249522ae85d1`.
 - La fuente `caral_remaster.blend` permanece intacta con SHA-256 `52d79bb5db315fcc22f703665d6dc39f49d9bc9be7b729f93800face301d1f5f`.
-- Scripts reproducibles: `scripts/build_caral_highpoly_mayor.py` (semilla 1269) y `scripts/build_caral_highpoly_hero.py` (semilla 1270, Fase B).
+- Scripts reproducibles: `scripts/caral/build_caral_highpoly_mayor.py` (semilla 1269) y `scripts/caral/build_caral_highpoly_hero.py` (semilla 1270, Fase B).
 - `COL-Caral_HighPoly` contiene `..._Mayor`, `..._PlazaMayor`, `..._Anfiteatro` y `..._AltarCircular`, visibles.
 - `COL-Caral_LowPoly` conserva la geometría v1 de las cuatro zonas, oculta por defecto para alternar LOD/bake.
 - **119 mallas high-poly** en total: 73 del Mayor y 46 nuevas de Fase B.
@@ -124,7 +124,7 @@ Mismas cámaras, iluminación y ajustes en cada par. EEVEE, 1600 × 900, 64 mues
 | Detalle del anillo de la Plaza Mayor | — | `v2-after-plaza-detail.jpg` |
 | Detalle del altar de 2,7 m | — | `v2-after-altar-detail.jpg` |
 
-Se verificaron visualmente las hiladas, juntas, erosión, esquinas, peldaños, graderías, shicras y el altar de 2,7 m. Las imágenes son renders propios, no material de UNESCO. El script de renders es `scripts/render_caral_v2_phase_b.py`.
+Se verificaron visualmente las hiladas, juntas, erosión, esquinas, peldaños, graderías, shicras y el altar de 2,7 m. Las imágenes son renders propios, no material de UNESCO. El script de renders es `scripts/caral/render_caral_v2_phase_b.py`.
 
 ### QA web integrada
 
@@ -156,7 +156,7 @@ Los GLB `model_lod0.glb` y `model_lod1.glb` se copiaron a `public/cities/caral/`
 - Bake DIFFUSE/COLOR y NORMAL tangente desde high-poly con `cage_extrusion=0.55`, `max_ray_distance=1.0`, margen 12 px. Normal a **0,35**; roughness constante **0,85**; AO no incluido en el GLB.
 - Plaza: `BandaRoja`, `PisoAnilloRojo`, `PisoRojo`, `Fogon` y `FogonAro` se mantienen separados con sus materiales originales; el piso high-poly se incluye por nombre exacto.
 - Mapas en `blender/textures/baked/caral/`; blend `blender/caral/caral_lod1.blend` (SHA-256 `9da242aa0e92f7b43ffa014af7af2fe11c27c47c2d027c65cc4515244856df9a`).
-- `scripts/bake_caral_lod1.py` y `scripts/optimize_caral_lod1.py` reproducen el bake y la fusión de infraestructura.
+- `scripts/caral/bake_caral_lod1.py` y `scripts/caral/optimize_caral_lod1.py` reproducen el bake y la fusión de infraestructura.
 - Validado en Three.js: **31 draw calls** en producción y capas correctas; capturas `web-lod1.png`.
 
 ### Fase D — integración web (completada)

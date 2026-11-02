@@ -2,7 +2,7 @@
 
 # Auditoría de la escena Caral
 
-Generada desde `blender/caral/caral_art.blend` con `scripts/audit_blender_scene.py`. El JSON completo está en `auditoria.json`.
+Generada desde `blender/caral/caral_art.blend` con `scripts/tools/audit_blender_scene.py`. El JSON completo está en `auditoria.json`.
 
 ## Totales
 

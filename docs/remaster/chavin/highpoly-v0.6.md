@@ -3,8 +3,8 @@
 Fecha: 29 de octubre de 2026.
 Estado: **corrección de lectura; preview controlado, no reconstrucción final**.
 Fuente: `blender/chavin/chavin_highpoly_v0.6.blend`, derivada de v0.5.
-Generador: `scripts/add_chavin_tier_supports.py`.
-Derivados: LOD0/LOD1 regenerados con `scripts/build_chavin_lod.py` y `scripts/export_chavin_lod.py`.
+Generador: `scripts/chavin/add_chavin_tier_supports.py`.
+Derivados: LOD0/LOD1 regenerados con `scripts/chavin/build_chavin_lod.py` y `scripts/chavin/export_chavin_lod.py`.
 
 ## Qué se corrigió
 

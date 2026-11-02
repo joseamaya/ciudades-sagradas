@@ -3,8 +3,8 @@
 Fecha: 28 de octubre de 2026.
 Estado: **pase correctivo del Lanzón; preview controlado, no reconstrucción final**.
 Fuente: `blender/chavin/chavin_highpoly_v0.3.blend` (13,1 MB), derivada de la escena v0.2.
-Generador del Lanzón: `scripts/build_chavin_lanzon_scan_v0_3.py`.
-Derivados: LOD0/LOD1 regenerados con `scripts/build_chavin_lod.py` y `scripts/export_chavin_lod.py`.
+Generador del Lanzón: `scripts/chavin/build_chavin_lanzon_scan_v0_3.py`.
+Derivados: LOD0/LOD1 regenerados con `scripts/chavin/build_chavin_lod.py` y `scripts/chavin/export_chavin_lod.py`.
 
 ## Vistas
 

@@ -56,11 +56,12 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - Listeners de ciudad y audio de kiosco ligados a un `AbortController`; al cambiar de ruta se limpian. “Reintentar” reabre la ciudad sin recargar la página.
 - El visor dibuja bajo demanda: cámara, vuelo, hora, capas, resize, carga y cambios de controles invalidan; la escena quieta no renderiza. `?debug` muestra “reposo” y el último FPS; el benchmark fuerza render continuo.
 - El preset Noche sube la luz lunar y el relleno para que la arquitectura sea legible; captura de Caral actualizada y captura de Chavín añadida en `docs/capturas/`.
+- Scripts Blender organizados por ciudad (`scripts/<ciudad>/`) y utilidades en `scripts/tools/`; dependencias actualizadas a three 0.187 y Vite 8.
 - Piloto histórico con texturas de IA retirado del repositorio.
 - **Chan Chan** tiene un piloto solo-datos: ficha documental ampliada, cobertura por elemento y plan; sigue en `research`, sin GLB, portada, recorrido, capas ni QA. Informe en [`remaster/chan-chan/`](./remaster/chan-chan/README.md).
 - **Wari** cierra el segundo piloto solo-datos: dossier, cobertura y ficha sin modelo 3D ni QA. Sigue en `research`; Wari no figura en la Lista del Patrimonio Mundial. Informe en [`remaster/wari/`](./remaster/wari/README.md).
-- El visor 3D se carga bajo demanda: el catálogo no descarga Three.js/CityViewer. Bundle inicial de 25,18 kB (8,93 kB gzip) y chunk diferido de 652,21 kB (167,98 kB gzip).
-- CI ejecuta un smoke de Playwright en cada PR y push a `main` (atlas, lazy-viewer y accesibilidad en Chromium), además de `validate` y `build`.
+- El visor 3D se carga bajo demanda: el catálogo no descarga Three.js/CityViewer. Bundle inicial de 27,12 kB (9,76 kB gzip) y chunk diferido de 663,31 kB (167,15 kB gzip).
+- CI ejecuta un smoke de Playwright en cada PR y push a `main` (atlas, LOD1, lazy-viewer, accesibilidad, render bajo demanda y offline en Chromium), además de `validate` y `build`.
 
 ## Métricas comparables
 

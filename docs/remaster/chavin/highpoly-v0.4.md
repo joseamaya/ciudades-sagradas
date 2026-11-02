@@ -3,8 +3,8 @@
 Fecha: 28 de octubre de 2026.
 Estado: **corrección de la Portada; preview controlado, no reconstrucción final**.
 Fuente: `blender/chavin/chavin_highpoly_v0.4.blend` (13.378.012 B), derivada de v0.3.
-Generador de columnas: `scripts/build_chavin_portada_columns.py`.
-Derivados: LOD0/LOD1 regenerados con `scripts/build_chavin_lod.py` y `scripts/export_chavin_lod.py`.
+Generador de columnas: `scripts/chavin/build_chavin_portada_columns.py`.
+Derivados: LOD0/LOD1 regenerados con `scripts/chavin/build_chavin_lod.py` y `scripts/chavin/export_chavin_lod.py`.
 
 ## Qué se corrigió
 
@@ -63,23 +63,23 @@ Derivados: LOD0/LOD1 regenerados con `scripts/build_chavin_lod.py` y `scripts/ex
 
 ```bash
 blender --background blender/chavin/chavin_highpoly_v0.3.blend \
-  --python scripts/build_chavin_portada_columns.py -- \
+  --python scripts/chavin/build_chavin_portada_columns.py -- \
   --out-blend blender/chavin/chavin_highpoly_v0.4.blend
 
 blender --background blender/chavin/chavin_highpoly_v0.4.blend \
-  --python scripts/build_chavin_lod.py -- --lod 0 \
+  --python scripts/chavin/build_chavin_lod.py -- --lod 0 \
   --out-blend blender/chavin/chavin_lod0.blend
 
 blender --background blender/chavin/chavin_highpoly_v0.4.blend \
-  --python scripts/build_chavin_lod.py -- --lod 1 \
+  --python scripts/chavin/build_chavin_lod.py -- --lod 1 \
   --out-blend blender/chavin/chavin_lod1.blend
 
 blender --background blender/chavin/chavin_lod0.blend \
-  --python scripts/export_chavin_lod.py -- \
+  --python scripts/chavin/export_chavin_lod.py -- \
   --out public/cities/chavin/model_lod0.glb
 
 blender --background blender/chavin/chavin_lod1.blend \
-  --python scripts/export_chavin_lod.py -- \
+  --python scripts/chavin/export_chavin_lod.py -- \
   --out public/cities/chavin/model_lod1.glb --max-texture-size 1024
 
 npm run validate

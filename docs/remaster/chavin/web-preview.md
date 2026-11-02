@@ -81,7 +81,7 @@ Los FPS de SwiftShader no representan hardware real y no se usan como certificac
 
 - El LOD0 queda dentro del techo nominal de 250.000; la mampostería de fachada concentra la mayor parte y las columnas añaden 1.600 tris netos.
 - El LOD1 no es un bake de alta fidelidad; elimina bloques de fachada y conserva el Lanzón a 12.000 tris.
-- El terreno es procedural; sus texturas propias (difusa, rugosidad y normal) se generan por `scripts/make_chavin_terrain_materials_v2.py` y no constituyen topografía levantada.
+- El terreno es procedural; sus texturas propias (difusa, rugosidad y normal) se generan por `scripts/chavin/make_chavin_terrain_materials_v2.py` y no constituyen topografía levantada.
 - El Mosna se sitúa ~30 m por debajo del sitio; el Wacheqsa al norte. El trazado fino, las crestas y la vegetación son inferidos.
 - El agua es una superficie simplificada y opaca en el visor; no simula caudal.
 - La Portada mantiene relieves interpretativos y fustes acanalados; el dintel no se modela y la escalera es un solo escalón inferido.
@@ -94,34 +94,34 @@ Los FPS de SwiftShader no representan hardware real y no se usan como certificac
 
 ```bash
 blender --background blender/chavin/chavin_highpoly_v0.2.blend \
-  --python scripts/build_chavin_lanzon_scan_v0_3.py -- \
+  --python scripts/chavin/build_chavin_lanzon_scan_v0_3.py -- \
   --scan /ruta/lanzon_cyark.glb \
   --out-blend blender/chavin/chavin_highpoly_v0.3.blend --no-bake
 
 blender --background blender/chavin/chavin_highpoly_v0.3.blend \
-  --python scripts/build_chavin_portada_columns.py -- \
+  --python scripts/chavin/build_chavin_portada_columns.py -- \
   --out-blend blender/chavin/chavin_highpoly_v0.4.blend
 
 blender --background blender/chavin/chavin_highpoly_v0.4.blend \
-  --python scripts/fix_chavin_summit_blocks.py -- \
+  --python scripts/chavin/fix_chavin_summit_blocks.py -- \
   --out-blend blender/chavin/chavin_highpoly_v0.5.blend
 
 blender --background blender/chavin/chavin_highpoly_v0.5.blend \
-  --python scripts/add_chavin_tier_supports.py -- \
+  --python scripts/chavin/add_chavin_tier_supports.py -- \
   --out-blend blender/chavin/chavin_highpoly_v0.6.blend
 
-python3 scripts/make_chavin_terrain_materials_v2.py
+python3 scripts/chavin/make_chavin_terrain_materials_v2.py
 
 blender --background blender/chavin/chavin_highpoly_v0.6.blend \
-  --python scripts/build_chavin_valley_v0_7.py -- \
+  --python scripts/chavin/build_chavin_valley_v0_7.py -- \
   --out-blend blender/chavin/chavin_highpoly_v0.7.blend
 
 blender --background blender/chavin/chavin_highpoly_v0.7.blend \
-  --python scripts/build_chavin_lod.py -- --lod 0 \
+  --python scripts/chavin/build_chavin_lod.py -- --lod 0 \
   --out-blend blender/chavin/chavin_lod0.blend
 
 blender --background blender/chavin/chavin_lod0.blend \
-  --python scripts/export_chavin_lod.py -- \
+  --python scripts/chavin/export_chavin_lod.py -- \
   --out public/cities/chavin/model_lod0.glb
 
 npm run validate

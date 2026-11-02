@@ -19,16 +19,16 @@
 ```bash
 cp blender/caral/caral_remaster.blend blender/caral/caral_remaster_v2.blend
 blender --background blender/caral/caral_remaster_v2.blend \
-  --python scripts/build_caral_highpoly_mayor.py
+  --python scripts/caral/build_caral_highpoly_mayor.py
 blender --background blender/caral/caral_remaster_v2.blend \
-  --python scripts/build_caral_highpoly_hero.py
+  --python scripts/caral/build_caral_highpoly_hero.py
 ```
 
 Renders de la Fase B:
 
 ```bash
 blender --background blender/caral/caral_remaster_v2.blend \
-  --python scripts/render_caral_v2_phase_b.py -- \
+  --python scripts/caral/render_caral_v2_phase_b.py -- \
   --out-dir docs/remaster/caral
 ```
 
@@ -47,11 +47,11 @@ El GLB v1 tiene 4.778.308 bytes, 554 mallas, 55.944 tris, 20 materiales y 31 im√
 
 ```bash
 blender --background blender/caral/caral_remaster_v2.blend \
-  --python scripts/assemble_caral_lod0.py -- \
+  --python scripts/caral/assemble_caral_lod0.py -- \
   --out-blend blender/caral/caral_lod0.blend
 
 blender --background blender/caral/caral_lod0.blend \
-  --python scripts/export_caral_lod.py -- --lod 0 \
+  --python scripts/caral/export_caral_lod.py -- --lod 0 \
   --out public/cities/caral/model_lod0.glb
 ```
 
@@ -61,16 +61,16 @@ El exportador usa WebP 80, `extras` y Draco por defecto (`--no-draco` para depur
 
 ```bash
 blender --background blender/caral/caral_remaster_v2.blend \
-  --python scripts/bake_caral_lod1.py -- \
+  --python scripts/caral/bake_caral_lod1.py -- \
   --out-blend blender/caral/caral_lod1.blend \
   --texture-dir blender/textures/baked/caral \
   --resolution 2048
 
 blender --background blender/caral/caral_lod1.blend \
-  --python scripts/optimize_caral_lod1.py
+  --python scripts/caral/optimize_caral_lod1.py
 
 blender --background blender/caral/caral_lod1.blend \
-  --python scripts/export_caral_lod.py -- --lod 1 \
+  --python scripts/caral/export_caral_lod.py -- --lod 1 \
   --out public/cities/caral/model_lod1.glb \
   --max-texture-size 512
 ```

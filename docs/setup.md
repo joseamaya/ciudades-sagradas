@@ -71,7 +71,7 @@ npm run validate
 npm run build
 ```
 
-El GLB v1 se reproduce con `export.py` (excluye las colecciones de juego). Los LOD0/LOD1 se exportan con `scripts/export_caral_lod.py` (WebP 80 + Draco). Valida el resultado antes de reemplazarlo. Si cambia un modelo, actualiza su hash/tamaño en `public/cities/caral/README.md` y `docs/fuentes/registro-assets.csv`; la caché del service worker se regenera en build.
+El GLB v1 se reproduce con `export.py` (excluye las colecciones de juego). Los LOD0/LOD1 se exportan con `scripts/caral/export_caral_lod.py` (WebP 80 + Draco). Valida el resultado antes de reemplazarlo. Si cambia un modelo, actualiza su hash/tamaño en `public/cities/caral/README.md` y `docs/fuentes/registro-assets.csv`; la caché del service worker se regenera en build.
 
 ## Kiosco
 

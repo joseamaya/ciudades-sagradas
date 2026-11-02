@@ -4,7 +4,7 @@ Fecha: 27 de octubre de 2026.
 Estado: **pase de acabado de piedra para revisión; no es acabado final**.
 Fuente: `blender/chavin/chavin_textured_v0.2.blend` (4,2 MB).
 Base: `textured-v0.1.md` (histórico).
-Generador: `scripts/make_chavin_materials_v2.py`, semilla 271.
+Generador: `scripts/chavin/make_chavin_materials_v2.py`, semilla 271.
 
 ## Vistas
 

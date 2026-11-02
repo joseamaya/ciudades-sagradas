@@ -40,7 +40,7 @@ Decisión de terreno: `terrain.md`.
 ## Qué cambió respecto a v0.1
 
 - **Piedra clara y oscura:** pasan de color uniforme a una textura de **mampostería ashlar** con juntas visibles.
-- **Textura propia:** `scripts/make_chavin_materials.py` genera diffusión, rugosidad y normal 2K con semilla 151; no se reutilizan texturas de Caral, no hay IA y no hay descarga externa.
+- **Textura propia:** `scripts/chavin/make_chavin_materials.py` genera diffusión, rugosidad y normal 2K con semilla 151; no se reutilizan texturas de Caral, no hay IA y no hay descarga externa.
 - **Proyección:** las texturas usan coordenadas de objeto y proyección **Box**; no hay UVs todavía.
 - **Escala visual:** 7 hiladas por tile; a 10 m de tile las hiladas rondan 1,4 m y los bloques 1,4–3,3 m. Es una **base interpretativa**, no un levantamiento de bloques.
 - **Relieve:** bump fino por ruido y un segundo bump por Voronoi de borde; las juntas se leen, pero no hay desplazamiento real.

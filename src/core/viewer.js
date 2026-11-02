@@ -859,6 +859,7 @@ export class CityViewer {
   }
 
   resize() {
+    if (this._destroyed) return;
     const width = this.container.clientWidth;
     const height = this.container.clientHeight;
     if (!width || !height) return;
@@ -870,6 +871,7 @@ export class CityViewer {
   }
 
   _animate(now) {
+    if (this._destroyed) return;
     this._updateFlight(now);
     const controlsChanged = this.controls.update();
     const shouldRender =
@@ -913,15 +915,9 @@ export class CityViewer {
     this._lastRender = now;
   }
 
-  dispose() {
-    this._clearCityLights();
-    if (this._destroyed) return;
-    this._destroyed = true;
-    this.renderer.setAnimationLoop(null);
-    window.removeEventListener('resize', this._onResize);
-    this.renderer.domElement.removeEventListener('webglcontextrestored', this._onContextRestored);
-    this.controls.dispose();
-    this.scene.traverse((object) => {
+  _disposeObject(root) {
+    if (!root) return;
+    root.traverse((object) => {
       if (object.geometry) object.geometry.dispose();
       const materials = Array.isArray(object.material) ? object.material : [object.material];
       for (const material of materials) {
@@ -932,6 +928,17 @@ export class CityViewer {
         material.dispose();
       }
     });
+  }
+
+  dispose() {
+    if (this._destroyed) return;
+    this._destroyed = true;
+    this._clearCityLights();
+    this.renderer.setAnimationLoop(null);
+    window.removeEventListener('resize', this._onResize);
+    this.renderer.domElement.removeEventListener('webglcontextrestored', this._onContextRestored);
+    this.controls.dispose();
+    this._disposeObject(this.scene);
     for (const target of this.envCache.values()) target.dispose();
     for (const sky of this.skyCache.values()) sky.dispose();
     this.envCache.clear();
@@ -939,7 +946,9 @@ export class CityViewer {
     this.dracoLoader.dispose();
     this.pmrem.dispose();
     this.renderer.dispose();
+    this.renderer.forceContextLoss();
     this.renderer.domElement.remove();
+    this.sandTexture?.dispose();
     this.meshes = [];
     this.model = null;
   }

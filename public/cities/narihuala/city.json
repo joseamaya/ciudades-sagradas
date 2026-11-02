@@ -20,7 +20,12 @@
   "lighting": {
     "fill": 0.8,
     "hemiIntensity": 0.35,
-    "envIntensity": 0.4
+    "envIntensity": 0.4,
+    "night": {
+      "fill": 0.18,
+      "hemiIntensity": 0.3,
+      "envIntensity": 0.5
+    }
   },
   "scale": 0.08,
   "camera": {

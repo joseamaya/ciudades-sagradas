@@ -201,6 +201,20 @@ for (const entry of index) {
     check(isNumberTriplet(city.camera?.position), `${entry.id}: camera.position inválido`);
     check(isNumberTriplet(city.camera?.target), `${entry.id}: camera.target inválido`);
     check(Number.isFinite(city.camera?.fov) && city.camera.fov > 0, `${entry.id}: camera.fov inválido`);
+    if (city.camera?.near != null) {
+      check(Number.isFinite(city.camera.near) && city.camera.near > 0, `${entry.id}: camera.near inválido`);
+    }
+    if (city.camera?.far != null) {
+      check(Number.isFinite(city.camera.far) && city.camera.far > 0, `${entry.id}: camera.far inválido`);
+    }
+    check(
+      !Number.isFinite(city.camera?.near) || !Number.isFinite(city.camera?.far) || city.camera.near < city.camera.far,
+      `${entry.id}: camera.near debe ser menor que camera.far`,
+    );
+    check(
+      !Number.isFinite(city.camera?.far) || !Number.isFinite(city.fog?.far) || city.camera.far >= city.fog.far,
+      `${entry.id}: camera.far debe cubrir fog.far`,
+    );
     check(Number.isFinite(city.scale) && city.scale > 0, `${entry.id}: scale inválido`);
     check(Boolean(city.disclaimer), `${entry.id}: falta el aviso de reconstrucción`);
     check(Boolean(city.credits), `${entry.id}: faltan créditos`);

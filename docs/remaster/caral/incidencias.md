@@ -33,13 +33,14 @@ En Android, el suelo/terreno parpadea de forma continua. El usuario lo reportó 
 | `?noground=1&noshadows=1` | No confirmado | Pendiente |
 | PWA instalada vs. navegador | No confirmado | Pendiente |
 | Escritorio | No se reproduce | Verificado en emulación |
+| Rango de cámara `near/far` ([#60](https://github.com/joseamaya/ciudades-sagradas/issues/60)) | Ajustado a `near 0.3` / `far ≈ 299` en Caral; pendiente de verificación en Android | Hipótesis |
 
 No declarar la incidencia como resuelta ni como “shadow acne” hasta completar esta matriz.
 
 ### Hipótesis, en orden
 
 1. **Capas internas del terreno coplanares.** `Terrain`, `SiteApron` y superficies de piso del GLB pueden compartir altura y competir por profundidad. Es la hipótesis principal porque el parpadeo sigue con LOD0 y no se reproduce en escritorio.
-2. **Precisión de profundidad en GPU Android.** La combinación de cámara, escala 0,08 y superficies grandes puede amplificar el artefacto en drivers móviles.
+2. **Precisión de profundidad en GPU Android.** La combinación de cámara, escala 0,08 y superficies grandes puede amplificar el artefacto en drivers móviles. El visor usaba `near 0.05` y `far 500` (relación 10.000:1), muy por encima de la niebla de 260. En [#60](https://github.com/joseamaya/ciudades-sagradas/issues/60) se ajustó a `near 0.3` y `far ≈ 299` en Caral (relación ≈ 1:1.000); falta confirmar en el dispositivo.
 3. **Sombras.** Menos probable si `?noshadows=1` también lo elimina o no; falta confirmarlo.
 4. **Plano de arena del visor.** Ya se bajó a `-0.36` y se le aplicó `polygonOffset`, pero no se ha confirmado con `?noground=1` en el dispositivo.
 
@@ -60,9 +61,11 @@ No hay workaround confirmado. Para demos en hardware desconocido, usar escritori
 2. Probar la matriz completa de flags.
 3. Si se confirma, aislar las capas del terreno en Blender y revisar alturas/duplicados; después reexportar LOD0/LOD1 con hashes y caché actualizados.
 4. Si no se puede reproducir, dejar la incidencia abierta con la evidencia disponible y revisar cuando haya un equipo equivalente.
+5. Desplegar el ajuste de rango de cámara de #60 y repetir la captura en el Android reportado; #10 solo se cierra con esa verificación.
 
 ### Evidencia
 
 - Captura/vídeo: pendiente.
 - Métricas `?debug=1`: pendiente.
+- Ajuste de cámara: `src/core/viewer.js` (`_applyCameraRange`), issue #60.
 - Conversación: reporte en Android; persistencia tras v2.0.1.

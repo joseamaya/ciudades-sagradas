@@ -77,6 +77,11 @@ const SHADOW_MAP_SIZE = {
   mobile: 1024,
 };
 
+const CAMERA_NEAR = 0.3;
+const CAMERA_FAR_MIN = 200;
+const CAMERA_FAR_MARGIN = 1.15;
+const STARS_RADIUS = 180;
+
 function materialKey(material) {
   return (material?.name || '').split('.')[0];
 }
@@ -276,7 +281,12 @@ export class CityViewer {
     this.scene = new THREE.Scene();
     this.scene.fog = new THREE.Fog(0xb9c5c9, 110, 260);
 
-    this.camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.05, 500);
+    this.camera = new THREE.PerspectiveCamera(
+      45,
+      container.clientWidth / container.clientHeight,
+      CAMERA_NEAR,
+      CAMERA_FAR_MIN * CAMERA_FAR_MARGIN,
+    );
     this.camera.position.set(24, 17, -26);
 
     this.reducedMotion =
@@ -367,10 +377,37 @@ export class CityViewer {
     if (Number.isFinite(config.far)) this.scene.fog.far = config.far;
   }
 
+  _applyCameraRange(city) {
+    const config = city.camera || {};
+    const fogFar = Number.isFinite(city.fog?.far) ? city.fog.far : this.scene.fog?.far;
+    const maxDistance = Number.isFinite(city.maxDistance) ? city.maxDistance : this.controls.maxDistance;
+    let minStopDistance = Infinity;
+    for (const stop of city.tour || []) {
+      const position = stop.camera?.position;
+      const target = stop.camera?.target;
+      if (!Array.isArray(position) || !Array.isArray(target)) continue;
+      if (position.length < 3 || target.length < 3) continue;
+      if (!position.every(Number.isFinite) || !target.every(Number.isFinite)) continue;
+      minStopDistance = Math.min(
+        minStopDistance,
+        Math.hypot(position[0] - target[0], position[1] - target[1], position[2] - target[2]),
+      );
+    }
+    const near = Number.isFinite(config.near)
+      ? config.near
+      : Math.max(0.01, Math.min(CAMERA_NEAR, minStopDistance / 3));
+    const far = Number.isFinite(config.far)
+      ? config.far
+      : Math.max(fogFar ?? CAMERA_FAR_MIN, maxDistance, CAMERA_FAR_MIN) * CAMERA_FAR_MARGIN;
+    this.camera.near = near;
+    this.camera.far = far;
+    this.camera.updateProjectionMatrix();
+  }
+
   _buildStars() {
     const positions = [];
     for (let i = 0; i < 1400; i += 1) {
-      const radius = 180;
+      const radius = STARS_RADIUS;
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(THREE.MathUtils.randFloat(0.05, 0.75));
       positions.push(
@@ -528,6 +565,7 @@ export class CityViewer {
     this.city = city;
     this._applyGround(city);
     this._applyFog(city);
+    this._applyCameraRange(city);
     this._applyTime(this.timeOfDay);
     if (Number.isFinite(city.minDistance)) this.controls.minDistance = city.minDistance;
     if (Number.isFinite(city.maxDistance)) this.controls.maxDistance = city.maxDistance;

@@ -11,6 +11,7 @@ Acercar el aspecto del visor web al render de Blender del remaster y corregir la
 - **Sol:** dirección invertida para coincidir con la luz clave de Blender; luz cálida más intensa y relleno neutro.
 - **Sombras:** `PCFShadowMap` (2048 escritorio, 1024 móvil), con shadow map estático que se refresca al cargar, cambiar hora o capas.
 - **Cámara inicial:** equivalente a `CAM-Caral_RTS_Hero` de Blender, desde el sur, con `fov` vertical 25,4°.
+- **Rango de cámara:** `near`/`far` se ajustan por ciudad al cargar (0,3 y ≈299 en Caral), reduciendo la relación de profundidad de 1:10.000 a ≈1:1.000; pendiente de verificación Android (#60).
 - **Encuadre:** objetivo desplazado para que la Pirámide Mayor quede a la izquierda del panel de ficha.
 - **Recorrido:** stops 2–5 recentrados desde el sur; Plaza Circular y Anfiteatro reencuadrados.
 - **Móvil:** FOV responsivo en vertical (hasta 60°) y pixel ratio 1,25 para que la ciudad no quede recortada sin castigar de más la GPU.
@@ -44,6 +45,7 @@ Acercar el aspecto del visor web al render de Blender del remaster y corregir la
 - El terreno, las colinas y la vegetación usan los materiales procedurales del remaster; no queda material del piloto.
 - El encuadre hero y la luz de atardecer definitivos aún requieren una pasada de arte.
 - Caral v2 está publicado con LOD0/LOD1 y Draco; la escala 0,08 se mantiene como diorama y la 1.0 queda fuera.
+- El ajuste de `near`/`far` no cierra la incidencia Android #10; requiere verificación en hardware real.
 
 ## Probar
 

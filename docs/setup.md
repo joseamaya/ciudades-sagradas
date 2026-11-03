@@ -97,6 +97,7 @@ npm run bench -- --out /tmp/caral-bench
 ## Verificación rápida
 
 - `npm run validate` → OK.
+- `npm test` → OK.
 - `npm run build` → OK.
 - Caral carga en el navegador con LOD0 en escritorio y LOD1 en móvil.
 - `?debug=1` muestra draw calls, triángulos, texturas, FPS y carga.

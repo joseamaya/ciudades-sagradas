@@ -16,7 +16,8 @@
 
 ## Chavín de Huántar
 
-- **Geometría:** preview web v0.1 con LOD0/LOD1; la arquitectura, el terreno y la Portada son propios. El Lanzón deriva del escaneo 3D de CyArk / Google Arts & Culture (Open Heritage), decimado y con material granítico propio; se descartó su textura fotográfica.
+- **Geometría:** preview web v0.3 (pase de escena high-poly v0.7) con LOD0/LOD1; la arquitectura, el terreno y la Portada son propios. El Lanzón deriva del escaneo 3D de CyArk / Google Arts & Culture (Open Heritage), decimado y con material granítico propio; se descartó su textura fotográfica.
+- **Versionado:** v0.3 es la versión pública del visor; v0.7 identifica el pase de escena/high-poly, no la versión web.
 - **Licencia del Lanzón:** CC BY-NC-SA 4.0; sin uso comercial. Atribución: «Lanzón de Chavín, escaneo 3D de CyArk / Google Arts & Culture; adaptación geométrica del proyecto Ciudades Sagradas». Ver `LICENSE-ASSETS.md`.
 - **Fuentes:** UNESCO, ICOMOS, Ministerio de Cultura, Museo Nacional Chavín, MNAAHP, Stanford y CyArk/Google Arts & Culture. Ver `docs/fuentes/chavin.md`.
 

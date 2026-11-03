@@ -26,5 +26,16 @@ export default defineConfig({
     assetsDir: 'assets',
     sourcemap: false,
     target: 'es2022',
+    chunkSizeWarningLimit: 700,
+    rolldownOptions: {
+      output: {
+        codeSplitting: {
+          groups: [
+            { name: 'three', test: /node_modules[\\/]three[\\/]build/ },
+            { name: 'three-addons', test: /node_modules[\\/]three[\\/]examples[\\/]jsm/ },
+          ],
+        },
+      },
+    },
   },
 });

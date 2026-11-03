@@ -189,7 +189,11 @@ function goCatalog() {
   currentCity = null;
   cleanupCityBindings();
   document.title = 'Ciudades Sagradas';
-  renderCatalog(app, cities);
+  renderCatalog(app, cities, {
+    onPrefetch: () => {
+      loadCityViewer().catch(() => {});
+    },
+  });
   hideLoading();
   window.scrollTo({ top: 0, behavior: 'instant' });
 }

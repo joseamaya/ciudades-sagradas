@@ -36,7 +36,7 @@ function catalogNotice(cities) {
   return parts.join(' ');
 }
 
-export function renderCatalog(root, cities) {
+export function renderCatalog(root, cities, { onPrefetch } = {}) {
   const withModel = cities.filter((city) => city.availability === 'available').length;
   const oldestYears = Math.max(
     0,
@@ -108,4 +108,12 @@ export function renderCatalog(root, cities) {
         <p>Hecho para museos, aulas y curiosos. <span class="dot">·</span> Español</p>
       </footer>
     </section>`;
+
+  if (!onPrefetch) return;
+  const prefetch = () => onPrefetch();
+  for (const card of root.querySelectorAll('.city-card--available')) {
+    card.addEventListener('pointerenter', prefetch, { once: true });
+    card.addEventListener('focus', prefetch, { once: true });
+    card.addEventListener('touchstart', prefetch, { once: true, passive: true });
+  }
 }

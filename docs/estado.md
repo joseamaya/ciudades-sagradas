@@ -63,8 +63,24 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - Piloto histórico con texturas de IA retirado del repositorio.
 - **Chan Chan** tiene un piloto solo-datos: ficha documental ampliada, cobertura por elemento y plan; sigue en `research`, sin GLB, portada, recorrido, capas ni QA. Informe en [`remaster/chan-chan/`](./remaster/chan-chan/README.md).
 - **Wari** cierra el segundo piloto solo-datos: dossier, cobertura y ficha sin modelo 3D ni QA. Sigue en `research`; Wari no figura en la Lista del Patrimonio Mundial. Informe en [`remaster/wari/`](./remaster/wari/README.md).
-- El visor 3D se carga bajo demanda: el catálogo no descarga Three.js/CityViewer. Bundle inicial de 27,12 kB (9,76 kB gzip) y chunk diferido de 663,31 kB (167,15 kB gzip).
-- CI ejecuta el smoke de Playwright en cada PR; el deploy de Pages ejecuta `validate` + smoke antes de publicar. El smoke cubre atlas, LOD0/LOD1, lazy-viewer, accesibilidad, render bajo demanda, offline, API QA, service worker, cámara y ciclo de vida del visor (39 pruebas).
+- El visor 3D se carga bajo demanda: el catálogo no descarga Three.js/CityViewer.
+- CI ejecuta el smoke de Playwright en cada PR; el deploy de Pages ejecuta `validate` + smoke antes de publicar. El smoke cubre atlas, LOD0/LOD1, lazy-viewer, accesibilidad, render bajo demanda, offline, API QA, service worker, cámara y ciclo de vida del visor (40 pruebas).
+
+## Visor 3D y code-splitting
+
+El antiguo chunk único de 664 kB se separa en tres piezas:
+
+| Chunk | Peso | Gzip |
+|---|---:|---:|
+| `viewer` | 20,1 kB | 7,2 kB |
+| `three-addons` | 73,9 kB | 20,3 kB |
+| `three` | 571,6 kB | 141,5 kB |
+| Entrada `index` | 27,6 kB | 10,0 kB |
+
+- `three` queda en caché entre despliegues: cambiar el código del visor no invalida el vendor.
+- El catálogo precarga los chunks al pasar el ratón o enfocar una tarjeta (`pointerenter`, `focus`, `touchstart`).
+- Límite de aviso del build: 700 kB. Three es el grueso y ya no comparte chunk con el código propio.
+- Bench SwiftShader antes/después: `desktop-lod1` 12,9 s → 2,0–2,8 s; `desktop-lod0` 30,2 s → 19,9–25,5 s; `mobile-auto` 1,1 s → 1,7–4,9 s. La varianza del renderizador software no permite concluir mejoras fiables de primer render; la decisión se basa en la separación app/vendor, la caché y la precarga.
 
 ## Métricas comparables
 

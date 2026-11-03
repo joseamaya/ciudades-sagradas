@@ -24,6 +24,22 @@ test('catálogo no descarga el visor; la ciudad sí', async ({ page }) => {
   expect(requests.some((url) => url.includes(chunk))).toBe(true);
 });
 
+test('catálogo precarga el visor al pasar el ratón por una ciudad', async ({ page }) => {
+  test.skip(!(await hasWebgl(page)), 'WebGL no disponible en este navegador headless');
+  const chunk = await viewerChunkName();
+
+  const requests = [];
+  page.on('request', (request) => requests.push(request.url()));
+  await page.goto('/?nosw=1&lod=1&qa=1');
+  await expect(page.locator('.city-card')).toHaveCount(6);
+  expect(requests.some((url) => url.includes(chunk))).toBe(false);
+
+  await page.locator('.city-card--available').first().hover();
+  await expect
+    .poll(() => requests.some((url) => url.includes(chunk)), { timeout: 5_000 })
+    .toBe(true);
+});
+
 test('fallo del chunk del visor: estado recuperable', async ({ page }) => {
   const chunk = await viewerChunkName();
 

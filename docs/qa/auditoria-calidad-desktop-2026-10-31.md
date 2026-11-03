@@ -48,6 +48,7 @@ La prueba de fallo bloquea `**/cities/caral/*.glb` con `?nosw=1` y verifica el e
 - **WebKit:** no ejecutado; faltan dependencias del host.
 - **Órbita/zoom 3D:** sigue siendo pointer-only; las paradas, capas y horas tienen controles accesibles equivalentes, pero no hay navegación de cámara por teclado.
 - **Chunk del visor:** el catálogo ya no descarga Three.js/CityViewer. El bundle inicial bajó de 676,13 kB a 25,18 kB (8,93 kB gzip); el visor se carga bajo demanda en un chunk de 652,21 kB (167,98 kB gzip). El aviso de Vite persiste para ese chunk diferido y queda documentado, sin ocultarlo con `chunkSizeWarningLimit`.
+  - Actualización posterior (#69): el visor se separa en `viewer`, `three-addons` y `three`, con límite de aviso de 700 kB. Ver `docs/estado.md`.
 
 ## Criterio
 

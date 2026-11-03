@@ -31,7 +31,7 @@ Los artefactos quedan en `qa-output/` (ignorado por git) y el informe HTML en `p
 
 La suite incluye `lazy-viewer.spec.js`: verifica que el catálogo no descarga el visor, que una ciudad sí lo carga y que un fallo del chunk muestra el estado recuperable. Los tests acceden a `window.__ciudadesSagradas` con `?qa=1`; sin `?debug` ni `?qa` la API no se expone en producción.
 
-CI ejecuta `qa:playwright:smoke` en cada PR. El workflow de Pages vuelve a ejecutar `validate` + smoke en `main` y solo despliega si pasan. El smoke cubre atlas, LOD1, lazy-viewer, accesibilidad, render bajo demanda, offline, API QA, service worker, cámara y ciclo de vida del visor (39 pruebas); tarda ~10-15 min con instalación de navegador. La suite completa de Chromium desktop (61 pruebas) queda como revisión manual.
+CI ejecuta `qa:playwright:smoke` en cada PR. El workflow de Pages vuelve a ejecutar `validate` + smoke en `main` y solo despliega si pasan. El smoke cubre atlas, LOD1, lazy-viewer, accesibilidad, render bajo demanda, offline, API QA, service worker, cámara y ciclo de vida del visor (39 pruebas); tarda ~20 min con instalación de navegador. La suite completa de Chromium desktop (61 pruebas) queda como revisión manual.
 
 El workflow manual `.github/workflows/qa-playwright.yml` ejecuta la suite completa de Chromium desktop (61 pruebas) y sube los artefactos.
 

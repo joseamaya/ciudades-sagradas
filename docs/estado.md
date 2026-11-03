@@ -19,14 +19,16 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 
 ## Estado actual
 
+<!-- metrics:estado-status:start -->
 | Ciudad | Disponibilidad | Madurez | Evidencia | QA |
 |---|---|---|---|---|
 | Caral | `available` | `released` · v2 | Mixta | `waived` (P2 Android) |
-| Chavín | `available` | `preview` · v0.3 | Mixta | `partial` |
+| Chavín de Huántar | `available` | `preview` · v0.3 | Mixta | `partial` |
 | Aypate | `available` | `preview` · v0.4 | Mixta | `partial` |
 | Narihualá | `available` | `preview` · v0.2 | Interpretativa | `partial` |
 | Chan Chan | `research` | `research` | No aplica | No aplica |
 | Wari | `research` | `research` | No aplica | No aplica |
+<!-- metrics:estado-status:end -->
 
 ## Hecho
 
@@ -66,13 +68,16 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 
 ## Métricas comparables
 
+<!-- metrics:estado-metricas:start -->
 | Ciudad | LOD0 tris / bytes | LOD1 tris / bytes | Draw calls LOD0/LOD1 | Paradas | Caché |
 |---|---|---|---:|---:|---|
 | Caral | 230.800 / 3.277.080 B | 56.332 / 799.260 B | 44 / 31 | 6 | hash |
-| Chavín | 249.942 / 1.741.708 B | 42.842 / 746.544 B | 19 / 16 | 6 | hash |
+| Chavín de Huántar | 249.942 / 1.741.708 B | 42.842 / 746.544 B | 19 / 16 | 6 | hash |
 | Aypate | 209.560 / 2.139.720 B | 30.663 / 443.372 B | 17 / 15 | 6 | hash |
 | Narihualá | 162.432 / 1.599.008 B | 29.682 / 441.800 B | 14 / 13 | 6 | hash |
+<!-- metrics:estado-metricas:end -->
 
+- Tablas y cifras: `npm run docs:metrics` genera `docs/metricas.json` desde `index.json`, `city.json`, los GLB y los informes QA. No editar las tablas a mano.
 - Triángulos y bytes: medición de accessors GLB en `npm run validate`. Los informes de exportación pueden variar en ±1 triángulo por triangulación/degenerados; la tabla usa el conteo reproducible del validador.
 - Draw calls: cámara inicial, 1600×900, Chrome headless/SwiftShader, según los informes de cada preview. No mezclar con FPS de hardware.
 - Caral: LOD1 usa atlas 512 y ~40 MB de VRAM estimada. LOD0 ~373 MB. El detalle de Caral está más abajo.
@@ -81,6 +86,8 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - QA de hardware: desktop Intel RPL-S (Chrome 139/Linux, 1600×900) completado para Caral, Chavín, Aypate y Narihualá en LOD0/LOD1, a ~58–60 fps. Caral pasó flags, offline, standalone y sesión de 10 min con heap estable. Faltan 1080p real, Android/iPhone y kiosco. Registro en `docs/qa/resultados/desktop-2026-10-30/` y `docs/qa/resultados/chavin-v07-desktop-2026-10-31/`.
 
 ## Caral v2 — detalle
+
+Apéndice específico de Caral. Las métricas comparables y el resto de tablas se generan en `docs/metricas.json`.
 
 | Elemento | LOD0 | LOD1 | v1 fallback |
 |---|---:|---:|---:|

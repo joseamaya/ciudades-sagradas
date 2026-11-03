@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "cities": [
+    {
+      "id": "caral",
+      "name": "Caral",
+      "culture": "Civilización Caral",
+      "period": "3000–1800 a. C.",
+      "availability": "available",
+      "maturity": "released",
+      "version": "v2",
+      "evidence": "mixed",
+      "qa": "waived",
+      "stops": 6,
+      "layers": 4,
+      "models": {
+        "0": {
+          "path": "cities/caral/model_lod0.glb",
+          "triangles": 230800,
+          "bytes": 3277080,
+          "images": 31,
+          "materials": 21,
+          "primitives": 65,
+          "sha256": "d11247a3bf17807abe3667b01e75439be0071a70f01f8a34b6196bd1a7e4ded7",
+          "calls": 44,
+          "textureMB": 373.3,
+          "textureSource": "docs/qa/resultados/desktop-2026-10-30/caral-standalone-lod0.json",
+          "qaSource": "docs/qa/resultados/desktop-2026-10-30/caral-standalone-lod0.json",
+          "qaGeneratedAt": "2026-10-30T23:49:23.202Z"
+        },
+        "1": {
+          "path": "cities/caral/model_lod1.glb",
+          "triangles": 56332,
+          "bytes": 799260,
+          "images": 30,
+          "materials": 23,
+          "primitives": 38,
+          "sha256": "3d6f3d5b7a06626ac06b42df48279643349e53aaf0491527efc59686bf733bed",
+          "calls": 31,
+          "textureMB": 40,
+          "textureSource": "docs/metricas-overrides.json",
+          "qaSource": "docs/qa/resultados/desktop-2026-10-30/caral-lod1.json",
+          "qaGeneratedAt": "2026-10-30T23:49:00.693Z"
+        }
+      },
+      "fallback": {
+        "path": "cities/caral/model.glb",
+        "triangles": 55944,
+        "bytes": 4778308,
+        "images": 31,
+        "materials": 20,
+        "primitives": 554,
+        "sha256": "c6bbe07b27640951373b96db4f6a610b7618224e37fc52eda8893ac79670bb34"
+      }
+    },
+    {
+      "id": "chavin",
+      "name": "Chavín de Huántar",
+      "culture": "Cultura Chavín",
+      "period": "1500–550 a. C.",
+      "availability": "available",
+      "maturity": "preview",
+      "version": "v0.3",
+      "evidence": "mixed",
+      "qa": "partial",
+      "stops": 6,
+      "layers": 4,
+      "models": {
+        "0": {
+          "path": "cities/chavin/model_lod0.glb",
+          "triangles": 249942,
+          "bytes": 1741708,
+          "images": 15,
+          "materials": 16,
+          "primitives": 18,
+          "sha256": "28d55b924b35301738a3ee7cc8e94cfe5643ef31542f3f9e2730adcc348bc348",
+          "calls": 19,
+          "textureMB": 136,
+          "textureSource": "docs/qa/resultados/chavin-v07-desktop-2026-10-31/desktop.json",
+          "qaSource": "docs/qa/resultados/chavin-v07-desktop-2026-10-31/desktop.json",
+          "qaGeneratedAt": "2026-10-31T14:50:26.533Z"
+        },
+        "1": {
+          "path": "cities/chavin/model_lod1.glb",
+          "triangles": 42842,
+          "bytes": 746544,
+          "images": 15,
+          "materials": 13,
+          "primitives": 15,
+          "sha256": "40fbc048cbd1409652a0a1ca121074054e40af4f516d796c51be81a324f8b91c",
+          "calls": 16,
+          "textureMB": 72,
+          "textureSource": "docs/qa/resultados/chavin-v07-desktop-2026-10-31/desktop.json",
+          "qaSource": "docs/qa/resultados/chavin-v07-desktop-2026-10-31/desktop.json",
+          "qaGeneratedAt": "2026-10-31T14:50:34.534Z"
+        }
+      },
+      "fallback": null
+    },
+    {
+      "id": "aypate",
+      "name": "Aypate",
+      "culture": "Imperio Inca · Qhapaq Ñan",
+      "period": "Siglo XV d. C.",
+      "availability": "available",
+      "maturity": "preview",
+      "version": "v0.4",
+      "evidence": "mixed",
+      "qa": "partial",
+      "stops": 6,
+      "layers": 4,
+      "models": {
+        "0": {
+          "path": "cities/aypate/model_lod0.glb",
+          "triangles": 209560,
+          "bytes": 2139720,
+          "images": 15,
+          "materials": 12,
+          "primitives": 16,
+          "sha256": "05c23fdbe0f6fe1ead914dcd7c3ab4778b2c6dd1f4dcdabe4062907825b7b5fd",
+          "calls": 17,
+          "textureMB": 160,
+          "textureSource": "docs/qa/resultados/desktop-2026-10-30/aypate-lod0.json",
+          "qaSource": "docs/qa/resultados/desktop-2026-10-30/aypate-lod0.json",
+          "qaGeneratedAt": "2026-10-30T23:49:06.308Z"
+        },
+        "1": {
+          "path": "cities/aypate/model_lod1.glb",
+          "triangles": 30663,
+          "bytes": 443372,
+          "images": 15,
+          "materials": 9,
+          "primitives": 14,
+          "sha256": "c8d6cfdb6f19a6379487c5843f216a4320f6ad795218f5ec26a112a463e7b24d",
+          "calls": 15,
+          "textureMB": 80,
+          "textureSource": "docs/qa/resultados/desktop-2026-10-30/aypate-lod1.json",
+          "qaSource": "docs/qa/resultados/desktop-2026-10-30/aypate-lod1.json",
+          "qaGeneratedAt": "2026-10-30T23:49:07.912Z"
+        }
+      },
+      "fallback": null
+    },
+    {
+      "id": "narihuala",
+      "name": "Narihualá",
+      "culture": "Tallán · Chimú · Inca",
+      "period": "Intermedio Tardío–Horizonte Tardío",
+      "availability": "available",
+      "maturity": "preview",
+      "version": "v0.2",
+      "evidence": "interpretive",
+      "qa": "partial",
+      "stops": 6,
+      "layers": 5,
+      "models": {
+        "0": {
+          "path": "cities/narihuala/model_lod0.glb",
+          "triangles": 162432,
+          "bytes": 1599008,
+          "images": 9,
+          "materials": 7,
+          "primitives": 15,
+          "sha256": "818b447a7812c35105e984ac9b581e908a72a3e352363b1f333d97c39554a722",
+          "calls": 14,
+          "textureMB": 96,
+          "textureSource": "docs/qa/resultados/desktop-2026-10-30/narihuala-lod0.json",
+          "qaSource": "docs/qa/resultados/desktop-2026-10-30/narihuala-lod0.json",
+          "qaGeneratedAt": "2026-10-30T23:49:09.310Z"
+        },
+        "1": {
+          "path": "cities/narihuala/model_lod1.glb",
+          "triangles": 29682,
+          "bytes": 441800,
+          "images": 9,
+          "materials": 6,
+          "primitives": 11,
+          "sha256": "df0b2c72e016af2a3d96311e206a0a11f526cae8310e1412f4faeebc8771e643",
+          "calls": 13,
+          "textureMB": 48,
+          "textureSource": "docs/qa/resultados/desktop-2026-10-30/narihuala-lod1.json",
+          "qaSource": "docs/qa/resultados/desktop-2026-10-30/narihuala-lod1.json",
+          "qaGeneratedAt": "2026-10-30T23:49:10.864Z"
+        }
+      },
+      "fallback": null
+    },
+    {
+      "id": "chan-chan",
+      "name": "Chan Chan",
+      "culture": "Reino Chimú",
+      "period": "Siglos IX–XV d. C.",
+      "availability": "research",
+      "maturity": "research",
+      "version": null,
+      "evidence": "not-applicable",
+      "qa": "not-applicable",
+      "stops": 0,
+      "layers": 0,
+      "models": {},
+      "fallback": null
+    },
+    {
+      "id": "wari",
+      "name": "Wari",
+      "culture": "Cultura Wari",
+      "period": "600–1100 d. C.",
+      "availability": "research",
+      "maturity": "research",
+      "version": null,
+      "evidence": "not-applicable",
+      "qa": "not-applicable",
+      "stops": 0,
+      "layers": 0,
+      "models": {},
+      "fallback": null
+    }
+  ]
+}

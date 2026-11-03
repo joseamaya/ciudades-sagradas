@@ -4,14 +4,18 @@ Atlas interactivo de los grandes centros ceremoniales y ciudades del Perú antig
 
 **Estado:** atlas en **preview público**. Caral Remaster v2 es la referencia técnica y su contenido está cerrado como ciudad representativa. Chavín, Aypate y Narihualá son previews navegables con distinto nivel de cierre; Chan Chan y Wari son pilotos documentales. Ninguna ciudad se presenta como reconstrucción arqueológica final.
 
+<!-- metrics:readme-status:start -->
 | Ciudad | Cultura / período | Disponibilidad | Madurez | Evidencia | QA |
 |---|---|---|---|---|---|
 | Caral | Civilización Caral · 3000–1800 a. C. | `available` | `released` · v2 | Mixta | Excepción P2 aceptada |
-| Chavín de Huántar | Chavín · 1500–550 a. C. | `available` | `preview` · v0.3 | Mixta | Parcial |
-| Aypate | Inca · Qhapaq Ñan · siglo XV | `available` | `preview` · v0.4 | Mixta | Parcial |
-| Narihualá | Tallán · Chimú · Inca | `available` | `preview` · v0.2 | Interpretativa | Parcial |
-| Chan Chan | Chimú · siglos IX–XV | `research` | `research` | Ficha documental | No aplica |
-| Wari | Wari · 600–1100 d. C. | `research` | `research` | Ficha documental | No aplica |
+| Chavín de Huántar | Cultura Chavín · 1500–550 a. C. | `available` | `preview` · v0.3 | Mixta | Parcial |
+| Aypate | Imperio Inca · Qhapaq Ñan · Siglo XV d. C. | `available` | `preview` · v0.4 | Mixta | Parcial |
+| Narihualá | Tallán · Chimú · Inca · Intermedio Tardío–Horizonte Tardío | `available` | `preview` · v0.2 | Interpretativa | Parcial |
+| Chan Chan | Reino Chimú · Siglos IX–XV d. C. | `research` | `research` | Ficha documental | No aplica |
+| Wari | Cultura Wari · 600–1100 d. C. | `research` | `research` | Ficha documental | No aplica |
+<!-- metrics:readme-status:end -->
+
+Las tablas de estado y métricas se generan con `npm run docs:metrics`; no editar a mano.
 
 La matriz completa de QA, el protocolo y el registro de resultados están en [`docs/estandares/qa-hardware.md`](./docs/estandares/qa-hardware.md) y [`docs/qa/README.md`](./docs/qa/README.md). La checklist de publicación y el smoke post-deploy están en [`docs/release/preview-publico.md`](./docs/release/preview-publico.md).
 
@@ -70,6 +74,7 @@ Guía completa: [`docs/setup.md`](./docs/setup.md).
 
 ```bash
 npm run validate
+npm run docs:metrics             # regenera docs/metricas.json y las tablas de estado
 npm run build
 npm run serve
 # benchmark reproducible con Chrome headless (requiere Chrome + build)

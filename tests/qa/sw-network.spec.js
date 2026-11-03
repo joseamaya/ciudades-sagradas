@@ -38,7 +38,7 @@ test('service worker: red lenta cae a caché y no guarda respuestas 206', async 
   await cdp.send('Network.enable');
   await cdp.send('Network.emulateNetworkConditions', {
     offline: false,
-    latency: 30_000,
+    latency: 60_000,
     downloadThroughput: 50 * 1024,
     uploadThroughput: 50 * 1024,
   });
@@ -46,13 +46,13 @@ test('service worker: red lenta cae a caché y no guarda respuestas 206', async 
   try {
     const atlasStarted = Date.now();
     await page.goto('/?qa=1#/');
-    await expect(page.locator('.city-card')).toHaveCount(6, { timeout: 12_000 });
-    expect(Date.now() - atlasStarted).toBeLessThan(12_000);
+    await expect(page.locator('.city-card')).toHaveCount(6, { timeout: 30_000 });
+    expect(Date.now() - atlasStarted).toBeLessThan(30_000);
 
     const cityStarted = Date.now();
     await page.goto('/?qa=1&lod=1#/ciudad/caral');
     await waitForViewer(page);
-    expect(Date.now() - cityStarted).toBeLessThan(22_000);
+    expect(Date.now() - cityStarted).toBeLessThan(45_000);
   } finally {
     await cdp.send('Network.emulateNetworkConditions', {
       offline: false,

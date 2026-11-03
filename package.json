@@ -9,6 +9,8 @@
     "build": "vite build && node scripts/build-sw.mjs && node scripts/check-dist.mjs",
     "preview": "vite preview",
     "validate": "node scripts/validate.mjs",
+    "docs:metrics": "node scripts/docs-metrics.mjs",
+    "docs:metrics:check": "node scripts/docs-metrics.mjs --check",
     "serve": "vite preview --host 127.0.0.1 --port 4173",
     "serve:qa": "vite preview --host 127.0.0.1 --port 4175 --strictPort",
     "bench": "node scripts/bench.mjs",

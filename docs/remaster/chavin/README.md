@@ -4,6 +4,12 @@ Estado: **preview web v0.3 con pase de valle v0.7; blockout v0.5, texturizado UV
 
 Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 está aceptado como base de escala y `chavin_textured_v0.2.blend` añade UVs de proyección cúbica, texturas 2K repetidas, tinte cálido y una difusa oscura propia. El bake 2K se probó y se descartó por pérdida de detalle. La Portada v0.1 corrige el placeholder a escala documentada, añade relieves interpretativos y queda aceptada como base; el dintel se omite por evidencia y la escalera se reduce a un escalón inferido. El pase high-poly v0.3 conserva la mampostería de fachada, las lomas y el friso integrado, y sustituye el rostro inciso del Lanzón por una malla derivada del escaneo CyArk; el LOD1 conserva una copia de 12.000 tris con relieve. El uso comercial de esa geometría está restringido por CC BY-NC-SA 4.0. El pase v0.7 reconstruye el valle: Mosna ~30 m por debajo del sitio, Wacheqsa al norte, confluencia al noreste, crestas, vegetación baja y agua opaca en el visor. El pase v0.6 había apoyado las terrazas Tier_04/Tier_02; v0.5 integró los remates A/B en piedra; v0.4 corrigió el encuadre de la Portada (`fov 28`). El preview web usa esa geometría como LOD0/LOD1 y sirve para validar cámaras, capas, fallback y caché; el terreno sigue siendo procedural y el pase no es una reconstrucción final.
 
+## Versionado
+
+- **v0.3** es la versión pública del visor: `city.json.version`, catálogo, ficha y QA de producto.
+- **v0.7** identifica el pase de escena/high-poly que alimenta ese preview; no es la versión del visor.
+- El Lanzón escaneado entra en el pase v0.3 y se mantiene en v0.4–v0.7.
+
 ## Documentos
 
 - `plan.md`: alcance, presupuesto técnico, paradas, capas, luces, riesgos y gate.

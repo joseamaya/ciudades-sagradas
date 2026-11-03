@@ -10,9 +10,12 @@ sigue bajo [`LICENSE`](LICENSE) (MIT). Los assets descritos aquí no se relicenc
   (CyArk / Google Arts & Culture, Open Heritage).
 - **SHA256 del GLB original:** `be73151cba3b2c144f712a6a0d82820d092218dba2b3741fb81993ab1973dcec`
   (`9.551.212` bytes). El GLB original **no se versiona** en este repositorio.
-- **Derivados publicados:** `blender/chavin/chavin_highpoly_v0.3.blend`,
-  `public/cities/chavin/model_lod0.glb`, `public/cities/chavin/model_lod1.glb` y las
-  imágenes de documentación `docs/remaster/chavin/highpoly-v0.3-*`.
+- **Derivados publicados:** las escenas `blender/chavin/chavin_highpoly_v0.3.blend`
+  a `chavin_highpoly_v0.7.blend`, los GLB `public/cities/chavin/model_lod0.glb` y
+  `model_lod1.glb`, y las capturas `docs/remaster/chavin/highpoly-v0.3-*` a
+  `highpoly-v0.7-*`, `web-preview-*` y `docs/capturas/chavin-*`.
+- **Alcance de la licencia:** los pases v0.1 y v0.2 conservan el rostro inciso propio;
+  la geometría derivada del escaneo entra en v0.3 y se mantiene en v0.4–v0.7.
 - **Licencia de los derivados:** **CC BY-NC-SA 4.0**
   (<https://creativecommons.org/licenses/by-nc-sa/4.0/>).
 - **Atribución requerida:** «Lanzón de Chavín, escaneo 3D de CyArk / Google Arts &

@@ -1,6 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
-const baseURL = process.env.PLAYWRIGHT_BASE_URL || 'http://127.0.0.1:4173';
+const qaPort = process.env.PLAYWRIGHT_PORT || '4175';
+const baseURL = process.env.PLAYWRIGHT_BASE_URL || `http://127.0.0.1:${qaPort}`;
 const chromiumLaunchOptions = {
   args: ['--enable-unsafe-swiftshader', '--use-angle=swiftshader', '--ignore-gpu-blocklist'],
 };
@@ -46,9 +47,9 @@ export default defineConfig({
   webServer: process.env.PLAYWRIGHT_BASE_URL
     ? undefined
     : {
-        command: 'npm run build && npm run serve',
+        command: `npm run build && npx vite preview --host 127.0.0.1 --port ${qaPort} --strictPort`,
         url: baseURL,
-        reuseExistingServer: !process.env.CI,
+        reuseExistingServer: false,
         timeout: 180_000,
       },
   projects: [

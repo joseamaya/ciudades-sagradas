@@ -2,6 +2,15 @@ import * as THREE from 'three';
 import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import {
+  buildModelCandidates,
+  classify,
+  deviceProfile,
+  isDoubleSided,
+  isSingleSided,
+  layerFor,
+  materialKey,
+} from './viewer-logic.js';
 
 const TIME_PRESETS = {
   morning: {
@@ -68,10 +77,6 @@ const TIME_PRESETS = {
   },
 };
 
-const DOUBLE_SIDED_MATERIAL = /(?:^|_)(Leaf|Leaves|LeafDark|Vegetation|Grass|Thatch|Cotton|Cloth|Fabric|Fire)$/i;
-const SINGLE_SIDED_MATERIAL = /(?:^|_)(Water)$/i;
-const LOD1_MATERIAL = /(?:^|_)LOD1(?:_|$)/i;
-
 const SHADOW_MAP_SIZE = {
   desktop: 2048,
   mobile: 1024,
@@ -81,17 +86,6 @@ const CAMERA_NEAR = 0.3;
 const CAMERA_FAR_MIN = 200;
 const CAMERA_FAR_MARGIN = 1.15;
 const STARS_RADIUS = 180;
-
-function materialKey(material) {
-  return (material?.name || '').split('.')[0];
-}
-
-function isDoubleSided(material) {
-  const key = materialKey(material);
-  if (SINGLE_SIDED_MATERIAL.test(key)) return false;
-  if (LOD1_MATERIAL.test(key)) return false;
-  return DOUBLE_SIDED_MATERIAL.test(key);
-}
 
 function makeSkyTexture(topHex, horizonHex, groundHex) {
   const canvas = document.createElement('canvas');
@@ -134,84 +128,6 @@ function makeSandTexture() {
   texture.colorSpace = THREE.SRGBColorSpace;
   texture.anisotropy = 4;
   return texture;
-}
-
-function deviceProfile() {
-  const userAgent = navigator.userAgent || '';
-  const uaMobile = navigator.userAgentData?.mobile === true;
-  const mobileUA = /Android|iPhone|iPad|iPod|Mobile|Tablet/i.test(userAgent);
-  const iPadDesktop = /Macintosh/i.test(userAgent) && (navigator.maxTouchPoints ?? 0) > 1;
-  const memory = navigator.deviceMemory ?? 8;
-  const cores = navigator.hardwareConcurrency ?? 8;
-  const small = Math.min(window.screen.width, window.screen.height) <= 600;
-  const coarse = window.matchMedia?.('(pointer: coarse)').matches === true;
-  const lowPower = Boolean(
-    uaMobile ||
-    mobileUA ||
-    iPadDesktop ||
-    memory <= 4 ||
-    cores <= 4 ||
-    (small && coarse),
-  );
-  return { lowPower, uaMobile, mobileUA, iPadDesktop, memory, cores, small, coarse };
-}
-
-function selectLodLevel(city, lowPower) {
-  const levels = city.lod?.levels ?? {};
-  const override = new URLSearchParams(window.location.search).get('lod');
-  if (override && levels[override]) return override;
-  const preferred = city.lod?.default;
-  if (preferred && preferred !== 'auto' && levels[preferred]) return preferred;
-  if (lowPower && levels['1']) return '1';
-  if (levels['0']) return '0';
-  return Object.keys(levels)[0] ?? null;
-}
-
-function buildModelCandidates(city, lowPower) {
-  const levels = city.lod?.levels ?? {};
-  const selected = selectLodLevel(city, lowPower);
-  const candidates = [];
-  const add = (level, url) => {
-    if (!url || candidates.some((candidate) => candidate.url === url)) return;
-    candidates.push({ level, url });
-  };
-  if (selected && levels[selected]) add(selected, levels[selected]);
-
-  if (lowPower && selected === '1') {
-    // En un dispositivo modesto, el fallback v1 pesa menos que LOD0.
-    add('v1', city.fallbackModel);
-    for (const [level, url] of Object.entries(levels)) add(level, url);
-    add(null, city.model);
-    return candidates;
-  }
-
-  for (const [level, url] of Object.entries(levels)) add(level, url);
-  add(null, city.model);
-  add('v1', city.fallbackModel);
-  return candidates;
-}
-
-const TERRAIN_TOKEN = /(?:^|_)(Terrain|Field|Hill|Tree|Reed|Rock|Path|SiteApron)(?:_|$)/i;
-const PROPS_TOKEN = /(?:^|_)(Props|Shicra|StoneBlock|CottonPlant|Textile|Offering|Pebble)(?:_|$)/i;
-const REFERENCE_TOKEN = /(?:^|_)(Reference|HumanScale)(?:_|$)/i;
-
-function classify(name = '') {
-  const rest = name.replace(/^(?:GEO|MESH)-[^_]+_/, '');
-  if (TERRAIN_TOKEN.test(rest)) return 'terrain';
-  if (PROPS_TOKEN.test(rest)) return 'props';
-  if (REFERENCE_TOKEN.test(rest)) return 'reference';
-  return 'city';
-}
-
-function layerFor(object) {
-  let current = object;
-  while (current) {
-    if (typeof current.userData?.layer === 'string' && current.userData.layer) {
-      return current.userData.layer;
-    }
-    current = current.parent;
-  }
-  return null;
 }
 
 export class CityViewer {
@@ -674,7 +590,7 @@ export class CityViewer {
       material.roughness = 0.6;
     }
 
-    if (SINGLE_SIDED_MATERIAL.test(key)) {
+    if (isSingleSided(material)) {
       // La transmisión fuerza una pasada extra de toda la escena en Three.js.
       material.transmission = 0;
       material.transparent = false;

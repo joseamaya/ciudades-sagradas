@@ -74,6 +74,7 @@ Guía completa: [`docs/setup.md`](./docs/setup.md).
 
 ```bash
 npm run validate
+npm test                         # pruebas unitarias de LOD, capas, escape y utilidades
 npm run docs:metrics             # regenera docs/metricas.json y las tablas de estado
 npm run build
 npm run serve

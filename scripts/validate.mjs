@@ -2,6 +2,8 @@ import { readFile, stat } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
+import { isNumberTriplet, parseCsv } from './validate-lib.mjs';
+import { trianglesOf } from './model-metrics.mjs';
 
 const root = process.cwd();
 const errors = [];
@@ -26,66 +28,6 @@ async function readJson(file) {
 
 function check(condition, message) {
   if (!condition) errors.push(message);
-}
-
-function parseCsv(text) {
-  const rows = [];
-  let row = [];
-  let field = '';
-  let quoted = false;
-  for (let index = 0; index < text.length; index += 1) {
-    const char = text[index];
-    if (quoted) {
-      if (char === '"') {
-        if (text[index + 1] === '"') {
-          field += '"';
-          index += 1;
-        } else {
-          quoted = false;
-        }
-      } else {
-        field += char;
-      }
-      continue;
-    }
-    if (char === '"') quoted = true;
-    else if (char === ',') {
-      row.push(field);
-      field = '';
-    } else if (char === '\n') {
-      row.push(field);
-      rows.push(row);
-      row = [];
-      field = '';
-    } else if (char !== '\r') {
-      field += char;
-    }
-  }
-  if (field.length || row.length) {
-    row.push(field);
-    rows.push(row);
-  }
-  return rows;
-}
-
-function isNumberTriplet(value) {
-  return Array.isArray(value) && value.length === 3 && value.every((item) => Number.isFinite(item));
-}
-
-function trianglesOf(json) {
-  let triangles = 0;
-  for (const mesh of json.meshes ?? []) {
-    for (const primitive of mesh.primitives ?? []) {
-      const mode = primitive.mode ?? 4;
-      const count = primitive.indices != null
-        ? json.accessors?.[primitive.indices]?.count
-        : json.accessors?.[primitive.attributes?.POSITION]?.count;
-      if (!Number.isFinite(count)) continue;
-      if (mode === 4) triangles += count / 3;
-      else if (mode === 5) triangles += Math.max(0, count - 2);
-    }
-  }
-  return Math.round(triangles);
 }
 
 async function inspectGlb(file) {

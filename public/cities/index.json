@@ -61,14 +61,15 @@
     "period": "600–1100 d. C.",
     "yearsAgo": 1450,
     "region": "Pacaycasa, Huamanga, Ayacucho",
-    "availability": "research",
-    "maturity": "research",
-    "evidence": "not-applicable",
-    "qa": "not-applicable",
+    "availability": "available",
+    "maturity": "preview",
+    "evidence": "mixed",
+    "qa": "partial",
     "accent": "#8f9b8a",
-    "thumb": null,
-    "summary": "Capital del primer imperio andino, en la sierra de Ayacucho. Sus recintos de piedra, templos en D y barrios extensos redefinieron el urbanismo andino.",
-    "monogram": "W"
+    "thumb": "cities/wari/hero.jpg",
+    "summary": "Capital del primer imperio andino. Preview del núcleo monumental: templos en D, Capillapata, Monqachayoc y Cheqo Huasi.",
+    "monogram": "W",
+    "version": "v0.1"
   },
   {
     "id": "aypate",

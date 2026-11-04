@@ -142,6 +142,50 @@
       "fallback": null
     },
     {
+      "id": "wari",
+      "name": "Wari",
+      "culture": "Cultura Wari",
+      "period": "600–1100 d. C.",
+      "availability": "available",
+      "maturity": "preview",
+      "version": "v0.1",
+      "evidence": "mixed",
+      "qa": "partial",
+      "stops": 6,
+      "layers": 4,
+      "models": {
+        "0": {
+          "path": "cities/wari/model_lod0.glb",
+          "triangles": 158216,
+          "bytes": 1794588,
+          "images": 15,
+          "materials": 9,
+          "primitives": 14,
+          "sha256": "50fea0fa12c105c4371723f529fd80bd1fb0f638995553d47857acb0fc218450",
+          "calls": 15,
+          "textureMB": 176,
+          "textureSource": "docs/qa/resultados/wari-v01-desktop-2026-11-04/wari-lod0.json",
+          "qaSource": "docs/qa/resultados/wari-v01-desktop-2026-11-04/wari-lod0.json",
+          "qaGeneratedAt": "2026-11-04T18:13:39.983Z"
+        },
+        "1": {
+          "path": "cities/wari/model_lod1.glb",
+          "triangles": 26224,
+          "bytes": 677480,
+          "images": 15,
+          "materials": 9,
+          "primitives": 12,
+          "sha256": "656555e1fc7c27d337a6493bd5164db548e2f8803f82da827875d86e413689f1",
+          "calls": 13,
+          "textureMB": 80,
+          "textureSource": "docs/qa/resultados/wari-v01-desktop-2026-11-04/wari-lod1.json",
+          "qaSource": "docs/qa/resultados/wari-v01-desktop-2026-11-04/wari-lod1.json",
+          "qaGeneratedAt": "2026-11-04T18:14:08.633Z"
+        }
+      },
+      "fallback": null
+    },
+    {
       "id": "aypate",
       "name": "Aypate",
       "culture": "Imperio Inca · Qhapaq Ñan",
@@ -227,21 +271,6 @@
           "qaGeneratedAt": "2026-10-30T23:49:10.864Z"
         }
       },
-      "fallback": null
-    },
-    {
-      "id": "wari",
-      "name": "Wari",
-      "culture": "Cultura Wari",
-      "period": "600–1100 d. C.",
-      "availability": "research",
-      "maturity": "research",
-      "version": null,
-      "evidence": "not-applicable",
-      "qa": "not-applicable",
-      "stops": 0,
-      "layers": 0,
-      "models": {},
       "fallback": null
     }
   ]

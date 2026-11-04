@@ -10,16 +10,186 @@
     "lon": -74.205
   },
   "elevation": "2600–2900 m s. n. m.",
-  "availability": "research",
-  "maturity": "research",
-  "evidence": "not-applicable",
-  "qa": "not-applicable",
-  "summary": "Wari fue la capital del primer imperio andino y uno de los mayores centros urbanos del Perú prehispánico. Sus barrios, recintos de piedra, templos en forma de D, galerías y plazas se extendieron por miles de hectáreas. La ciudad articuló redes de producción, almacenamiento y poder que transformaron los Andes entre los siglos VII y XI.",
-  "model": null,
+  "availability": "available",
+  "maturity": "preview",
+  "version": "v0.1",
+  "evidence": "mixed",
+  "qa": "partial",
+  "summary": "Wari fue la capital del primer imperio andino y uno de los mayores centros urbanos del Perú prehispánico. Este preview se concentra en su núcleo monumental: Vegachayoc Moqo, Capillapata, Monqachayoc y Cheqo Huasi, con templos en D, plazas, galerías y terrazas.",
+  "model": "cities/wari/model_lod0.glb",
+  "lod": {
+    "default": "auto",
+    "levels": {
+      "0": "cities/wari/model_lod0.glb",
+      "1": "cities/wari/model_lod1.glb"
+    }
+  },
+  "fallbackModel": "cities/wari/model_lod1.glb",
+  "scale": 0.08,
+  "verticalScale": 1,
+  "ground": {
+    "enabled": false
+  },
+  "fog": {
+    "near": 20,
+    "far": 165
+  },
+  "minDistance": 0.1,
+  "maxDistance": 180,
+  "camera": {
+    "position": [
+      10.8,
+      5.6,
+      13.6
+    ],
+    "target": [
+      0.0,
+      0.64,
+      -0.96
+    ],
+    "fov": 32,
+    "far": 220
+  },
+  "tour": [
+    {
+      "title": "El núcleo monumental",
+      "text": "Wari se extiende por unas 2.000 ha, pero este preview se limita al núcleo monumental. Las terrazas, plazas y recintos de piedra se organizan entre las quebradas de Ayacucho; el trazado completo sigue siendo discutido.",
+      "evidence": "inferred",
+      "camera": {
+        "position": [
+          9.6,
+          6.0,
+          12.8
+        ],
+        "target": [
+          0.0,
+          0.64,
+          -0.96
+        ],
+        "fov": 32
+      }
+    },
+    {
+      "title": "Templo en D de Vegachayoc Moqo",
+      "text": "El templo en D es una de las formas diagnósticas de Wari. La planta semicircular, el muro curvo y el altar central se apoyan en las descripciones de Vegachayoc Moqo; la altura y el techo no se conservan.",
+      "evidence": "documented",
+      "camera": {
+        "position": [
+          -0.4,
+          2.4,
+          -7.6
+        ],
+        "target": [
+          -6.8,
+          0.32,
+          -2.8
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "title": "Plaza y patio hundido",
+      "text": "La plaza central y los patios articulan el núcleo. Los muros de piedra con revoque blanco y bandas rojas son documentados; la posición exacta de cada recinto es una lectura de conjunto.",
+      "evidence": "inferred",
+      "camera": {
+        "position": [
+          0.0,
+          2.08,
+          4.64
+        ],
+        "target": [
+          0.0,
+          0.32,
+          -0.8
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "title": "Capillapata",
+      "text": "Capillapata conserva muros dobles de 8–12 m de altura, base de unos 3 m y coronamiento de 0,8–1,2 m. El modelo representa un segmento de 360 m; la longitud publicada de 400 m no se cierra como cota exacta.",
+      "evidence": "documented",
+      "camera": {
+        "position": [
+          4.8,
+          2.56,
+          -1.6
+        ],
+        "target": [
+          0.0,
+          0.56,
+          -8.0
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "title": "Monqachayoc: mausoleo y galerías",
+      "text": "Monqachayoc se asocia a mausoleos y galerías subterráneas, con un patio hundido y una estructura en D. El corte de este preview es interpretativo: no reconstruye el interior ni la profundidad exacta.",
+      "evidence": "inferred",
+      "camera": {
+        "position": [
+          7.2,
+          2.4,
+          7.36
+        ],
+        "target": [
+          7.2,
+          -0.08,
+          3.6
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "title": "Cheqo Huasi y el valle",
+      "text": "Cheqo Huasi reúne galerías, nichos y recintos de piedra. La arquitectura funeraria y de élite es documentada; la relación con el valle y los barrios periféricos se presenta como lectura de conjunto.",
+      "evidence": "documented",
+      "camera": {
+        "position": [
+          12.0,
+          2.88,
+          -6.4
+        ],
+        "target": [
+          8.4,
+          0.32,
+          -3.36
+        ],
+        "fov": 34
+      }
+    }
+  ],
+  "layers": [
+    {
+      "id": "city",
+      "label": "Arquitectura de piedra",
+      "default": true
+    },
+    {
+      "id": "terrain",
+      "label": "Sierra y quebradas",
+      "default": true
+    },
+    {
+      "id": "props",
+      "label": "Nichos y detalles",
+      "default": true
+    },
+    {
+      "id": "reference",
+      "label": "Escala humana",
+      "default": true
+    }
+  ],
   "sources": [
     {
       "label": "Ministerio de Cultura — Museo de Sitio Wari",
       "url": "https://museos.cultura.pe/museos/museo-de-sitio-wari"
+    },
+    {
+      "label": "Mincetur — Complejo Arqueológico Wari (ficha 1125)",
+      "url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=1125"
     },
     {
       "label": "Ministerio de Cultura — acciones en el Complejo Arqueológico Wari (2025)",
@@ -42,6 +212,6 @@
       "url": "https://cdn.www.gob.pe/uploads/document/file/5534841/4924195-ayacucho_gppv_espanol.pdf"
     }
   ],
-  "disclaimer": "Ficha documental en investigación. No hay modelo 3D publicado. Wari no figura en la Lista del Patrimonio Mundial; el trazado completo, alturas, techos, colores y población se marcan como discutidos, inferidos o interpretativos.",
-  "credits": "Ficha documental: Ministerio de Cultura, Museo de Sitio Wari, The Metropolitan Museum of Art y Revistas IPGH. Texto propio; no se copian imágenes oficiales."
+  "disclaimer": "Preview v0.1 del núcleo monumental de Wari. Reconstrucción artística; no representa las 2.000 ha del sitio ni una reconstrucción histórica final. Templos en D, muros y galerías se apoyan en fuentes publicadas; alturas, techos, trazado completo, policromía y profundidad de las galerías se marcan como inferidos o interpretativos. Sin imágenes oficiales ni texturas de IA.",
+  "credits": "Geometría, materiales y renders propios. Fuentes: Ministerio de Cultura, Museo de Sitio Wari, Mincetur, The Metropolitan Museum of Art, Revistas IPGH y PROMPERÚ. Sin imágenes oficiales ni texturas de IA."
 }

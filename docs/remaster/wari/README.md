@@ -24,3 +24,5 @@ Wari es el segundo piloto solo-datos del atlas. Valida que una ciudad `research`
 Wari se mantiene en `research`. El trazado urbano completo, las alturas, los techos, la policromía y la población se presentan como discutidos, inferidos o interpretativos, nunca como hechos cerrados.
 
 Wari no figura en la Lista del Patrimonio Mundial; su ficha se apoya en Ministerio de Cultura, museos y academia. Abrir una reconstrucción 3D exige un gate separado de fuentes, licencias, cobertura, blockout, QA y presupuesto de assets.
+
+**Decisión actual (4 de noviembre de 2026):** Wari no pasa a 3D en esta fase. Se reevalúa tras cerrar la QA de hardware (#71), con fuentes/licencias y presupuesto aprobados. Ver [`docs/estado.md`](../../estado.md).

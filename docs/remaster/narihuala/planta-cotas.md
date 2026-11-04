@@ -1,7 +1,7 @@
 # Narihualá — planta y cotas de control
 
-Fecha: 29 de octubre de 2026.
-Estado: **preview interpretativo v0.2; envolvente legal y SIGRID documentados; plano arqueológico de sectores pendiente**.
+Fecha: 29 de octubre de 2026; búsqueda de plano actualizada el 4 de noviembre de 2026.
+Estado: **preview interpretativo v0.2; envolvente legal y SIGRID documentados; búsqueda de plano de sectores sin resultado público; cierre bloqueado**.
 Modelo: v0.2 interpretativo; no es cierre de cotas ni plano arqueológico.
 
 ## Lo que sí está documentado
@@ -23,12 +23,33 @@ Modelo: v0.2 interpretativo; no es cierre de cotas ni plano arqueológico.
 
 ## Conflicto de sectorización
 
-Las fuentes no coinciden en la numeración:
+Las fuentes no coinciden ni en el número ni en la numeración:
 
-- **RVM 2023:** sector I = mayor volumen y altura; sector II = parte intermedia; sector III = tres plataformas superpuestas y único sector investigado.
-- **Mincetur 364:** sector I = montículo menor al oeste; sector II = plaza y recintos; sector III = montículo mayor al este, con la capilla.
+- **RVM 2023:** tres sectores. Sector I = mayor volumen y altura; sector II = parte intermedia; sector III = tres plataformas superpuestas y único sector investigado.
+- **Mincetur 364:** tres sectores. Sector I = montículo menor al oeste; sector II = plaza y recintos; sector III = montículo mayor al este, con la capilla.
+- **Tríptico del Museo de Sitio (Ministerio de Cultura):** tres sectores. Sector I = montículo mayor con la capilla; sector II = parte intermedia con la plaza; sector III = montículo menor.
+- **Arnaldoa 30(3), 2023 (SciELO):** menciona **ocho sectores** en el resumen en inglés, sin plano ni lista.
+- **PROMPERÚ:** menciona **cuatro sectores**, sin plano.
 
 No se resuelve por mayoría ni por interpretación. Hasta tener el plano arqueológico, el modelo no debe asignar sectores I/II/III. Se usan nombres descriptivos: **montículo oeste**, **plaza central**, **montículo este**.
+
+## Búsqueda de plano de sectores (4 de noviembre de 2026)
+
+Se revisaron las fuentes públicas disponibles:
+
+| Fuente | Qué aporta | Qué falta |
+|---|---|---|
+| RVM N.º 000084-2023-VMPCIC/MC | Aprueba el Expediente Técnico con Memoria Descriptiva, Ficha Técnica y **Plano Perimétrico** `PP-021-MC-DGPA-DSFL-2023`; área y perímetro legales | El PDF de la RVM tiene 5 páginas de texto; no incluye el plano perimétrico ni un plano de sectores |
+| Mincetur 364 | Tres sectores y la plaza de 60 × 40 m | Sin plano; su numeración contradice a la RVM y al tríptico |
+| Tríptico del Museo de Sitio | Tres sectores con la capilla en el sector I | Sin plano; contradice a Mincetur |
+| RVM 2023 / Urbipedia | Tres sectores funcionales | Sin plano de detalle |
+| Arnaldoa 30(3), 2023 | Dice “ocho sectores” en el resumen | Sin plano, sin lista y sin desarrollo en el texto |
+| PROMPERÚ | Dice “cuatro sectores” | Sin plano ni numeración |
+| SIGRID 2018 | Ortofoto 3,8 cm/px y DTM 0,19 m/px | El montículo oeste está cubierto por el museo; la plaza no tiene borde arqueológico legible |
+
+**Conclusión:** no existe un plano arqueológico de sectores publicado y coherente. El plano aprobado por la RVM es perimétrico, no sectorial. La sectorización 3/4/8 sigue en conflicto y no se puede asignar sin inventar.
+
+**Siguiente acción:** solicitar copia certificada del Expediente Técnico y, si existe, el plano arqueológico de detalle al Ministerio de Cultura (DDC Piura) o al Proyecto Integral Narihualá. Mientras no se obtenga, no se cambia la geometría ni se etiquetan sectores.
 
 ## Lo que falta para abrir Blender
 
@@ -36,7 +57,7 @@ No se resuelve por mayoría ni por interpretación. Hasta tener el plano arqueol
 2. Huellas y cotas de los dos montículos.
 3. Ancho y trazado de rampas, corredores y tres hileras de muros del sector II.
 4. Niveles de plataforma y relación entre la capilla y la cima.
-5. Confirmación de la sectorización oficial.
+5. Confirmación de la sectorización oficial y de su numeración.
 
 ## Decisiones
 

@@ -13,7 +13,7 @@ Las cifras de LOD, draw calls y paradas se generan en `docs/metricas.json`; esta
 | **Caral** | `available` | `released` · v2 | Mixta | `waived` (P2 Android) | **Técnico/visual sí; QA con excepción** | Desktop integrado 1600×900 completo: LOD0/LOD1, flags, offline, standalone y 10 min. Faltan 1080p y móvil. Cerrar o mantener `CARAL-ANDROID-GROUND-001`. |
 | **Chavín** | `available` | `preview` · v0.3 | Mixta | `partial` | **Visual/técnico sí; QA móvil pendiente** | Desktop integrado 1600×900 LOD0/LOD1 OK a 60 fps; faltan 1080p y móvil. Dintel/escalera y licencia documentados en `decisiones.md`; kiosco comercial bloqueado por CC BY-NC-SA. |
 | **Aypate** | `available` | `preview` · v0.4 | Mixta | `partial` | **Visual/técnico sí; QA pendiente** | Desktop integrado 1600×900 LOD0/LOD1 OK; faltan 1080p y móvil. Cotas finas y recintos periféricos. |
-| **Narihualá** | `available` | `preview` · v0.2 | Interpretativa | `partial` | **Parcial; interpretativo** | Desktop integrado 1600×900 LOD0/LOD1 OK; faltan 1080p y móvil. Plano arqueológico de sectores y cotas finas. |
+| **Narihualá** | `available` | `preview` · v0.2 | Interpretativa | `partial` | **Parcial; interpretativo** | Desktop integrado 1600×900 LOD0/LOD1 OK; faltan 1080p y móvil. Plano de sectores bloqueado: sin fuente pública y sectorización 3/4/8 en conflicto. |
 | **Chan Chan** | `research` | `research` | No aplica | No aplica | **No** | Piloto solo-datos completado; ficha y cobertura cerradas sin modelo. |
 | **Wari** | `research` | `research` | No aplica | No aplica | **No** | Piloto solo-datos completado; ficha y cobertura cerradas sin modelo. |
 
@@ -48,7 +48,7 @@ Las cifras de LOD, draw calls y paradas se generan en `docs/metricas.json`; esta
 2. **Caral:** cerrar o mantener la excepción Android con evidencia.
 3. **Chavín:** QA móvil/1080p; dintel/escalera y licencia documentados en `decisiones.md`; no abrir kiosco comercial con el GLB actual.
 4. **Aypate:** cotas finas y recintos periféricos, sin rehacer el layout.
-5. **Narihualá:** plano arqueológico de sectores y cotas finas.
+5. **Narihualá:** plano arqueológico de sectores y cotas finas. Búsqueda 2026 sin plano público; la RVM solo aprueba el plano perimétrico y la sectorización 3/4/8 está en conflicto. No etiquetar sectores; solicitar el expediente técnico.
 6. **Chan Chan:** piloto solo-datos completado; no se abre geometría. Decisión 3D en `docs/estado.md` (4 nov 2026): no iniciar.
 7. **Wari:** piloto solo-datos completado; no se abre geometría. Decisión 3D en `docs/estado.md` (4 nov 2026): no iniciar.
 

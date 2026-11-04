@@ -12,7 +12,7 @@ Las cifras de LOD, draw calls y paradas se generan en `docs/metricas.json`; esta
 |---|---|---|---|---|---|---|
 | **Caral** | `available` | `released` · v2 | Mixta | `waived` (P2 Android) | **Técnico/visual sí; QA con excepción** | Desktop integrado 1600×900 completo: LOD0/LOD1, flags, offline, standalone y 10 min. Faltan 1080p y móvil. Cerrar o mantener `CARAL-ANDROID-GROUND-001`. |
 | **Chavín** | `available` | `preview` · v0.3 | Mixta | `partial` | **Visual/técnico sí; QA móvil pendiente** | Desktop integrado 1600×900 LOD0/LOD1 OK a 60 fps; faltan 1080p y móvil. Dintel/escalera y licencia documentados en `decisiones.md`; kiosco comercial bloqueado por CC BY-NC-SA. |
-| **Aypate** | `available` | `preview` · v0.4 | Mixta | `partial` | **Visual/técnico sí; QA pendiente** | Desktop integrado 1600×900 LOD0/LOD1 OK; faltan 1080p y móvil. Cotas finas y recintos periféricos. |
+| **Aypate** | `available` | `preview` · v0.4 | Mixta | `partial` | **Visual/técnico sí; QA pendiente** | Desktop integrado 1600×900 LOD0/LOD1 OK; faltan 1080p y móvil. Cotas finas cerradas como no alcanzables; recintos periféricos diferidos. |
 | **Narihualá** | `available` | `preview` · v0.2 | Interpretativa | `partial` | **Parcial; interpretativo** | Desktop integrado 1600×900 LOD0/LOD1 OK; faltan 1080p y móvil. Plano de sectores bloqueado: sin fuente pública y sectorización 3/4/8 en conflicto. |
 | **Chan Chan** | `research` | `research` | No aplica | No aplica | **No** | Piloto solo-datos completado; ficha y cobertura cerradas sin modelo. |
 | **Wari** | `research` | `research` | No aplica | No aplica | **No** | Piloto solo-datos completado; ficha y cobertura cerradas sin modelo. |
@@ -37,7 +37,7 @@ Las cifras de LOD, draw calls y paradas se generan en `docs/metricas.json`; esta
 
 - **Caral** es la referencia técnica y de cierre. Cumple el estándar con una excepción P2 aceptada; su contenido no se reabre.
 - **Chavín** cumple calidad visual y técnica para preview, pero su QA de hardware sigue abierta y el Lanzón tiene licencia CC BY-NC-SA.
-- **Aypate** cumple el gate visual/técnico con el layout y la escala de la v0.4; el desktop integrado 1600×900 ya pasó LOD0/LOD1. Faltan QA móvil/1080p y cotas finas. No se reabre geometría.
+- **Aypate** cumple el gate visual/técnico con el layout y la escala de la v0.4; el desktop integrado 1600×900 ya pasó LOD0/LOD1. Faltan QA móvil/1080p. Cotas finas cerradas como no alcanzables; recintos periféricos diferidos. No se reabre geometría.
 - **Narihualá** es un preview interpretativo; el desktop integrado 1600×900 ya pasó LOD0/LOD1. No se eleva artificialmente al nivel de Caral ni se inventan sectores, rampas o alturas.
 - **Chan Chan** tiene ficha documental y cobertura, pero no modelo; no se marca `available`.
 - **Wari** tiene ficha documental y cobertura, pero no modelo; no se marca `available`.
@@ -47,7 +47,7 @@ Las cifras de LOD, draw calls y paradas se generan en `docs/metricas.json`; esta
 1. **QA de hardware:** desktop 1600×900 ya auditado; móvil/1080p/kiosco siguen pendientes. No hay dispositivo móvil disponible, así que no se certifican por emulación.
 2. **Caral:** cerrar o mantener la excepción Android con evidencia.
 3. **Chavín:** QA móvil/1080p; dintel/escalera y licencia documentados en `decisiones.md`; no abrir kiosco comercial con el GLB actual.
-4. **Aypate:** cotas finas y recintos periféricos, sin rehacer el layout.
+4. **Aypate:** cotas finas cerradas como no alcanzables con fuente pública; recintos periféricos diferidos, sin rehacer el layout.
 5. **Narihualá:** plano arqueológico de sectores y cotas finas. Búsqueda 2026 sin plano público; la RVM solo aprueba el plano perimétrico y la sectorización 3/4/8 está en conflicto. No etiquetar sectores; solicitar el expediente técnico.
 6. **Chan Chan:** piloto solo-datos completado; no se abre geometría. Decisión 3D en `docs/estado.md` (4 nov 2026): no iniciar.
 7. **Wari:** piloto solo-datos completado; no se abre geometría. Decisión 3D en `docs/estado.md` (4 nov 2026): no iniciar.

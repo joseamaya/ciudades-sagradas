@@ -21,13 +21,13 @@ Estándar: **centro representativo**.
 | Kanchas de control | Documentado | Fondo | High-poly | Asociadas al camino alternativo |
 | Bosque de neblina | Documentado/inferido | Fondo | High-poly | Ambiente, no inventario botánico |
 | Techos y cubiertas | No conservado | No reconstruir | Diferido | Sin evidencia |
-| Planta completa y cotas | Documentado / parcial | Gate | Cierre de conjunto cerrado; cotas finas pendientes | `cotas.md`; memoria de 36 sectores no pública |
+| Planta completa y cotas | Documentado / parcial | Gate | Cierre de conjunto cerrado; cotas finas no alcanzables con fuente pública | `cotas.md`; memoria de 36 sectores no pública |
 
 ## Huecos de evidencia
 
 | Hueco | Decisión |
 |---|---|
-| Planta de todos los recintos periféricos | No modelar; esperar levantamiento |
+| Planta de todos los recintos periféricos | Búsqueda 2026 sin plano de detalle; no modelar; señalizar en la ficha como diferido |
 | Alturas originales | No inventar; usar vacíos |
 | Función exacta de cada recinto | Marcar como interpretada |
 | Atribución a un gobernante | Reportada, no cerrada |

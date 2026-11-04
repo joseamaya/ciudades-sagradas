@@ -1,6 +1,6 @@
 # Aypate — dossier de fuentes
 
-**Estado:** preview web v0.4 con high-poly; layout y escala contrastados con el plano de 2013; QA de hardware pendiente.
+**Estado:** preview web v0.4 con high-poly; layout y escala contrastados con el plano de 2013; cotas finas cerradas como no alcanzables con fuente pública (4 nov 2026); recintos periféricos diferidos; QA de hardware pendiente.
 **Fecha de consulta:** 28 de octubre de 2026.
 
 ## Ficha
@@ -61,7 +61,7 @@
 | Ocupación inca y edificios estatales | Documentado | Plaza, ushnu, kallanka, acllawasi, palacio y colcas. |
 | Qhapaq Ñan y ramal alternativo | Documentado | Trazado y anchos reportados por el proyecto oficial. |
 | Baño/fuente ritual | Documentado | Rocas labradas y hornacinas. |
-| Planta completa y cotas | Documentado / parcial | Cierre de conjunto en `docs/remaster/aypate/cotas.md`; la memoria de 36 sectores y el original de alta resolución no son públicos. |
+| Planta completa y cotas | Documentado / parcial | Cierre de conjunto en `docs/remaster/aypate/cotas.md`; la memoria de 36 sectores y el original de alta resolución no son públicos. La fuente de 2015 identifica los sectores 10, 11, 13 y 15, pero no publica la lista completa ni el plano. Cotas finas y recintos periféricos: no alcanzables con fuente pública; ver decisión del 4 nov 2026. |
 | Atribución a Túpac Yupanqui | Reportado | Ficha turística; no se usa como fecha cerrada. |
 | Alturas originales y techos | Inferido / no conservado | No reconstruir sin fuente. |
 | Función exacta de cada recinto | Documentado / interpretado | Se distingue en la ficha. |
@@ -76,6 +76,7 @@
 - Carlos E. Campos Napán, *Dominando el paisaje sagrado: los incas y la construcción del ushnu de Aypate*, Cuadernos del Qhapaq Ñan 5 (2017), pp. 68–98, figura 1 (plano de 2013): <https://revistas.cultura.gob.pe/index.php/cuadernosqn/article/view/499>
 - UNESCO, *Qhapaq Ñan, Andean Road System* (n.º 1459): <https://whc.unesco.org/en/list/1459/>
 - Qhapaq Ñan, *Aypate: un monumento arqueológico y una montaña cósmica donde nace el agua*: <https://qhapaqnan.cultura.pe/sites/default/files/articulos/173473673-Aypate-un-monumento-arqueolo-gico-y-una-montan-a-co-smica-donde-nace-el-agua.pdf>
+- Qhapaq Ñan, *Aypate: patrimonio cultural de la región Piura* (2015): <https://ton.sdsu.edu/aypate_ministerio_cultura_peru.pdf>
 - Sketchfab, *Puerta monumental inca de Aypate*, fjmOjeda, CC BY: <https://sketchfab.com/3d-models/puerta-monumental-inca-de-aypate-peru-53858cc105ac498ea016ceeaac67fc8c>
 
 ## High-poly v0.4

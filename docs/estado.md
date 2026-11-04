@@ -130,8 +130,20 @@ Apéndice específico de Caral. Las métricas comparables y el resto de tablas s
 4. **Aypate:** cotas finas y recintos periféricos; no reabrir el layout de la v0.4.
 5. **Narihualá:** plano arqueológico de sectores y cotas finas; mantener el preview interpretativo.
 6. **Chan Chan:** piloto solo-datos completado; no se abre geometría mientras no haya fuentes, licencias y QA suficientes.
-7. **Wari:** piloto solo-datos completado; no se abre geometría sin fuentes, licencias y QA. Después se decide si alguna ciudad pasa a 3D.
+7. **Wari:** piloto solo-datos completado; no se abre geometría sin fuentes, licencias y QA.
 8. **Kiosco y narración:** congelados hasta cerrar QA de hardware.
+
+### Decisión sobre Chan Chan y Wari 3D (4 de noviembre de 2026)
+
+**Ninguna de las dos pasa a 3D en esta fase.** Chan Chan y Wari se mantienen en `research` con ficha documental.
+
+La decisión se reevalúa cuando se cumplan estas tres condiciones:
+
+1. Cerrar la QA de hardware (#71): móvil, 1080p real y kiosco.
+2. Completar un informe de fuentes y licencias para la ciudad candidata.
+3. Aprobar un presupuesto de GLB, QA y mantenimiento de assets.
+
+Mientras tanto, no se abre blockout, GLB, portada ni recorrido para ninguna de las dos. El objetivo es no repetir el coste de una ciudad 3D sin la QA y las fuentes resueltas.
 
 ## Limitaciones conocidas
 

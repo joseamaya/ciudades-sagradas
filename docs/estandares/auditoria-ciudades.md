@@ -49,8 +49,8 @@ Las cifras de LOD, draw calls y paradas se generan en `docs/metricas.json`; esta
 3. **Chavín:** QA móvil/1080p; dintel/escalera y licencia documentados en `decisiones.md`; no abrir kiosco comercial con el GLB actual.
 4. **Aypate:** cotas finas y recintos periféricos, sin rehacer el layout.
 5. **Narihualá:** plano arqueológico de sectores y cotas finas.
-6. **Chan Chan:** piloto solo-datos completado; no se abre geometría.
-7. **Wari:** piloto solo-datos completado; no se abre geometría. Después se decide si alguna ciudad pasa a 3D.
+6. **Chan Chan:** piloto solo-datos completado; no se abre geometría. Decisión 3D en `docs/estado.md` (4 nov 2026): no iniciar.
+7. **Wari:** piloto solo-datos completado; no se abre geometría. Decisión 3D en `docs/estado.md` (4 nov 2026): no iniciar.
 
 ## Criterio de actualización
 

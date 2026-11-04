@@ -24,3 +24,5 @@ Este piloto valida que Chan Chan puede enriquecerse como ficha documental **sin 
 Chan Chan se mantiene en `research`. Las alturas originales, techos, colores y usos no conservados se presentan como inferidos o interpretativos, nunca como hechos cerrados.
 
 El siguiente piloto solo-datos es Wari. Abrir una reconstrucción 3D de Chan Chan exige un gate separado: fuentes, licencias, cobertura, blockout, QA y presupuesto de assets.
+
+**Decisión actual (4 de noviembre de 2026):** Chan Chan no pasa a 3D en esta fase. Se reevalúa tras cerrar la QA de hardware (#71), con fuentes/licencias y presupuesto aprobados. Ver [`docs/estado.md`](../../estado.md).

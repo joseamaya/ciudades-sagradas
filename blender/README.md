@@ -11,6 +11,17 @@ git lfs pull
 
 CI y el build web no descargan LFS porque no necesitan escenas Blender.
 
+## Historial y tamaño del clon
+
+Medición del 4 de noviembre de 2026: `.git` ocupa ~514 MB y el pack ~308 MB. La mayor parte son GLB, texturas y escenas anteriores a la política de LFS.
+
+**Decisión: no reescribir el historial en esta fase.** Evita un `force-push`, la rotura de clones existentes y una ventana de mantenimiento sin beneficio inmediato para el build web.
+
+- Para colaboradores que no necesitan escenas: `git clone --filter=blob:none <url>` y omitir `git lfs pull`.
+- Para QA/build web: no hace falta LFS.
+- Si se decide limpiar más adelante, hacerlo en una copia con `git lfs migrate import --include="*.blend"` o `git filter-repo`, medir antes/después y coordinar el reset de todos los clones.
+- Las escenas históricas que no sean fuente ni referencia se pueden archivar fuera del repositorio antes de esa limpieza.
+
 ```text
 blender/
   caral/

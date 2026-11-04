@@ -22,6 +22,12 @@ Una estación táctil de 1080p que funcione sin internet, con una experiencia de
 - Sin barras del navegador, sin teclado visible.
 - El service worker cachea el atlas y el LOD cargado tras la primera visita. No precarga el otro LOD ni el fallback v1.
 
+## Licencias
+
+- Caral, Aypate y Narihualá usan geometría y materiales propios.
+- Chavín incluye el Lanzón derivado del escaneo de CyArk / Google Arts & Culture bajo **CC BY-NC-SA 4.0**. El preview público no comercial puede usarlo con atribución; un kiosco con entrada de pago o patrocinio requiere sustituir la malla del Lanzón por una propia o negociar una licencia comercial.
+- Decisión y opciones: [`docs/remaster/chavin/decisiones.md`](./remaster/chavin/decisiones.md).
+
 ## Comportamiento
 
 - `?kiosk=1` activa botones grandes y el temporizador de inactividad.

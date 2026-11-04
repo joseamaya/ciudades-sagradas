@@ -43,7 +43,7 @@ La marca **Documentado** de la tabla se apoya en la ficha UNESCO 330 y/o en el M
 | Secciones y alturas originales | Parcial | No inventar; usar vacíos o cortes |
 | Techos y cubiertas | No conservados | No reconstruir |
 | Colores originales | Parcial | Usar restos documentados y paleta sobria |
-| Licencias de esculturas y fotos | Pendiente | Tablero de licencias antes de modelar |
+| Licencias de esculturas y fotos | Parcial | Lanzón: CC BY-NC-SA, solo preview no comercial; Estela y Obelisco pendientes. Ver `decisiones.md`. |
 | Inventario de cabezas clavas | Pendiente | Selección documentada, no catálogo completo |
 
 ## Relación con Caral
@@ -58,6 +58,6 @@ La marca **Documentado** de la tabla se apoya en la ficha UNESCO 330 y/o en el M
 - [x] Tabla revisada contra fuentes.
 - [x] Zonas hero y fondo aprobadas para blockout.
 - [x] Huecos marcados como diferidos, no inventados.
-- [x] Política de licencias aprobada; permisos de publicación pendientes.
+- [x] Política de licencias aprobada; Lanzón restringido a preview no comercial; Estela/Obelisco pendientes.
 - [x] Presupuesto y recorrido coherentes con la tabla.
 - [x] Ningún elemento se declara “completo” sin fuente.

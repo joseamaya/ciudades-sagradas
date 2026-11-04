@@ -124,7 +124,7 @@
     },
     {
       "title": "Portada de las Falcónidas",
-      "text": "La portada se abre en el frontis este del Edificio A. Dos columnas circulares de 2,30 m, jambas trilíticas y un friso partido en dos enmarcan el acceso; las tallas de esta versión son una lectura geométrica, no una reproducción iconográfica.",
+      "text": "La portada se abre en el frontis este del Edificio A. Dos columnas circulares de 2,30 m, jambas trilíticas y un friso partido en dos enmarcan el acceso; las tallas de esta versión son una lectura geométrica, no una reproducción iconográfica. El dintel no se reconstruye por falta de evidencia y la escalera se limita a un escalón inferido.",
       "evidence": "inferred",
       "camera": {
         "position": [
@@ -215,7 +215,7 @@
       "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
     }
   ],
-  "disclaimer": "Preview de revisión. Reconstrucción artística en investigación; no es una reconstrucción histórica final. El Lanzón es una adaptación geométrica del escaneo CyArk (CC BY-NC-SA 4.0); el terreno es procedural y la Portada conserva relieves interpretativos.",
+  "disclaimer": "Preview de revisión. Reconstrucción artística en investigación; no es una reconstrucción histórica final. El Lanzón es una adaptación geométrica del escaneo CyArk (CC BY-NC-SA 4.0), sin uso comercial sin licencia adicional; el terreno es procedural y la Portada conserva relieves interpretativos.",
   "credits": "Geometría y texturas propias del proyecto; Lanzón derivado del escaneo 3D de CyArk / Google Arts & Culture, CC BY-NC-SA 4.0; sin imágenes oficiales ni texturas de IA.",
   "lights": [
     {

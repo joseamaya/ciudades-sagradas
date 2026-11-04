@@ -164,12 +164,12 @@ test('navegación: ciudad disponible a ficha documental limpia el teclado', asyn
   await waitForViewer(page);
 
   await page.evaluate(() => {
-    window.location.hash = '#/ciudad/chan-chan';
+    window.location.hash = '#/ciudad/wari';
   });
-  await expect(page.locator('.research-hero h1')).toHaveText('Chan Chan');
+  await expect(page.locator('.research-hero h1')).toHaveText('Wari');
   await page.keyboard.press('Escape');
   await page.keyboard.press('Escape');
-  await expect(page).toHaveURL(/#\/ciudad\/chan-chan$/);
+  await expect(page).toHaveURL(/#\/ciudad\/wari$/);
 });
 
 test('navegación: volver y reabrir no duplica el teclado', async ({ page }) => {

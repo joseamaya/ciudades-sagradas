@@ -43,14 +43,15 @@
     "period": "Siglos IX–XV d. C.",
     "yearsAgo": 1100,
     "region": "Valle de Moche, Huanchaco, La Libertad",
-    "availability": "research",
-    "maturity": "research",
-    "evidence": "not-applicable",
-    "qa": "not-applicable",
+    "availability": "available",
+    "maturity": "preview",
+    "evidence": "mixed",
+    "qa": "partial",
     "accent": "#c47a4a",
-    "thumb": null,
-    "summary": "Capital del reino Chimú y ciudad de adobe más grande de América. Sus conjuntos amurallados, relieves y canales dominaron la costa norte.",
-    "monogram": "CC"
+    "thumb": "cities/chan-chan/hero.jpg",
+    "summary": "Capital del reino Chimú y ciudad de adobe más grande de América. Preview de Nik An: plaza ceremonial, corredor de peces y aves, audiencias, segunda plaza, depósitos y reservorio.",
+    "monogram": "CC",
+    "version": "v0.1"
   },
   {
     "id": "wari",

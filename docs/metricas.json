@@ -98,6 +98,50 @@
       "fallback": null
     },
     {
+      "id": "chan-chan",
+      "name": "Chan Chan",
+      "culture": "Reino Chimú",
+      "period": "Siglos IX–XV d. C.",
+      "availability": "available",
+      "maturity": "preview",
+      "version": "v0.1",
+      "evidence": "mixed",
+      "qa": "partial",
+      "stops": 6,
+      "layers": 4,
+      "models": {
+        "0": {
+          "path": "cities/chan-chan/model_lod0.glb",
+          "triangles": 156624,
+          "bytes": 1904164,
+          "images": 12,
+          "materials": 8,
+          "primitives": 13,
+          "sha256": "ccc6451d6544942ea3ec335759361b943fbc97defaf3eeb237b5657e56ca285f",
+          "calls": 14,
+          "textureMB": 208,
+          "textureSource": "docs/qa/resultados/chan-chan-v01-desktop-2026-11-04/chan-chan-lod0.json",
+          "qaSource": "docs/qa/resultados/chan-chan-v01-desktop-2026-11-04/chan-chan-lod0.json",
+          "qaGeneratedAt": "2026-11-04T16:59:26.900Z"
+        },
+        "1": {
+          "path": "cities/chan-chan/model_lod1.glb",
+          "triangles": 27192,
+          "bytes": 533140,
+          "images": 12,
+          "materials": 8,
+          "primitives": 12,
+          "sha256": "3a4679c111e24d77d1df49666f5e5beccf21e28c56aa90d55e107ea1d4e2d04a",
+          "calls": 13,
+          "textureMB": 64,
+          "textureSource": "docs/qa/resultados/chan-chan-v01-desktop-2026-11-04/chan-chan-lod1.json",
+          "qaSource": "docs/qa/resultados/chan-chan-v01-desktop-2026-11-04/chan-chan-lod1.json",
+          "qaGeneratedAt": "2026-11-04T16:59:44.280Z"
+        }
+      },
+      "fallback": null
+    },
+    {
       "id": "aypate",
       "name": "Aypate",
       "culture": "Imperio Inca · Qhapaq Ñan",
@@ -183,21 +227,6 @@
           "qaGeneratedAt": "2026-10-30T23:49:10.864Z"
         }
       },
-      "fallback": null
-    },
-    {
-      "id": "chan-chan",
-      "name": "Chan Chan",
-      "culture": "Reino Chimú",
-      "period": "Siglos IX–XV d. C.",
-      "availability": "research",
-      "maturity": "research",
-      "version": null,
-      "evidence": "not-applicable",
-      "qa": "not-applicable",
-      "stops": 0,
-      "layers": 0,
-      "models": {},
       "fallback": null
     },
     {

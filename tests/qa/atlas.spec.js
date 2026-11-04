@@ -9,7 +9,7 @@ test('atlas: seis ciudades, aviso de preview y badges', async ({ page }, testInf
   await expect(page.locator('.city-card')).toHaveCount(6);
   await expect(page.locator('.catalog__notice')).toContainText('Preview público');
   await expect(page.locator('.catalog__notice')).toContainText('Caral v2 es la referencia');
-  await expect(page.locator('.catalog__notice')).toContainText('Chan Chan y Wari son fichas documentales');
+  await expect(page.locator('.catalog__notice')).toContainText('Wari es ficha documental');
   await expect(page.locator('.catalog__stats')).toContainText('6');
   await expect(page.locator('.catalog__stats')).toContainText('5000');
   await expect(page.locator('.city-card__status')).toHaveCount(6);
@@ -57,17 +57,17 @@ test('catálogo: escapa datos de index.json', async ({ page }) => {
 });
 
 test('ficha documental: escapa datos de city.json', async ({ page }) => {
-  const city = JSON.parse(await readFile('public/cities/chan-chan/city.json', 'utf8'));
-  city.name = 'Chan <b>Chan</b>';
+  const city = JSON.parse(await readFile('public/cities/wari/city.json', 'utf8'));
+  city.name = 'Wari <b>demo</b>';
   city.summary = 'Resumen <script>window.__xss = true</script>';
   city.accent = 'red; background: url(javascript:window.__xss = true)';
   city.sources = [{ label: '<em>Fuente</em>', url: 'javascript:window.__xss = true' }];
-  await page.route('**/cities/chan-chan/city.json', (route) =>
+  await page.route('**/cities/wari/city.json', (route) =>
     route.fulfill({ json: city }),
   );
-  await page.goto('/#/ciudad/chan-chan');
+  await page.goto('/#/ciudad/wari');
 
-  await expect(page.locator('.research-hero h1')).toHaveText('Chan <b>Chan</b>');
+  await expect(page.locator('.research-hero h1')).toHaveText('Wari <b>demo</b>');
   await expect(page.locator('.research-main b')).toHaveCount(0);
   await expect(page.locator('.research-main script')).toHaveCount(0);
   await expect(page.locator('.source-list em')).toHaveCount(0);
@@ -81,9 +81,9 @@ test('ficha documental: escapa datos de city.json', async ({ page }) => {
 test('navegación: atlas a ficha documental y regreso', async ({ page }) => {
   const errors = trackConsole(page);
   await page.goto('/');
-  await page.locator('a[href="#/ciudad/chan-chan"]').click();
-  await expect(page).toHaveURL(/#\/ciudad\/chan-chan$/);
-  await expect(page.locator('.research-hero h1')).toHaveText('Chan Chan');
+  await page.locator('a[href="#/ciudad/wari"]').click();
+  await expect(page).toHaveURL(/#\/ciudad\/wari$/);
+  await expect(page.locator('.research-hero h1')).toHaveText('Wari');
   await page.locator('.back-link').click();
   await expect(page).toHaveURL(/#\/?$/);
   await expect(page.locator('.city-card')).toHaveCount(6);

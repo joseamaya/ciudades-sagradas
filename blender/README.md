@@ -29,6 +29,9 @@ blender/
     caral_remaster_v2.blend  # escena v2 local (no versionada)
     caral_lod0.blend / caral_lod1.blend  # LODs locales (no versionados)
     export.py             # exporta v1 a GLB
+  chan-chan/
+    chanchan_highpoly_v0.1.blend  # fuente del preview Nik An (versionada)
+    chanchan_lod0.blend / chanchan_lod1.blend  # LODs locales (no versionados)
   textures/
     generated/remaster/   # texturas procedurales del remaster
     baked/caral/          # atlas LOD1 generados (no versionados)
@@ -49,6 +52,12 @@ blender/
 
 - Los LOD0/LOD1 se exportan con `scripts/caral/export_caral_lod.py` (WebP 80 + Draco).
 - El piloto histórico con texturas de IA fue retirado del repositorio.
+
+## Chan Chan
+
+- La fuente versionada es `blender/chan-chan/chanchan_highpoly_v0.1.blend`.
+- Los LOD0/LOD1 se generan con `scripts/chan-chan/build_chanchan_lod.py` y se exportan con `scripts/chan-chan/export_chanchan_lod.py`.
+- El preview se limita a Nik An; no se versionan los LODs.
 
 ## Convenciones
 

@@ -1,28 +1,33 @@
-# Chan Chan — piloto solo-datos
+# Chan Chan — preview de Nik An
 
-Estado: **piloto documental**, `availability: research`, `maturity: research`, sin modelo 3D y sin QA de hardware.
-Fecha: 31 de octubre de 2026.
+Estado: **preview web v0.1 de Nik An**, `availability: available`, `maturity: preview`, `qa: partial`.
+Fecha: 4 de noviembre de 2026.
 
 ## Alcance
 
-Este piloto valida que Chan Chan puede enriquecerse como ficha documental **sin añadir geometría ni tocar `src/`**. No se publica como ciudad `available` y no se le asigna un estado `qa`.
+El piloto documental se conserva como base de evidencia. El preview 3D se limita a **Nik An**, el conjunto amurallado visitable, no a las nueve ciudadelas ni a los 20 km² de la ciudad.
 
-- No hay GLB, `hero.jpg`, cámaras, recorrido ni capas de modelo.
-- No se cambia la caché global: no hay assets nuevos.
-- No se copian fotografías oficiales de UNESCO/Mincul/ICOMOS.
-- La ficha sigue siendo documental; no es una reconstrucción arqueológica.
+- GLB LOD0/LOD1, `hero.jpg`, seis paradas, cuatro capas y cuatro presets de luz.
+- LOD0: 156.624 tris / 1,9 MB; LOD1: 27.192 tris / 0,5 MB; 14/13 draw calls; texturas 208/64 MB de VRAM estimada.
+- Se modelan plaza principal, corredor, altarcillo, audiencias, segunda plaza, depósitos, reservorio y plataforma funeraria.
+- No se copian fotografías oficiales de UNESCO/Mincul/ICOMOS; no hay texturas de IA.
 
 ## Evidencia
 
 - Dossier: [`docs/fuentes/chan-chan.md`](../../fuentes/chan-chan.md)
 - Cobertura: [`cobertura.md`](./cobertura.md)
-- Plan del piloto: [`plan.md`](./plan.md)
+- Plan 3D: [`plan-3d.md`](./plan-3d.md)
+- Plan histórico del piloto: [`plan.md`](./plan.md)
 - Ficha publicada: `public/cities/chan-chan/city.json`
 
 ## Decisión
 
-Chan Chan se mantiene en `research`. Las alturas originales, techos, colores y usos no conservados se presentan como inferidos o interpretativos, nunca como hechos cerrados.
+**Decisión actual (4 de noviembre de 2026):** se construye un preview 3D de Nik An. Las alturas originales, techos, colores, relieves y posición de algunos recintos se presentan como inferidos o interpretativos, nunca como hechos cerrados. La QA de hardware sigue pendiente; no se publica como `released`.
 
-El siguiente piloto solo-datos es Wari. Abrir una reconstrucción 3D de Chan Chan exige un gate separado: fuentes, licencias, cobertura, blockout, QA y presupuesto de assets.
+El siguiente paso es Wari, con el mismo criterio de núcleo representativo y evidencia explícita. Ver [`plan-3d.md`](./plan-3d.md).
 
-**Decisión actual (4 de noviembre de 2026):** Chan Chan no pasa a 3D en esta fase. Se reevalúa tras cerrar la QA de hardware (#71), con fuentes/licencias y presupuesto aprobados. Ver [`docs/estado.md`](../../estado.md).
+## Documentos
+
+- [`plan-3d.md`](./plan-3d.md): alcance, fases y límites del preview.
+- [`plan.md`](./plan.md): plan histórico del piloto solo-datos.
+- [`cobertura.md`](./cobertura.md): elementos modelados, inferidos y diferidos.

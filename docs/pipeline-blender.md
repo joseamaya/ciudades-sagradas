@@ -84,11 +84,12 @@ scripts/caral/       remaster, LOD, materiales y renders de Caral
 scripts/chavin/      high-poly, valle, materiales y export de Chavín
 scripts/aypate/      blockout, high-poly, LOD y export de Aypate
 scripts/narihuala/   blockout, high-poly, LOD y export de Narihualá
+scripts/chan-chan/   high-poly, LOD y export de Chan Chan (Nik An)
 scripts/tools/       utilidades Blender transversales
 scripts/archive/     renders históricos sin referencias vigentes
 ```
 
-Los scripts de Aypate y Narihualá se importan entre sí y resuelven la raíz del repo desde `__file__`; se ejecutan desde la raíz del repositorio.
+Los scripts de Chan Chan importan los helpers de Aypate; los de Aypate y Narihualá se importan entre sí y resuelven la raíz del repo desde `__file__`; se ejecutan desde la raíz del repositorio.
 Los scripts de build, validación, benchmark y kiosco siguen en la raíz de `scripts/`. Los renders históricos sin referencias vigentes se archivan en `scripts/archive/`.
 
 ## Fuentes actuales

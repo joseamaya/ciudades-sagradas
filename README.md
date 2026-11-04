@@ -52,6 +52,8 @@ npm install
 npm run dev
 ```
 
+Si solo necesitas el visor web y no las escenas Blender: `git clone --filter=blob:none https://github.com/joseamaya/ciudades-sagradas.git` y omite `git lfs pull`.
+
 Abre `http://127.0.0.1:5173/`.
 
 Para ver métricas del visor y copiar el informe QA (GPU, WebGL, PWA, flags y errores): `http://127.0.0.1:5173/?debug=1#/ciudad/caral`.

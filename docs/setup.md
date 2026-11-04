@@ -17,6 +17,8 @@ npm install
 npm run dev
 ```
 
+Si solo necesitas el visor web, clona con `--filter=blob:none` y omite `git lfs pull`. El historial completo pesa ~514 MB; la decisión está en [`blender/README.md`](../blender/README.md).
+
 Abre `http://127.0.0.1:5173/`.
 
 Validación y build:

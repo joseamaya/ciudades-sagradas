@@ -126,7 +126,7 @@ Apéndice específico de Caral. Las métricas comparables y el resto de tablas s
 
 1. **QA de hardware real:** desktop integrado 1600×900 completado para las cuatro ciudades; 1080p, Android/iPhone, GPU dedicada y kiosco siguen pendientes. **No hay dispositivo móvil disponible**, así que móvil/1080p real quedan bloqueados por hardware y no se certifican con emulación. Ver [`qa-hardware.md`](./estandares/qa-hardware.md) y [`qa/README.md`](./qa/README.md).
 2. **Caral Android P2:** `CARAL-ANDROID-GROUND-001`; falta aislar con `?noground=1`/`?noshadows=1` y datos del dispositivo. No bloquea el resto del atlas.
-3. **Chavín:** QA móvil/1080p del valle v0.7, decidir dintel/escalera y revisar la licencia CC BY-NC-SA 4.0 del Lanzón antes de uso comercial.
+3. **Chavín:** QA móvil/1080p del valle v0.7. Dintel/escalera y licencia del Lanzón documentados en `docs/remaster/chavin/decisiones.md`; no abrir kiosco comercial con el GLB actual.
 4. **Aypate:** cotas finas y recintos periféricos; no reabrir el layout de la v0.4.
 5. **Narihualá:** plano arqueológico de sectores y cotas finas; mantener el preview interpretativo.
 6. **Chan Chan:** piloto solo-datos completado; no se abre geometría mientras no haya fuentes, licencias y QA suficientes.

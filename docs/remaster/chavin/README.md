@@ -14,6 +14,7 @@ Chavín se abre después del cierre de contenido de Caral v2. El blockout v0.5 e
 
 - `plan.md`: alcance, presupuesto técnico, paradas, capas, luces, riesgos y gate.
 - `cobertura.md`: elementos documentados, nivel de detalle objetivo y huecos.
+- `decisiones.md`: dintel, escalera y licencia del Lanzón.
 - `referencias.md`: fuentes públicas, licencias y material pendiente.
 - `terrain.md`: decisión de terreno procedural y criterio para un DEM futuro.
 - `blockout-v0.1.md`: alcance, métricas, evidencia y límites del primer blockout.

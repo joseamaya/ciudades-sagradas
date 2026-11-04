@@ -33,7 +33,7 @@ La UI muestra `availability`, `maturity`, `evidence` y `qa` en catálogo, ficha 
 - [ ] Cerrar o mantener la incidencia `CARAL-ANDROID-GROUND-001`.
 - [x] QA desktop de Chavín v0.7 (1600×900, LOD0/LOD1, 60 fps).
 - [ ] QA móvil/1080p de Chavín v0.7.
-- [ ] Revisar la licencia CC BY-NC-SA 4.0 del Lanzón antes de uso comercial.
+- [x] Licencia CC BY-NC-SA 4.0 revisada: preview no comercial permitido; kiosco comercial requiere sustituir el Lanzón o negociar licencia.
 - [ ] Cerrar cotas finas de Aypate y Narihualá.
 - [ ] Resolver el plano arqueológico de sectores de Narihualá.
 

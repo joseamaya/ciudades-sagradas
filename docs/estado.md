@@ -64,7 +64,7 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - **Chan Chan** tiene un piloto solo-datos: ficha documental ampliada, cobertura por elemento y plan; sigue en `research`, sin GLB, portada, recorrido, capas ni QA. Informe en [`remaster/chan-chan/`](./remaster/chan-chan/README.md).
 - **Wari** cierra el segundo piloto solo-datos: dossier, cobertura y ficha sin modelo 3D ni QA. Sigue en `research`; Wari no figura en la Lista del Patrimonio Mundial. Informe en [`remaster/wari/`](./remaster/wari/README.md).
 - El visor 3D se carga bajo demanda: el catálogo no descarga Three.js/CityViewer.
-- CI ejecuta el smoke de Playwright en cada PR; el deploy de Pages ejecuta `validate` + smoke antes de publicar. El smoke cubre atlas, LOD0/LOD1, lazy-viewer, accesibilidad, render bajo demanda, offline, API QA, service worker, cámara y ciclo de vida del visor (40 pruebas).
+- CI ejecuta un smoke rápido de 21 pruebas en cada PR. El deploy de Pages ejecuta `validate` + smoke completo antes de publicar: 40 pruebas con accesibilidad, cámara y ciclo de vida del visor. El nightly (`qa:playwright:review`) cubre Chromium desktop, Firefox y Chromium mobile.
 
 ## Visor 3D y code-splitting
 

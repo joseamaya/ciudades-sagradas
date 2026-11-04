@@ -21,9 +21,10 @@ Este registro guarda los informes reales de `?debug=1`. No se marca un resultado
 
 ```bash
 npm run qa:playwright          # todos los proyectos por defecto (incluye 1080p emulado)
-npm run qa:playwright:review   # Chromium desktop + Firefox + Chromium mobile
+npm run qa:playwright:review   # Chromium desktop + Firefox + Chromium mobile (nightly)
 npm run qa:playwright:chromium # solo Chromium desktop 1600×900
-npm run qa:playwright:smoke    # gate de PR/Pages: 40 pruebas en Chromium desktop
+npm run qa:playwright:pr       # gate de PR: 21 pruebas rápidas
+npm run qa:playwright:smoke    # gate de main/Pages: 40 pruebas en Chromium desktop
 npm run qa:playwright:webkit   # opcional; requiere dependencias del host
 ```
 
@@ -33,9 +34,9 @@ Playwright arranca su propio servidor en `4175` y no reutiliza servidores existe
 
 La suite incluye `lazy-viewer.spec.js`: verifica que el catálogo no descarga el visor, que una ciudad sí lo carga y que un fallo del chunk muestra el estado recuperable. Los tests acceden a `window.__ciudadesSagradas` con `?qa=1`; sin `?debug` ni `?qa` la API no se expone en producción.
 
-CI ejecuta `qa:playwright:smoke` en cada PR. El workflow de Pages vuelve a ejecutar `validate` + smoke en `main` y solo despliega si pasan. El smoke cubre atlas, LOD1, lazy-viewer, accesibilidad, render bajo demanda, offline, API QA, service worker, cámara y ciclo de vida del visor (40 pruebas); tarda ~20 min con instalación de navegador. La suite completa de Chromium desktop (62 pruebas) queda como revisión manual.
+CI ejecuta `qa:playwright:pr` en cada PR: 21 pruebas rápidas (atlas, LOD1, lazy-viewer, QA API, service worker, render bajo demanda, offline y carga cancelada). El workflow de Pages ejecuta `validate` + smoke completo en `main` antes de desplegar: 40 pruebas, incluidas accesibilidad, cámara y ciclo de vida del visor. La suite completa de Chromium desktop (62 pruebas) y la revisión multi-navegador quedan en el workflow manual y en el nightly.
 
-El workflow manual `.github/workflows/qa-playwright.yml` ejecuta la suite completa de Chromium desktop (62 pruebas) y sube los artefactos.
+El workflow `.github/workflows/nightly.yml` ejecuta `qa:playwright:review` (Chromium desktop, Firefox y Chromium mobile) cada noche. El workflow manual `.github/workflows/qa-playwright.yml` ejecuta la suite completa de Chromium desktop (62 pruebas) y sube los artefactos.
 
 WebKit no está activo por defecto: en este host faltan dependencias del sistema. Requiere `sudo npx playwright install-deps` o las librerías `libavif16`, `libgav1-1`, `libyuv0` y `libjxl0.8`. Playwright headless no certifica FPS ni GPU reales.
 

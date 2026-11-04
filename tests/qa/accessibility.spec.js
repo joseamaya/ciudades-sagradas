@@ -158,18 +158,19 @@ test('panel: sigue visible tras cerrar en escritorio y pasar a móvil', async ({
     .toBe('1');
 });
 
-test('navegación: ciudad disponible a ficha documental limpia el teclado', async ({ page }) => {
+test('navegación: ciudad disponible a otra y Escape vuelve al atlas', async ({ page }) => {
   test.skip(!(await hasWebgl(page)), 'WebGL no disponible en este navegador headless');
   await openCity(page, 'caral', { lod: 1, debug: false });
   await waitForViewer(page);
 
   await page.evaluate(() => {
-    window.location.hash = '#/ciudad/wari';
+    window.location.hash = '#/ciudad/chan-chan';
   });
-  await expect(page.locator('.research-hero h1')).toHaveText('Wari');
+  await expect(page.locator('.city-heading h1')).toHaveText('Chan Chan');
+  await expect(page).toHaveURL(/#\/ciudad\/chan-chan$/);
   await page.keyboard.press('Escape');
   await page.keyboard.press('Escape');
-  await expect(page).toHaveURL(/#\/ciudad\/wari$/);
+  await expect(page).toHaveURL(/#\/$/);
 });
 
 test('navegación: volver y reabrir no duplica el teclado', async ({ page }) => {

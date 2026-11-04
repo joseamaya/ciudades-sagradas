@@ -8,11 +8,10 @@ export const CITIES = [
   { id: 'aypate', name: 'Aypate' },
   { id: 'narihuala', name: 'Narihualá' },
   { id: 'chan-chan', name: 'Chan Chan' },
-];
-
-export const RESEARCH_CITIES = [
   { id: 'wari', name: 'Wari' },
 ];
+
+export const RESEARCH_CITIES = [];
 
 const QA_DIR = 'qa-output/qa-reports';
 const SHOT_DIR = 'qa-output/qa-shots';

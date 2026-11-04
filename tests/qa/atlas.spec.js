@@ -9,7 +9,7 @@ test('atlas: seis ciudades, aviso de preview y badges', async ({ page }, testInf
   await expect(page.locator('.city-card')).toHaveCount(6);
   await expect(page.locator('.catalog__notice')).toContainText('Preview público');
   await expect(page.locator('.catalog__notice')).toContainText('Caral v2 es la referencia');
-  await expect(page.locator('.catalog__notice')).toContainText('Wari es ficha documental');
+  await expect(page.locator('.catalog__notice')).toContainText('La QA de hardware está en curso');
   await expect(page.locator('.catalog__stats')).toContainText('6');
   await expect(page.locator('.catalog__stats')).toContainText('5000');
   await expect(page.locator('.city-card__status')).toHaveCount(6);
@@ -57,11 +57,37 @@ test('catálogo: escapa datos de index.json', async ({ page }) => {
 });
 
 test('ficha documental: escapa datos de city.json', async ({ page }) => {
+  const index = JSON.parse(await readFile('public/cities/index.json', 'utf8'));
   const city = JSON.parse(await readFile('public/cities/wari/city.json', 'utf8'));
+  Object.assign(city, {
+    availability: 'research',
+    maturity: 'research',
+    evidence: 'not-applicable',
+    qa: 'not-applicable',
+    model: null,
+    lod: undefined,
+    fallbackModel: undefined,
+    tour: undefined,
+    layers: undefined,
+    camera: undefined,
+  });
   city.name = 'Wari <b>demo</b>';
   city.summary = 'Resumen <script>window.__xss = true</script>';
   city.accent = 'red; background: url(javascript:window.__xss = true)';
   city.sources = [{ label: '<em>Fuente</em>', url: 'javascript:window.__xss = true' }];
+  const entry = index.find((item) => item.id === 'wari');
+  const researchEntry = {
+    ...entry,
+    availability: 'research',
+    maturity: 'research',
+    evidence: 'not-applicable',
+    qa: 'not-applicable',
+    version: undefined,
+    thumb: null,
+  };
+  await page.route('**/cities/index.json', (route) =>
+    route.fulfill({ json: index.map((item) => (item.id === 'wari' ? researchEntry : item)) }),
+  );
   await page.route('**/cities/wari/city.json', (route) =>
     route.fulfill({ json: city }),
   );
@@ -78,12 +104,12 @@ test('ficha documental: escapa datos de city.json', async ({ page }) => {
   expect(await page.evaluate(() => window.__xss)).toBeUndefined();
 });
 
-test('navegación: atlas a ficha documental y regreso', async ({ page }) => {
+test('navegación: atlas a ciudad y regreso', async ({ page }) => {
   const errors = trackConsole(page);
   await page.goto('/');
   await page.locator('a[href="#/ciudad/wari"]').click();
   await expect(page).toHaveURL(/#\/ciudad\/wari$/);
-  await expect(page.locator('.research-hero h1')).toHaveText('Wari');
+  await expect(page.locator('.city-heading h1')).toHaveText('Wari');
   await page.locator('.back-link').click();
   await expect(page).toHaveURL(/#\/?$/);
   await expect(page.locator('.city-card')).toHaveCount(6);

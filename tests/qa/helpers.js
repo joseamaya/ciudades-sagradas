@@ -7,10 +7,10 @@ export const CITIES = [
   { id: 'chavin', name: 'Chavín de Huántar' },
   { id: 'aypate', name: 'Aypate' },
   { id: 'narihuala', name: 'Narihualá' },
+  { id: 'chan-chan', name: 'Chan Chan' },
 ];
 
 export const RESEARCH_CITIES = [
-  { id: 'chan-chan', name: 'Chan Chan' },
   { id: 'wari', name: 'Wari' },
 ];
 

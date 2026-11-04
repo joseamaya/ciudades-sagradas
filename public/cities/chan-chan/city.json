@@ -10,20 +10,182 @@
     "lon": -79.075
   },
   "elevation": "Costa desértica, 0–50 m s. n. m.",
-  "availability": "research",
-  "maturity": "research",
-  "evidence": "not-applicable",
-  "qa": "not-applicable",
-  "summary": "Chan Chan fue la capital del reino Chimú y la ciudad de adobe más grande de América. Sus conjuntos amurallados —con plazas, audiencias, depósitos, talleres y relieves— organizaban el poder y la producción en la costa norte. El agua llegaba por un sistema de canales desde el valle de Moche.",
-  "model": null,
+  "availability": "available",
+  "maturity": "preview",
+  "version": "v0.1",
+  "evidence": "mixed",
+  "qa": "partial",
+  "summary": "Chan Chan fue la capital del reino Chimú y la ciudad de adobe más grande de América. Este preview se concentra en Nik An, el conjunto amurallado más conocido: su plaza ceremonial, el corredor de peces y aves, las audiencias, la segunda plaza, los depósitos y el reservorio.",
+  "model": "cities/chan-chan/model_lod0.glb",
+  "lod": {
+    "default": "auto",
+    "levels": {
+      "0": "cities/chan-chan/model_lod0.glb",
+      "1": "cities/chan-chan/model_lod1.glb"
+    }
+  },
+  "fallbackModel": "cities/chan-chan/model_lod1.glb",
+  "scale": 0.08,
+  "verticalScale": 1,
+  "ground": {
+    "enabled": false
+  },
+  "fog": {
+    "near": 20,
+    "far": 160
+  },
+  "minDistance": 0.1,
+  "maxDistance": 180,
+  "camera": {
+    "position": [
+      14.0,
+      8.4,
+      17.2
+    ],
+    "target": [
+      -0.4,
+      0.64,
+      0.0
+    ],
+    "fov": 30,
+    "far": 220
+  },
+  "tour": [
+    {
+      "title": "Ingreso y muralla",
+      "text": "Nik An se recorre desde el norte por un acceso único entre muros de adobe que alcanzan 9–12 m. La muralla perimetral y el acceso son documentados; la altura visible y la erosión son una lectura de conservación.",
+      "evidence": "documented",
+      "camera": {
+        "position": [
+          1.44,
+          1.12,
+          -13.2
+        ],
+        "target": [
+          0,
+          0.48,
+          -9.6
+        ],
+        "fov": 30
+      }
+    },
+    {
+      "title": "Plaza ceremonial principal",
+      "text": "La plaza principal mide unos 65 × 75 m y se abre en el sector norte. Cuatro accesos y una rampa jerarquizan el ingreso; los muros perimetrales tienen unos 4 m de espesor. La geometría de conjunto es documentada, la altura y los relieves completos son inferidos.",
+      "evidence": "documented",
+      "camera": {
+        "position": [
+          0,
+          0.56,
+          -4.8
+        ],
+        "target": [
+          0,
+          0.32,
+          -8.96
+        ],
+        "fov": 30
+      }
+    },
+    {
+      "title": "Corredor de peces y aves",
+      "text": "El corredor conecta la plaza con las audiencias. Los muros conservan motivos de peces, aves y redes; aquí se representan como geometrías inspiradas, no como una reproducción iconográfica. El corredor y su función son documentados; el relieve es interpretativo.",
+      "evidence": "documented",
+      "camera": {
+        "position": [
+          0.88,
+          0.4,
+          -1.28
+        ],
+        "target": [
+          0,
+          0.176,
+          -3.04
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "title": "Audiencias",
+      "text": "Las audiencias son recintos en U con nichos y banquetas, asociados a culto, recepción de ofrendas y administración. Se modelan como unidades abiertas, sin techos inventados; su planta y proporción son una lectura de conjunto.",
+      "evidence": "documented",
+      "camera": {
+        "position": [
+          2.56,
+          1.12,
+          -3.36
+        ],
+        "target": [
+          1.44,
+          0.16,
+          -1.44
+        ],
+        "fov": 30
+      }
+    },
+    {
+      "title": "Segunda plaza y depósitos",
+      "text": "La segunda plaza y los depósitos organizan el sector central. Los almacenes se distribuyen en alas rectangulares; la posición exacta de cada recinto es inferida a partir de la lectura de conjunto de Nik An.",
+      "evidence": "inferred",
+      "camera": {
+        "position": [
+          -1.76,
+          1.76,
+          5.76
+        ],
+        "target": [
+          0,
+          0.32,
+          3.04
+        ],
+        "fov": 30
+      }
+    },
+    {
+      "title": "Reservorio y agua",
+      "text": "El reservorio rectangular formaba parte del sistema de agua del conjunto. La infraestructura hidráulica está documentada; la forma, profundidad y posición precisa de este estanque son inferidas y se presentan sin agua en movimiento.",
+      "evidence": "inferred",
+      "camera": {
+        "position": [
+          -0.96,
+          2.4,
+          14.4
+        ],
+        "target": [
+          -2.0,
+          0.16,
+          8.0
+        ],
+        "fov": 30
+      }
+    }
+  ],
+  "layers": [
+    {
+      "id": "city",
+      "label": "Arquitectura de adobe",
+      "default": true
+    },
+    {
+      "id": "terrain",
+      "label": "Desierto costero",
+      "default": true
+    },
+    {
+      "id": "props",
+      "label": "Relieves y detalles",
+      "default": true
+    },
+    {
+      "id": "reference",
+      "label": "Escala humana",
+      "default": true
+    }
+  ],
   "sources": [
     {
       "label": "UNESCO — Chan Chan Archaeological Zone (n.º 366)",
       "url": "https://whc.unesco.org/en/list/366/"
-    },
-    {
-      "label": "UNESCO — documentos, evaluación ICOMOS 1986 y misión 2007",
-      "url": "https://whc.unesco.org/en/list/366/documents/"
     },
     {
       "label": "ICOMOS — evaluación 1986",
@@ -38,10 +200,18 @@
       "url": "https://museos.cultura.pe/museos/museo-de-sitio-de-chan-chan"
     },
     {
-      "label": "UNESCO — mapa de la propiedad (2013)",
-      "url": "https://whc.unesco.org/document/126941"
+      "label": "Mincetur / Plan COPESCO — Conjunto Nik An",
+      "url": "https://www.gob.pe/institucion/uicet/noticias/791282-plan-copesco-nacional-entrega-terreno-para-inicio-de-obras-en-el-conjunto-nik-an-del-complejo-arqueologico-de-chan-chan"
+    },
+    {
+      "label": "Narváez, Chan Chan: chronology and stratigraphic contents (Andean Past)",
+      "url": "https://journals.maine.edu/andean_past/article/download/2677/2673"
+    },
+    {
+      "label": "DDC La Libertad — Chan Chan: esplendor y legado",
+      "url": "https://ddclalibertad.gob.pe/transparencia/pdf/LibroChanChanEsplendorlegado.pdf"
     }
   ],
-  "disclaimer": "Ficha documental en investigación. No hay modelo 3D publicado; alturas, techos, colores y usos no conservados se marcan como inferidos o interpretativos.",
-  "credits": "Ficha documental: UNESCO/ICOMOS, Proyecto Especial Complejo Arqueológico Chan Chan y Ministerio de Cultura. Texto propio; no se copian imágenes oficiales."
+  "disclaimer": "Preview v0.1 de Nik An. Reconstrucción artística; no es la ciudad completa ni una reconstrucción histórica final. La planta es una lectura de conjunto: plaza, corredor, audiencias, segunda plaza, depósitos y reservorio. Alturas, techos, colores, relieves y posición de recintos no conservados se marcan como inferidos o interpretativos. Sin imágenes oficiales ni texturas de IA.",
+  "credits": "Geometría, materiales y renders propios. Fuentes: UNESCO/ICOMOS, Proyecto Especial Complejo Arqueológico Chan Chan, Mincetur/Plan COPESCO, Narváez 2016 y DDC La Libertad. Sin imágenes oficiales ni texturas de IA."
 }

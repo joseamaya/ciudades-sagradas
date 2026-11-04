@@ -40,7 +40,7 @@ Narihualá es el principal conjunto monumental de adobe de la cultura Tallán, e
 ## Límites
 
 - El montículo este y la capilla se apoyan en SIGRID 2018; el montículo oeste y la plaza son inferencias.
-- No hay plano arqueológico de sectores; la numeración I–III no se asigna.
+- No hay plano arqueológico de sectores; la numeración I–III no se asigna. Búsqueda del 4 nov 2026: la RVM solo aprueba el plano perimétrico y las fuentes discrepan entre 3, 4 y 8 sectores; falta solicitar el expediente técnico.
 - No se reconstruyen techos, alturas originales ni recintos interiores.
 - La capilla va en `later`, apagada por defecto.
 - Desktop integrado 1600×900: LOD0/LOD1 OK. Quedan QA móvil/1080p y el plano arqueológico de sectores.

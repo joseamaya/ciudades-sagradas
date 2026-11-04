@@ -1,6 +1,6 @@
 # Narihualá — dossier de fuentes
 
-**Estado:** preview interpretativo v0.2; envolvente legal y SIGRID documentados; plano arqueológico de sectores pendiente.
+**Estado:** preview interpretativo v0.2; envolvente legal y SIGRID documentados; búsqueda de plano de sectores (4 nov 2026) sin resultado público; cierre bloqueado.
 **Fecha de consulta:** 29 de octubre de 2026.
 
 ## Ficha
@@ -51,7 +51,7 @@
 
 | Tema | Estado | Nota |
 |---|---|---|
-| Dos montículos y tres sectores | Documentado / conflictivo | RVM y Mincetur difieren en la numeración de sectores; no asignar hasta tener plano. |
+| Dos montículos y sectorización | Documentado / conflictivo | RVM y tríptico usan I = montículo mayor; Mincetur invierte I/III; Arnaldoa 2023 dice ocho sectores y PROMPERÚ cuatro. No hay plano público; no asignar I/II/III. |
 | Plaza de 60 × 40 m y rampas | Documentado | 2.400 m²; sector II en Mincetur. |
 | Adobe y dimensiones de muros | Documentado | 60 × 30 × 10 cm; muros 1,10–1,20 m; sector I reporta 1,60 m. |
 | Ocupación Tallán, Chimú e Inca | Documentado / parcial | Secuencia reportada por materiales y fuentes. |
@@ -66,6 +66,8 @@
 - Municipalidad Distrital de Catacaos, *Complejo Arqueológico Monumental de Narihualá* (2025): <https://www.gob.pe/institucion/municatacaos/informes-publicaciones/7301029-complejo-arqueologico-monumental-de-narihuala>
 - Ministerio de Cultura, RVM N.º 000084-2023-VMPCIC/MC: <https://cdn.www.gob.pe/uploads/document/file/4403434/RVM%20N%C2%B0%200084-2023-VMPCIC-MC.pdf>
 - Ministerio de Cultura, Museo de Sitio de Narihualá: <https://museos.cultura.pe/museos/museo-de-sitio-de-narihual%C3%A1>
+- Ministerio de Cultura, *Tríptico Museo de Sitio Narihualá*: <https://museos.cultura.pe/sites/default/files/publicaciones/pdf/Triptic%20Narihuala.pdf>
+- PROMPERÚ, *Sitio Arqueológico de Narihualá*: <https://www.ytuqueplanes.com/destinos/piura/localidad-artesanal-de-catacaos/sitio-arqueologico-de-narihuala>
 - CENEPRED/SIGRID, ortomosaico 2018 de Narihualá, Campiña y Pedregal: <https://sigrid.cenepred.gob.pe/sigridv3/documento/6778>
 - CENEPRED/SIGRID, modelo digital del terreno 2018: <https://sigrid.cenepred.gob.pe/sigridv3/documento/6779>
 - CENEPRED/SIGRID, curvas de nivel 2018: <https://sigrid.cenepred.gob.pe/sigridv3/documento/5367>

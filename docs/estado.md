@@ -24,9 +24,9 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 |---|---|---|---|---|
 | Caral | `available` | `released` · v2 | Mixta | `waived` (P2 Android) |
 | Chavín de Huántar | `available` | `preview` · v0.3 | Mixta | `partial` |
+| Chan Chan | `available` | `preview` · v0.1 | Mixta | `partial` |
 | Aypate | `available` | `preview` · v0.4 | Mixta | `partial` |
 | Narihualá | `available` | `preview` · v0.2 | Interpretativa | `partial` |
-| Chan Chan | `research` | `research` | No aplica | No aplica |
 | Wari | `research` | `research` | No aplica | No aplica |
 <!-- metrics:estado-status:end -->
 
@@ -61,10 +61,10 @@ Cada parada del recorrido declara además `evidence`: `documented`, `inferred` o
 - El preset Noche sube la luz lunar y el relleno para que la arquitectura sea legible; captura de Caral actualizada y captura de Chavín añadida en `docs/capturas/`.
 - Scripts Blender organizados por ciudad (`scripts/<ciudad>/`) y utilidades en `scripts/tools/`; dependencias actualizadas a three 0.187 y Vite 8.
 - Piloto histórico con texturas de IA retirado del repositorio.
-- **Chan Chan** tiene un piloto solo-datos: ficha documental ampliada, cobertura por elemento y plan; sigue en `research`, sin GLB, portada, recorrido, capas ni QA. Informe en [`remaster/chan-chan/`](./remaster/chan-chan/README.md).
-- **Wari** cierra el segundo piloto solo-datos: dossier, cobertura y ficha sin modelo 3D ni QA. Sigue en `research`; Wari no figura en la Lista del Patrimonio Mundial. Informe en [`remaster/wari/`](./remaster/wari/README.md).
+- **Chan Chan** abre el preview 3D v0.1 de Nik An: `available`, `maturity: preview`, `qa: partial`; LOD0/LOD1, seis paradas, cuatro capas y QA desktop. Informe en [`remaster/chan-chan/`](./remaster/chan-chan/README.md).
+- **Wari** cierra el segundo piloto solo-datos y queda como siguiente ciudad 3D. Sigue en `research`; Wari no figura en la Lista del Patrimonio Mundial. Informe en [`remaster/wari/`](./remaster/wari/README.md).
 - El visor 3D se carga bajo demanda: el catálogo no descarga Three.js/CityViewer.
-- CI ejecuta un smoke rápido de 21 pruebas en cada PR. El deploy de Pages ejecuta `validate` + smoke completo antes de publicar: 40 pruebas con accesibilidad, cámara y ciclo de vida del visor. El nightly (`qa:playwright:review`) cubre Chromium desktop, Firefox y Chromium mobile.
+- CI ejecuta un smoke rápido de 21 pruebas en cada PR. El deploy de Pages ejecuta `validate` + smoke completo antes de publicar: 42 pruebas con accesibilidad, cámara y ciclo de vida del visor. El nightly (`qa:playwright:review`) cubre Chromium desktop, Firefox y Chromium mobile.
 
 ## Visor 3D y code-splitting
 
@@ -89,6 +89,7 @@ El antiguo chunk único de 664 kB se separa en tres piezas:
 |---|---|---|---:|---:|---|
 | Caral | 230.800 / 3.277.080 B | 56.332 / 799.260 B | 44 / 31 | 6 | hash |
 | Chavín de Huántar | 249.942 / 1.741.708 B | 42.842 / 746.544 B | 19 / 16 | 6 | hash |
+| Chan Chan | 156.624 / 1.904.164 B | 27.192 / 533.140 B | 14 / 13 | 6 | hash |
 | Aypate | 209.560 / 2.139.720 B | 30.663 / 443.372 B | 17 / 15 | 6 | hash |
 | Narihualá | 162.432 / 1.599.008 B | 29.682 / 441.800 B | 14 / 13 | 6 | hash |
 <!-- metrics:estado-metricas:end -->
@@ -129,21 +130,18 @@ Apéndice específico de Caral. Las métricas comparables y el resto de tablas s
 3. **Chavín:** QA móvil/1080p del valle v0.7. Dintel/escalera y licencia del Lanzón documentados en `docs/remaster/chavin/decisiones.md`; no abrir kiosco comercial con el GLB actual.
 4. **Aypate:** cotas finas cerradas como no alcanzables con fuente pública (4 nov 2026); recintos periféricos señalizados en la ficha y diferidos. No reabrir el layout de la v0.4.
 5. **Narihualá:** plano arqueológico de sectores y cotas finas. Búsqueda del 4 de noviembre de 2026: sin plano público; la RVM solo aprueba el plano perimétrico y las fuentes discrepan entre 3, 4 y 8 sectores. Mantener el preview interpretativo y no etiquetar sectores; siguiente paso, solicitar el expediente técnico.
-6. **Chan Chan:** piloto solo-datos completado; no se abre geometría mientras no haya fuentes, licencias y QA suficientes.
-7. **Wari:** piloto solo-datos completado; no se abre geometría sin fuentes, licencias y QA.
+6. **Chan Chan:** preview v0.1 de Nik An construido; QA de hardware pendiente. No se amplía a las nueve ciudadelas.
+7. **Wari:** siguiente preview 3D, limitado al núcleo monumental.
 8. **Kiosco y narración:** congelados hasta cerrar QA de hardware.
 
-### Decisión sobre Chan Chan y Wari 3D (4 de noviembre de 2026)
+### Decisión sobre Chan Chan y Wari 3D (actualizada el 4 de noviembre de 2026)
 
-**Ninguna de las dos pasa a 3D en esta fase.** Chan Chan y Wari se mantienen en `research` con ficha documental.
+**Se construyen dos previews, no dos releases.** Chan Chan entra primero con **Nik An v0.1** y Wari después con su **núcleo monumental**. La decisión anterior de no abrir geometría queda superada.
 
-La decisión se reevalúa cuando se cumplan estas tres condiciones:
-
-1. Cerrar la QA de hardware (#71): móvil, 1080p real y kiosco.
-2. Completar un informe de fuentes y licencias para la ciudad candidata.
-3. Aprobar un presupuesto de GLB, QA y mantenimiento de assets.
-
-Mientras tanto, no se abre blockout, GLB, portada ni recorrido para ninguna de las dos. El objetivo es no repetir el coste de una ciudad 3D sin la QA y las fuentes resueltas.
+- Chan Chan v0.1: `available`, `preview`, `qa: partial`; LOD0 156.624 tris, LOD1 27.192 tris, seis paradas.
+- Wari: siguiente bloque, con el mismo criterio de núcleo representativo y evidencia explícita.
+- Ninguna se publica como `released` hasta cerrar la QA de hardware (#71): móvil, 1080p real y kiosco.
+- No se modelan las nueve ciudadelas de Chan Chan ni los 2.000 ha de Wari; se modela un núcleo legible y se marca el resto como fuera de alcance.
 
 ## Limitaciones conocidas
 
@@ -158,10 +156,11 @@ Mientras tanto, no se abre blockout, GLB, portada ni recorrido para ninguna de l
 - El parpadeo de suelo en Android persiste; es una incidencia P2 abierta, no un fallo resuelto.
 - Chavín mantiene terreno procedural y la Portada conserva relieves interpretativos; no es una reconstrucción final.
 - Aypate no reconstruye techos, alturas perdidas ni todos los recintos periféricos.
+- Chan Chan v0.1 es un preview de Nik An; no representa las nueve ciudadelas ni la ciudad completa. Techos, alturas, policromía y relieves son inferidos o interpretativos.
 - Narihualá no tiene plano arqueológico de sectores; su sectorización I–III no se asigna.
 - Wari no está en la Lista del Patrimonio Mundial; su ficha se basa en Ministerio de Cultura y academia.
 - La caché del service worker no usa LRU: el catálogo actual acota los GLB a cuatro ciudades × LOD0/LOD1 más el fallback v1 (≈9 modelos). Se añadirá poda si crece el catálogo.
 
 ## Próximo paso recomendado
 
-Mantener la calidad desktop ya auditada y no abrir otra ciudad 3D mientras móvil/1080p/kiosco sigan sin evidencia. Wari ya cerró el segundo piloto solo-datos. El siguiente paso es decidir entre una ciudad 3D con fuentes, licencias y QA, o una mejora técnica como el lazy-load del visor. No abrir una nueva ronda de geometría en Caral, Aypate, Chavín, Chan Chan ni Wari.
+Mantener la calidad desktop ya auditada y no declarar `released` mientras móvil/1080p/kiosco sigan sin evidencia. Chan Chan v0.1 ya está construido; el siguiente bloque es Wari. No reabrir geometría en Caral, Chavín, Aypate ni Narihualá.

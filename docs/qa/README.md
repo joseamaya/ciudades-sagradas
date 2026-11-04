@@ -24,7 +24,7 @@ npm run qa:playwright          # todos los proyectos por defecto (incluye 1080p 
 npm run qa:playwright:review   # Chromium desktop + Firefox + Chromium mobile (nightly)
 npm run qa:playwright:chromium # solo Chromium desktop 1600×900
 npm run qa:playwright:pr       # gate de PR: 21 pruebas rápidas
-npm run qa:playwright:smoke    # gate de main/Pages: 40 pruebas en Chromium desktop
+npm run qa:playwright:smoke    # gate de main/Pages: 42 pruebas en Chromium desktop
 npm run qa:playwright:webkit   # opcional; requiere dependencias del host
 ```
 
@@ -34,9 +34,9 @@ Playwright arranca su propio servidor en `4175` y no reutiliza servidores existe
 
 La suite incluye `lazy-viewer.spec.js`: verifica que el catálogo no descarga el visor, que una ciudad sí lo carga y que un fallo del chunk muestra el estado recuperable. Los tests acceden a `window.__ciudadesSagradas` con `?qa=1`; sin `?debug` ni `?qa` la API no se expone en producción.
 
-CI ejecuta `qa:playwright:pr` en cada PR: 21 pruebas rápidas (atlas, LOD1, lazy-viewer, QA API, service worker, render bajo demanda, offline y carga cancelada). El workflow de Pages ejecuta `validate` + smoke completo en `main` antes de desplegar: 40 pruebas, incluidas accesibilidad, cámara y ciclo de vida del visor. La suite completa de Chromium desktop (62 pruebas) y la revisión multi-navegador quedan en el workflow manual y en el nightly.
+CI ejecuta `qa:playwright:pr` en cada PR: 21 pruebas rápidas (atlas, LOD1, lazy-viewer, QA API, service worker, render bajo demanda, offline y carga cancelada). El workflow de Pages ejecuta `validate` + smoke completo en `main` antes de desplegar: 42 pruebas, incluidas accesibilidad, cámara y ciclo de vida del visor. La suite completa de Chromium desktop (68 pruebas) y la revisión multi-navegador quedan en el workflow manual y en el nightly.
 
-El workflow `.github/workflows/nightly.yml` ejecuta `qa:playwright:review` (Chromium desktop, Firefox y Chromium mobile) cada noche. El workflow manual `.github/workflows/qa-playwright.yml` ejecuta la suite completa de Chromium desktop (62 pruebas) y sube los artefactos.
+El workflow `.github/workflows/nightly.yml` ejecuta `qa:playwright:review` (Chromium desktop, Firefox y Chromium mobile) cada noche. El workflow manual `.github/workflows/qa-playwright.yml` ejecuta la suite completa de Chromium desktop (68 pruebas) y sube los artefactos.
 
 WebKit no está activo por defecto: en este host faltan dependencias del sistema. Requiere `sudo npx playwright install-deps` o las librerías `libavif16`, `libgav1-1`, `libyuv0` y `libjxl0.8`. Playwright headless no certifica FPS ni GPU reales.
 
@@ -46,9 +46,10 @@ WebKit no está activo por defecto: en este host faltan dependencias del sistema
 |---|---|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|---|---|---|
 | 2026-10-30 | Caral | Desktop GPU integrada | Intel RPL-S (Mesa) | Chrome 139 / Linux | 0/1 | 1600×900 | 58–60 | 16,6–17,3 ms | 31–44 | 56.332–230.800 | 208–373,3 MB | Offline y standalone probados | 0 | **Desktop 1600×900 completo**; faltan 1080p y móvil | [`JSON`](./resultados/2026-10-30-caral-desktop-intel-lod0.json) |
 | 2026-10-31 | Chavín v0.7 | Desktop GPU integrada | Intel RPL-S (Mesa) | Chrome 139 / Linux | 0/1 | 1600×900 | 60,0 | 16,7 ms | 19/16 | 42.842–249.942 | 72,0–136,0 MB | No probado en esta pasada | 0 | **Desktop 1600×900 v0.7 completo**; móvil/1080p pendientes | [`JSON`](./resultados/chavin-v07-desktop-2026-10-31/desktop.json) |
+| 2026-11-04 | Chan Chan v0.1 | Desktop headless (CI) | SwiftShader / Chromium | Chrome 139 / Linux | 0/1 | 1280×720 | 0 (render on demand) | — | 14/13 | 27.192–156.624 | 64–208 MB | 1326/915 ms | No probado | 0 | **LOD0/LOD1 OK**; QA móvil/1080p pendiente | [`JSON`](./resultados/chan-chan-v01-desktop-2026-11-04/chan-chan-lod0.json) |
 | 2026-10-31 | Atlas | Calidad desktop | Intel RPL-S (Mesa) | Chromium + Firefox / Linux | — | 1600×900 y 1920×1080 emulado | — | — | — | — | — | — | 0 | **Auditoría desktop completa**; móvil/kiosco/1080p real pendientes | [`Informe`](./auditoria-calidad-desktop-2026-10-31.md) |
 
-Lectura: el equipo es una GPU integrada Intel, no dedicada. A 1600×900 las cuatro ciudades sostienen ~58–60 fps en LOD0/LOD1. Caral pasó flags, offline, standalone y 10 minutos con heap estable. Chavín v0.7 se repitió tras el pase de valle y la revisión visual: 59,8/60,0 fps, 19/16 calls y 0 errores. No certifica 1080p ni móvil. La auditoría desktop añade regresión Chromium/Firefox, accesibilidad, movimiento reducido y fallo recuperable de GLB; 1080p es emulación, no hardware. Detalle: [`resultados/desktop-2026-10-30/`](./resultados/desktop-2026-10-30/) y [`resultados/chavin-v07-desktop-2026-10-31/`](./resultados/chavin-v07-desktop-2026-10-31/).
+Lectura: el equipo es una GPU integrada Intel, no dedicada. A 1600×900 las cuatro ciudades anteriores sostienen ~58–60 fps en LOD0/LOD1; Chan Chan v0.1 se midió en headless y queda pendiente de hardware real. Caral pasó flags, offline, standalone y 10 minutos con heap estable. Chavín v0.7 se repitió tras el pase de valle y la revisión visual: 59,8/60,0 fps, 19/16 calls y 0 errores. No certifica 1080p ni móvil. La auditoría desktop añade regresión Chromium/Firefox, accesibilidad, movimiento reducido y fallo recuperable de GLB; 1080p es emulación, no hardware. Detalle: [`resultados/desktop-2026-10-30/`](./resultados/desktop-2026-10-30/) y [`resultados/chavin-v07-desktop-2026-10-31/`](./resultados/chavin-v07-desktop-2026-10-31/).
 
 ## Matriz pendiente
 
@@ -70,6 +71,8 @@ Lectura: el equipo es una GPU integrada Intel, no dedicada. A 1600×900 las cuat
 | Aypate LOD1 | `?debug=1&lod=1#/ciudad/aypate` | Hecho | [`JSON`](./resultados/desktop-2026-10-30/aypate-lod1.json) |
 | Narihualá LOD0 | `?debug=1&lod=0#/ciudad/narihuala` | Hecho | [`JSON`](./resultados/desktop-2026-10-30/narihuala-lod0.json) |
 | Narihualá LOD1 | `?debug=1&lod=1#/ciudad/narihuala` | Hecho | [`JSON`](./resultados/desktop-2026-10-30/narihuala-lod1.json) |
+| Chan Chan LOD0 | `?debug=1&lod=0#/ciudad/chan-chan` | Hecho | [`JSON`](./resultados/chan-chan-v01-desktop-2026-11-04/chan-chan-lod0.json) |
+| Chan Chan LOD1 | `?debug=1&lod=1#/ciudad/chan-chan` | Hecho | [`JSON`](./resultados/chan-chan-v01-desktop-2026-11-04/chan-chan-lod1.json) |
 
 ### Móvil real
 

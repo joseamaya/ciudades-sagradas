@@ -1,12 +1,22 @@
 # Chan Chan — dossier de fuentes
 
-**Estado:** piloto solo-datos; ficha documental en investigación, sin modelo 3D.
+**Estado:** preview web v0.1 de Nik An; `available`, `maturity: preview`, `qa: partial`. La ficha documental se conserva como base de evidencia.
 **Fecha de consulta de fuentes:** 24 de octubre de 2026.
-**Actualizado:** 31 de octubre de 2026.
+**Actualizado:** 4 de noviembre de 2026.
 
 ## Alcance del piloto
 
-Chan Chan se publica como ficha documental `research`, no como ciudad navegable. El piloto valida el esquema de datos y la cobertura de evidencia sin añadir GLB, portada, recorrido, capas ni QA de hardware. Ver [`docs/remaster/chan-chan/`](../remaster/chan-chan/README.md).
+El piloto solo-datos del 31 de octubre de 2026 validó la ficha y la cobertura sin geometría. Se conserva como base de evidencia. El 4 de noviembre de 2026 se inició el preview 3D de **Nik An**, no de las nueve ciudadelas ni de los 20 km² de la ciudad. Ver [`docs/remaster/chan-chan/`](../remaster/chan-chan/README.md).
+
+## Preview 3D v0.1 — Nik An
+
+- Fuente: `blender/chan-chan/chanchan_highpoly_v0.1.blend`.
+- LOD0: 156.624 tris / 1.904.164 B; LOD1: 27.192 tris / 533.140 B; 14/13 draw calls; texturas 208/64 MB de VRAM estimada.
+- Seis paradas: ingreso y muralla, plaza principal, corredor de peces y aves, audiencias, segunda plaza/depósitos y reservorio.
+- La plaza principal se modela con 65 × 75 m; la muralla perimetral con 9 m de altura, base de 5 m y coronamiento de 1,4 m; las audiencias como recintos en U con nichos.
+- No se modelan techos, alturas originales completas, policromía ni las nueve ciudadelas.
+- Los relieves son geometrías inspiradas en motivos documentados, no una reproducción iconográfica.
+- Sin imágenes oficiales ni texturas de IA.
 
 ## Ficha
 
@@ -53,6 +63,7 @@ Chan Chan se publica como ficha documental `research`, no como ciudad navegable.
 - La lluvia, el agua subterránea, El Niño y la erosión del adobe son amenazas documentadas.
 - La fragilidad del material exige evitar reconstrucciones visuales cerradas donde no hay evidencia.
 - No se copian fotografías oficiales de UNESCO/Mincul/ICOMOS; se citan como referencia.
+- El preview v0.1 se limita a Nik An y marca como inferidos los detalles no conservados.
 
 ## Paisaje y economía
 
@@ -82,6 +93,9 @@ Chan Chan se publica como ficha documental `research`, no como ciudad navegable.
 - Proyecto Especial Complejo Arqueológico Chan Chan: <https://chanchan.gob.pe/>
 - Ministerio de Cultura, Museo de Sitio de Chan Chan: <https://museos.cultura.pe/museos/museo-de-sitio-de-chan-chan>
 - UNESCO, mapa de la propiedad (2013): <https://whc.unesco.org/document/126941>
+- Mincetur / Plan COPESCO, Conjunto Nik An: <https://www.gob.pe/institucion/uicet/noticias/791282-plan-copesco-nacional-entrega-terreno-para-inicio-de-obras-en-el-conjunto-nik-an-del-complejo-arqueologico-de-chan-chan>
+- Narváez, *Chan Chan: chronology and stratigraphic contents*, Andean Past: <https://journals.maine.edu/andean_past/article/download/2677/2673>
+- DDC La Libertad, *Chan Chan: esplendor y legado*: <https://ddclalibertad.gob.pe/transparencia/pdf/LibroChanChanEsplendorlegado.pdf>
 
 ## Notas de reconstrucción
 

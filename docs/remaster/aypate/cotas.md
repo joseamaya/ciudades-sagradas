@@ -1,7 +1,7 @@
 # Aypate — cierre de cotas de conjunto
 
-Fecha: 29 de octubre de 2026.
-Estado: **cierre documental de conjunto cerrado; cotas finas pendientes**.
+Fecha: 29 de octubre de 2026; decisión de cotas finas actualizada el 4 de noviembre de 2026.
+Estado: **cierre documental de conjunto cerrado; cotas finas no alcanzables con fuente pública; recintos periféricos diferidos**.
 Modelo: v0.4. No se modifica geometría en este cierre.
 
 ## Alcance
@@ -41,15 +41,34 @@ Este documento cierra las **dimensiones de conjunto** que se pueden leer en el p
 ## Resultado
 
 - **Cierre de conjunto:** cerrado con las dimensiones de la tabla.
-- **Cotas finas:** abiertas. Requieren la memoria de 36 sectores, el plano original o un levantamiento propio.
+- **Cotas finas:** cerradas como **no alcanzables con fuente pública** (ver decisión). Requieren la memoria de 36 sectores, el plano original o un levantamiento propio.
 - **Modelo:** v0.4 se mantiene. Las diferencias de acllawasi y palacio no superan la incertidumbre de la fuente y no justifican rehacer el GLB.
 - **Plaza:** la Gran Plaza del plano no es la plaza central de ~2.400 m²; el modelo representa la explanada mayor.
 - **Vertical:** no hay cotas de nivel fiables más allá de las alturas publicadas del ushnu y de la lectura de curvas de nivel.
 
+## Decisión sobre cotas finas y recintos periféricos (4 de noviembre de 2026)
+
+Se revisaron las fuentes públicas disponibles:
+
+| Fuente | Qué aporta | Límite |
+|---|---|---|
+| Plano de 2013, figura 1 de Campos Napán (2017) | Levantamiento topográfico y arquitectónico; UTM 17S; curvas de nivel de 25 m | Figura reducida (947 × 1368 px); sin cotas legibles de piso ni secciones |
+| *Aypate: patrimonio cultural de la región Piura* (Qhapaq Ñan, 2015) | Identifica Sector 11 (ushnu), Sector 13 (acllawasi), Sector 15 (fuente) y Sector 10 junto al ushnu; confirma 17 sectores previos + 20 nuevos | No publica la lista completa ni el plano de los 36 sectores |
+| Notas de prensa del Ministerio de Cultura (2013–2014) | Confirman 36 sectores y la memoria descriptiva | No publican la memoria ni el plano original |
+| OpenHeritage3D | Fotogrametría parcial del núcleo | No cubre todo el conjunto ni sustituye la memoria |
+
+**Cotas finas:** no se cierran. La fuente pública no permite niveles de piso, secciones ni cotas de recintos; las curvas de 25 m no sirven para eso. No se inventan.
+
+**Recintos periféricos:** el plano muestra clústeres al norte, este, sur y oeste, pero la resolución no permite leer huellas, accesos ni cotas con la confianza del estándar. Se **señalizan en la ficha y en la cobertura** como diferidos, no se modelan en v0.4.
+
+**Modelo:** no se genera v0.5. No hay evidencia nueva que justifique cambiar el GLB, los hashes o el recorrido. La v0.4 sigue siendo el preview publicado.
+
+**Reapertura:** solo con la memoria de 36 sectores, el plano original en alta resolución o un levantamiento propio. Sin una de esas fuentes, el detalle seguiría siendo interpretativo.
+
 ## Evidencia pendiente
 
-1. Memoria descriptiva de los 36 sectores y plano original en alta resolución.
-2. Levantamiento propio o fotogrametría completa del núcleo.
-3. Niveles de piso y secciones de los recintos periféricos.
-4. Cima del cerro y Templo del Sol.
+1. Memoria descriptiva de los 36 sectores y plano original en alta resolución (fuera de alcance de esta fase).
+2. Levantamiento propio o fotogrametría completa del núcleo (fuera de alcance).
+3. Niveles de piso y secciones de los recintos periféricos (bloqueados por la fuente).
+4. Cima del cerro y Templo del Sol (diferidos).
 5. QA en hardware real, que es un gate independiente.

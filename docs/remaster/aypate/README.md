@@ -1,6 +1,6 @@
 # Aypate — remaster
 
-Estado: **preview web v0.4 con high-poly navegable; escala contrastada con el plano de 2013; QA de hardware pendiente**.
+Estado: **preview web v0.4 con high-poly navegable; escala contrastada con el plano de 2013; cotas finas cerradas como no alcanzables con fuente pública; recintos periféricos diferidos; QA de hardware pendiente**.
 Fuente: `blender/aypate/aypate_highpoly_v0.4.blend` (8,9 MB).
 LOD0: **209.560 tris / 2.139.720 B**; LOD1: **30.663 tris / 443.372 B**; 17/15 draw calls.
 Caché por hash generada en build.
@@ -36,8 +36,8 @@ Aypate es un centro administrativo y ceremonial inca del siglo XV, en el bosque 
 
 - El plano general de 2013 está publicado como figura en Campos 2017; la memoria de 36 sectores y el original de alta resolución no son públicos.
 - La v0.4 conserva el layout macro y corrige escala; ver `escala.md` y `auditoria-plano-2013.md`.
-- Quedan pendientes las cotas finas y la QA móvil/1080p; el desktop integrado 1600×900 pasó LOD0/LOD1.
-- No se reconstruyen techos, alturas perdidas ni todos los recintos periféricos.
+- Las cotas finas se cierran como no alcanzables con fuente pública (4 nov 2026); queda la QA móvil/1080p. El desktop integrado 1600×900 pasó LOD0/LOD1.
+- No se reconstruyen techos, alturas perdidas ni recintos periféricos; estos se señalizan en la ficha como diferidos.
 - La vegetación y la niebla son una lectura de ambiente, no un inventario botánico.
 - No hay QA v0.4 en hardware real.
 - El escaneo de la puerta no se incorporó; si se integra, requiere retopología, material propio y atribución CC BY.

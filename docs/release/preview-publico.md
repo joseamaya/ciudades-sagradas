@@ -10,19 +10,19 @@ Alcance: atlas completo, con Caral v2 como referencia y cuatro previews en revis
 - **Aypate v0.4:** preview con layout y escala contrastados con el plano de 2013.
 - **Narihualá v0.2:** preview interpretativo; montículo este/capilla desde SIGRID 2018 y oeste/plaza inferidos.
 - **Chan Chan v0.1:** preview de Nik An; LOD0/LOD1, seis paradas, cuatro capas y QA desktop parcial.
-- **Wari:** piloto solo-datos, ficha documental sin modelo.
+- **Wari v0.1:** preview del núcleo monumental; LOD0/LOD1, seis paradas, cuatro capas y QA desktop parcial.
 
 La UI muestra `availability`, `maturity`, `evidence` y `qa` en catálogo, ficha y recorrido. No se presenta ninguna ciudad como reconstrucción final.
 
 ## Verificado localmente
 
-- [x] `npm run validate` en verde: 6 ciudades, 5 con modelo, coherencia índice/ficha, GLB y `extras.layer`.
+- [x] `npm run validate` en verde: 6 ciudades, 6 con modelo, coherencia índice/ficha, GLB y `extras.layer`.
 - [x] `npm run build` en verde (aviso de chunk >500 kB, no bloqueante).
 - [x] Caral carga en LOD0/LOD1, fallback v1 y offline.
-- [x] Chavín, Aypate, Narihualá y Chan Chan cargan en LOD0/LOD1 y fallback LOD1.
+- [x] Chavín, Aypate, Narihualá, Chan Chan y Wari cargan en LOD0/LOD1 y fallback LOD1.
 - [x] Navegación atlas → ciudad → atlas.
-- [x] Ficha de Wari sin errores de consola.
-- [x] Bench de las cinco ciudades con modelo sin errores de consola en cargas normales.
+- [x] Ficha y visor de Wari sin errores de consola.
+- [x] Bench de las seis ciudades con modelo sin errores de consola en cargas normales.
 - [x] Informe QA con GPU, WebGL, PWA, flags y captura de errores de ventana.
 - [x] Playwright: rutas, LOD0/LOD1, seis paradas, luces, capas, consola y offline en Chromium/Firefox. WebKit bloqueado por dependencias del host.
 - [x] Desktop real Intel integrado 1600×900: LOD0/LOD1 en las 4 ciudades, flags, offline, standalone y 10 min sin errores.
@@ -55,12 +55,12 @@ Protocolo: [`../estandares/qa-hardware.md`](../estandares/qa-hardware.md). Regis
 
 ## Smoke post-deploy
 
-1. Atlas: 6 tarjetas, 5 con modelo, aviso de preview visible.
+1. Atlas: 6 tarjetas, 6 con modelo, aviso de preview visible.
 2. Caral: LOD0/LOD1, seis paradas, cuatro luces y cuatro capas.
 3. Chavín: seis paradas; revisar Lanzón y Portada.
 4. Aypate: seis paradas; revisar plaza, ushnu, kallanka y fuente.
 5. Narihualá: seis paradas; revisar montículos y plaza.
-6. Chan Chan: seis paradas; revisar Nik An, plaza, audiencias y reservorio. Wari: ficha documental sin canvas.
+6. Chan Chan: seis paradas; revisar Nik An, plaza, audiencias y reservorio. Wari: seis paradas; revisar D-temple, Capillapata y Monqachayoc.
 7. `?debug=1`: LOD, draw calls, GPU/WebGL, PWA y **Copiar informe QA** disponibles.
 8. `?lod=0` y `?lod=1`: forzado correcto.
 9. Offline: cargar una ciudad, recargar sin red y verificar el LOD cacheado.

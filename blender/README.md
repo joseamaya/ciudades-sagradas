@@ -32,6 +32,9 @@ blender/
   chan-chan/
     chanchan_highpoly_v0.1.blend  # fuente del preview Nik An (versionada)
     chanchan_lod0.blend / chanchan_lod1.blend  # LODs locales (no versionados)
+  wari/
+    wari_highpoly_v0.1.blend  # fuente del preview del núcleo (versionada)
+    wari_lod0.blend / wari_lod1.blend  # LODs locales (no versionados)
   textures/
     generated/remaster/   # texturas procedurales del remaster
     baked/caral/          # atlas LOD1 generados (no versionados)
@@ -58,6 +61,12 @@ blender/
 - La fuente versionada es `blender/chan-chan/chanchan_highpoly_v0.1.blend`.
 - Los LOD0/LOD1 se generan con `scripts/chan-chan/build_chanchan_lod.py` y se exportan con `scripts/chan-chan/export_chanchan_lod.py`.
 - El preview se limita a Nik An; no se versionan los LODs.
+
+## Wari
+
+- La fuente versionada es `blender/wari/wari_highpoly_v0.1.blend`.
+- Los LOD0/LOD1 se generan con `scripts/wari/build_wari_lod.py` y se exportan con `scripts/wari/export_wari_lod.py`.
+- El preview se limita al núcleo monumental; no se versionan los LODs.
 
 ## Convenciones
 

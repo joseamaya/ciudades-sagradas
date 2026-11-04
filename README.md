@@ -2,7 +2,7 @@
 
 Atlas interactivo de los grandes centros ceremoniales y ciudades del Perú antiguo. Reconstrucciones 3D en tiempo real, fichas educativas y fuentes públicas.
 
-**Estado:** atlas en **preview público**. Caral Remaster v2 es la referencia técnica y su contenido está cerrado como ciudad representativa. Chavín, Aypate, Narihualá y Chan Chan son previews navegables con distinto nivel de cierre; Wari sigue como ficha documental y es el siguiente preview. Ninguna ciudad se presenta como reconstrucción arqueológica final.
+**Estado:** atlas en **preview público**. Caral Remaster v2 es la referencia técnica y su contenido está cerrado como ciudad representativa. Chavín, Aypate, Narihualá, Chan Chan y Wari son previews navegables con distinto nivel de cierre. Ninguna ciudad se presenta como reconstrucción arqueológica final.
 
 <!-- metrics:readme-status:start -->
 | Ciudad | Cultura / período | Disponibilidad | Madurez | Evidencia | QA |
@@ -10,9 +10,9 @@ Atlas interactivo de los grandes centros ceremoniales y ciudades del Perú antig
 | Caral | Civilización Caral · 3000–1800 a. C. | `available` | `released` · v2 | Mixta | Excepción P2 aceptada |
 | Chavín de Huántar | Cultura Chavín · 1500–550 a. C. | `available` | `preview` · v0.3 | Mixta | Parcial |
 | Chan Chan | Reino Chimú · Siglos IX–XV d. C. | `available` | `preview` · v0.1 | Mixta | Parcial |
+| Wari | Cultura Wari · 600–1100 d. C. | `available` | `preview` · v0.1 | Mixta | Parcial |
 | Aypate | Imperio Inca · Qhapaq Ñan · Siglo XV d. C. | `available` | `preview` · v0.4 | Mixta | Parcial |
 | Narihualá | Tallán · Chimú · Inca · Intermedio Tardío–Horizonte Tardío | `available` | `preview` · v0.2 | Interpretativa | Parcial |
-| Wari | Cultura Wari · 600–1100 d. C. | `research` | `research` | Ficha documental | No aplica |
 <!-- metrics:readme-status:end -->
 
 Las tablas de estado y métricas se generan con `npm run docs:metrics`; no editar a mano.
@@ -85,7 +85,7 @@ npm run bench -- --city caral --out /tmp/caral-bench
 
 # QA funcional automatizada (requiere navegadores Playwright)
 npm run qa:playwright:pr         # gate de PR: 21 pruebas rápidas
-npm run qa:playwright:smoke      # gate de main/Pages: 42 pruebas, incluye cámara y ciclo de vida
+npm run qa:playwright:smoke      # gate de main/Pages: 44 pruebas, incluye cámara y ciclo de vida
 npm run qa:playwright:chromium   # suite Chromium desktop completa
 ```
 
@@ -117,7 +117,7 @@ Más detalles en [`docs/kiosco.md`](./docs/kiosco.md).
 - **Aypate:** preview v0.4 con layout y escala contrastados con el plano de 2013. No se reabren dimensiones; quedan cotas finas y QA móvil/1080p.
 - **Narihualá:** preview interpretativo v0.2. Montículo este y capilla desde SIGRID 2018; oeste, plaza y accesos inferidos. No es un plano arqueológico; quedan plano de sectores y QA móvil/1080p.
 - **Chan Chan:** preview v0.1 de Nik An; LOD0/LOD1, seis paradas, plaza, audiencias, depósitos y reservorio. No representa las nueve ciudadelas; QA de hardware pendiente.
-- **Wari:** ficha documental y siguiente preview 3D, limitado a su núcleo monumental.
+- **Wari:** preview v0.1 del núcleo monumental; templos en D, Capillapata, Monqachayoc y Cheqo Huasi. No representa las 2.000 ha; QA de hardware pendiente.
 
 Los dossieres de fuentes están en [`docs/fuentes/`](./docs/fuentes/). El estado detallado, el setup y el pipeline Blender están en [`docs/estado.md`](./docs/estado.md), [`docs/setup.md`](./docs/setup.md) y [`docs/pipeline-blender.md`](./docs/pipeline-blender.md).
 
@@ -177,7 +177,7 @@ El repo incluye un workflow de GitHub Pages en `.github/workflows/pages.yml`. Pa
 3. **Aypate:** QA de hardware y cotas finas; no reabrir el layout de la v0.4.
 4. **Narihualá:** plano arqueológico de sectores y cotas finas; mantener el carácter interpretativo.
 5. **Chan Chan:** preview v0.1 de Nik An construido; QA móvil/1080p y ampliación a otras ciudadelas pendientes.
-6. **Wari:** siguiente preview 3D, limitado al núcleo monumental.
+6. **Wari:** preview v0.1 del núcleo monumental construido; QA móvil/1080p y barrios periféricos pendientes.
 7. **QA de hardware:** cerrar #71 antes de declarar cualquier ciudad `released`.
 
 Release web de Caral: [`docs/remaster/caral/release-v2.md`](./docs/remaster/caral/release-v2.md).

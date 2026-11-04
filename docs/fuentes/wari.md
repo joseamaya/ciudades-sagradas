@@ -1,12 +1,22 @@
 # Wari — dossier de fuentes
 
-**Estado:** piloto solo-datos; ficha documental en investigación, sin modelo 3D.
+**Estado:** preview web v0.1 del núcleo monumental; `available`, `maturity: preview`, `qa: partial`. La ficha documental se conserva como base de evidencia.
 **Fecha de consulta de fuentes:** 24 de octubre de 2026.
-**Actualizado:** 31 de octubre de 2026.
+**Actualizado:** 4 de noviembre de 2026.
 
 ## Alcance del piloto
 
-Wari se publica como ficha documental `research`, no como ciudad navegable. El piloto reutiliza el esquema de Chan Chan y valida que el atlas puede cerrar fuentes, cobertura y ficha sin añadir GLB, portada, recorrido, capas ni QA de hardware. Ver [`docs/remaster/wari/`](../remaster/wari/README.md).
+El piloto solo-datos del 31 de octubre de 2026 validó la ficha sin geometría. Se conserva como base de evidencia. El 4 de noviembre de 2026 se inició el preview 3D del **núcleo monumental**, no de las 2.000 ha del sitio. Ver [`docs/remaster/wari/`](../remaster/wari/README.md).
+
+## Preview 3D v0.1 — núcleo monumental
+
+- Fuente: `blender/wari/wari_highpoly_v0.1.blend`.
+- LOD0: 158.216 tris / 1.794.588 B; LOD1: 26.224 tris / 677.480 B; 15/13 draw calls; texturas 176/80 MB de VRAM estimada.
+- Seis paradas: núcleo monumental, templo en D de Vegachayoc Moqo, plaza y patio hundido, Capillapata, Monqachayoc y Cheqo Huasi.
+- Capillapata: muros dobles de 8–12 m, base ~3 m y coronamiento 0,8–1,2 m; se modela un segmento de 360 m.
+- Monqachayoc: patio hundido y mausoleo en corte interpretativo; no se reconstruye el interior ni la profundidad exacta.
+- No se modelan las 2.000 ha, los barrios completos ni el trazado urbano cerrado.
+- Sin imágenes oficiales ni texturas de IA.
 
 ## Ficha
 
@@ -81,6 +91,8 @@ Wari se publica como ficha documental `research`, no como ciudad navegable. El p
 - Ochatoma Paravicino, J. y Cabrera Romero, M., *El área sagrada de Wari* (referencia bibliográfica).
 - Isbell, W. H., estudios sobre Wari y el Horizonte Medio (referencia bibliográfica).
 - Revistas IPGH, artículo open access sobre urbanización Wari: <https://www.revistasipgh.org/index.php/rearam/article/download/6051/6812>
+- Mincetur, ficha de inventario 1125: <https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=1125>
+- Ministerio de Cultura, hallazgos en Vegachayuq Moqo y Monqachayuq (2015): <https://www.gob.pe/institucion/cultura/noticias/48289-importantes-hallazgos-en-complejo-arqueologico-wari>
 - Guía práctica de viaje, Ayacucho–Wari (PROMPERÚ/Mincul): <https://cdn.www.gob.pe/uploads/document/file/5534841/4924195-ayacucho_gppv_espanol.pdf>
 
 ## Notas de reconstrucción

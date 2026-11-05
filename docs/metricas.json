@@ -22,11 +22,11 @@
           "materials": 21,
           "primitives": 65,
           "sha256": "d11247a3bf17807abe3667b01e75439be0071a70f01f8a34b6196bd1a7e4ded7",
-          "calls": 44,
+          "calls": 45,
           "textureMB": 373.3,
-          "textureSource": "docs/qa/resultados/desktop-2026-10-30/caral-standalone-lod0.json",
-          "qaSource": "docs/qa/resultados/desktop-2026-10-30/caral-standalone-lod0.json",
-          "qaGeneratedAt": "2026-10-30T23:49:23.202Z"
+          "textureSource": "docs/qa/resultados/desktop-review-2026-11-05/chromium-desktop-1600_caral-desktop-1600.json",
+          "qaSource": "docs/qa/resultados/desktop-review-2026-11-05/chromium-desktop-1600_caral-desktop-1600.json",
+          "qaGeneratedAt": "2026-11-05T18:18:18.716Z"
         },
         "1": {
           "path": "cities/caral/model_lod1.glb",
@@ -76,9 +76,9 @@
           "sha256": "28d55b924b35301738a3ee7cc8e94cfe5643ef31542f3f9e2730adcc348bc348",
           "calls": 19,
           "textureMB": 136,
-          "textureSource": "docs/qa/resultados/chavin-v07-desktop-2026-10-31/desktop.json",
-          "qaSource": "docs/qa/resultados/chavin-v07-desktop-2026-10-31/desktop.json",
-          "qaGeneratedAt": "2026-10-31T14:50:26.533Z"
+          "textureSource": "docs/qa/resultados/desktop-review-2026-11-05/chromium-desktop-1600_chavin-desktop-1600.json",
+          "qaSource": "docs/qa/resultados/desktop-review-2026-11-05/chromium-desktop-1600_chavin-desktop-1600.json",
+          "qaGeneratedAt": "2026-11-05T18:18:32.388Z"
         },
         "1": {
           "path": "cities/chavin/model_lod1.glb",
@@ -120,9 +120,9 @@
           "sha256": "ccc6451d6544942ea3ec335759361b943fbc97defaf3eeb237b5657e56ca285f",
           "calls": 14,
           "textureMB": 208,
-          "textureSource": "docs/qa/resultados/chan-chan-v01-desktop-2026-11-04/chan-chan-lod0.json",
-          "qaSource": "docs/qa/resultados/chan-chan-v01-desktop-2026-11-04/chan-chan-lod0.json",
-          "qaGeneratedAt": "2026-11-04T16:59:26.900Z"
+          "textureSource": "docs/qa/resultados/desktop-review-2026-11-05/chromium-desktop-1080p_chan-chan-desktop-1080-lod0.json",
+          "qaSource": "docs/qa/resultados/desktop-review-2026-11-05/chromium-desktop-1080p_chan-chan-desktop-1080-lod0.json",
+          "qaGeneratedAt": "2026-11-05T18:20:06.397Z"
         },
         "1": {
           "path": "cities/chan-chan/model_lod1.glb",
@@ -134,9 +134,9 @@
           "sha256": "3a4679c111e24d77d1df49666f5e5beccf21e28c56aa90d55e107ea1d4e2d04a",
           "calls": 13,
           "textureMB": 64,
-          "textureSource": "docs/qa/resultados/chan-chan-v01-desktop-2026-11-04/chan-chan-lod1.json",
-          "qaSource": "docs/qa/resultados/chan-chan-v01-desktop-2026-11-04/chan-chan-lod1.json",
-          "qaGeneratedAt": "2026-11-04T16:59:44.280Z"
+          "textureSource": "docs/qa/resultados/desktop-review-2026-11-05/chromium-desktop-1080p_chan-chan-desktop-1080-lod1.json",
+          "qaSource": "docs/qa/resultados/desktop-review-2026-11-05/chromium-desktop-1080p_chan-chan-desktop-1080-lod1.json",
+          "qaGeneratedAt": "2026-11-05T18:20:12.607Z"
         }
       },
       "fallback": null
@@ -164,9 +164,9 @@
           "sha256": "50fea0fa12c105c4371723f529fd80bd1fb0f638995553d47857acb0fc218450",
           "calls": 15,
           "textureMB": 176,
-          "textureSource": "docs/qa/resultados/wari-v01-desktop-2026-11-04/wari-lod0.json",
-          "qaSource": "docs/qa/resultados/wari-v01-desktop-2026-11-04/wari-lod0.json",
-          "qaGeneratedAt": "2026-11-04T18:13:39.983Z"
+          "textureSource": "docs/qa/resultados/desktop-review-2026-11-05/chromium-desktop-1080p_wari-desktop-1080-lod0.json",
+          "qaSource": "docs/qa/resultados/desktop-review-2026-11-05/chromium-desktop-1080p_wari-desktop-1080-lod0.json",
+          "qaGeneratedAt": "2026-11-05T18:20:20.861Z"
         },
         "1": {
           "path": "cities/wari/model_lod1.glb",
@@ -178,9 +178,9 @@
           "sha256": "656555e1fc7c27d337a6493bd5164db548e2f8803f82da827875d86e413689f1",
           "calls": 13,
           "textureMB": 80,
-          "textureSource": "docs/qa/resultados/wari-v01-desktop-2026-11-04/wari-lod1.json",
-          "qaSource": "docs/qa/resultados/wari-v01-desktop-2026-11-04/wari-lod1.json",
-          "qaGeneratedAt": "2026-11-04T18:14:08.633Z"
+          "textureSource": "docs/qa/resultados/desktop-review-2026-11-05/chromium-desktop-1080p_wari-desktop-1080-lod1.json",
+          "qaSource": "docs/qa/resultados/desktop-review-2026-11-05/chromium-desktop-1080p_wari-desktop-1080-lod1.json",
+          "qaGeneratedAt": "2026-11-05T18:20:28.037Z"
         }
       },
       "fallback": null
@@ -206,11 +206,11 @@
           "materials": 12,
           "primitives": 16,
           "sha256": "05c23fdbe0f6fe1ead914dcd7c3ab4778b2c6dd1f4dcdabe4062907825b7b5fd",
-          "calls": 17,
+          "calls": 15,
           "textureMB": 160,
-          "textureSource": "docs/qa/resultados/desktop-2026-10-30/aypate-lod0.json",
-          "qaSource": "docs/qa/resultados/desktop-2026-10-30/aypate-lod0.json",
-          "qaGeneratedAt": "2026-10-30T23:49:06.308Z"
+          "textureSource": "docs/qa/resultados/desktop-review-2026-11-05/chromium-desktop-1600_aypate-desktop-1600.json",
+          "qaSource": "docs/qa/resultados/desktop-review-2026-11-05/chromium-desktop-1600_aypate-desktop-1600.json",
+          "qaGeneratedAt": "2026-11-05T18:18:44.610Z"
         },
         "1": {
           "path": "cities/aypate/model_lod1.glb",
@@ -252,9 +252,9 @@
           "sha256": "818b447a7812c35105e984ac9b581e908a72a3e352363b1f333d97c39554a722",
           "calls": 14,
           "textureMB": 96,
-          "textureSource": "docs/qa/resultados/desktop-2026-10-30/narihuala-lod0.json",
-          "qaSource": "docs/qa/resultados/desktop-2026-10-30/narihuala-lod0.json",
-          "qaGeneratedAt": "2026-10-30T23:49:09.310Z"
+          "textureSource": "docs/qa/resultados/desktop-review-2026-11-05/chromium-desktop-1600_narihuala-desktop-1600.json",
+          "qaSource": "docs/qa/resultados/desktop-review-2026-11-05/chromium-desktop-1600_narihuala-desktop-1600.json",
+          "qaGeneratedAt": "2026-11-05T18:18:55.761Z"
         },
         "1": {
           "path": "cities/narihuala/model_lod1.glb",

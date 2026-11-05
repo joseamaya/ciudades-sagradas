@@ -14,8 +14,8 @@ Las cifras de LOD, draw calls y paradas se generan en `docs/metricas.json`; esta
 | **Chavín** | `available` | `preview` · v0.3 | Mixta | `partial` | **Visual/técnico sí; QA móvil pendiente** | Desktop integrado 1600×900 LOD0/LOD1 OK a 60 fps; faltan 1080p y móvil. Dintel/escalera y licencia documentados en `decisiones.md`; kiosco comercial bloqueado por CC BY-NC-SA. |
 | **Aypate** | `available` | `preview` · v0.4 | Mixta | `partial` | **Visual/técnico sí; QA pendiente** | Desktop integrado 1600×900 LOD0/LOD1 OK; faltan 1080p y móvil. Cotas finas cerradas como no alcanzables; recintos periféricos diferidos. |
 | **Narihualá** | `available` | `preview` · v0.2 | Interpretativa | `partial` | **Parcial; interpretativo** | Desktop integrado 1600×900 LOD0/LOD1 OK; faltan 1080p y móvil. Plano de sectores bloqueado: sin fuente pública y sectorización 3/4/8 en conflicto. |
-| **Chan Chan** | `available` | `preview` · v0.1 | Mixta | `partial` | **Visual/técnico sí; QA pendiente** | Preview de Nik An; LOD0/LOD1, seis paradas y QA desktop 1600×900. Faltan móvil/1080p y no se amplía a las nueve ciudadelas. |
-| **Wari** | `available` | `preview` · v0.1 | Mixta | `partial` | **Visual/técnico sí; QA pendiente** | Preview del núcleo monumental; LOD0/LOD1, seis paradas y QA desktop 1600×900. Faltan móvil/1080p; no representa las 2.000 ha. |
+| **Chan Chan** | `available` | `preview` · v0.1 | Mixta | `partial` | **Visual/técnico sí; QA pendiente** | Preview de Nik An; LOD0/LOD1, seis paradas. QA headless 1600×900 y 1080p emulado; falta hardware real. No se amplía a las nueve ciudadelas. |
+| **Wari** | `available` | `preview` · v0.1 | Mixta | `partial` | **Visual/técnico sí; QA pendiente** | Preview del núcleo monumental; LOD0/LOD1, seis paradas. QA headless 1600×900 y 1080p emulado; falta hardware real. No representa las 2.000 ha. |
 
 ## Métricas y condiciones
 

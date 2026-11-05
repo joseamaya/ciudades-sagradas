@@ -87,11 +87,11 @@ El antiguo chunk único de 664 kB se separa en tres piezas:
 <!-- metrics:estado-metricas:start -->
 | Ciudad | LOD0 tris / bytes | LOD1 tris / bytes | Draw calls LOD0/LOD1 | Paradas | Caché |
 |---|---|---|---:|---:|---|
-| Caral | 230.800 / 3.277.080 B | 56.332 / 799.260 B | 44 / 31 | 6 | hash |
+| Caral | 230.800 / 3.277.080 B | 56.332 / 799.260 B | 45 / 31 | 6 | hash |
 | Chavín de Huántar | 249.942 / 1.741.708 B | 42.842 / 746.544 B | 19 / 16 | 6 | hash |
 | Chan Chan | 156.624 / 1.904.164 B | 27.192 / 533.140 B | 14 / 13 | 6 | hash |
 | Wari | 158.216 / 1.794.588 B | 26.224 / 677.480 B | 15 / 13 | 6 | hash |
-| Aypate | 209.560 / 2.139.720 B | 30.663 / 443.372 B | 17 / 15 | 6 | hash |
+| Aypate | 209.560 / 2.139.720 B | 30.663 / 443.372 B | 15 / 15 | 6 | hash |
 | Narihualá | 162.432 / 1.599.008 B | 29.682 / 441.800 B | 14 / 13 | 6 | hash |
 <!-- metrics:estado-metricas:end -->
 
@@ -102,6 +102,7 @@ El antiguo chunk único de 664 kB se separa en tres piezas:
 - Chavín, Aypate y Narihualá usan 2K/1K según sus informes; no se declara una cifra de VRAM si no está medida.
 - Última ejecución de `npm run bench` (31 de octubre de 2026): Caral 44/31, Chavín 19/16, Aypate 17/15 y Narihualá 14/13 draw calls; sin errores de consola en cargas normales. Los únicos warnings son los fallos deliberados al bloquear LOD0 para probar el fallback. Siguen siendo datos de SwiftShader, no FPS de hardware real.
 - QA de hardware: desktop Intel RPL-S (Chrome 139/Linux, 1600×900) completado para Caral, Chavín, Aypate y Narihualá en LOD0/LOD1, a ~58–60 fps. Caral pasó flags, offline, standalone y sesión de 10 min con heap estable. Faltan 1080p real, Android/iPhone y kiosco. Registro en `docs/qa/resultados/desktop-2026-10-30/` y `docs/qa/resultados/chavin-v07-desktop-2026-10-31/`.
+- Revisión Playwright desktop (5 nov): 84/84 en Chromium 1600×900, 32/32 en Firefox y 4/4 en 1080p emulado para Chan Chan/Wari; 0 errores. Chan Chan/Wari siguen sin QA de GPU física. Informe en `docs/qa/revision-playwright-desktop-2026-11-05.md`.
 
 ## Caral v2 — detalle
 

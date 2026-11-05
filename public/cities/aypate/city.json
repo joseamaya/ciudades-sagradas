@@ -56,16 +56,16 @@
       "evidence": "documented",
       "camera": {
         "position": [
-          1.6,
-          0.8,
-          1.6
+          2.0,
+          2.2,
+          4.5
         ],
         "target": [
-          8.8,
-          0.56,
-          -3.6
+          6.5,
+          0.4,
+          -2.0
         ],
-        "fov": 30
+        "fov": 32
       }
     },
     {
@@ -208,8 +208,20 @@
     "enabled": false
   },
   "fog": {
-    "near": 18,
-    "far": 140
+    "near": 8,
+    "far": 65
+  },
+  "lighting": {
+    "morning": {
+      "fill": 0.45,
+      "hemiIntensity": 0.22,
+      "envIntensity": 0.55
+    },
+    "night": {
+      "fill": 0.18,
+      "hemiIntensity": 0.3,
+      "envIntensity": 0.5
+    }
   },
   "minDistance": 0.1,
   "maxDistance": 180

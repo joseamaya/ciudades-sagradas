@@ -125,6 +125,14 @@ Pendiente de hardware. La revisión del 5 de noviembre ejecutó 1920×1080 **emu
 3. Anotar modelo, versión de SO, navegador y GPU si está disponible.
 4. No cerrar `CARAL-ANDROID-GROUND-001` hasta completar la matriz.
 
+### D. Revisión desktop automatizada
+
+1. `npm run qa:playwright:desktop-review:1600` recorre las seis ciudades, seis paradas, capas y luces, y guarda hero + paradas.
+2. `npm run qa:playwright:desktop-review:1080` repite Chan Chan/Wari en LOD0/LOD1 a 1920×1080 emulado.
+3. Los JSON quedan en `qa-output/qa-reports/` y las capturas en `qa-output/qa-shots/`.
+4. Copiar solo la selección usada como evidencia a `docs/qa/resultados/` y `docs/qa/capturas/`.
+5. No presentar la pasada como certificación de GPU real ni de FPS.
+
 ## Cómo guardar un resultado
 
 1. Copiar el JSON del botón.

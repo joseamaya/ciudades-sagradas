@@ -2,7 +2,7 @@
 
 Fecha: 31 de octubre de 2026.
 Estado: **desktop integrado 1600×900 aprobado para v0.7; Android/iPhone y 1080p pendientes**.
-Modelo probado: `model_lod0.glb` / `model_lod1.glb` v0.7, caché `v38`. La aprobación Android anterior corresponde a v0.3 y no cubre el valle v0.7; hay que repetirla en dispositivo.
+Modelo probado: `model_lod0.glb` / `model_lod1.glb` v0.7. La caché `v38` corresponde a la fecha del informe; la caché actual se genera por hash en build. La aprobación Android anterior corresponde a v0.3 y no cubre el valle v0.7; hay que repetirla en dispositivo.
 
 ## Resultado Android
 
@@ -59,5 +59,5 @@ GPU, métricas y evidencia.
 - No hay medición de FPS/frame time en hardware; SwiftShader no certifica rendimiento.
 - La parada 3 del Lanzón recorta la cresta por el ancho de la galería; el relieve se
   lee con la luz de relleno.
-- La aprobación Android no cubre la v0.4: hay que repetir al menos la parada 5 y el
-  recorrido completo con la caché `v38`.
+- La aprobación Android no cubre la v0.7: hay que repetir al menos la parada 5 y el
+  recorrido completo con la caché vigente del build.

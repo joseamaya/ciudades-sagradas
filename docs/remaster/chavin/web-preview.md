@@ -63,18 +63,26 @@ Fuente Blender: `chavin_highpoly_v0.7.blend`; los derivados `chavin_lod0.blend` 
 - LOD0/LOD1 y las cámaras del recorrido se midieron con `bench --city chavin --qa`, incluida la captura de las seis paradas. El benchmark de hardware real queda pendiente.
 - Escritorio 1600×900: LOD0, 19 draw calls, 60,0 fps en Intel RPL-S; LOD1, 16 draw calls, 60,0 fps.
 - Móvil 390×844 emulado: LOD1, 16 draw calls.
-- Seis paradas verificadas; el acercamiento mínimo al Lanzón equivale a 1,25 m del modelo (0,1 unidades de escena) y se ilumina con dos luces puntuales cálida/fría.
+- Seis paradas verificadas; el acercamiento mínimo al Lanzón equivale a 1,25 m del modelo (0,1 unidades de escena). El Lanzón usa tres luces puntuales cálida/fría y la Portada tres luces de fachada y vano desde el pase de iluminación del 5 de noviembre de 2026.
 - Capas presentes en los extras: `city`, `terrain`, `props`, `reference`.
 - Consola sin errores en las cargas medidas.
 - Desktop real: `docs/qa/resultados/chavin-v07-desktop-2026-10-31/`.
 
 Los FPS de SwiftShader no representan hardware real y no se usan como certificación.
 
+## Pase de iluminación — 5 de noviembre de 2026
+
+- `lighting.morning` sube el relleno y la hemisférica para que la galería y la Portada no queden en sombra.
+- El Lanzón pasa de tres luces de `0.012–0.03` a `0.05–0.12`, con distancias mayores.
+- La Portada recibe tres luces puntuales de fachada y vano.
+- Sin cambios de geometría, GLB, hashes ni caché de modelos.
+- Evidencia y capturas antes/después: [`../../qa/revision-iluminacion-chavin-2026-11-05.md`](../../qa/revision-iluminacion-chavin-2026-11-05.md).
+
 ## Cambios de visor
 
 - Se añadió `city.minDistance` y `city.maxDistance` a `CityViewer`.
 - Chavín usa `minDistance: 0.1` para el primer plano del Lanzón; Caral conserva el valor por defecto de 5.
-- Se añadió `city.lights` a `CityViewer`; Chavín usa una luz puntual cálida en la Galería del Lanzón para revelar la incisión sin iluminar todo el recinto.
+- Se añadió `city.lights` a `CityViewer`; Chavín usa luces puntuales en la Galería del Lanzón y en la Portada para revelar incisiones y relieve sin iluminar todo el recinto.
 - El resto de la lógica de LOD, capas y fallback se reutiliza sin cambios.
 
 ## Límites

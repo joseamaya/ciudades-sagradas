@@ -3,7 +3,7 @@ import { existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { isNumberTriplet, parseCsv } from './validate-lib.mjs';
-import { trianglesOf } from './model-metrics.mjs';
+import { inspectGlb } from './model-metrics.mjs';
 
 const root = process.cwd();
 const errors = [];
@@ -19,6 +19,9 @@ const REQUIRED_LAYERS = ['city', 'terrain', 'props', 'reference'];
 const CITY_ID = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const HEX_COLOR = /^#[0-9a-f]{6}$/i;
 const HERO_PATH = /^cities\/[a-z0-9-]+\/hero\.(?:jpe?g|png|webp)$/;
+const GROUND_TEXTURES = new Set(['sand']);
+const LEGACY_FALLBACKS = new Set(['cities/caral/model.glb']);
+const requiredAssets = [];
 
 async function readJson(file) {
   const full = path.join(root, file);
@@ -28,30 +31,6 @@ async function readJson(file) {
 
 function check(condition, message) {
   if (!condition) errors.push(message);
-}
-
-async function inspectGlb(file) {
-  const buffer = await readFile(file);
-  check(buffer.length >= 20, `${file}: archivo GLB demasiado pequeño`);
-  if (buffer.length < 20) return null;
-  check(buffer.toString('ascii', 0, 4) === 'glTF', `${file}: cabecera GLB inválida`);
-  check(buffer.readUInt32LE(4) === 2, `${file}: versión GLB distinta de 2`);
-  check(buffer.readUInt32LE(8) === buffer.length, `${file}: longitud GLB declarada no coincide`);
-  const jsonLength = buffer.readUInt32LE(12);
-  const jsonType = buffer.toString('ascii', 16, 20);
-  check(jsonType === 'JSON', `${file}: primer chunk GLB no es JSON`);
-  if (jsonType !== 'JSON' || 20 + jsonLength > buffer.length) return null;
-  const json = JSON.parse(buffer.toString('utf8', 20, 20 + jsonLength));
-  const meshNodes = (json.nodes ?? []).filter((node) => node.mesh !== undefined);
-  const missingLayers = meshNodes
-    .filter((node) => typeof node.extras?.layer !== 'string' || !node.extras.layer)
-    .map((node) => node.name || '(sin nombre)');
-  return {
-    triangles: trianglesOf(json),
-    images: json.images?.length ?? 0,
-    meshNodes,
-    missingLayers,
-  };
 }
 
 const index = await readJson('public/cities/index.json');
@@ -110,6 +89,7 @@ for (const entry of index) {
 
   const dossier = `docs/fuentes/${entry.id}.md`;
   check(existsSync(path.join(root, dossier)), `${entry.id}: falta el dossier ${dossier}`);
+  check(existsSync(path.join(root, 'public', 'cities', entry.id, 'README.md')), `${entry.id}: falta public/cities/${entry.id}/README.md`);
 
   if (entry.thumb) {
     check(existsSync(path.join(root, 'public', entry.thumb)), `${entry.id}: falta la portada ${entry.thumb}`);
@@ -125,14 +105,54 @@ for (const entry of index) {
   if (city.ground != null) {
     check(typeof city.ground === 'object', `${entry.id}: ground debe ser un objeto`);
     if (city.ground?.y != null) check(Number.isFinite(city.ground.y), `${entry.id}: ground.y inválido`);
+    if (city.ground?.texture != null) {
+      check(
+        typeof city.ground.texture === 'string' && GROUND_TEXTURES.has(city.ground.texture),
+        `${entry.id}: ground.texture no soportada "${city.ground.texture}"`,
+      );
+    }
   }
   if (city.fog != null) {
     check(typeof city.fog === 'object', `${entry.id}: fog debe ser un objeto`);
     check(Number.isFinite(city.fog?.near) && Number.isFinite(city.fog?.far), `${entry.id}: fog.near/far inválidos`);
     check(!Number.isFinite(city.fog?.near) || !Number.isFinite(city.fog?.far) || city.fog.near < city.fog.far, `${entry.id}: fog.near debe ser menor que fog.far`);
   }
+  if (city.lighting != null) {
+    check(typeof city.lighting === 'object' && !Array.isArray(city.lighting), `${entry.id}: lighting debe ser un objeto`);
+    const lightingKeys = ['fill', 'hemiIntensity', 'envIntensity'];
+    const lightingPresets = ['morning', 'noon', 'dusk', 'night'];
+    const checkLightingFields = (value, prefix) => {
+      for (const field of lightingKeys) {
+        if (value?.[field] != null) {
+          check(Number.isFinite(value[field]) && value[field] >= 0, `${entry.id}: ${prefix}${field} inválido`);
+        }
+      }
+    };
+    checkLightingFields(city.lighting, 'lighting.');
+    for (const [key, value] of Object.entries(city.lighting)) {
+      if (lightingPresets.includes(key)) {
+        check(Boolean(value) && typeof value === 'object' && !Array.isArray(value), `${entry.id}: lighting.${key} debe ser un objeto`);
+        checkLightingFields(value, `lighting.${key}.`);
+      } else if (!lightingKeys.includes(key)) {
+        errors.push(`${entry.id}: lighting.${key} no reconocido`);
+      }
+    }
+  }
   if (city.lights != null) {
     check(Array.isArray(city.lights), `${entry.id}: lights debe ser un array`);
+    for (const [index, light] of (Array.isArray(city.lights) ? city.lights : []).entries()) {
+      check(Boolean(light) && typeof light === 'object', `${entry.id}: light ${index} inválida`);
+      check(light?.type === 'point', `${entry.id}: light ${index} debe ser de tipo "point"`);
+      if (light?.color != null) {
+        check(HEX_COLOR.test(light.color), `${entry.id}: light ${index} color inválido`);
+      }
+      for (const field of ['intensity', 'distance', 'decay']) {
+        if (light?.[field] != null) {
+          check(Number.isFinite(light[field]) && light[field] >= 0, `${entry.id}: light ${index} ${field} inválido`);
+        }
+      }
+      check(isNumberTriplet(light?.position), `${entry.id}: light ${index} position inválida`);
+    }
   }
 
   if (city.availability === 'available') {
@@ -162,7 +182,14 @@ for (const entry of index) {
     check(Boolean(city.credits), `${entry.id}: faltan créditos`);
     check(city.qa !== 'not-applicable', `${entry.id}: una ciudad disponible debe declarar un qa distinto de not-applicable`);
 
-    check(existsSync(path.join(root, 'public', 'cities', entry.id, 'hero.jpg')), `${entry.id}: falta public/cities/${entry.id}/hero.jpg`);
+    const heroPath = path.join(root, 'public', 'cities', entry.id, 'hero.jpg');
+    check(existsSync(heroPath), `${entry.id}: falta public/cities/${entry.id}/hero.jpg`);
+    if (existsSync(heroPath)) {
+      const heroBytes = (await stat(heroPath)).size;
+      if (heroBytes > 400 * 1024) {
+        warnings.push(`${entry.id}: hero.jpg de ${Math.round(heroBytes / 1024)} KB (objetivo < 400 KB)`);
+      }
+    }
     check(existsSync(path.join(root, 'docs', 'remaster', entry.id, 'cobertura.md')), `${entry.id}: falta docs/remaster/${entry.id}/cobertura.md`);
 
     const levels = city.lod?.levels ?? {};
@@ -194,28 +221,55 @@ for (const entry of index) {
     const modelPaths = [city.model, ...Object.values(levels), city.fallbackModel].filter(Boolean);
     const levelPaths = new Set(Object.values(levels));
     const strictModels = new Set([city.model, ...levelPaths].filter(Boolean));
+    const actualLayers = new Set();
     for (const model of new Set(modelPaths)) {
+      requiredAssets.push({ id: entry.id, asset: `public/${model}` });
       const modelPath = path.join(root, 'public', model);
       check(existsSync(modelPath), `${entry.id}: falta el modelo ${model}`);
       if (!existsSync(modelPath)) continue;
       const size = (await stat(modelPath)).size;
       const mb = size / (1024 * 1024);
       if (mb > 25) warnings.push(`${entry.id}: modelo ${model} de ${mb.toFixed(1)} MB (objetivo < 25 MB)`);
-      const info = await inspectGlb(modelPath);
-      if (!info) continue;
+      let info;
+      try {
+        info = await inspectGlb(modelPath);
+      } catch (error) {
+        errors.push(`${entry.id}: ${model}: ${error.message}`);
+        continue;
+      }
       const level = Object.entries(levels).find(([, url]) => url === model)?.[0] ?? null;
       modelMetrics.push({ id: entry.id, model, level, triangles: info.triangles, bytes: size, images: info.images });
       if (strictModels.has(model)) {
         check(info.missingLayers.length === 0, `${entry.id}: ${model} tiene ${info.missingLayers.length} nodos con mesh sin extras.layer`);
+        for (const layer of info.layers) {
+          if (!layerIds.has(layer)) {
+            errors.push(`${entry.id}: ${model} trae la capa "${layer}" no declarada en city.json`);
+          }
+          actualLayers.add(layer);
+        }
         if (level === '0' && (info.triangles < 150000 || info.triangles > 250000)) {
           warnings.push(`${entry.id}: LOD0 ${info.triangles.toLocaleString('es')} tris fuera del rango 150.000–250.000`);
         }
         if (level === '1' && (info.triangles < 25000 || info.triangles > 80000)) {
           warnings.push(`${entry.id}: LOD1 ${info.triangles.toLocaleString('es')} tris fuera del rango 25.000–80.000`);
         }
+        if (level === '0' && info.images > 40) {
+          warnings.push(`${entry.id}: LOD0 tiene ${info.images} imágenes (objetivo ≤ 40)`);
+        }
+        if (level === '1' && info.images > 32) {
+          warnings.push(`${entry.id}: LOD1 tiene ${info.images} imágenes (objetivo ≤ 32)`);
+        }
       } else if (info.missingLayers.length) {
-        warnings.push(`${entry.id}: fallback legado ${model} sin extras.layer; usa la clasificación por nombre`);
+        if (LEGACY_FALLBACKS.has(model)) {
+          warnings.push(`${entry.id}: fallback legado ${model} sin extras.layer; excepción documentada`);
+        } else {
+          errors.push(`${entry.id}: fallback ${model} tiene ${info.missingLayers.length} nodos con mesh sin extras.layer`);
+        }
       }
+    }
+    requiredAssets.push({ id: entry.id, asset: `public/cities/${entry.id}/hero.jpg` });
+    for (const layer of layerIds) {
+      check(actualLayers.has(layer), `${entry.id}: la capa "${layer}" no aparece en ningún LOD`);
     }
     const levelImages = Object.fromEntries(
       modelMetrics
@@ -253,9 +307,13 @@ if (existsSync(registryPath)) {
   const header = registry.shift() || [];
   const urlIndex = header.indexOf('url');
   const notesIndex = header.indexOf('notas');
+  const registeredUrls = new Set();
+  const registeredIntegrity = new Set();
   for (const row of registry) {
     const url = row[urlIndex];
-    if (!url || !url.startsWith('public/')) continue;
+    if (!url) continue;
+    registeredUrls.add(url);
+    if (!url.startsWith('public/')) continue;
     const file = path.join(root, url);
     check(existsSync(file), `registro-assets: falta ${url}`);
     if (!existsSync(file)) continue;
@@ -269,6 +327,16 @@ if (existsSync(registryPath)) {
     if (Number.isFinite(size) && size > 0) {
       const actualSize = (await stat(file)).size;
       check(actualSize === size, `registro-assets: tamaño desactualizado para ${url}`);
+    }
+    if (hash && Number.isFinite(size) && size > 0) registeredIntegrity.add(url);
+  }
+  for (const { id, asset } of requiredAssets) {
+    check(registeredUrls.has(asset), `${id}: ${asset} no está en docs/fuentes/registro-assets.csv`);
+    if (registeredUrls.has(asset)) {
+      check(
+        registeredIntegrity.has(asset),
+        `${id}: ${asset} no declara SHA256 y bytes en docs/fuentes/registro-assets.csv`,
+      );
     }
   }
 }

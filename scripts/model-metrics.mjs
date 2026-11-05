@@ -33,12 +33,25 @@ export async function inspectGlb(file) {
     (total, mesh) => total + (mesh.primitives?.length ?? 0),
     0,
   );
+  const meshNodes = (json.nodes ?? []).filter((node) => node.mesh !== undefined);
+  const layers = [
+    ...new Set(
+      meshNodes
+        .map((node) => node.extras?.layer)
+        .filter((layer) => typeof layer === 'string' && layer),
+    ),
+  ];
+  const missingLayers = meshNodes
+    .filter((node) => typeof node.extras?.layer !== 'string' || !node.extras.layer)
+    .map((node) => node.name || '(sin nombre)');
   return {
     triangles: trianglesOf(json),
     bytes: buffer.length,
     images: json.images?.length ?? 0,
     materials: json.materials?.length ?? 0,
     primitives,
+    layers,
+    missingLayers,
     sha256: createHash('sha256').update(buffer).digest('hex'),
   };
 }

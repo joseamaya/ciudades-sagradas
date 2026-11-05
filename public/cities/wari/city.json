@@ -129,13 +129,13 @@
       "evidence": "inferred",
       "camera": {
         "position": [
-          7.2,
-          2.4,
-          7.36
+          4.8,
+          2.24,
+          6.0
         ],
         "target": [
           7.2,
-          -0.08,
+          0.08,
           3.6
         ],
         "fov": 34
@@ -213,5 +213,10 @@
     }
   ],
   "disclaimer": "Preview v0.1 del núcleo monumental de Wari. Reconstrucción artística; no representa las 2.000 ha del sitio ni una reconstrucción histórica final. Templos en D, muros y galerías se apoyan en fuentes publicadas; alturas, techos, trazado completo, policromía y profundidad de las galerías se marcan como inferidos o interpretativos. Sin imágenes oficiales ni texturas de IA.",
-  "credits": "Geometría, materiales y renders propios. Fuentes: Ministerio de Cultura, Museo de Sitio Wari, Mincetur, The Metropolitan Museum of Art, Revistas IPGH y PROMPERÚ. Sin imágenes oficiales ni texturas de IA."
+  "credits": "Geometría, materiales y renders propios. Fuentes: Ministerio de Cultura, Museo de Sitio Wari, Mincetur, The Metropolitan Museum of Art, Revistas IPGH y PROMPERÚ. Sin imágenes oficiales ni texturas de IA.",
+  "lighting": {
+    "fill": 0.45,
+    "hemiIntensity": 0.3,
+    "envIntensity": 0.7
+  }
 }

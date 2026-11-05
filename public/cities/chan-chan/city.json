@@ -111,16 +111,16 @@
       "evidence": "documented",
       "camera": {
         "position": [
-          2.56,
-          1.12,
-          -3.36
+          3.6,
+          1.44,
+          -4.0
         ],
         "target": [
-          1.44,
-          0.16,
-          -1.44
+          1.2,
+          0.24,
+          -0.64
         ],
-        "fov": 30
+        "fov": 34
       }
     },
     {
@@ -213,5 +213,10 @@
     }
   ],
   "disclaimer": "Preview v0.1 de Nik An. Reconstrucción artística; no es la ciudad completa ni una reconstrucción histórica final. La planta es una lectura de conjunto: plaza, corredor, audiencias, segunda plaza, depósitos y reservorio. Alturas, techos, colores, relieves y posición de recintos no conservados se marcan como inferidos o interpretativos. Sin imágenes oficiales ni texturas de IA.",
-  "credits": "Geometría, materiales y renders propios. Fuentes: UNESCO/ICOMOS, Proyecto Especial Complejo Arqueológico Chan Chan, Mincetur/Plan COPESCO, Narváez 2016 y DDC La Libertad. Sin imágenes oficiales ni texturas de IA."
+  "credits": "Geometría, materiales y renders propios. Fuentes: UNESCO/ICOMOS, Proyecto Especial Complejo Arqueológico Chan Chan, Mincetur/Plan COPESCO, Narváez 2016 y DDC La Libertad. Sin imágenes oficiales ni texturas de IA.",
+  "lighting": {
+    "fill": 0.42,
+    "hemiIntensity": 0.26,
+    "envIntensity": 0.7
+  }
 }

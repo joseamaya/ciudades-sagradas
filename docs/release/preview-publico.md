@@ -1,7 +1,7 @@
 # Release — preview público del atlas
 
-Fecha: 30 de octubre de 2026.
-Alcance: atlas completo, con Caral v2 como referencia y cuatro previews en revisión.
+Actualizado: 5 de noviembre de 2026.
+Alcance: atlas completo, con Caral v2 como referencia y cinco previews en revisión.
 
 ## Qué se publica
 
@@ -17,7 +17,7 @@ La UI muestra `availability`, `maturity`, `evidence` y `qa` en catálogo, ficha 
 ## Verificado localmente
 
 - [x] `npm run validate` en verde: 6 ciudades, 6 con modelo, coherencia índice/ficha, GLB y `extras.layer`.
-- [x] `npm run build` en verde (aviso de chunk >500 kB, no bloqueante).
+- [x] `npm run build` en verde (aviso de chunk >700 kB, no bloqueante).
 - [x] Caral carga en LOD0/LOD1, fallback v1 y offline.
 - [x] Chavín, Aypate, Narihualá, Chan Chan y Wari cargan en LOD0/LOD1 y fallback LOD1.
 - [x] Navegación atlas → ciudad → atlas.
@@ -25,7 +25,7 @@ La UI muestra `availability`, `maturity`, `evidence` y `qa` en catálogo, ficha 
 - [x] Bench de las seis ciudades con modelo sin errores de consola en cargas normales.
 - [x] Informe QA con GPU, WebGL, PWA, flags y captura de errores de ventana.
 - [x] Playwright: rutas, LOD0/LOD1, seis paradas, luces, capas, consola y offline en Chromium/Firefox. WebKit bloqueado por dependencias del host.
-- [x] Desktop real Intel integrado 1600×900: LOD0/LOD1 en las 4 ciudades, flags, offline, standalone y 10 min sin errores.
+- [x] Desktop real Intel integrado 1600×900: LOD0/LOD1 en las cuatro ciudades iniciales, flags, offline, standalone y 10 min sin errores.
 
 ## Pendiente antes de llamarlo publicación final
 
@@ -34,7 +34,7 @@ La UI muestra `availability`, `maturity`, `evidence` y `qa` en catálogo, ficha 
 - [x] QA desktop de Chavín v0.7 (1600×900, LOD0/LOD1, 60 fps).
 - [ ] QA móvil/1080p de Chavín v0.7.
 - [x] Licencia CC BY-NC-SA 4.0 revisada: preview no comercial permitido; kiosco comercial requiere sustituir el Lanzón o negociar licencia.
-- [ ] Cerrar cotas finas de Aypate y Narihualá.
+- [x] Cotas finas de Aypate cerradas como no alcanzables con fuente pública.
 - [ ] Resolver el plano arqueológico de sectores de Narihualá.
 
 Protocolo: [`../estandares/qa-hardware.md`](../estandares/qa-hardware.md). Registro de resultados y secuencia de captura: [`../qa/README.md`](../qa/README.md).
@@ -69,5 +69,5 @@ Protocolo: [`../estandares/qa-hardware.md`](../estandares/qa-hardware.md). Regis
 ## Rollback
 
 - El código y los datos son reversibles con `git revert` del commit de release.
-- Este release no modificó GLB ni `public/sw.js`; la caché global vigente es `v38`.
+- Este release no modificó GLB ni `public/sw.js`; la caché del service worker se genera por hash en build.
 - Caral conserva `model.glb` v1 como fallback y rollback.

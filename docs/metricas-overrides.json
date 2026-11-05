@@ -1,8 +1,1 @@
-{
-  "caral": {
-    "1": {
-      "textureMB": 40,
-      "note": "Atlas 512 del LOD1; el informe QA del 30 de octubre es anterior a la optimización de texturas #54."
-    }
-  }
-}
+{}

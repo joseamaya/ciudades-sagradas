@@ -1,6 +1,6 @@
 # Estándar de ciudad publicada
 
-Versión: **1.1**, 30 de octubre de 2026.
+Versión: **1.2**, 5 de noviembre de 2026.
 Ámbito: **todas las ciudades del atlas**, desde su publicación como `available` y durante cualquier preview público.
 Referencia visual: **Chavín de Huántar high-poly v0.7**. Referencia técnica y de cierre: **Caral Remaster v2**.
 
@@ -113,8 +113,10 @@ Una ciudad está terminada cuando:
 |---|---|---|
 | Caral | Parpadeo de suelo Android `CARAL-ANDROID-GROUND-001` | P2 aceptada; no resuelta |
 | Chavín | QA de hardware incompleta; Lanzón CC BY-NC-SA | Documentada; no bloquea preview |
-| Aypate | QA de hardware pendiente; cotas finas y recintos periféricos | Layout, escala y cierre de conjunto v0.4 según plano de 2013; no cerrar |
-| Narihualá | Preview interpretativo; QA y cotas finas pendientes | Montículo este/capilla SIGRID; oeste/plaza inferidos; no cerrar |
+| Aypate | QA de hardware pendiente; recintos periféricos | Cotas finas cerradas como no alcanzables; layout, escala y cierre de conjunto v0.4 según plano de 2013; no cerrar |
+| Narihualá | Preview interpretativo; QA y plano de sectores pendientes | Montículo este/capilla SIGRID; oeste/plaza inferidos; no cerrar |
+| Chan Chan | QA de hardware pendiente; preview de Nik An | LOD0/LOD1 y QA desktop headless; no representa las nueve ciudadelas ni se declara `released` |
+| Wari | QA de hardware pendiente; preview del núcleo monumental | LOD0/LOD1 y QA desktop headless; no representa las 2.000 ha ni se declara `released` |
 
 Las excepciones no autorizan a declarar una ciudad terminada ni a omitir el estándar en ciudades nuevas.
 

@@ -5,6 +5,7 @@ Informe: [`../../revision-playwright-desktop-2026-11-05.md`](../../revision-play
 - Chromium 1600×900: 84/84.
 - Chromium 1920×1080 emulado: 4/4 (Chan Chan/Wari, LOD0/LOD1).
 - Firefox 1600×900: 32/32.
+- Caral LOD1: informe puntual regenerado el 5 de noviembre tras la optimización de texturas del LOD1.
 - Errores de consola: 0.
 
 Los JSON son informes de `?debug=1` bajo SwiftShader. No certifican FPS ni GPU real.

@@ -14,7 +14,7 @@ Herramienta: `@playwright/test` con Chromium 1600×900, Chromium 1920×1080 emul
 | Firefox desktop 1600×900, atlas/ciudades/accesibilidad/evidencia | **32/32** |
 | Errores de consola en cargas normales | **0** |
 
-La suite completa de Chromium incluye ahora `desktop-review.spec.js`, que recorre las seis paradas, prueba las cuatro luces y las capas, guarda capturas y genera el informe QA. El smoke de Pages sigue en 44 pruebas.
+La suite completa de Chromium incluye ahora `desktop-review.spec.js`, que recorre las seis paradas, prueba las cuatro luces y las capas, guarda capturas y genera el informe QA. El smoke de Pages tenía 44 pruebas en esta pasada; hoy son 46 con `viewer-fallback.spec.js`.
 
 ## Métricas 1600×900 (headless, SwiftShader)
 
@@ -40,8 +40,14 @@ No son FPS ni certificación de hardware. La carga incluye el primer render bajo
 
 ### Pendientes (no bloquean)
 
-- **Chavín, Lanzón y Portada:** las paradas 3 y 5 siguen muy oscuras en el preset de mañana. Es una deuda visual P2; requiere un pase de iluminación interior, no un cambio de geometría. Evidencia: [`capturas/desktop-2026-11-05/chavin-1600-portada.png`](./capturas/desktop-2026-11-05/chavin-1600-portada.png).
-- **Aypate, Plaza Inca:** la explanada se lee plana y el horizonte queda vacío. Es una mejora de contenido/atmósfera, no un fallo funcional.
+- **Chavín, Lanzón y Portada:** las paradas 3 y 5 estaban muy oscuras en el preset de mañana. Era una deuda visual P2 que requería un pase de iluminación interior, no un cambio de geometría.
+
+> **Actualización (5 de noviembre de 2026):** el pase de [`revision-iluminacion-chavin-2026-11-05.md`](./revision-iluminacion-chavin-2026-11-05.md) corrige esta deuda con luces de galería y fachada y un override de mañana. La captura original se conserva como referencia: [`capturas/desktop-2026-11-05/chavin-1600-portada.png`](./capturas/desktop-2026-11-05/chavin-1600-portada.png).
+
+- **Aypate, Plaza Inca:** la explanada se leía plana y el horizonte quedaba vacío. Era una mejora de contenido/atmósfera, no un fallo funcional.
+
+> **Actualización (5 de noviembre de 2026):** el pase de [`revision-atmosfera-aypate-2026-11-05.md`](./revision-atmosfera-aypate-2026-11-05.md) reencuadra la Plaza Inca y añade niebla y luz de mañana. La captura original se conserva como referencia.
+
 - **Chan Chan, texturas LOD0:** 208 MB de VRAM estimada es el presupuesto más alto del atlas. En desktop headless no falla, pero conviene medirlo en una GPU integrada real antes de ampliar la ciudad.
 - **Wari, texturas LOD0:** 176 MB; mismo seguimiento.
 - **1080p:** el panel derecho ocupa más espacio, pero no tapa el recorrido ni el canvas. La prueba es de viewport, no de hardware 1080p.
@@ -63,7 +69,7 @@ No son FPS ni certificación de hardware. La carga incluye el primer render bajo
 
 ## Próximos pasos
 
-1. Pase de iluminación de Chavín para Lanzón y Portada.
-2. Pase de atmósfera/vegetación de Aypate.
+1. [x] Pase de iluminación de Chavín para Lanzón y Portada (5 nov 2026; ver [`revision-iluminacion-chavin-2026-11-05.md`](./revision-iluminacion-chavin-2026-11-05.md)).
+2. [x] Pase de atmósfera de Aypate (5 nov 2026; ver [`revision-atmosfera-aypate-2026-11-05.md`](./revision-atmosfera-aypate-2026-11-05.md)).
 3. Medir Chan Chan/Wari en una GPU integrada real y decidir si bajar texturas LOD0 a 1K.
 4. Mantener #10 como P2 Android abierto y #71 como gate de hardware.

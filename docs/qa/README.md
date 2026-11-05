@@ -4,6 +4,7 @@ Actualizado: 31 de octubre de 2026.
 Protocolo: [`../estandares/qa-hardware.md`](../estandares/qa-hardware.md). Base de producción: `https://joseamaya.github.io/ciudades-sagradas/`.
 Revisión funcional automatizada: [`revision-playwright.md`](./revision-playwright.md).
 Auditoría de calidad desktop: [`auditoria-calidad-desktop-2026-10-31.md`](./auditoria-calidad-desktop-2026-10-31.md).
+Revisión desktop con Playwright: [`revision-playwright-desktop-2026-11-05.md`](./revision-playwright-desktop-2026-11-05.md).
 
 Este registro guarda los informes reales de `?debug=1`. No se marca un resultado como aprobado sin dispositivo, navegador, GPU, LOD, viewport y JSON completo.
 
@@ -26,6 +27,8 @@ npm run qa:playwright:chromium # solo Chromium desktop 1600×900
 npm run qa:playwright:pr       # gate de PR: 21 pruebas rápidas
 npm run qa:playwright:smoke    # gate de main/Pages: 44 pruebas en Chromium desktop
 npm run qa:playwright:webkit   # opcional; requiere dependencias del host
+npm run qa:playwright:desktop-review:1600
+npm run qa:playwright:desktop-review:1080
 ```
 
 Los artefactos quedan en `qa-output/` (ignorado por git) y el informe HTML en `playwright-report/`. Los JSON seleccionados se copian a `docs/qa/resultados/playwright/`.
@@ -34,9 +37,9 @@ Playwright arranca su propio servidor en `4175` y no reutiliza servidores existe
 
 La suite incluye `lazy-viewer.spec.js`: verifica que el catálogo no descarga el visor, que una ciudad sí lo carga y que un fallo del chunk muestra el estado recuperable. Los tests acceden a `window.__ciudadesSagradas` con `?qa=1`; sin `?debug` ni `?qa` la API no se expone en producción.
 
-CI ejecuta `qa:playwright:pr` en cada PR: 21 pruebas rápidas (atlas, LOD1, lazy-viewer, QA API, service worker, render bajo demanda, offline y carga cancelada). El workflow de Pages ejecuta `validate` + smoke completo en `main` antes de desplegar: 44 pruebas, incluidas accesibilidad, cámara y ciclo de vida del visor. La suite completa de Chromium desktop (74 pruebas) y la revisión multi-navegador quedan en el workflow manual y en el nightly.
+CI ejecuta `qa:playwright:pr` en cada PR: 21 pruebas rápidas (atlas, LOD1, lazy-viewer, QA API, service worker, render bajo demanda, offline y carga cancelada). El workflow de Pages ejecuta `validate` + smoke completo en `main` antes de desplegar: 44 pruebas, incluidas accesibilidad, cámara y ciclo de vida del visor. La suite completa de Chromium desktop (84 pruebas, incluida `desktop-review.spec.js`) y la revisión multi-navegador quedan en el workflow manual y en el nightly.
 
-El workflow `.github/workflows/nightly.yml` ejecuta `qa:playwright:review` (Chromium desktop, Firefox y Chromium mobile) cada noche. El workflow manual `.github/workflows/qa-playwright.yml` ejecuta la suite completa de Chromium desktop (74 pruebas) y sube los artefactos.
+El workflow `.github/workflows/nightly.yml` ejecuta `qa:playwright:review` (Chromium desktop, Firefox y Chromium mobile) cada noche. El workflow manual `.github/workflows/qa-playwright.yml` ejecuta la suite completa de Chromium desktop (84 pruebas) y sube los artefactos.
 
 WebKit no está activo por defecto: en este host faltan dependencias del sistema. Requiere `sudo npx playwright install-deps` o las librerías `libavif16`, `libgav1-1`, `libyuv0` y `libjxl0.8`. Playwright headless no certifica FPS ni GPU reales.
 
@@ -48,9 +51,10 @@ WebKit no está activo por defecto: en este host faltan dependencias del sistema
 | 2026-10-31 | Chavín v0.7 | Desktop GPU integrada | Intel RPL-S (Mesa) | Chrome 139 / Linux | 0/1 | 1600×900 | 60,0 | 16,7 ms | 19/16 | 42.842–249.942 | 72,0–136,0 MB | No probado en esta pasada | 0 | **Desktop 1600×900 v0.7 completo**; móvil/1080p pendientes | [`JSON`](./resultados/chavin-v07-desktop-2026-10-31/desktop.json) |
 | 2026-11-04 | Chan Chan v0.1 | Desktop headless (CI) | SwiftShader / Chromium | Chrome 139 / Linux | 0/1 | 1280×720 | 0 (render on demand) | — | 14/13 | 27.192–156.624 | 64–208 MB | 1326/915 ms | No probado | 0 | **LOD0/LOD1 OK**; QA móvil/1080p pendiente | [`JSON`](./resultados/chan-chan-v01-desktop-2026-11-04/chan-chan-lod0.json) |
 | 2026-11-04 | Wari v0.1 | Desktop headless (CI) | SwiftShader / Chromium | Chrome 139 / Linux | 0/1 | 1280×720 | 0 (render on demand) | — | 15/13 | 26.224–158.216 | 80–176 MB | 920/665 ms | No probado | 0 | **LOD0/LOD1 OK**; QA móvil/1080p pendiente | [`JSON`](./resultados/wari-v01-desktop-2026-11-04/wari-lod0.json) |
+| 2026-11-05 | Atlas desktop | Revisión Playwright | SwiftShader / Chromium + Firefox | Chrome/Firefox Linux | 0/1 | 1600×900 + 1920×1080 emulado | — | — | 13–45 | 26.224–249.942 | 40–373,3 MB | — | No probado | 0 | **84/84 Chromium; 32/32 Firefox; 0 errores** | [`Informe`](./revision-playwright-desktop-2026-11-05.md) |
 | 2026-10-31 | Atlas | Calidad desktop | Intel RPL-S (Mesa) | Chromium + Firefox / Linux | — | 1600×900 y 1920×1080 emulado | — | — | — | — | — | — | 0 | **Auditoría desktop completa**; móvil/kiosco/1080p real pendientes | [`Informe`](./auditoria-calidad-desktop-2026-10-31.md) |
 
-Lectura: el equipo es una GPU integrada Intel, no dedicada. A 1600×900 las cuatro ciudades iniciales sostienen ~58–60 fps en LOD0/LOD1; Chan Chan y Wari v0.1 se midieron en headless y quedan pendientes de hardware real. Caral pasó flags, offline, standalone y 10 minutos con heap estable. Chavín v0.7 se repitió tras el pase de valle y la revisión visual: 59,8/60,0 fps, 19/16 calls y 0 errores. No certifica 1080p ni móvil. La auditoría desktop añade regresión Chromium/Firefox, accesibilidad, movimiento reducido y fallo recuperable de GLB; 1080p es emulación, no hardware. Detalle: [`resultados/desktop-2026-10-30/`](./resultados/desktop-2026-10-30/) y [`resultados/chavin-v07-desktop-2026-10-31/`](./resultados/chavin-v07-desktop-2026-10-31/).
+Lectura: el equipo es una GPU integrada Intel, no dedicada. A 1600×900 las cuatro ciudades iniciales sostienen ~58–60 fps en LOD0/LOD1; Chan Chan y Wari v0.1 se midieron en headless y quedan pendientes de hardware real. La revisión del 5 de noviembre sumó 84/84 en Chromium desktop y 32/32 en Firefox desktop. Caral pasó flags, offline, standalone y 10 minutos con heap estable. Chavín v0.7 se repitió tras el pase de valle y la revisión visual: 59,8/60,0 fps, 19/16 calls y 0 errores. No certifica 1080p ni móvil. La auditoría desktop añade regresión Chromium/Firefox, accesibilidad, movimiento reducido y fallo recuperable de GLB; 1080p es emulación, no hardware. Detalle: [`resultados/desktop-2026-10-30/`](./resultados/desktop-2026-10-30/) y [`resultados/chavin-v07-desktop-2026-10-31/`](./resultados/chavin-v07-desktop-2026-10-31/).
 
 ## Matriz pendiente
 
@@ -91,7 +95,7 @@ Lectura: el equipo es una GPU integrada Intel, no dedicada. A 1600×900 las cuat
 
 ### 1080p real
 
-Pendiente. La pantalla del equipo actual es 1600×900; no se puede declarar el gate de 60 fps a 1080p sin una pantalla física 1080p. La emulación de viewport no cuenta como hardware real.
+Pendiente de hardware. La revisión del 5 de noviembre ejecutó 1920×1080 **emulado** para Chan Chan/Wari (4/4), pero no certifica FPS ni una pantalla física 1080p.
 
 ## Secuencia de captura
 

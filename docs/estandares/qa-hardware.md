@@ -19,6 +19,8 @@ Este documento separa tres cosas que no son equivalentes:
 | Chavín v0.7 | Pass de producto en v0.3; v0.7 pendiente en móvil | Pendiente | **Pass 1600×900**: LOD0/LOD1, 60 fps | Pendiente | Congelado | `docs/qa/resultados/chavin-v07-desktop-2026-10-31/` |
 | Aypate v0.4 | Pendiente | Pendiente | **Pass 1600×900**: LOD0/LOD1 | Pendiente | Congelado | `docs/qa/resultados/desktop-2026-10-30/` |
 | Narihualá v0.2 | Pendiente | Pendiente | **Pass 1600×900**: LOD0/LOD1 | Pendiente | Congelado | `docs/qa/resultados/desktop-2026-10-30/` |
+| Chan Chan v0.1 | Pendiente | Pendiente | **Pass headless 1600×900 / 1080p emulado**: LOD0/LOD1; hardware real pendiente | Pendiente | Congelado | `docs/qa/resultados/desktop-review-2026-11-05/` |
+| Wari v0.1 | Pendiente | Pendiente | **Pass headless 1600×900 / 1080p emulado**: LOD0/LOD1; hardware real pendiente | Pendiente | Congelado | `docs/qa/resultados/desktop-review-2026-11-05/` |
 
 No se registra un “pass” de rendimiento sin dispositivo, navegador, GPU, resolución, LOD y métricas. Un pass de producto solo confirma que la escena se abre y se puede recorrer.
 

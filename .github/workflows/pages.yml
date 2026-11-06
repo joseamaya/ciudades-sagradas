@@ -31,7 +31,7 @@ jobs:
       - run: npm run docs:metrics:check
       - run: npx playwright install --with-deps chromium
       - run: npm run qa:playwright:smoke
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

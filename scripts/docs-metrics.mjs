@@ -10,6 +10,7 @@ const DOCS = {
   readme: 'README.md',
   estado: 'docs/estado.md',
   auditoria: 'docs/estandares/auditoria-ciudades.md',
+  remaster: 'docs/remaster/README.md',
 };
 const EVIDENCE_LABELS = {
   documented: 'Documentada',
@@ -103,6 +104,17 @@ async function collectQaReports() {
   return reports;
 }
 
+function pickModelInfo(info) {
+  return {
+    triangles: info.triangles,
+    bytes: info.bytes,
+    images: info.images,
+    materials: info.materials,
+    primitives: info.primitives,
+    sha256: info.sha256,
+  };
+}
+
 async function collectCities() {
   const index = await readJson('public/cities/index.json');
   const reports = await collectQaReports();
@@ -120,7 +132,7 @@ async function collectCities() {
       const override = overrides[entry.id]?.[level] ?? null;
       models[level] = {
         path: modelPath,
-        ...info,
+        ...pickModelInfo(info),
         calls: qa?.calls ?? null,
         textureMB: override?.textureMB ?? qa?.textureMB ?? null,
         textureSource: override?.textureMB != null ? OVERRIDES_FILE : qa?.source ?? null,
@@ -139,7 +151,7 @@ async function collectCities() {
     let fallback = null;
     if (city.fallbackModel && !Object.values(levels).includes(city.fallbackModel)) {
       const info = await inspectGlb(path.join(root, 'public', city.fallbackModel));
-      fallback = { path: city.fallbackModel, ...info };
+      fallback = { path: city.fallbackModel, ...pickModelInfo(info) };
     }
 
     cities.push({
@@ -240,6 +252,41 @@ function buildEstadoMetrics(cities) {
   ].join('\n');
 }
 
+function formatModelRow(label, model) {
+  if (!model) return null;
+  const calls = Number.isFinite(model.calls) ? model.calls : '—';
+  return `| ${label} | ${number.format(model.triangles)} | ${number.format(model.bytes)} | ${model.images ?? '—'} | ${calls} |`;
+}
+
+function buildCityMetrics(city) {
+  const evidence = formatEvidence(city).toLowerCase();
+  const lines = [
+    `**Estado canónico:** \`${city.availability}\` · \`${city.maturity}\`${city.version ? ` · ${city.version}` : ''} · evidencia ${evidence} · QA ${formatQa(city, QA_ESTADO)}.`,
+    '',
+    '| Modelo | Triángulos | Bytes | Imágenes | Draw calls |',
+    '|---|---:|---:|---:|---:|',
+  ];
+  const rows = [
+    formatModelRow('LOD0', city.models['0']),
+    formatModelRow('LOD1', city.models['1']),
+    city.fallback ? formatModelRow('Fallback', city.fallback) : null,
+  ].filter(Boolean);
+  if (!rows.length) lines.push('| — | — | — | — | — |');
+  else lines.push(...rows);
+  return lines.join('\n');
+}
+
+function buildRemasterStatus(cities) {
+  const rows = cities.map(
+    (city) => `| ${city.name} | \`${city.availability}\` | ${formatMaturity(city)} | ${formatEvidence(city)} | ${formatQa(city, QA_ESTADO)} | ${formatTrisBytes(city.models['0'])} | ${formatTrisBytes(city.models['1'])} | ${formatCalls(city)} |`,
+  );
+  return [
+    '| Ciudad | Disponibilidad | Madurez | Evidencia | QA | LOD0 tris / bytes | LOD1 tris / bytes | Draw calls LOD0/LOD1 |',
+    '|---|---|---|---|---|---|---|---|',
+    ...rows,
+  ].join('\n');
+}
+
 function buildAuditoriaMetrics(cities) {
   const rows = cities
     .filter((city) => city.availability === 'available')
@@ -285,6 +332,19 @@ async function buildOutputs() {
     'auditoria-metricas',
     buildAuditoriaMetrics(cities),
   );
+  files[DOCS.remaster] = replaceBlock(
+    await readFile(path.join(root, DOCS.remaster), 'utf8'),
+    'remaster-status',
+    buildRemasterStatus(cities),
+  );
+  for (const city of cities) {
+    const file = `public/cities/${city.id}/README.md`;
+    files[file] = replaceBlock(
+      await readFile(path.join(root, file), 'utf8'),
+      `city:${city.id}`,
+      buildCityMetrics(city),
+    );
+  }
   files[METRICS_FILE] = `${JSON.stringify({ schemaVersion: 1, cities }, null, 2)}\n`;
 
   return { files, warnings };

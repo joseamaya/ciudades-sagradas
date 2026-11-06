@@ -57,7 +57,7 @@ Estado: **remaster v2 desplegado y contenido cerrado** en GitHub Pages bajo el e
 - Piedra, revoque, terreno y vegetación se leen en primer plano.
 - No hay cerámica, metales, rueda, llamas ni imaginería inca.
 - Techos y elementos no documentados están marcados como inferidos.
-- GLB <25 MB, LOD0 150k–250k tris, LOD1 50k–80k. Con sombras estáticas y sin transmisión: **44 draw calls** LOD0 y **31** LOD1 en la cámara inicial; al refrescar sombras se suman los casters.
+- GLB <25 MB, LOD0 150k–250k tris, LOD1 50k–80k. Con sombras estáticas y sin transmisión: **45 draw calls** LOD0 y **31** LOD1 en la cámara inicial; al refrescar sombras se suman los casters.
 - 60 fps a 1080p en GPU media: pendiente de hardware real. Offline web verificado; kiosco congelado.
 - Escala **0,08** confirmada como diorama; 1.0 métrico fuera de esta entrega.
 - Manifiesto, créditos, capturas y portada actualizados; la caché se genera por hash en build.

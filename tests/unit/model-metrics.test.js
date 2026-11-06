@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { trianglesOf } from '../../scripts/model-metrics.mjs';
+import { inspectGlb, trianglesOf } from '../../scripts/model-metrics.mjs';
 
 test('trianglesOf cuenta triángulos y abanicos sin índices', () => {
   const triangles = {
@@ -27,4 +27,17 @@ test('trianglesOf cuenta triángulos y abanicos sin índices', () => {
 test('trianglesOf ignora primitivas sin accessor válido', () => {
   assert.equal(trianglesOf({}), 0);
   assert.equal(trianglesOf({ meshes: [{ primitives: [{}] }] }), 0);
+});
+
+test('inspectGlb expone capas y detecta nodos sin extras.layer', async () => {
+  const caral = await inspectGlb('public/cities/caral/model_lod1.glb');
+  assert.deepEqual(caral.layers.sort(), ['city', 'props', 'reference', 'terrain']);
+  assert.equal(caral.missingLayers.length, 0);
+
+  const narihuala = await inspectGlb('public/cities/narihuala/model_lod0.glb');
+  assert.ok(narihuala.layers.includes('later'));
+
+  const fallback = await inspectGlb('public/cities/caral/model.glb');
+  assert.equal(fallback.layers.length, 0);
+  assert.ok(fallback.missingLayers.length > 0);
 });

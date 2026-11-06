@@ -38,9 +38,9 @@
           "sha256": "3d6f3d5b7a06626ac06b42df48279643349e53aaf0491527efc59686bf733bed",
           "calls": 31,
           "textureMB": 40,
-          "textureSource": "docs/metricas-overrides.json",
-          "qaSource": "docs/qa/resultados/desktop-2026-10-30/caral-lod1.json",
-          "qaGeneratedAt": "2026-10-30T23:49:00.693Z"
+          "textureSource": "docs/qa/resultados/desktop-review-2026-11-05/chromium-desktop-1600_caral-lod1.json",
+          "qaSource": "docs/qa/resultados/desktop-review-2026-11-05/chromium-desktop-1600_caral-lod1.json",
+          "qaGeneratedAt": "2026-11-05T21:08:59.541Z"
         }
       },
       "fallback": {

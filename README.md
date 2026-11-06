@@ -84,8 +84,8 @@ npm run serve
 npm run bench -- --city caral --out /tmp/caral-bench
 
 # QA funcional automatizada (requiere navegadores Playwright)
-npm run qa:playwright:pr         # gate de PR: 21 pruebas rápidas
-npm run qa:playwright:smoke      # gate de main/Pages: 44 pruebas, incluye cámara y ciclo de vida
+npm run qa:playwright:pr         # gate de PR: 23 pruebas rápidas
+npm run qa:playwright:smoke      # gate de main/Pages: 46 pruebas, incluye cámara, ciclo de vida y fallback
 npm run qa:playwright:chromium   # suite Chromium desktop completa
 ```
 
@@ -133,7 +133,7 @@ scripts/bench.mjs         benchmark y QA con Chrome/CDP
 docs/remaster/            auditoría, pipeline y release por ciudad
 ```
 
-Cada ciudad se describe con un `city.json`. Para añadir una quinta ciudad:
+Cada ciudad se describe con un `city.json`. Para añadir una ciudad nueva:
 
 1. Crear `public/cities/<slug>/city.json` con `availability`, `maturity`, `version`, `evidence`, `qa`, `camera`, `tour`, `layers`, `lod.levels`, `fallbackModel`, `ground` y, si aplica, `fog`.
 2. Añadir los GLB LOD0/LOD1 y la portada `hero.jpg`. Cada nodo con mesh debe traer `extras.layer` (`city`, `terrain`, `props`, `reference` o una capa adicional justificada).

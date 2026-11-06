@@ -1,7 +1,7 @@
 # QA en hardware real — protocolo del atlas
 
-Actualizado: 30 de octubre de 2026.
-Ámbito: Caral, Chavín, Aypate, Narihualá y cualquier ciudad futura.
+Actualizado: 5 de noviembre de 2026.
+Ámbito: Caral, Chavín, Chan Chan, Wari, Aypate, Narihualá y cualquier ciudad futura.
 
 Registro de resultados y secuencia de captura: [`../qa/README.md`](../qa/README.md). Revisión funcional Playwright: [`../qa/revision-playwright.md`](../qa/revision-playwright.md).
 

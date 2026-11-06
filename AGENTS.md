@@ -64,6 +64,17 @@ scripts/validate.mjs      validación de datos y assets
 6. Ejecutar `npm run validate`, `npm run build` y `npm run bench`.
 7. Probar en navegador y kiosco.
 
+## Flujo de trabajo Git
+
+1. Crear una rama de tarea desde `main` con un nombre corto y descriptivo (`feat/...`, `fix/...`, `docs/...` o `qa/...`).
+2. Hacer los cambios y ejecutar la verificación aplicable (`validate`, `test`, `build`, `bench`, QA).
+3. Abrir un PR hacia `main` con resumen, evidencia y riesgos.
+4. Revisar el PR; corregir los problemas detectados y volver a ejecutar la verificación.
+5. Mergear la rama solo cuando el review esté resuelto y la CI esté en verde.
+6. No commitear ni pushear directamente a `main`.
+
+- No mezclar en la rama cambios ajenos a la tarea.
+
 ## Remaster de Caral
 
 - Caral Remaster v2 es el estado actual y la plantilla técnica; no presentarlo como reconstrucción final.

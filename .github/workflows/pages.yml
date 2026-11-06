@@ -44,4 +44,4 @@ jobs:
     needs: verify
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
